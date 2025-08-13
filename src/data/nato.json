@@ -1,1 +1,607 @@
-{"events":[]}
+{
+  "events": [
+    {
+      "id": "nato-1914-ww1",
+      "title": "World War I begins",
+      "summary": "Alliance systems in Europe ignite global conflict.",
+      "date": "1914-07-28",
+      "year": 1914,
+      "type": "conflict",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "ww1",
+        "alliances"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "When everyone's cousin signs a mutual defense pact."
+    },
+    {
+      "id": "nato-1919-vers",
+      "title": "Treaty of Versailles",
+      "summary": "Post-WWI settlement reshapes European borders and security.",
+      "date": "1919-06-28",
+      "year": 1919,
+      "type": "treaty",
+      "countries": [
+        "France",
+        "Germany",
+        "Global"
+      ],
+      "tags": [
+        "postwar",
+        "security"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Peace terms with a timer."
+    },
+    {
+      "id": "nato-1920-lon",
+      "title": "League of Nations formed",
+      "summary": "First intergovernmental organization for collective security.",
+      "date": "1920-01-10",
+      "year": 1920,
+      "type": "organization",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "collective-security"
+      ],
+      "sources": [],
+      "severity": 2,
+      "punchline": "Version 0.9 of 'an attack on one...'"
+    },
+    {
+      "id": "nato-1939-ww2",
+      "title": "World War II begins",
+      "summary": "Germany invades Poland; global war follows.",
+      "date": "1939-09-01",
+      "year": 1939,
+      "type": "conflict",
+      "countries": [
+        "Poland",
+        "Germany",
+        "Global"
+      ],
+      "tags": [
+        "ww2"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Patch notes for human history get ugly."
+    },
+    {
+      "id": "nato-1945-un",
+      "title": "United Nations founded",
+      "summary": "International body created to maintain peace and security.",
+      "date": "1945-10-24",
+      "year": 1945,
+      "type": "organization",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "UN"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Peace, but with a Security Council speed limiter."
+    },
+    {
+      "id": "nato-1947-truman",
+      "title": "Truman Doctrine announced",
+      "summary": "U.S. commits to support nations resisting coercion.",
+      "date": "1947-03-12",
+      "year": 1947,
+      "type": "policy",
+      "countries": [
+        "United States",
+        "Greece",
+        "Türkiye"
+      ],
+      "tags": [
+        "containment"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Foreign policy: 'no free lunches for bullies' edition."
+    },
+    {
+      "id": "nato-1947-marshall",
+      "title": "Marshall Plan launched",
+      "summary": "U.S. economic aid to rebuild Western Europe.",
+      "date": "1947-06-05",
+      "year": 1947,
+      "type": "economy",
+      "countries": [
+        "United States",
+        "Europe"
+      ],
+      "tags": [
+        "reconstruction"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Money printer goes brrr—for democracy."
+    },
+    {
+      "id": "nato-1948-brussels",
+      "title": "Brussels Treaty signed",
+      "summary": "Western European Union mutual defense pact among five states.",
+      "date": "1948-03-17",
+      "year": 1948,
+      "type": "treaty",
+      "countries": [
+        "Belgium",
+        "France",
+        "Luxembourg",
+        "Netherlands",
+        "United Kingdom"
+      ],
+      "tags": [
+        "WEU",
+        "defense"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "EU defense DLC before NATO release."
+    },
+    {
+      "id": "nato-1948-berlin",
+      "title": "Berlin Airlift begins",
+      "summary": "Allied air bridge supplies West Berlin during Soviet blockade.",
+      "date": "1948-06-26",
+      "year": 1948,
+      "type": "operation",
+      "countries": [
+        "Germany",
+        "United States",
+        "United Kingdom",
+        "France"
+      ],
+      "tags": [
+        "airlift",
+        "berlin"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Logistics: 1. Block the roads. 2. Watch the skies."
+    },
+    {
+      "id": "nato-1949-treaty",
+      "title": "North Atlantic Treaty signed",
+      "summary": "Twelve nations create a collective defense alliance.",
+      "date": "1949-04-04",
+      "year": 1949,
+      "type": "treaty",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "founding"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Article 5 enters the chat."
+    },
+    {
+      "id": "nato-1952-gre-tur",
+      "title": "Greece and Türkiye join",
+      "summary": "Alliance enlarges to 14 members.",
+      "date": "1952-02-18",
+      "year": 1952,
+      "type": "accession",
+      "countries": [
+        "Greece",
+        "Türkiye"
+      ],
+      "tags": [
+        "enlargement"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Mediterranean DLC unlocked."
+    },
+    {
+      "id": "nato-1955-wg",
+      "title": "West Germany joins NATO",
+      "summary": "Integration of West Germany into Western defense.",
+      "date": "1955-05-09",
+      "year": 1955,
+      "type": "accession",
+      "countries": [
+        "Germany"
+      ],
+      "tags": [
+        "enlargement"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "From adversary to ally speedrun."
+    },
+    {
+      "id": "nato-1955-warsaw",
+      "title": "Warsaw Pact formed",
+      "summary": "Soviet-led counter-alliance to NATO.",
+      "date": "1955-05-14",
+      "year": 1955,
+      "type": "organization",
+      "countries": [
+        "USSR",
+        "Eastern Europe"
+      ],
+      "tags": [
+        "rival-bloc"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Mirror alliance equipped with 'copy strategy' perk."
+    },
+    {
+      "id": "nato-1966-france-withdraws",
+      "title": "France withdraws from NATO’s integrated command",
+      "summary": "National decision to leave integrated military structure.",
+      "date": "1966-03-07",
+      "year": 1966,
+      "type": "policy",
+      "countries": [
+        "France"
+      ],
+      "tags": [
+        "command"
+      ],
+      "sources": [],
+      "severity": 2,
+      "punchline": "BRB, strategic autonomy."
+    },
+    {
+      "id": "nato-1967-harmel",
+      "title": "Harmel Report adopted",
+      "summary": "Dual-track approach: defense + détente.",
+      "date": "1967-12-14",
+      "year": 1967,
+      "type": "report",
+      "countries": [
+        "NATO"
+      ],
+      "tags": [
+        "doctrine"
+      ],
+      "sources": [],
+      "severity": 2,
+      "punchline": "Peace through strength—plus coffee diplomacy."
+    },
+    {
+      "id": "nato-1967-hq-brussels",
+      "title": "NATO HQ moves to Brussels",
+      "summary": "Alliance headquarters relocates from Paris to Brussels.",
+      "date": "1967-10-16",
+      "year": 1967,
+      "type": "organization",
+      "countries": [
+        "Belgium"
+      ],
+      "tags": [
+        "hq"
+      ],
+      "sources": [],
+      "severity": 1,
+      "punchline": "Central server migrated."
+    },
+    {
+      "id": "nato-1982-spain",
+      "title": "Spain joins NATO",
+      "summary": "Membership expands on the Iberian Peninsula.",
+      "date": "1982-05-30",
+      "year": 1982,
+      "type": "accession",
+      "countries": [
+        "Spain"
+      ],
+      "tags": [
+        "enlargement"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Tapas added to the mess hall."
+    },
+    {
+      "id": "nato-1990-cfe",
+      "title": "CFE Treaty signed",
+      "summary": "Conventional Armed Forces in Europe limitations agreed.",
+      "date": "1990-11-19",
+      "year": 1990,
+      "type": "treaty",
+      "countries": [
+        "Europe",
+        "USSR",
+        "NATO"
+      ],
+      "tags": [
+        "arms-control"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Cold War hardware gets a diet."
+    },
+    {
+      "id": "nato-1991-ussr",
+      "title": "USSR dissolves",
+      "summary": "End of the Cold War reshapes European security.",
+      "date": "1991-12-26",
+      "year": 1991,
+      "type": "geopolitics",
+      "countries": [
+        "Russia",
+        "Former USSR"
+      ],
+      "tags": [
+        "system-change"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Final boss defeated by internal bugs."
+    },
+    {
+      "id": "nato-1994-pfp",
+      "title": "Partnership for Peace launched",
+      "summary": "Cooperative program with non-member states.",
+      "date": "1994-01-10",
+      "year": 1994,
+      "type": "initiative",
+      "countries": [
+        "NATO",
+        "Europe"
+      ],
+      "tags": [
+        "cooperation"
+      ],
+      "sources": [],
+      "severity": 2,
+      "punchline": "Friends list opens."
+    },
+    {
+      "id": "nato-1999-poland-cze-hun",
+      "title": "Poland, Czechia, Hungary join",
+      "summary": "First post–Cold War enlargement.",
+      "date": "1999-03-12",
+      "year": 1999,
+      "type": "accession",
+      "countries": [
+        "Poland",
+        "Czechia",
+        "Hungary"
+      ],
+      "tags": [
+        "enlargement"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Eastward expansion level 1."
+    },
+    {
+      "id": "nato-2001-art5",
+      "title": "Article 5 invoked (9/11)",
+      "summary": "Collective defense triggered for the first time.",
+      "date": "2001-09-12",
+      "year": 2001,
+      "type": "policy",
+      "countries": [
+        "United States",
+        "NATO"
+      ],
+      "tags": [
+        "article-5"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "The clause isn’t decorative."
+    },
+    {
+      "id": "nato-2004-big-bang",
+      "title": "Seven countries join",
+      "summary": "Bulgaria, Estonia, Latvia, Lithuania, Romania, Slovakia, Slovenia.",
+      "date": "2004-03-29",
+      "year": 2004,
+      "type": "accession",
+      "countries": [
+        "Bulgaria",
+        "Estonia",
+        "Latvia",
+        "Lithuania",
+        "Romania",
+        "Slovakia",
+        "Slovenia"
+      ],
+      "tags": [
+        "enlargement"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Enlargement speedrun PB."
+    },
+    {
+      "id": "nato-2009-alb-hrv",
+      "title": "Albania and Croatia join",
+      "summary": "Further Balkan integration.",
+      "date": "2009-04-01",
+      "year": 2009,
+      "type": "accession",
+      "countries": [
+        "Albania",
+        "Croatia"
+      ],
+      "tags": [
+        "enlargement"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Adriatic secure, barbershop approved."
+    },
+    {
+      "id": "nato-2017-mne",
+      "title": "Montenegro joins NATO",
+      "summary": "Alliance grows to 29.",
+      "date": "2017-06-05",
+      "year": 2017,
+      "type": "accession",
+      "countries": [
+        "Montenegro"
+      ],
+      "tags": [
+        "enlargement"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Small country, big veto power."
+    },
+    {
+      "id": "nato-2020-mkd",
+      "title": "North Macedonia joins NATO",
+      "summary": "Name dispute resolution enables accession.",
+      "date": "2020-03-27",
+      "year": 2020,
+      "type": "accession",
+      "countries": [
+        "North Macedonia"
+      ],
+      "tags": [
+        "enlargement"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "One adjective later—door opens."
+    },
+    {
+      "id": "nato-2023-finland",
+      "title": "Finland joins NATO",
+      "summary": "Border with Russia that actually answers back.",
+      "date": "2023-04-04",
+      "year": 2023,
+      "type": "accession",
+      "countries": [
+        "Finland"
+      ],
+      "tags": [
+        "enlargement"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "2,600 km of 'try me'."
+    },
+    {
+      "id": "nato-2024-sweden",
+      "title": "Sweden joins NATO",
+      "summary": "Longstanding non-aligned state becomes member.",
+      "date": "2024-03-07",
+      "year": 2024,
+      "type": "accession",
+      "countries": [
+        "Sweden"
+      ],
+      "tags": [
+        "enlargement"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "From neutrality to 'nah'."
+    },
+    {
+      "id": "nato-1950-korea",
+      "title": "Korean War begins",
+      "summary": "NATO coordinates strategic responses though not a NATO operation.",
+      "date": "1950-06-25",
+      "year": 1950,
+      "type": "conflict",
+      "countries": [
+        "Korea",
+        "United States",
+        "UN"
+      ],
+      "tags": [
+        "korean-war"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "UN op, NATO brains online."
+    },
+    {
+      "id": "nato-1995-ifor",
+      "title": "IFOR in Bosnia and Herzegovina",
+      "summary": "NATO-led peace implementation force deployed.",
+      "date": "1995-12-20",
+      "year": 1995,
+      "type": "operation",
+      "countries": [
+        "Bosnia and Herzegovina",
+        "NATO"
+      ],
+      "tags": [
+        "balkans"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Peacekeeping with teeth."
+    },
+    {
+      "id": "nato-1999-kosovo",
+      "title": "Kosovo air campaign",
+      "summary": "NATO conducts Operation Allied Force.",
+      "date": "1999-03-24",
+      "year": 1999,
+      "type": "operation",
+      "countries": [
+        "Serbia",
+        "Kosovo",
+        "NATO"
+      ],
+      "tags": [
+        "balkans"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "No-fly meets no-chill."
+    },
+    {
+      "id": "nato-2003-isaf",
+      "title": "NATO assumes ISAF command (Afghanistan)",
+      "summary": "Stabilization mission under UN mandate.",
+      "date": "2003-08-11",
+      "year": 2003,
+      "type": "operation",
+      "countries": [
+        "Afghanistan",
+        "NATO"
+      ],
+      "tags": [
+        "afghanistan"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Nation-building on hard mode."
+    },
+    {
+      "id": "nato-2011-libya",
+      "title": "Libya intervention",
+      "summary": "NATO enforces UN-authorized no-fly zone.",
+      "date": "2011-03-19",
+      "year": 2011,
+      "type": "operation",
+      "countries": [
+        "Libya",
+        "NATO"
+      ],
+      "tags": [
+        "no-fly",
+        "R2P"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "When 'air superiority' is the whole story."
+    }
+  ]
+}

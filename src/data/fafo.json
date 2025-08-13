@@ -1,28 +1,237 @@
 {
   "events": [
     {
-      "id": "fafo-2008-russia-georgia",
-      "title": "Russo–Georgian War",
-      "summary": "Five-day conflict over South Ossetia and Abkhazia.",
-      "date": "2008-08-08",
-      "type": "conflict",
-      "countries": ["Georgia","Russia"],
-      "tags": ["war","territory"],
-      "sources": ["https://www.osce.org/odihr/35578"],
+      "id": "fafo-1914-blank-check",
+      "title": "'Blank check' to Austria-Hungary",
+      "summary": "German support emboldens escalation to WWI.",
+      "date": "1914-07-05",
+      "year": 1914,
+      "type": "diplomacy",
+      "countries": [
+        "Germany",
+        "Austria-Hungary"
+      ],
+      "tags": [
+        "escalation"
+      ],
+      "sources": [],
       "severity": 5,
-      "punchline": "Test the fence; get acquainted with the voltage."
+      "punchline": "Write a blank check; pay with a continent."
     },
     {
-      "id": "fafo-2022-full-invasion",
-      "title": "Full-scale invasion of Ukraine",
-      "summary": "Russia launches multi-front invasion; global response escalates.",
-      "date": "2022-02-24",
-      "type": "conflict",
-      "countries": ["Ukraine","Russia"],
-      "tags": ["war","sanctions","NATO"],
-      "sources": ["https://www.un.org/en/fightforwhatmatters/ukraine"],
+      "id": "fafo-1937-nanking",
+      "title": "Nanjing Massacre",
+      "summary": "Japanese occupation atrocities with global outrage.",
+      "date": "1937-12-13",
+      "year": 1937,
+      "type": "atrocity",
+      "countries": [
+        "China",
+        "Japan"
+      ],
+      "tags": [
+        "war-crimes"
+      ],
+      "sources": [],
       "severity": 5,
-      "punchline": "Speedrun to sanctions any%."
+      "punchline": "When conquest turns the world against you."
+    },
+    {
+      "id": "fafo-1941-barbarossa",
+      "title": "Operation Barbarossa",
+      "summary": "Germany invades USSR; overextension leads to defeat.",
+      "date": "1941-06-22",
+      "year": 1941,
+      "type": "conflict",
+      "countries": [
+        "Germany",
+        "USSR"
+      ],
+      "tags": [
+        "ww2"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Never invade Russia in winter speedrun."
+    },
+    {
+      "id": "fafo-1961-bay-of-pigs",
+      "title": "Bay of Pigs invasion fails",
+      "summary": "Botched attempt to overthrow Castro.",
+      "date": "1961-04-17",
+      "year": 1961,
+      "type": "operation",
+      "countries": [
+        "USA",
+        "Cuba"
+      ],
+      "tags": [
+        "covert"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Subtlety meets surf zone."
+    },
+    {
+      "id": "fafo-1979-ussr-afghanistan",
+      "title": "Soviet invasion of Afghanistan",
+      "summary": "Costly quagmire hastens Soviet decline.",
+      "date": "1979-12-24",
+      "year": 1979,
+      "type": "conflict",
+      "countries": [
+        "USSR",
+        "Afghanistan"
+      ],
+      "tags": [
+        "war"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Afghanistan: empire uninstall wizard."
+    },
+    {
+      "id": "fafo-1986-chernobyl",
+      "title": "Chernobyl disaster",
+      "summary": "Reactor explosion spreads radioactive contamination.",
+      "date": "1986-04-26",
+      "year": 1986,
+      "type": "disaster",
+      "countries": [
+        "Ukraine",
+        "USSR"
+      ],
+      "tags": [
+        "nuclear"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Physics class with bonus chapter."
+    },
+    {
+      "id": "fafo-1987-black-monday",
+      "title": "Black Monday stock crash",
+      "summary": "Global markets plunge unexpectedly.",
+      "date": "1987-10-19",
+      "year": 1987,
+      "type": "economy",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "finance"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Algorithms discover gravity."
+    },
+    {
+      "id": "fafo-2000-dotcom",
+      "title": "Dot-com bubble bursts",
+      "summary": "Speculative tech boom collapses.",
+      "date": "2000-03-10",
+      "year": 2000,
+      "type": "economy",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "tech",
+        "bubble"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Pets.com, meet reality.com."
+    },
+    {
+      "id": "fafo-2001-enron",
+      "title": "Enron collapse",
+      "summary": "Accounting fraud leads to bankruptcy.",
+      "date": "2001-12-02",
+      "year": 2001,
+      "type": "economy",
+      "countries": [
+        "USA"
+      ],
+      "tags": [
+        "fraud"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Creative accounting meets handcuffs."
+    },
+    {
+      "id": "fafo-2008-crisis",
+      "title": "Global financial crisis",
+      "summary": "Lehman collapse triggers systemic shock.",
+      "date": "2008-09-15",
+      "year": 2008,
+      "type": "economy",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "gfc"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "High-risk assets request a refund."
+    },
+    {
+      "id": "fafo-2011-fukushima",
+      "title": "Fukushima nuclear disaster",
+      "summary": "Tsunami-induced meltdowns reshape energy policy.",
+      "date": "2011-03-11",
+      "year": 2011,
+      "type": "disaster",
+      "countries": [
+        "Japan"
+      ],
+      "tags": [
+        "nuclear"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "When backup generators need a boat."
+    },
+    {
+      "id": "fafo-2014-crimea-sanctions",
+      "title": "Sanctions after Crimea annexation",
+      "summary": "Long-term economic & tech restrictions on Russia.",
+      "date": "2014-03-20",
+      "year": 2014,
+      "type": "policy",
+      "countries": [
+        "EU",
+        "USA",
+        "Russia"
+      ],
+      "tags": [
+        "sanctions"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Import substitution speedrun begins."
+    },
+    {
+      "id": "fafo-2022-russia-invasion",
+      "title": "Full invasion of Ukraine backfires",
+      "summary": "Strong NATO unity, sanctions, and neighbor rearmament.",
+      "date": "2022-02-24",
+      "year": 2022,
+      "type": "geopolitics",
+      "countries": [
+        "Russia",
+        "Ukraine",
+        "NATO"
+      ],
+      "tags": [
+        "war",
+        "sanctions"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Invade one; recruit two."
     }
   ]
 }

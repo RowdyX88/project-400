@@ -16,15 +16,45 @@ export function renderTimeline(stripEl, sliderEl, readoutEl) {
         sliderEl.max = String(state.endYear);
         sliderEl.value = String(state.currentYear);
         readoutEl.textContent = String(state.currentYear);
-        // load events
-        const res = yield fetch("/src/data/events.json");
-        const all = yield res.json();
-        function paint() {
+        // load correct events file for current category
+        const catRes = yield fetch("/src/data/categories.json");
+        const catData = yield catRes.json();
+        let all = [];
+        function loadEvents() {
+            return __awaiter(this, void 0, void 0, function* () {
+                let file = "nato.json";
+                const catRes = yield fetch("/src/data/categories.json");
+                const catData = yield catRes.json();
+                if (catData && Array.isArray(catData.categories)) {
+                    for (let i = 0; i < catData.categories.length; i++) {
+                        if (catData.categories[i].id === state.currentCategory) {
+                            file = catData.categories[i].file;
+                            break;
+                        }
+                    }
+                }
+                try {
+                    const res = yield fetch(`/src/data/${file}`);
+                    const data = yield res.json();
+                    if (data && Array.isArray(data.events)) {
+                        all = data.events;
+                    }
+                    else {
+                        all = [];
+                    }
+                }
+                catch (err) {
+                    all = [];
+                }
+            });
+        }
+        const paint = () => __awaiter(this, void 0, void 0, function* () {
+            yield loadEvents();
             const windowSize = 8; // years around current
             const from = Math.max(state.startYear, state.currentYear - windowSize);
             const to = Math.min(state.endYear, state.currentYear + windowSize);
             const items = all
-                .filter((e) => e.category === state.currentCategory && e.year >= from && e.year <= to)
+                .filter((e) => e.year >= from && e.year <= to)
                 .sort((a, b) => a.year - b.year || a.id.localeCompare(b.id));
             stripEl.innerHTML = "";
             items.forEach((e) => {
@@ -35,8 +65,8 @@ export function renderTimeline(stripEl, sliderEl, readoutEl) {
                 stripEl.appendChild(chip);
             });
             readoutEl.textContent = String(state.currentYear);
-        }
-        paint();
+        });
+        yield paint();
         // slider interaction (debounced)
         sliderEl.oninput = () => {
             if (debounceHandle !== undefined)
@@ -47,6 +77,9 @@ export function renderTimeline(stripEl, sliderEl, readoutEl) {
             }, 32);
         };
         // react to category change
-        document.addEventListener("category:changed", () => paint());
+        document.addEventListener("category:changed", () => {
+            paint();
+        });
+        // ...existing code...
     });
 }

@@ -24,16 +24,43 @@ export async function renderTimeline(
   sliderEl.value = String(state.currentYear);
   readoutEl.textContent = String(state.currentYear);
 
-  // load events
-  const res = await fetch("/src/data/events.json");
-  const all: Event[] = await res.json();
+  // load correct events file for current category
+  const catRes = await fetch("/src/data/categories.json");
+  const catData = await catRes.json();
+  let all: Event[] = [];
 
-  function paint(): void {
+  async function loadEvents() {
+    let file = "nato.json";
+    const catRes = await fetch("/src/data/categories.json");
+    const catData = await catRes.json();
+    if (catData && Array.isArray(catData.categories)) {
+      for (let i = 0; i < catData.categories.length; i++) {
+        if (catData.categories[i].id === state.currentCategory) {
+          file = catData.categories[i].file;
+          break;
+        }
+      }
+    }
+    try {
+      const res = await fetch(`/src/data/${file}`);
+      const data = await res.json();
+      if (data && Array.isArray(data.events)) {
+        all = data.events;
+      } else {
+        all = [];
+      }
+    } catch (err) {
+      all = [];
+    }
+  }
+
+  const paint = async () => {
+    await loadEvents();
     const windowSize = 8; // years around current
     const from = Math.max(state.startYear, state.currentYear - windowSize);
     const to = Math.min(state.endYear, state.currentYear + windowSize);
     const items = all
-      .filter((e: Event) => e.category === state.currentCategory && e.year >= from && e.year <= to)
+      .filter((e: Event) => e.year >= from && e.year <= to)
       .sort((a: Event, b: Event) => a.year - b.year || a.id.localeCompare(b.id));
 
     stripEl.innerHTML = "";
@@ -45,9 +72,9 @@ export async function renderTimeline(
       stripEl.appendChild(chip);
     });
     readoutEl.textContent = String(state.currentYear);
-  }
+  };
 
-  paint();
+  await paint();
 
   // slider interaction (debounced)
   sliderEl.oninput = () => {
@@ -59,6 +86,9 @@ export async function renderTimeline(
   };
 
   // react to category change
-  document.addEventListener("category:changed", () => paint());
+  document.addEventListener("category:changed", () => {
+    paint();
+  });
+// ...existing code...
 }
 

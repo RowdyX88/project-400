@@ -1,1 +1,363 @@
-{"events":[]}
+{
+  "events": [
+    {
+      "id": "life-1903-flight",
+      "title": "Wright brothers' first powered flight",
+      "summary": "Heavier-than-air powered flight achieved at Kitty Hawk.",
+      "date": "1903-12-17",
+      "year": 1903,
+      "type": "science",
+      "countries": [
+        "USA"
+      ],
+      "tags": [
+        "aviation"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Patch notes: gravity still enabled."
+    },
+    {
+      "id": "life-1928-penicillin",
+      "title": "Discovery of penicillin",
+      "summary": "Alexander Fleming identifies antibiotic properties.",
+      "date": "1928-09-28",
+      "year": 1928,
+      "type": "science",
+      "countries": [
+        "UK"
+      ],
+      "tags": [
+        "medicine"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Mold saves mankind; PR team shocked."
+    },
+    {
+      "id": "life-1936-tv",
+      "title": "First public television service (BBC)",
+      "summary": "Regular high-definition TV broadcasting begins.",
+      "date": "1936-11-02",
+      "year": 1936,
+      "type": "technology",
+      "countries": [
+        "UK"
+      ],
+      "tags": [
+        "media"
+      ],
+      "sources": [],
+      "severity": 2,
+      "punchline": "Now streaming: the 1930s."
+    },
+    {
+      "id": "life-1947-transistor",
+      "title": "Transistor invented",
+      "summary": "Opens the door to modern electronics.",
+      "date": "1947-12-23",
+      "year": 1947,
+      "type": "technology",
+      "countries": [
+        "USA"
+      ],
+      "tags": [
+        "electronics"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Tiny switch, huge consequences."
+    },
+    {
+      "id": "life-1953-dna",
+      "title": "DNA double helix described",
+      "summary": "Watson, Crick (with Franklin's data) model DNA structure.",
+      "date": "1953-04-25",
+      "year": 1953,
+      "type": "science",
+      "countries": [
+        "UK"
+      ],
+      "tags": [
+        "genetics"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Life's source code documented."
+    },
+    {
+      "id": "life-1957-sputnik",
+      "title": "Sputnik 1 launched",
+      "summary": "First artificial satellite.",
+      "date": "1957-10-04",
+      "year": 1957,
+      "type": "space",
+      "countries": [
+        "USSR"
+      ],
+      "tags": [
+        "space-race"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Beep heard around the world."
+    },
+    {
+      "id": "life-1961-gagarin",
+      "title": "Gagarin orbits Earth",
+      "summary": "First human in space.",
+      "date": "1961-04-12",
+      "year": 1961,
+      "type": "space",
+      "countries": [
+        "USSR"
+      ],
+      "tags": [
+        "space"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Humanity tries 'spectator mode'."
+    },
+    {
+      "id": "life-1969-moon",
+      "title": "Apollo 11 Moon landing",
+      "summary": "First humans walk on the Moon.",
+      "date": "1969-07-20",
+      "year": 1969,
+      "type": "space",
+      "countries": [
+        "USA"
+      ],
+      "tags": [
+        "moon"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "One small step; PR megaton."
+    },
+    {
+      "id": "life-1969-arpanet",
+      "title": "ARPANET goes live",
+      "summary": "Precursor to the modern internet.",
+      "date": "1969-10-29",
+      "year": 1969,
+      "type": "technology",
+      "countries": [
+        "USA"
+      ],
+      "tags": [
+        "internet"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Login: 'lo' before crash—classic."
+    },
+    {
+      "id": "life-1971-microprocessor",
+      "title": "First commercial microprocessor (Intel 4004)",
+      "summary": "Microprocessor era begins.",
+      "date": "1971-11-15",
+      "year": 1971,
+      "type": "technology",
+      "countries": [
+        "USA"
+      ],
+      "tags": [
+        "chips"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Compute shrinks; ambitions grow."
+    },
+    {
+      "id": "life-1977-punk",
+      "title": "Punk rock surge",
+      "summary": "Music subculture explodes in UK/US.",
+      "date": "1977-01-01",
+      "year": 1977,
+      "type": "culture",
+      "countries": [
+        "UK",
+        "USA"
+      ],
+      "tags": [
+        "music"
+      ],
+      "sources": [],
+      "severity": 2,
+      "punchline": "Three chords, unlimited attitude."
+    },
+    {
+      "id": "life-1981-aids",
+      "title": "AIDS identified",
+      "summary": "First recognized cases of AIDS.",
+      "date": "1981-06-05",
+      "year": 1981,
+      "type": "health",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "epidemic"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "A virus rewrites the 80s."
+    },
+    {
+      "id": "life-1989-fall-berlin",
+      "title": "Fall of Berlin Wall (cultural impact)",
+      "summary": "Cultural reunions, art & media explosion.",
+      "date": "1989-11-09",
+      "year": 1989,
+      "type": "culture",
+      "countries": [
+        "Germany"
+      ],
+      "tags": [
+        "reunification"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Graffiti becomes archaeology."
+    },
+    {
+      "id": "life-1991-www",
+      "title": "World Wide Web publicly released",
+      "summary": "Tim Berners-Lee opens the web to the world.",
+      "date": "1991-08-06",
+      "year": 1991,
+      "type": "technology",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "web"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "From hypertext to life support system."
+    },
+    {
+      "id": "life-1995-gps",
+      "title": "GPS fully operational",
+      "summary": "Global Positioning System available worldwide.",
+      "date": "1995-07-17",
+      "year": 1995,
+      "type": "technology",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "navigation"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Never ask for directions again."
+    },
+    {
+      "id": "life-2001-wikipedia",
+      "title": "Wikipedia launched",
+      "summary": "Free collaborative encyclopedia begins.",
+      "date": "2001-01-15",
+      "year": 2001,
+      "type": "technology",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "knowledge"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Citation-needed becomes lifestyle."
+    },
+    {
+      "id": "life-2007-iphone",
+      "title": "First iPhone released",
+      "summary": "Smartphone era accelerates.",
+      "date": "2007-06-29",
+      "year": 2007,
+      "type": "technology",
+      "countries": [
+        "USA"
+      ],
+      "tags": [
+        "mobile"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "A glass rectangle eats industries."
+    },
+    {
+      "id": "life-2012-crispr",
+      "title": "CRISPR gene editing breakthrough",
+      "summary": "Precise genome editing demonstrated.",
+      "date": "2012-06-28",
+      "year": 2012,
+      "type": "science",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "genetics"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Find/replace for biology."
+    },
+    {
+      "id": "life-2016-ai-go",
+      "title": "AlphaGo defeats Lee Sedol",
+      "summary": "Major AI milestone in Go.",
+      "date": "2016-03-15",
+      "year": 2016,
+      "type": "technology",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "ai"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Board game develops imposter syndrome."
+    },
+    {
+      "id": "life-2019-covid",
+      "title": "COVID-19 identified",
+      "summary": "Novel coronavirus emerges; global pandemic follows.",
+      "date": "2019-12-01",
+      "year": 2019,
+      "type": "health",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "pandemic"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Two weeks to flatten the decade."
+    },
+    {
+      "id": "life-2023-llms",
+      "title": "Rapid LLM adoption",
+      "summary": "Generative AI tools go mainstream.",
+      "date": "2023-03-01",
+      "year": 2023,
+      "type": "technology",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "ai",
+        "llm"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Auto-complete but for life."
+    }
+  ]
+}

@@ -1,1 +1,353 @@
-{"events":[]}
+{
+  "events": [
+    {
+      "id": "weather-1900-galveston",
+      "title": "1900 Galveston hurricane",
+      "summary": "Deadliest U.S. natural disaster.",
+      "date": "1900-09-08",
+      "year": 1900,
+      "type": "disaster",
+      "countries": [
+        "USA"
+      ],
+      "tags": [
+        "hurricane"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Forecasting: bring your own barometer."
+    },
+    {
+      "id": "weather-1910-china-floods",
+      "title": "1910 China floods",
+      "summary": "Severe flooding across multiple provinces.",
+      "date": "1910-07-01",
+      "year": 1910,
+      "type": "disaster",
+      "countries": [
+        "China"
+      ],
+      "tags": [
+        "flood"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Monsoon on hard difficulty."
+    },
+    {
+      "id": "weather-1931-china-floods",
+      "title": "1931 Central China floods",
+      "summary": "One of the deadliest flood events in history.",
+      "date": "1931-08-01",
+      "year": 1931,
+      "type": "disaster",
+      "countries": [
+        "China"
+      ],
+      "tags": [
+        "flood"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "When rivers say 'we live here too'."
+    },
+    {
+      "id": "weather-1935-dust-bowl",
+      "title": "U.S. Dust Bowl peaks",
+      "summary": "Drought & poor practices cause massive dust storms.",
+      "date": "1935-04-14",
+      "year": 1935,
+      "type": "disaster",
+      "countries": [
+        "USA"
+      ],
+      "tags": [
+        "drought",
+        "agriculture"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Plow now, pay later."
+    },
+    {
+      "id": "weather-1953-north-sea",
+      "title": "1953 North Sea flood",
+      "summary": "Storm surge devastates the Netherlands & UK coasts.",
+      "date": "1953-02-01",
+      "year": 1953,
+      "type": "disaster",
+      "countries": [
+        "Netherlands",
+        "UK"
+      ],
+      "tags": [
+        "storm-surge"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Sea walls placed on to-do list."
+    },
+    {
+      "id": "weather-1970-bhola",
+      "title": "1970 Bhola cyclone",
+      "summary": "Extremely deadly cyclone strikes East Pakistan (Bangladesh).",
+      "date": "1970-11-12",
+      "year": 1970,
+      "type": "disaster",
+      "countries": [
+        "Bangladesh"
+      ],
+      "tags": [
+        "cyclone"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Storm plus fragile governance = catastrophe."
+    },
+    {
+      "id": "weather-1985-mexico-earthquake",
+      "title": "1985 Mexico City earthquake",
+      "summary": "Massive quake causes widespread damage.",
+      "date": "1985-09-19",
+      "year": 1985,
+      "type": "disaster",
+      "countries": [
+        "Mexico"
+      ],
+      "tags": [
+        "earthquake"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Ground decides to dance."
+    },
+    {
+      "id": "weather-1988-armenian-quake",
+      "title": "1988 Armenian earthquake",
+      "summary": "Spitak earthquake devastates northern Armenia.",
+      "date": "1988-12-07",
+      "year": 1988,
+      "type": "disaster",
+      "countries": [
+        "Armenia"
+      ],
+      "tags": [
+        "earthquake"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Seconds that rewrite cities."
+    },
+    {
+      "id": "weather-2003-europe-heatwave",
+      "title": "2003 European heatwave",
+      "summary": "Record heat across Europe; excess mortality rises.",
+      "date": "2003-08-01",
+      "year": 2003,
+      "type": "climate",
+      "countries": [
+        "EU"
+      ],
+      "tags": [
+        "heatwave"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Air conditioners become political."
+    },
+    {
+      "id": "weather-2004-indian-ocean-tsunami",
+      "title": "2004 Indian Ocean earthquake & tsunami",
+      "summary": "Megathrust quake triggers devastating tsunami.",
+      "date": "2004-12-26",
+      "year": 2004,
+      "type": "disaster",
+      "countries": [
+        "Indonesia",
+        "Sri Lanka",
+        "India",
+        "Thailand"
+      ],
+      "tags": [
+        "tsunami"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Wall of water; no pause button."
+    },
+    {
+      "id": "weather-2005-katrina",
+      "title": "Hurricane Katrina",
+      "summary": "Flood defenses fail; New Orleans inundated.",
+      "date": "2005-08-29",
+      "year": 2005,
+      "type": "disaster",
+      "countries": [
+        "USA"
+      ],
+      "tags": [
+        "hurricane"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Levees don't negotiate."
+    },
+    {
+      "id": "weather-2008-sichuan",
+      "title": "2008 Sichuan earthquake",
+      "summary": "Wenchuan quake causes massive losses.",
+      "date": "2008-05-12",
+      "year": 2008,
+      "type": "disaster",
+      "countries": [
+        "China"
+      ],
+      "tags": [
+        "earthquake"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Mountains shift; towns fold."
+    },
+    {
+      "id": "weather-2010-russia-heatwave",
+      "title": "2010 Russian heatwave",
+      "summary": "Extreme heat & wildfires cause excess deaths.",
+      "date": "2010-07-01",
+      "year": 2010,
+      "type": "climate",
+      "countries": [
+        "Russia"
+      ],
+      "tags": [
+        "heatwave",
+        "fires"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Smog as a city accessory."
+    },
+    {
+      "id": "weather-2011-tohoku",
+      "title": "2011 Tōhoku earthquake & tsunami",
+      "summary": "Leads to Fukushima nuclear accident.",
+      "date": "2011-03-11",
+      "year": 2011,
+      "type": "disaster",
+      "countries": [
+        "Japan"
+      ],
+      "tags": [
+        "tsunami",
+        "earthquake"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Nature + nuclear = multi-episode arc."
+    },
+    {
+      "id": "weather-2013-haiyan",
+      "title": "Typhoon Haiyan (Yolanda)",
+      "summary": "One of the strongest tropical cyclones at landfall.",
+      "date": "2013-11-08",
+      "year": 2013,
+      "type": "disaster",
+      "countries": [
+        "Philippines"
+      ],
+      "tags": [
+        "typhoon"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Wind with a grudge."
+    },
+    {
+      "id": "weather-2015-el-nino",
+      "title": "2015–16 strong El Niño",
+      "summary": "Global weather patterns disrupted.",
+      "date": "2015-11-01",
+      "year": 2015,
+      "type": "climate",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "el-nino"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Pacific flips a switch."
+    },
+    {
+      "id": "weather-2017-harvey",
+      "title": "Hurricane Harvey",
+      "summary": "Historic rainfall floods Houston.",
+      "date": "2017-08-25",
+      "year": 2017,
+      "type": "disaster",
+      "countries": [
+        "USA"
+      ],
+      "tags": [
+        "hurricane",
+        "flood"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Rain decides to stay."
+    },
+    {
+      "id": "weather-2019-aus-bushfires",
+      "title": "2019–20 Australian bushfires",
+      "summary": "Black Summer fires scorch vast regions.",
+      "date": "2019-09-01",
+      "year": 2019,
+      "type": "disaster",
+      "countries": [
+        "Australia"
+      ],
+      "tags": [
+        "fires"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Sky turns apocalyptic orange."
+    },
+    {
+      "id": "weather-2021-heat-dome",
+      "title": "2021 Pacific Northwest heat dome",
+      "summary": "Unprecedented temperatures in Canada & U.S.",
+      "date": "2021-06-25",
+      "year": 2021,
+      "type": "climate",
+      "countries": [
+        "USA",
+        "Canada"
+      ],
+      "tags": [
+        "heatwave"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Ovens envy Vancouver."
+    },
+    {
+      "id": "weather-2023-morocco-quake",
+      "title": "2023 Morocco earthquake",
+      "summary": "Powerful quake near Marrakesh.",
+      "date": "2023-09-08",
+      "year": 2023,
+      "type": "disaster",
+      "countries": [
+        "Morocco"
+      ],
+      "tags": [
+        "earthquake"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Atlas shrugged once."
+    }
+  ]
+}

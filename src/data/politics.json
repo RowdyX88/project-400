@@ -1,28 +1,481 @@
 {
   "events": [
     {
-      "id": "pol-1961-berlin-wall",
-      "title": "Berlin Wall construction begins",
-      "summary": "Barrier divides East and West Berlin.",
-      "date": "1961-08-13",
-      "type": "policy",
-      "countries": ["Germany"],
-      "tags": ["cold-war"],
-      "sources": ["https://www.britannica.com/event/Berlin-Wall"],
-      "severity": 4,
-      "punchline": "Urban redesign, but make it geopolitical."
+      "id": "politics-1905-russo-japanese",
+      "title": "Russo-Japanese War ends",
+      "summary": "Treaty of Portsmouth shifts balance in East Asia.",
+      "date": "1905-09-05",
+      "year": 1905,
+      "type": "treaty",
+      "countries": [
+        "Japan",
+        "Russia",
+        "USA"
+      ],
+      "tags": [
+        "east-asia"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "When a rising power speed-checks an empire."
     },
     {
-      "id": "pol-1992-maastricht",
-      "title": "Maastricht Treaty signed",
-      "summary": "Lays the foundation for the European Union.",
-      "date": "1992-02-07",
-      "type": "treaty",
-      "countries": ["Netherlands","EU"],
-      "tags": ["EU","integration"],
-      "sources": ["https://eur-lex.europa.eu/EN/legal-content/summary/treaty-of-maastricht.html"],
+      "id": "politics-1917-revolution",
+      "title": "Russian Revolution",
+      "summary": "Bolsheviks seize power; USSR emerges.",
+      "date": "1917-11-07",
+      "year": 1917,
+      "type": "revolution",
+      "countries": [
+        "Russia"
+      ],
+      "tags": [
+        "revolution"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Ctrl+Alt+Reboot state."
+    },
+    {
+      "id": "politics-1919-weimar",
+      "title": "Weimar Constitution adopted",
+      "summary": "Germany becomes a republic after WWI.",
+      "date": "1919-08-11",
+      "year": 1919,
+      "type": "constitution",
+      "countries": [
+        "Germany"
+      ],
+      "tags": [
+        "interwar"
+      ],
+      "sources": [],
       "severity": 2,
-      "punchline": "EU achievement unlocked: bureaucracy speedrun percent."
+      "punchline": "Patch 1.0 shipped with instability bugs."
+    },
+    {
+      "id": "politics-1920-league",
+      "title": "League of Nations established",
+      "summary": "Attempt at collective security post-WWI.",
+      "date": "1920-01-10",
+      "year": 1920,
+      "type": "organization",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "collective-security"
+      ],
+      "sources": [],
+      "severity": 2,
+      "punchline": "UN alpha build."
+    },
+    {
+      "id": "politics-1933-hitler",
+      "title": "Hitler becomes Chancellor",
+      "summary": "Totalitarian regime consolidates power.",
+      "date": "1933-01-30",
+      "year": 1933,
+      "type": "political",
+      "countries": [
+        "Germany"
+      ],
+      "tags": [
+        "nazism"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Democracy speedran to dictatorship."
+    },
+    {
+      "id": "politics-1936-spain",
+      "title": "Spanish Civil War begins",
+      "summary": "Proxy battleground of ideologies.",
+      "date": "1936-07-17",
+      "year": 1936,
+      "type": "conflict",
+      "countries": [
+        "Spain"
+      ],
+      "tags": [
+        "civil-war"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Beta test for WWII tactics."
+    },
+    {
+      "id": "politics-1945-un",
+      "title": "United Nations founded",
+      "summary": "Global forum for peace and security.",
+      "date": "1945-10-24",
+      "year": 1945,
+      "type": "organization",
+      "countries": [
+        "Global"
+      ],
+      "tags": [
+        "UN"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Meeting room for planet Earth."
+    },
+    {
+      "id": "politics-1947-india",
+      "title": "India independence",
+      "summary": "End of British rule; partition creates Pakistan.",
+      "date": "1947-08-15",
+      "year": 1947,
+      "type": "independence",
+      "countries": [
+        "India",
+        "Pakistan",
+        "UK"
+      ],
+      "tags": [
+        "decolonization"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Empire: uninstalling..."
+    },
+    {
+      "id": "politics-1948-israel",
+      "title": "State of Israel declared",
+      "summary": "War of 1948 follows declaration.",
+      "date": "1948-05-14",
+      "year": 1948,
+      "type": "independence",
+      "countries": [
+        "Israel"
+      ],
+      "tags": [
+        "middle-east"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Birth certificate with immediate neighbors' review."
+    },
+    {
+      "id": "politics-1951-ecsc",
+      "title": "ECSC formed",
+      "summary": "Coal & Steel community integrates European industries.",
+      "date": "1951-04-18",
+      "year": 1951,
+      "type": "organization",
+      "countries": [
+        "EU"
+      ],
+      "tags": [
+        "integration"
+      ],
+      "sources": [],
+      "severity": 2,
+      "punchline": "Friendship via steel and spreadsheets."
+    },
+    {
+      "id": "politics-1957-rome",
+      "title": "Treaty of Rome",
+      "summary": "Creates the EEC and Euratom.",
+      "date": "1957-03-25",
+      "year": 1957,
+      "type": "treaty",
+      "countries": [
+        "EU"
+      ],
+      "tags": [
+        "integration"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "EU prequel DLC."
+    },
+    {
+      "id": "politics-1962-cuban-missile",
+      "title": "Cuban Missile Crisis",
+      "summary": "U.S.-USSR standoff brings world near nuclear war.",
+      "date": "1962-10-16",
+      "year": 1962,
+      "type": "crisis",
+      "countries": [
+        "USA",
+        "USSR",
+        "Cuba"
+      ],
+      "tags": [
+        "nuclear"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Thirteen days of 'no sudden moves'."
+    },
+    {
+      "id": "politics-1968-prague",
+      "title": "Prague Spring crushed",
+      "summary": "Warsaw Pact invades Czechoslovakia.",
+      "date": "1968-08-20",
+      "year": 1968,
+      "type": "conflict",
+      "countries": [
+        "Czechoslovakia",
+        "USSR"
+      ],
+      "tags": [
+        "suppression"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Freedom trial period canceled."
+    },
+    {
+      "id": "politics-1971-china-un",
+      "title": "PRC seat at UN",
+      "summary": "People's Republic of China takes China seat at UN.",
+      "date": "1971-10-25",
+      "year": 1971,
+      "type": "diplomacy",
+      "countries": [
+        "China",
+        "UN"
+      ],
+      "tags": [
+        "recognition"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Seat swap complete."
+    },
+    {
+      "id": "politics-1979-iran-rev",
+      "title": "Iranian Revolution",
+      "summary": "Monarchy falls; Islamic Republic established.",
+      "date": "1979-02-11",
+      "year": 1979,
+      "type": "revolution",
+      "countries": [
+        "Iran"
+      ],
+      "tags": [
+        "middle-east"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Regime change with warranty void."
+    },
+    {
+      "id": "politics-1989-berlin-wall",
+      "title": "Berlin Wall falls",
+      "summary": "Symbolic end of Cold War division.",
+      "date": "1989-11-09",
+      "year": 1989,
+      "type": "protest",
+      "countries": [
+        "Germany"
+      ],
+      "tags": [
+        "reunification"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Concrete meets souvenir chisels."
+    },
+    {
+      "id": "politics-1991-ussr-collapse",
+      "title": "Dissolution of USSR",
+      "summary": "Fifteen independent states emerge.",
+      "date": "1991-12-26",
+      "year": 1991,
+      "type": "geopolitics",
+      "countries": [
+        "Former USSR"
+      ],
+      "tags": [
+        "system-change"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Map editors worked overtime."
+    },
+    {
+      "id": "politics-1992-maastricht",
+      "title": "Maastricht Treaty",
+      "summary": "EU foundation treaty signed.",
+      "date": "1992-02-07",
+      "year": 1992,
+      "type": "treaty",
+      "countries": [
+        "EU"
+      ],
+      "tags": [
+        "integration"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "EU mode: unlocked."
+    },
+    {
+      "id": "politics-1994-rwanda",
+      "title": "Rwandan Genocide",
+      "summary": "Mass atrocities over ~100 days.",
+      "date": "1994-04-07",
+      "year": 1994,
+      "type": "atrocity",
+      "countries": [
+        "Rwanda"
+      ],
+      "tags": [
+        "genocide"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Humanity blue-screen."
+    },
+    {
+      "id": "politics-2001-911",
+      "title": "September 11 attacks",
+      "summary": "Coordinated terrorist attacks in the U.S.",
+      "date": "2001-09-11",
+      "year": 2001,
+      "type": "terrorism",
+      "countries": [
+        "USA"
+      ],
+      "tags": [
+        "9-11"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Four planes, a century changed."
+    },
+    {
+      "id": "politics-2003-iraq-war",
+      "title": "U.S.-led invasion of Iraq",
+      "summary": "Overthrow of Saddam; long insurgency follows.",
+      "date": "2003-03-20",
+      "year": 2003,
+      "type": "conflict",
+      "countries": [
+        "Iraq",
+        "USA",
+        "UK"
+      ],
+      "tags": [
+        "war",
+        "WMD"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Mission accomplished* (*terms apply)."
+    },
+    {
+      "id": "politics-2004-eu-expansion",
+      "title": "EU expands to 10 states",
+      "summary": "Largest single enlargement round.",
+      "date": "2004-05-01",
+      "year": 2004,
+      "type": "accession",
+      "countries": [
+        "EU"
+      ],
+      "tags": [
+        "enlargement"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Spreadsheet increased to 25 columns."
+    },
+    {
+      "id": "politics-2011-arab-spring",
+      "title": "Arab Spring",
+      "summary": "Waves of protests across the Arab world.",
+      "date": "2011-01-01",
+      "year": 2011,
+      "type": "protest",
+      "countries": [
+        "MENA"
+      ],
+      "tags": [
+        "uprisings"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Region-wide CTRL+F for 'dignity'."
+    },
+    {
+      "id": "politics-2014-crimea",
+      "title": "Russia annexes Crimea",
+      "summary": "Unrecognized annexation condemned internationally.",
+      "date": "2014-03-18",
+      "year": 2014,
+      "type": "territory",
+      "countries": [
+        "Ukraine",
+        "Russia"
+      ],
+      "tags": [
+        "annexation"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Map edit without permission."
+    },
+    {
+      "id": "politics-2016-brexit",
+      "title": "Brexit referendum",
+      "summary": "UK votes to leave the European Union.",
+      "date": "2016-06-23",
+      "year": 2016,
+      "type": "referendum",
+      "countries": [
+        "UK",
+        "EU"
+      ],
+      "tags": [
+        "eu-exit"
+      ],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Taking your ball and going home."
+    },
+    {
+      "id": "politics-2020-abraham",
+      "title": "Abraham Accords",
+      "summary": "Normalization agreements between Israel and Arab states.",
+      "date": "2020-09-15",
+      "year": 2020,
+      "type": "treaty",
+      "countries": [
+        "Israel",
+        "UAE",
+        "Bahrain",
+        "Morocco",
+        "Sudan"
+      ],
+      "tags": [
+        "normalization"
+      ],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Middle East patch notes: surprising stability buffs."
+    },
+    {
+      "id": "politics-2022-ukraine-war",
+      "title": "Full-scale invasion of Ukraine",
+      "summary": "Major European war returns; global alignment shifts.",
+      "date": "2022-02-24",
+      "year": 2022,
+      "type": "conflict",
+      "countries": [
+        "Ukraine",
+        "Russia"
+      ],
+      "tags": [
+        "war"
+      ],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Cold War museum reopens—now interactive."
     }
   ]
 }
