@@ -4,7 +4,8 @@ import { state, setCategory } from "../state.js";
 type Category = { id: string; label: string };
 export async function renderLeftPanel(root: HTMLElement){
   const res = await fetch("/src/data/categories.json");
-  const categories: Category[] = await res.json();
+  const data = await res.json();
+  const categories: Category[] = data.categories;
   root.innerHTML = "";
   categories.forEach(cat => {
     const div = document.createElement("div");

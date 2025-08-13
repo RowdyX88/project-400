@@ -1,3 +1,9 @@
-[
-  { "id": "nato", "label": "NATO" }
-]
+{
+  "categories": [
+    { "id": "nato",    "label": "NATO",    "file": "nato.json",    "color": "#fbbf24" },
+    { "id": "politics","label": "Politics","file": "politics.json","color": "#60a5fa" },
+    { "id": "weather", "label": "Weather", "file": "weather.json", "color": "#34d399" },
+    { "id": "life",    "label": "Life",    "file": "life.json",    "color": "#c084fc" },
+    { "id": "fafo",    "label": "FAFO",    "file": "fafo.json",    "color": "#f87171" }
+  ]
+}

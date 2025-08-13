@@ -1,0 +1,28 @@
+{
+  "events": [
+    {
+      "id": "pol-1961-berlin-wall",
+      "title": "Berlin Wall construction begins",
+      "summary": "Barrier divides East and West Berlin.",
+      "date": "1961-08-13",
+      "type": "policy",
+      "countries": ["Germany"],
+      "tags": ["cold-war"],
+      "sources": ["https://www.britannica.com/event/Berlin-Wall"],
+      "severity": 4,
+      "punchline": "Urban redesign, but make it geopolitical."
+    },
+    {
+      "id": "pol-1992-maastricht",
+      "title": "Maastricht Treaty signed",
+      "summary": "Lays the foundation for the European Union.",
+      "date": "1992-02-07",
+      "type": "treaty",
+      "countries": ["Netherlands","EU"],
+      "tags": ["EU","integration"],
+      "sources": ["https://eur-lex.europa.eu/EN/legal-content/summary/treaty-of-maastricht.html"],
+      "severity": 2,
+      "punchline": "EU achievement unlocked: bureaucracy speedrun percent."
+    }
+  ]
+}

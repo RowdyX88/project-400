@@ -11,7 +11,8 @@ import { state, setCategory } from "../state.js";
 export function renderLeftPanel(root) {
     return __awaiter(this, void 0, void 0, function* () {
         const res = yield fetch("/src/data/categories.json");
-        const categories = yield res.json();
+        const data = yield res.json();
+        const categories = data.categories;
         root.innerHTML = "";
         categories.forEach(cat => {
             const div = document.createElement("div");

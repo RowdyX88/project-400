@@ -1,0 +1,28 @@
+{
+  "events": [
+    {
+      "id": "fafo-2008-russia-georgia",
+      "title": "Russo–Georgian War",
+      "summary": "Five-day conflict over South Ossetia and Abkhazia.",
+      "date": "2008-08-08",
+      "type": "conflict",
+      "countries": ["Georgia","Russia"],
+      "tags": ["war","territory"],
+      "sources": ["https://www.osce.org/odihr/35578"],
+      "severity": 5,
+      "punchline": "Test the fence; get acquainted with the voltage."
+    },
+    {
+      "id": "fafo-2022-full-invasion",
+      "title": "Full-scale invasion of Ukraine",
+      "summary": "Russia launches multi-front invasion; global response escalates.",
+      "date": "2022-02-24",
+      "type": "conflict",
+      "countries": ["Ukraine","Russia"],
+      "tags": ["war","sanctions","NATO"],
+      "sources": ["https://www.un.org/en/fightforwhatmatters/ukraine"],
+      "severity": 5,
+      "punchline": "Speedrun to sanctions any%."
+    }
+  ]
+}

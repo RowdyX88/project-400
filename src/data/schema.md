@@ -1,43 +1,5 @@
 
-AI_ONBOARDING.md — Data Rules for Panels (Categories + Timeline)
-Purpose
-This project is JSON-driven. The left panel (categories) and bottom timeline (film-strip) must read from JSON only. No hardcoded data in JS/TS.
-
-Folder Layout
-/src/data/
-	categories.json
-	events.json            ← flat list of events (all categories)
-	event.schema.json      ← JSON Schema for one event
-	category.schema.json   ← JSON Schema for one category
-	README.md (this file)  ← you are here
-
-Categories — Format & Rules
-File: /src/data/categories.json
-Type: Array of category objects (small, stable list)
-
-Object shape:
-{
-	"id": "nato",
-	"label": "NATO"
-}
-Rules:
-id: lowercase, kebab-case or plain word (e.g., nato, treaties, conflicts).
-label: human-readable.
-Keep this list short and consistent; used by the left panel and as event.category.
-
-Minimal example file:
-[
-	{ "id": "nato", "label": "NATO" },
-	{ "id": "treaties", "label": "Treaties" },
-	{ "id": "conflicts", "label": "Conflicts" }
-]
-
-Events — Format & Rules
-File: /src/data/events.json
-Type: Array of flat event objects. Timeline reads this and filters by category + year.
-
-Event template (canonical):
-{
+// This file is deprecated. Please use roadmap.md for all future data format and onboarding reference.
 	"id": "nato-1949-04-04-washington-treaty",
 	"category": "nato",
 	"year": 1949,
