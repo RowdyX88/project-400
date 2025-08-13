@@ -1,0 +1,195 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Panels Scaffold</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-blue-950 text-blue-100 min-h-screen">
+    <div class="relative min-h-screen w-full">
+      <!-- Floating draggable left panel -->
+      <div id="left-panel" class="draggable panel glassy left-panel absolute top-8 left-8 w-64 z-20">
+        <!-- Left panel will be rendered by JS -->
+      </div>
+      <!-- Floating draggable timeline panel -->
+  <div id="timeline-panel" class="draggable panel glassy timeline-panel absolute" style="left: 320px; top: 180px; width: 700px;" z-20">
+        <h2 class="text-amber-300 font-bold mb-2">Timeline</h2>
+        <div class="filmstrip" id="timeline-strip"></div>
+        <input id="year-slider" type="range" min="1900" max="2025" value="1949" step="1" title="Select year" class="slider w-full mt-2" />
+        <div id="year-readout" class="year-readout mt-2">1949</div>
+      </div>
+    </div>
+    <script type="module" src="/dist/main.js"></script>
+    <script>
+    // Simple drag-and-drop for .draggable panels
+    document.addEventListener('DOMContentLoaded', () => {
+      // Remove transform from timeline panel for proper drag/resize
+      const timelinePanel = document.getElementById('timeline-panel');
+      if (timelinePanel) {
+        timelinePanel.style.transform = '';
+        timelinePanel.style.bottom = '';
+      }
+      document.querySelectorAll('.draggable').forEach(panel => {
+        let isDragging = false, startX = 0, startY = 0, origX = 0, origY = 0;
+        panel.addEventListener('mousedown', e => {
+          if (e.button !== 0) return;
+          // Only drag if not clicking on input, textarea, button, or resize handle
+          var tag = e.target && e.target.tagName ? e.target.tagName.toLowerCase() : "";
+          if (["input","textarea","button"].indexOf(tag) !== -1 || (e.target.classList && e.target.classList.contains('resize-handle'))) return;
+          isDragging = true;
+          startX = e.clientX;
+          startY = e.clientY;
+          origX = panel.offsetLeft;
+          origY = panel.offsetTop;
+          panel.style.zIndex = 100;
+          document.body.style.userSelect = 'none';
+          e.preventDefault();
+        });
+        window.addEventListener('mousemove', e => {
+          if (!isDragging) return;
+          let dx = e.clientX - startX;
+          let dy = e.clientY - startY;
+          panel.style.left = (origX + dx) + 'px';
+          panel.style.top = (origY + dy) + 'px';
+        });
+        window.addEventListener('mouseup', () => {
+          if (isDragging) {
+            isDragging = false;
+            panel.style.zIndex = 20;
+            setTimeout(() => { document.body.style.userSelect = ''; }, 0);
+          }
+        });
+        // Add resize handle
+        const resize = document.createElement('div');
+  resize.className = 'resize-handle';
+  resize.style.userSelect = 'none';
+        resize.style.position = 'absolute';
+        resize.style.right = '0';
+        resize.style.bottom = '0';
+        resize.style.width = '18px';
+        resize.style.height = '18px';
+        resize.style.background = 'linear-gradient(135deg, #FFC300 40%, #1e293b 60%)';
+        resize.style.cursor = 'nwse-resize';
+        resize.style.borderRadius = '0 0 12px 0';
+        panel.appendChild(resize);
+        let isResizing = false, startW = 0, startH = 0;
+        resize.addEventListener('mousedown', e => {
+          e.stopPropagation();
+          isResizing = true;
+          startX = e.clientX;
+          startY = e.clientY;
+          startW = panel.offsetWidth;
+          startH = panel.offsetHeight;
+          panel.style.zIndex = 101;
+          document.body.style.userSelect = 'none';
+          e.preventDefault();
+        });
+        window.addEventListener('mousemove', e => {
+          if (!isResizing) return;
+          let dw = e.clientX - startX;
+          let dh = e.clientY - startY;
+          panel.style.width = Math.max(180, startW + dw) + 'px';
+          panel.style.height = Math.max(80, startH + dh) + 'px';
+        });
+        window.addEventListener('mouseup', () => {
+          if (isResizing) {
+            isResizing = false;
+            panel.style.zIndex = 20;
+            setTimeout(() => { document.body.style.userSelect = ''; }, 0);
+          }
+        });
+      });
+    });
+    </script>
+    <style>
+      body {
+        background: linear-gradient(120deg, #0f172a 60%, #1e293b 100%);
+      }
+      .glassy {
+        background: rgba(30,41,59,0.85);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+        border-radius: 18px;
+        backdrop-filter: blur(8px);
+        border: 1.5px solid rgba(255,255,255,0.08);
+      }
+      .panel {
+        padding: 24px 18px;
+        min-height: 120px;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+      .draggable {
+        cursor: move;
+      }
+      .left-panel {
+        min-width: 220px;
+        max-width: 320px;
+      }
+      .timeline-panel {
+        min-width: 400px;
+        max-width: 900px;
+      }
+      .filmstrip {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        overflow-x: auto;
+        padding: 12px 0;
+        background: linear-gradient(90deg, #1e293b 80%, #334155 100%);
+        border-radius: 12px;
+        border: 1px solid #334155;
+        min-height: 56px;
+      }
+      .event-chip {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 10px 18px;
+        min-width: 120px;
+        max-width: 220px;
+        background: rgba(51,65,85,0.85);
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        color: #fbbf24;
+        font-size: 15px;
+        font-weight: 500;
+        border: 1px solid #475569;
+        transition: transform 0.18s, box-shadow 0.18s;
+        cursor: pointer;
+      }
+      .event-chip:hover {
+        transform: scale(1.07) translateY(-2px);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+        background: rgba(51,65,85,0.98);
+      }
+      .category {
+        padding: 10px 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-bottom: 8px;
+        background: rgba(30,41,59,0.92);
+        color: #fbbf24;
+        font-size: 16px;
+        font-weight: 500;
+        border: 1px solid #334155;
+        transition: background 0.18s, color 0.18s;
+      }
+      .category.active {
+        background: #fbbf24;
+        color: #1e293b;
+        font-weight: 700;
+      }
+      #year-slider {
+        width: 100%;
+      }
+      .year-readout {
+        font-weight: 600;
+        text-align: right;
+        color: #fbbf24;
+        font-size: 18px;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panels & Timeline App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .panel {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            transition: box-shadow 0.2s;
+        }
+        .panel-header {
+            cursor: move;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        .resize-handle {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 20px;
+            height: 20px;
+            cursor: nwse-resize;
+            background: linear-gradient(135deg, #FFC300 40%, #1e293b 60%);
+        }
+        .dock {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 60px;
+            background: rgba(30,41,59,0.95);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 24px;
+            z-index: 50;
+        }
+        .dock-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: rgba(0,60,120,0.7);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .dock-icon:hover {
+            transform: scale(1.1);
+            background-color: rgba(0, 60, 120, 0.9);
+        }
+        .timeline-chip {
+            transition: all 0.2s ease;
+        }
+        .timeline-chip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #FFC300;
+            cursor: pointer;
+        }
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #FFC300;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-blue-950 text-blue-100 min-h-screen">
+    <!-- Dock for minimized panels -->
+    <div class="dock" id="dock"></div>
+    <!-- Main app container -->
+    <div id="app"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Minimal working demo with test message
+            const app = document.getElementById('app');
+            app.innerHTML = `
+                <div class="text-center text-amber-400 font-bold text-xl mb-4">TEST MESSAGE: Script is running!</div>
+                <div class="panel bg-blue-900 rounded-lg p-4 m-4" style="width:250px;float:left;">
+                    <h2 class="text-amber-300 font-bold mb-2">Categories</h2>
+                    <ul>
+                        <li class="mb-1">NATO</li>
+                        <li class="mb-1">Weather</li>
+                        <li class="mb-1">Inspiration</li>
+                        <li class="mb-1">Politics</li>
+                        <li class="mb-1">FAFO</li>
+                    </ul>
+                </div>
+                <div class="panel bg-blue-900 rounded-lg p-4 m-4" style="width:500px;float:left;">
+                    <h2 class="text-amber-300 font-bold mb-2">Timeline</h2>
+                    <div class="mb-2">1949: North Atlantic Treaty signed</div>
+                    <div class="mb-2">1952: Greece and Turkey join NATO</div>
+                    <div class="mb-2">1955: FRG accedes</div>
+                    <div class="mb-2">1994: Partnership for Peace launched</div>
+                    <div class="mb-2">1999: Operation Allied Force (Kosovo)</div>
+                    <div class="mb-2">2004: Seven countries join NATO</div>
+                    <div class="mb-2">2014: Wales Summit</div>
+                    <div class="mb-2">2024: Sweden joins NATO</div>
+                </div>
+            `;
+        });
+            
+

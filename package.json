@@ -1,0 +1,13 @@
+{
+  "name": "project-400",
+  "version": "1.0.0",
+  "description": "Panels & Timeline App",
+  "scripts": {
+    "build": "tsc",
+    "start": "npx serve ."
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "serve": "^14.0.0"
+  }
+}
