@@ -72,6 +72,8 @@ export async function renderTimeline(
       stripEl.appendChild(chip);
     });
     readoutEl.textContent = String(state.currentYear);
+    // Notify map panel of visible events
+    document.dispatchEvent(new CustomEvent("timeline:updated", { detail: { events: items } }));
   };
 
   await paint();

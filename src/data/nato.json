@@ -2,6 +2,7 @@
   "events": [
     {
       "id": "nato-1914-ww1",
+      "category": "nato",
       "title": "World War I begins",
       "summary": "Alliance systems in Europe ignite global conflict.",
       "date": "1914-07-28",
@@ -10,6 +11,7 @@
       "countries": [
         "Global"
       ],
+      "geo": { "lat": 48.8566, "lng": 2.3522 },
       "tags": [
         "ww1",
         "alliances"
@@ -20,6 +22,7 @@
     },
     {
       "id": "nato-1919-vers",
+      "category": "nato",
       "title": "Treaty of Versailles",
       "summary": "Post-WWI settlement reshapes European borders and security.",
       "date": "1919-06-28",
@@ -30,6 +33,7 @@
         "Germany",
         "Global"
       ],
+      "geo": { "lat": 48.8566, "lng": 2.3522 },
       "tags": [
         "postwar",
         "security"
@@ -40,6 +44,7 @@
     },
     {
       "id": "nato-1920-lon",
+      "category": "nato",
       "title": "League of Nations formed",
       "summary": "First intergovernmental organization for collective security.",
       "date": "1920-01-10",
@@ -48,6 +53,7 @@
       "countries": [
         "Global"
       ],
+      "geo": { "lat": 46.2044, "lng": 6.1432 },
       "tags": [
         "collective-security"
       ],
@@ -57,6 +63,7 @@
     },
     {
       "id": "nato-1939-ww2",
+      "category": "nato",
       "title": "World War II begins",
       "summary": "Germany invades Poland; global war follows.",
       "date": "1939-09-01",
@@ -67,6 +74,7 @@
         "Germany",
         "Global"
       ],
+      "geo": { "lat": 52.2297, "lng": 21.0122 },
       "tags": [
         "ww2"
       ],
@@ -76,6 +84,7 @@
     },
     {
       "id": "nato-1945-un",
+      "category": "nato",
       "title": "United Nations founded",
       "summary": "International body created to maintain peace and security.",
       "date": "1945-10-24",
@@ -84,6 +93,7 @@
       "countries": [
         "Global"
       ],
+      "geo": { "lat": 40.7128, "lng": -74.0060 },
       "tags": [
         "UN"
       ],
@@ -92,12 +102,13 @@
       "punchline": "Peace, but with a Security Council speed limiter."
     },
     {
-      "id": "nato-1947-truman",
-      "title": "Truman Doctrine announced",
-      "summary": "U.S. commits to support nations resisting coercion.",
-      "date": "1947-03-12",
-      "year": 1947,
-      "type": "policy",
+  "id": "nato-1947-truman",
+  "category": "nato",
+  "title": "Truman Doctrine announced",
+  "summary": "U.S. commits to support nations resisting coercion.",
+  "date": "1947-03-12",
+  "year": 1947,
+  "type": "policy",
       "countries": [
         "United States",
         "Greece",

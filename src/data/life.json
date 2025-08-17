@@ -2,6 +2,7 @@
   "events": [
     {
       "id": "life-1903-flight",
+      "category": "life",
       "title": "Wright brothers' first powered flight",
       "summary": "Heavier-than-air powered flight achieved at Kitty Hawk.",
       "date": "1903-12-17",
@@ -10,6 +11,7 @@
       "countries": [
         "USA"
       ],
+      "geo": { "lat": 36.0726, "lng": -79.7920 },
       "tags": [
         "aviation"
       ],

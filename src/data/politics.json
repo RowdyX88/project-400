@@ -2,6 +2,7 @@
   "events": [
     {
       "id": "politics-1905-russo-japanese",
+      "category": "politics",
       "title": "Russo-Japanese War ends",
       "summary": "Treaty of Portsmouth shifts balance in East Asia.",
       "date": "1905-09-05",
@@ -12,6 +13,7 @@
         "Russia",
         "USA"
       ],
+      "geo": { "lat": 35.6895, "lng": 139.6917 },
       "tags": [
         "east-asia"
       ],
@@ -21,6 +23,7 @@
     },
     {
       "id": "politics-1917-revolution",
+      "category": "politics",
       "title": "Russian Revolution",
       "summary": "Bolsheviks seize power; USSR emerges.",
       "date": "1917-11-07",
@@ -29,6 +32,7 @@
       "countries": [
         "Russia"
       ],
+      "geo": { "lat": 55.7558, "lng": 37.6173 },
       "tags": [
         "revolution"
       ],

@@ -2,6 +2,7 @@
   "events": [
     {
       "id": "fafo-1914-blank-check",
+      "category": "fafo",
       "title": "'Blank check' to Austria-Hungary",
       "summary": "German support emboldens escalation to WWI.",
       "date": "1914-07-05",
@@ -11,6 +12,7 @@
         "Germany",
         "Austria-Hungary"
       ],
+      "geo": { "lat": 52.52, "lng": 13.405 },
       "tags": [
         "escalation"
       ],

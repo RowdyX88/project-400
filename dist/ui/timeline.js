@@ -65,6 +65,8 @@ export function renderTimeline(stripEl, sliderEl, readoutEl) {
                 stripEl.appendChild(chip);
             });
             readoutEl.textContent = String(state.currentYear);
+            // Notify map panel of visible events
+            document.dispatchEvent(new CustomEvent("timeline:updated", { detail: { events: items } }));
         });
         yield paint();
         // slider interaction (debounced)
