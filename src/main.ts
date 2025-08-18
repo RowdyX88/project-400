@@ -13,3 +13,4 @@ const mapContainer = document.getElementById("map-container")!;
 renderLeftPanel(left);
 renderTimeline(strip, slider, readout);
 renderMapPanel(mapContainer);
+

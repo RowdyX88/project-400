@@ -9,6 +9,10 @@
   <!-- Leaflet.js for map panel -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Leaflet.markercluster for clustering support -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
   </head>
   <body class="bg-blue-950 text-blue-100 min-h-screen">
     <div class="relative min-h-screen w-full">
@@ -18,9 +22,9 @@
       </div>
   <!-- Floating draggable timeline panel -->
   <div id="timeline-panel" class="draggable panel glassy timeline-panel absolute" style="left: 320px; top: 180px; width: 700px;" z-20">
-    <div class="filmstrip" id="timeline-strip"></div>
-    <input id="year-slider" type="range" min="1900" max="2025" value="1949" step="1" title="Select year" class="slider w-full mt-2" />
-    <div id="year-readout" class="year-readout mt-2">1949</div>
+  <div class="filmstrip" id="timeline-strip"></div>
+  <input id="year-slider" type="range" min="1900" max="2025" value="1949" step="1" title="Select year" class="slider w-full mt-2" />
+  <div id="year-readout" class="year-readout mt-2">1949</div>
   </div>
       <!-- Floating draggable map panel -->
       <div id="map-panel" class="draggable panel glassy map-panel absolute" style="left: 1050px; top: 180px; width: 420px; height: 380px; z-index:20;">

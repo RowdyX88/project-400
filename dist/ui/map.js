@@ -32,7 +32,14 @@ export function renderMapPanel(mapEl) {
                 markerGroup.clearLayers();
             }
             else {
-                markerGroup = window.L.layerGroup().addTo(map);
+                // Use marker cluster group for smooth clustering
+                markerGroup = window.L.markerClusterGroup({
+                    showCoverageOnHover: false,
+                    maxClusterRadius: 40,
+                    spiderfyOnMaxZoom: true,
+                    disableClusteringAtZoom: 8,
+                    animate: true
+                }).addTo(map);
             }
             events.forEach(ev => {
                 let lat, lng, warning = "";
@@ -46,8 +53,9 @@ export function renderMapPanel(mapEl) {
                     lng = 4.3517;
                     warning = "<span style='color:orange'>No geo data for this event.</span><br>";
                 }
-                const marker = window.L.marker([lat, lng], { riseOnHover: true }).addTo(markerGroup)
+                const marker = window.L.marker([lat, lng], { riseOnHover: true })
                     .bindPopup(`${warning}<b>${ev.title}</b><br>${ev.year}<br>${ev.location ? ev.location : ''}<br>${ev.summary ? ev.summary : ''}`);
+                markerGroup.addLayer(marker);
                 markerRefs[ev.id] = marker;
                 marker.on('mouseover', () => {
                     marker.openPopup();
@@ -96,14 +104,44 @@ export function renderMapPanel(mapEl) {
                     map.setView(marker.getLatLng(), 6, { animate: true });
                 }
             }
-            // Draw path if event has multiple locations
+            // Remove previous connection lines
             if (activePath) {
                 map.removeLayer(activePath);
                 activePath = null;
             }
+            // Draw path for multi-location events
             if (event.locations && Array.isArray(event.locations) && event.locations.length > 1) {
                 const latlngs = event.locations.map((loc) => [loc.lat, loc.lng]);
-                activePath = window.L.polyline(latlngs, { color: '#6366f1', weight: 4, opacity: 0.7 }).addTo(map);
+                activePath = window.L.polyline(latlngs, { color: '#6366f1', weight: 4, opacity: 0.7, dashArray: '8 6' }).addTo(map);
+            }
+            // Draw connection lines to related events (same tag, country, or year)
+            if (window.currentEvents && Array.isArray(window.currentEvents)) {
+                const related = window.currentEvents.filter((ev) => {
+                    if (ev.id === event.id)
+                        return false;
+                    // Related by tag, country, or year
+                    const tagMatch = event.tags && ev.tags && event.tags.some((t) => ev.tags.includes(t));
+                    const countryMatch = event.countries && ev.countries && event.countries.some((c) => ev.countries.includes(c));
+                    const yearMatch = event.year === ev.year;
+                    return tagMatch || countryMatch || yearMatch;
+                });
+                related.forEach((ev) => {
+                    if (ev.geo && typeof ev.geo.lat === 'number' && typeof ev.geo.lng === 'number' && event.geo && typeof event.geo.lat === 'number' && typeof event.geo.lng === 'number') {
+                        const line = window.L.polyline([
+                            [event.geo.lat, event.geo.lng],
+                            [ev.geo.lat, ev.geo.lng]
+                        ], {
+                            color: '#f59e42',
+                            weight: 2,
+                            opacity: 0.5,
+                            dashArray: '4 6',
+                            className: 'event-connection-line'
+                        }).addTo(map);
+                        // Remove on blur
+                        if (!activePath)
+                            activePath = line;
+                    }
+                });
             }
         }
         document.addEventListener("event:focus", (e) => {
@@ -133,6 +171,7 @@ export function renderMapPanel(mapEl) {
         // Listen for timeline updates
         document.addEventListener("timeline:updated", (e) => {
             if (e.detail && Array.isArray(e.detail.events)) {
+                window.currentEvents = e.detail.events;
                 addMarkers(e.detail.events);
             }
         });
