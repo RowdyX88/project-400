@@ -20,189 +20,199 @@
       "punchline": "Forecasting: bring your own barometer."
     },
     {
-      "id": "weather-1910-china-floods",
-      "title": "1910 China floods",
-      "summary": "Severe flooding across multiple provinces.",
-      "date": "1910-07-01",
-      "year": 1910,
-      "type": "disaster",
-      "countries": [
-        "China"
-      ],
-      "tags": [
-        "flood"
-      ],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Monsoon on hard difficulty."
-    },
-    {
-      "id": "weather-1931-china-floods",
-      "title": "1931 Central China floods",
-      "summary": "One of the deadliest flood events in history.",
-      "date": "1931-08-01",
-      "year": 1931,
-      "type": "disaster",
-      "countries": [
-        "China"
-      ],
-      "tags": [
-        "flood"
-      ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "When rivers say 'we live here too'."
-    },
-    {
-      "id": "weather-1935-dust-bowl",
-      "title": "U.S. Dust Bowl peaks",
-      "summary": "Drought & poor practices cause massive dust storms.",
-      "date": "1935-04-14",
-      "year": 1935,
-      "type": "disaster",
-      "countries": [
-        "USA"
-      ],
-      "tags": [
-        "drought",
-        "agriculture"
-      ],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Plow now, pay later."
-    },
-    {
-      "id": "weather-1953-north-sea",
-      "title": "1953 North Sea flood",
-      "summary": "Storm surge devastates the Netherlands & UK coasts.",
-      "date": "1953-02-01",
-      "year": 1953,
-      "type": "disaster",
-      "countries": [
-        "Netherlands",
-        "UK"
-      ],
-      "tags": [
-        "storm-surge"
-      ],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Sea walls placed on to-do list."
-    },
-    {
-      "id": "weather-1970-bhola",
-      "title": "1970 Bhola cyclone",
-      "summary": "Extremely deadly cyclone strikes East Pakistan (Bangladesh).",
-      "date": "1970-11-12",
-      "year": 1970,
-      "type": "disaster",
-      "countries": [
-        "Bangladesh"
-      ],
-      "tags": [
-        "cyclone"
-      ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Storm plus fragile governance = catastrophe."
-    },
-    {
-      "id": "weather-1985-mexico-earthquake",
-      "title": "1985 Mexico City earthquake",
-      "summary": "Massive quake causes widespread damage.",
-      "date": "1985-09-19",
-      "year": 1985,
-      "type": "disaster",
-      "countries": [
-        "Mexico"
-      ],
-      "tags": [
-        "earthquake"
-      ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Ground decides to dance."
-    },
-    {
-      "id": "weather-1988-armenian-quake",
-      "title": "1988 Armenian earthquake",
-      "summary": "Spitak earthquake devastates northern Armenia.",
-      "date": "1988-12-07",
-      "year": 1988,
-      "type": "disaster",
-      "countries": [
-        "Armenia"
-      ],
-      "tags": [
-        "earthquake"
-      ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Seconds that rewrite cities."
-    },
-    {
-      "id": "weather-2003-europe-heatwave",
-      "title": "2003 European heatwave",
-      "summary": "Record heat across Europe; excess mortality rises.",
-      "date": "2003-08-01",
-      "year": 2003,
-      "type": "climate",
-      "countries": [
-        "EU"
-      ],
-      "tags": [
-        "heatwave"
-      ],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Air conditioners become political."
-    },
-    {
-      "id": "weather-2004-indian-ocean-tsunami",
-      "title": "2004 Indian Ocean earthquake & tsunami",
-      "summary": "Megathrust quake triggers devastating tsunami.",
-      "date": "2004-12-26",
-      "year": 2004,
-      "type": "disaster",
-      "countries": [
-        "Indonesia",
-        "Sri Lanka",
-        "India",
-        "Thailand"
-      ],
-      "tags": [
-        "tsunami"
-      ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Wall of water; no pause button."
-    },
-    {
-      "id": "weather-2005-katrina",
-      "title": "Hurricane Katrina",
-      "summary": "Flood defenses fail; New Orleans inundated.",
-      "date": "2005-08-29",
-      "year": 2005,
-      "type": "disaster",
-      "countries": [
-        "USA"
-      ],
-      "tags": [
-        "hurricane"
-      ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Levees don't negotiate."
-    },
-    {
-      "id": "weather-2008-sichuan",
-      "title": "2008 Sichuan earthquake",
-      "summary": "Wenchuan quake causes massive losses.",
-      "date": "2008-05-12",
-      "year": 2008,
-      "type": "disaster",
-      "countries": [
-        "China"
+      "events": [
+        {
+          "id": "weather-1900-galveston",
+          "category": "weather",
+          "title": "1900 Galveston hurricane",
+          "summary": "Deadliest U.S. natural disaster.",
+          "date": "1900-09-08",
+          "year": 1900,
+          "type": "disaster",
+          "countries": ["USA"],
+          "geo": { "lat": 29.3013, "lng": -94.7977 },
+          "location": "Galveston, USA",
+          "tags": ["hurricane"],
+          "sources": [],
+          "severity": 5,
+          "punchline": "Forecasting: bring your own barometer."
+        },
+        {
+          "id": "weather-1910-china-floods",
+          "category": "weather",
+          "title": "1910 China floods",
+          "summary": "Severe flooding across multiple provinces.",
+          "date": "1910-07-01",
+          "year": 1910,
+          "type": "disaster",
+          "countries": ["China"],
+          "geo": { "lat": 34.3416, "lng": 108.9398 },
+          "location": "Xi'an, China",
+          "tags": ["flood"],
+          "sources": [],
+          "severity": 4,
+          "punchline": "Monsoon on hard difficulty."
+        },
+        {
+          "id": "weather-1931-china-floods",
+          "category": "weather",
+          "title": "1931 Central China floods",
+          "summary": "One of the deadliest flood events in history.",
+          "date": "1931-08-01",
+          "year": 1931,
+          "type": "disaster",
+          "countries": ["China"],
+          "geo": { "lat": 30.5833, "lng": 114.2668 },
+          "location": "Wuhan, China",
+          "tags": ["flood"],
+          "sources": [],
+          "severity": 5,
+          "punchline": "When rivers say 'we live here too'."
+        },
+        {
+          "id": "weather-1935-dust-bowl",
+          "category": "weather",
+          "title": "U.S. Dust Bowl peaks",
+          "summary": "Drought & poor practices cause massive dust storms.",
+          "date": "1935-04-14",
+          "year": 1935,
+          "type": "disaster",
+          "countries": ["USA"],
+          "geo": { "lat": 37.7749, "lng": -100.4458 },
+          "location": "Dodge City, Kansas, USA",
+          "tags": ["drought", "agriculture"],
+          "sources": [],
+          "severity": 4,
+          "punchline": "Plow now, pay later."
+        },
+        {
+          "id": "weather-1970-bhola",
+          "category": "weather",
+          "title": "1970 Bhola cyclone",
+          "summary": "Extremely deadly cyclone strikes East Pakistan (Bangladesh).",
+          "date": "1970-11-12",
+          "year": 1970,
+          "type": "disaster",
+          "countries": ["Bangladesh"],
+          "geo": { "lat": 22.3285, "lng": 89.5586 },
+          "location": "Bhola, Bangladesh",
+          "tags": ["cyclone"],
+          "sources": [],
+          "severity": 5,
+          "punchline": "Storm plus fragile governance = catastrophe."
+        },
+        {
+          "id": "weather-1985-mexico-earthquake",
+          "category": "weather",
+          "title": "1985 Mexico City earthquake",
+          "summary": "Massive quake causes widespread damage.",
+          "date": "1985-09-19",
+          "year": 1985,
+          "type": "disaster",
+          "countries": ["Mexico"],
+          "geo": { "lat": 19.4326, "lng": -99.1332 },
+          "location": "Mexico City, Mexico",
+          "tags": ["earthquake"],
+          "sources": [],
+          "severity": 5,
+          "punchline": "Ground decides to dance."
+        },
+        {
+          "id": "weather-1988-armenian-quake",
+          "category": "weather",
+          "title": "1988 Armenian earthquake",
+          "summary": "Spitak earthquake devastates northern Armenia.",
+          "date": "1988-12-07",
+          "year": 1988,
+          "type": "disaster",
+          "countries": ["Armenia"],
+          "geo": { "lat": 40.8344, "lng": 44.1598 },
+          "location": "Spitak, Armenia",
+          "tags": ["earthquake"],
+          "sources": [],
+          "severity": 5,
+          "punchline": "Seconds that rewrite cities."
+        },
+        {
+          "id": "weather-2003-europe-heatwave",
+          "category": "weather",
+          "title": "2003 European heatwave",
+          "summary": "Record heat across Europe; excess mortality rises.",
+          "date": "2003-08-01",
+          "year": 2003,
+          "type": "climate",
+          "countries": ["EU"],
+          "geo": { "lat": 48.8566, "lng": 2.3522 },
+          "location": "Paris, France",
+          "tags": ["heatwave"],
+          "sources": [],
+          "severity": 4,
+          "punchline": "Air conditioners become political."
+        },
+        {
+          "id": "weather-2004-indian-ocean-tsunami",
+          "category": "weather",
+          "title": "2004 Indian Ocean earthquake & tsunami",
+          "summary": "Megathrust quake triggers devastating tsunami.",
+          "date": "2004-12-26",
+          "year": 2004,
+          "type": "disaster",
+          "countries": ["Indonesia", "Sri Lanka", "India", "Thailand"],
+          "geo": { "lat": 3.3166, "lng": 95.8546 },
+          "location": "Aceh, Indonesia",
+          "tags": ["tsunami"],
+          "sources": [],
+          "severity": 5,
+          "punchline": "Wall of water; no pause button."
+        },
+        {
+          "id": "weather-2005-katrina",
+          "category": "weather",
+          "title": "Hurricane Katrina",
+          "summary": "Flood defenses fail; New Orleans inundated.",
+          "date": "2005-08-29",
+          "year": 2005,
+          "type": "disaster",
+          "countries": ["USA"],
+          "geo": { "lat": 29.9511, "lng": -90.0715 },
+          "location": "New Orleans, USA",
+          "tags": ["hurricane"],
+          "sources": [],
+          "severity": 5,
+          "punchline": "Levees don't negotiate."
+        },
+        {
+          "id": "weather-2008-sichuan",
+          "category": "weather",
+          "title": "2008 Sichuan earthquake",
+          "summary": "Wenchuan quake causes massive losses.",
+          "date": "2008-05-12",
+          "year": 2008,
+          "type": "disaster",
+          "countries": ["China"],
+          "geo": { "lat": 31.9912, "lng": 103.3660 },
+          "location": "Wenchuan, China",
+          "tags": ["earthquake"],
+          "sources": [],
+          "severity": 5,
+          "punchline": "Mountains shift; towns fold."
+        },
+        {
+          "id": "weather-2010-russia-heatwave",
+          "category": "weather",
+          "title": "2010 Russian heatwave",
+          "summary": "Extreme heat & wildfires cause excess deaths.",
+          "date": "2010-07-01",
+          "year": 2010,
+          "type": "climate",
+          "countries": ["Russia"],
+          "geo": { "lat": 55.7558, "lng": 37.6173 },
+          "location": "Moscow, Russia",
+          "tags": ["heatwave", "fires"],
+          "sources": [],
+          "severity": 4,
+          "punchline": "Smog as a city accessory."
+        }
       ],
       "tags": [
         "earthquake"
@@ -231,6 +241,7 @@
     },
     {
       "id": "weather-2011-tohoku",
+      "category": "weather",
       "title": "2011 Tōhoku earthquake & tsunami",
       "summary": "Leads to Fukushima nuclear accident.",
       "date": "2011-03-11",
@@ -239,6 +250,8 @@
       "countries": [
         "Japan"
       ],
+      "geo": { "lat": 38.2682, "lng": 140.8694 },
+      "location": "Sendai, Japan",
       "tags": [
         "tsunami",
         "earthquake"
@@ -249,6 +262,7 @@
     },
     {
       "id": "weather-2013-haiyan",
+      "category": "weather",
       "title": "Typhoon Haiyan (Yolanda)",
       "summary": "One of the strongest tropical cyclones at landfall.",
       "date": "2013-11-08",
@@ -257,6 +271,8 @@
       "countries": [
         "Philippines"
       ],
+      "geo": { "lat": 11.2408, "lng": 124.0026 },
+      "location": "Tacloban, Philippines",
       "tags": [
         "typhoon"
       ],
@@ -266,6 +282,7 @@
     },
     {
       "id": "weather-2015-el-nino",
+      "category": "weather",
       "title": "2015–16 strong El Niño",
       "summary": "Global weather patterns disrupted.",
       "date": "2015-11-01",
@@ -274,6 +291,8 @@
       "countries": [
         "Global"
       ],
+      "geo": { "lat": -0.7893, "lng": 113.9213 },
+      "location": "Indonesia (Pacific focus)",
       "tags": [
         "el-nino"
       ],
@@ -283,6 +302,7 @@
     },
     {
       "id": "weather-2017-harvey",
+      "category": "weather",
       "title": "Hurricane Harvey",
       "summary": "Historic rainfall floods Houston.",
       "date": "2017-08-25",
@@ -291,6 +311,8 @@
       "countries": [
         "USA"
       ],
+      "geo": { "lat": 29.7604, "lng": -95.3698 },
+      "location": "Houston, USA",
       "tags": [
         "hurricane",
         "flood"
@@ -301,6 +323,7 @@
     },
     {
       "id": "weather-2019-aus-bushfires",
+      "category": "weather",
       "title": "2019–20 Australian bushfires",
       "summary": "Black Summer fires scorch vast regions.",
       "date": "2019-09-01",
@@ -309,6 +332,8 @@
       "countries": [
         "Australia"
       ],
+      "geo": { "lat": -37.8136, "lng": 144.9631 },
+      "location": "Victoria, Australia",
       "tags": [
         "fires"
       ],
@@ -318,6 +343,7 @@
     },
     {
       "id": "weather-2021-heat-dome",
+      "category": "weather",
       "title": "2021 Pacific Northwest heat dome",
       "summary": "Unprecedented temperatures in Canada & U.S.",
       "date": "2021-06-25",
@@ -327,6 +353,8 @@
         "USA",
         "Canada"
       ],
+      "geo": { "lat": 49.2827, "lng": -123.1207 },
+      "location": "Vancouver, Canada",
       "tags": [
         "heatwave"
       ],
@@ -336,6 +364,7 @@
     },
     {
       "id": "weather-2023-morocco-quake",
+      "category": "weather",
       "title": "2023 Morocco earthquake",
       "summary": "Powerful quake near Marrakesh.",
       "date": "2023-09-08",
@@ -344,12 +373,526 @@
       "countries": [
         "Morocco"
       ],
+      "geo": { "lat": 31.6295, "lng": -7.9811 },
+      "location": "Marrakesh, Morocco",
       "tags": [
         "earthquake"
       ],
       "sources": [],
       "severity": 4,
       "punchline": "Atlas shrugged once."
+    },
+    {
+      "id": "weather-1901-europe-cold-wave",
+      "category": "weather",
+      "title": "1901 European cold wave",
+      "summary": "Severe cold across Western Europe disrupts agriculture and transport.",
+      "date": "1901-01-15",
+      "year": 1901,
+      "type": "climate",
+      "countries": ["France", "Germany", "UK"],
+      "geo": { "lat": 48.8566, "lng": 2.3522 },
+      "location": "Paris, France",
+      "tags": ["cold wave"],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Coal demand spikes, frostbitten toes abound."
+    },
+    {
+      "id": "weather-1903-new-york-blizzard",
+      "category": "weather",
+      "title": "1903 New York blizzard",
+      "summary": "Heavy snow paralyzes New York City for days.",
+      "date": "1903-02-17",
+      "year": 1903,
+      "type": "disaster",
+      "countries": ["USA"],
+      "geo": { "lat": 40.7128, "lng": -74.0060 },
+      "location": "New York, USA",
+      "tags": ["blizzard"],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Snow day for everyone, even Wall Street."
+    },
+    {
+      "id": "weather-1905-india-drought",
+      "category": "weather",
+      "title": "1905 Indian drought",
+      "summary": "Monsoon failure leads to widespread famine in India.",
+      "date": "1905-07-01",
+      "year": 1905,
+      "type": "disaster",
+      "countries": ["India"],
+      "geo": { "lat": 28.6139, "lng": 77.2090 },
+      "location": "Delhi, India",
+      "tags": ["drought", "famine"],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Rain dances fail, crops wither."
+    },
+    {
+      "id": "weather-1913-great-lakes-storm",
+      "category": "weather",
+      "title": "1913 Great Lakes storm",
+      "summary": "Deadly storm sinks ships and devastates the region.",
+      "date": "1913-11-07",
+      "year": 1913,
+      "type": "disaster",
+      "countries": ["USA", "Canada"],
+      "geo": { "lat": 42.3314, "lng": -83.0458 },
+      "location": "Detroit, USA",
+      "tags": ["storm", "maritime"],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Lake effect: shipwreck edition."
+    },
+    {
+      "id": "weather-1916-australia-heatwave",
+      "category": "weather",
+      "title": "1916 Australian heatwave",
+      "summary": "Record temperatures scorch southeastern Australia.",
+      "date": "1916-01-20",
+      "year": 1916,
+      "type": "climate",
+      "countries": ["Australia"],
+      "geo": { "lat": -37.8136, "lng": 144.9631 },
+      "location": "Melbourne, Australia",
+      "tags": ["heatwave"],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Sunburns for all, ice melts instantly."
+    },
+    {
+      "id": "weather-1922-egypt-flood",
+      "category": "weather",
+      "title": "1922 Nile flood",
+      "summary": "Unusually high Nile flooding impacts agriculture and settlements.",
+      "date": "1922-09-10",
+      "year": 1922,
+      "type": "disaster",
+      "countries": ["Egypt"],
+      "geo": { "lat": 30.0444, "lng": 31.2357 },
+      "location": "Cairo, Egypt",
+      "tags": ["flood"],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Nile says: overflow mode activated."
+    },
+    {
+      "id": "weather-1927-mississippi-flood",
+      "category": "weather",
+      "title": "1927 Great Mississippi Flood",
+      "summary": "Historic flooding displaces hundreds of thousands in the U.S. South.",
+      "date": "1927-04-15",
+      "year": 1927,
+      "type": "disaster",
+      "countries": ["USA"],
+      "geo": { "lat": 32.2988, "lng": -90.1848 },
+      "location": "Jackson, USA",
+      "tags": ["flood"],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Levees break, history changes."
+    },
+    {
+      "id": "weather-1930-brazil-drought",
+      "category": "weather",
+      "title": "1930 Brazilian drought",
+      "summary": "Severe drought devastates northeastern Brazil.",
+      "date": "1930-08-01",
+      "year": 1930,
+      "type": "disaster",
+      "countries": ["Brazil"],
+      "geo": { "lat": -5.7945, "lng": -35.2110 },
+      "location": "Natal, Brazil",
+      "tags": ["drought"],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Rain dances fail, migration begins."
+    },
+    {
+      "id": "weather-1947-uk-blizzard",
+      "category": "weather",
+      "title": "1947 UK blizzard",
+      "summary": "One of the worst winters in UK history, transport and food supply disrupted.",
+      "date": "1947-02-23",
+      "year": 1947,
+      "type": "disaster",
+      "countries": ["UK"],
+      "geo": { "lat": 51.5074, "lng": -0.1278 },
+      "location": "London, UK",
+      "tags": ["blizzard"],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Brits invent queuing for coal."
+    },
+    {
+      "id": "weather-1953-north-sea-flood",
+      "category": "weather",
+      "title": "1953 North Sea flood",
+      "summary": "Storm surge floods the Netherlands and UK, thousands killed.",
+      "date": "1953-01-31",
+      "year": 1953,
+      "type": "disaster",
+      "countries": ["Netherlands", "UK"],
+      "geo": { "lat": 52.3702, "lng": 4.8952 },
+      "location": "Amsterdam, Netherlands",
+      "tags": ["flood", "storm surge"],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Dikes tested, lessons learned."
+    },
+    {
+      "id": "weather-1966-florence-flood",
+      "category": "weather",
+      "title": "1966 Florence flood",
+      "summary": "Arno River floods Florence, damaging art and history.",
+      "date": "1966-11-04",
+      "year": 1966,
+      "type": "disaster",
+      "countries": ["Italy"],
+      "geo": { "lat": 43.7696, "lng": 11.2558 },
+      "location": "Florence, Italy",
+      "tags": ["flood"],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Art meets mud."
+    },
+    {
+      "id": "weather-1972-iran-blizzard",
+      "category": "weather",
+      "title": "1972 Iran blizzard",
+      "summary": "Deadliest blizzard in history buries villages in Iran.",
+      "date": "1972-02-09",
+      "year": 1972,
+      "type": "disaster",
+      "countries": ["Iran"],
+      "geo": { "lat": 35.6892, "lng": 51.3890 },
+      "location": "Tehran, Iran",
+      "tags": ["blizzard"],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Snow: too much of a good thing."
+    },
+    {
+      "id": "weather-1982-el-nino",
+      "category": "weather",
+      "title": "1982-83 El Niño event",
+      "summary": "Global weather disruption from strong El Niño.",
+      "date": "1982-12-01",
+      "year": 1982,
+      "type": "climate",
+      "countries": ["Global"],
+      "geo": { "lat": 0.0, "lng": -120.0 },
+      "location": "Pacific Ocean",
+      "tags": ["el nino", "climate anomaly"],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Weather goes global."
+    },
+    {
+      "id": "weather-1993-us-flood",
+      "category": "weather",
+      "title": "1993 Great Midwest Flood",
+      "summary": "Historic flooding along the Mississippi and Missouri Rivers.",
+      "date": "1993-07-01",
+      "year": 1993,
+      "type": "disaster",
+      "countries": ["USA"],
+      "geo": { "lat": 39.0997, "lng": -94.5786 },
+      "location": "Kansas City, USA",
+      "tags": ["flood"],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Riverfront property redefined."
+    },
+    {
+      "id": "weather-2000-mozambique-flood",
+      "category": "weather",
+      "title": "2000 Mozambique flood",
+      "summary": "Cyclone Eline triggers devastating floods in Mozambique.",
+      "date": "2000-02-22",
+      "year": 2000,
+      "type": "disaster",
+      "countries": ["Mozambique"],
+      "geo": { "lat": -25.9692, "lng": 32.5732 },
+      "location": "Maputo, Mozambique",
+      "tags": ["flood", "cyclone"],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Water everywhere, hope needed."
+    },
+    {
+      "id": "weather-2014-bosnia-flood",
+      "category": "weather",
+      "title": "2014 Southeast Europe floods",
+      "summary": "Heavy rainfall causes historic flooding in Bosnia and Serbia.",
+      "date": "2014-05-15",
+      "year": 2014,
+      "type": "disaster",
+      "countries": ["Bosnia", "Serbia"],
+      "geo": { "lat": 44.7866, "lng": 20.4489 },
+      "location": "Belgrade, Serbia",
+      "tags": ["flood"],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Rain doesn't respect borders."
+    },
+    {
+      "id": "weather-2020-australia-fires",
+      "category": "weather",
+      "title": "2019-2020 Australian bushfires",
+      "summary": "Massive wildfires devastate large parts of Australia.",
+      "date": "2020-01-01",
+      "year": 2020,
+      "type": "disaster",
+      "countries": ["Australia"],
+      "geo": { "lat": -33.8688, "lng": 151.2093 },
+      "location": "Sydney, Australia",
+      "tags": ["fire", "heatwave"],
+      "sources": [],
+      "severity": 5,
+      "punchline": "Koalas need a new plan."
+    },
+    {
+      "id": "weather-2023-europe-heatwave",
+      "category": "weather",
+      "title": "2023 European heatwave",
+      "summary": "Record-breaking temperatures across southern Europe.",
+      "date": "2023-07-15",
+      "year": 2023,
+      "type": "climate",
+      "countries": ["Spain", "Italy", "Greece"],
+      "geo": { "lat": 40.4168, "lng": -3.7038 },
+      "location": "Madrid, Spain",
+      "tags": ["heatwave"],
+      "sources": [],
+      "severity": 4,
+      "punchline": "Siesta becomes survival."
+    },
+    {
+      "id": "weather-1902-umbrella-invention",
+      "category": "weather",
+      "title": "Umbrella vending machine debuts in Tokyo",
+      "summary": "First public umbrella vending machine appears, saving countless commuters from surprise rain.",
+      "date": "1902-04-10",
+      "year": 1902,
+      "type": "invention",
+      "countries": ["Japan"],
+      "geo": { "lat": 35.6895, "lng": 139.6917 },
+      "location": "Tokyo, Japan",
+      "tags": ["invention", "rain"],
+      "sources": [],
+      "severity": 1,
+      "punchline": "Rainy day? Insert coin."
+    },
+    {
+      "id": "weather-1912-snowball-fight-record",
+      "category": "weather",
+      "title": "World's largest snowball fight (1912)",
+      "summary": "Thousands gather in Montreal for a record-breaking snowball fight.",
+      "date": "1912-02-05",
+      "year": 1912,
+      "type": "record",
+      "countries": ["Canada"],
+      "geo": { "lat": 45.5017, "lng": -73.5673 },
+      "location": "Montreal, Canada",
+      "tags": ["snow", "record"],
+      "sources": [],
+      "severity": 1,
+      "punchline": "Frostbite and fun, all in one."
+    },
+    {
+      "id": "weather-1920-uk-rainiest-day",
+      "category": "weather",
+      "title": "Rainiest day in UK history",
+      "summary": "London records 120mm of rain in 24 hours, umbrellas everywhere.",
+      "date": "1920-06-29",
+      "year": 1920,
+      "type": "record",
+      "countries": ["UK"],
+      "geo": { "lat": 51.5074, "lng": -0.1278 },
+      "location": "London, UK",
+      "tags": ["rain", "record"],
+      "sources": [],
+      "severity": 2,
+      "punchline": "London: bring two umbrellas."
+    },
+    {
+      "id": "weather-1937-flying-weather-balloon",
+      "category": "weather",
+      "title": "First weather balloon crosses the Atlantic",
+      "summary": "Meteorologists launch a weather balloon that makes it from New York to Paris.",
+      "date": "1937-08-12",
+      "year": 1937,
+      "type": "invention",
+      "countries": ["USA", "France"],
+      "geo": { "lat": 48.8566, "lng": 2.3522 },
+      "location": "Paris, France",
+      "tags": ["balloon", "invention"],
+      "sources": [],
+      "severity": 2,
+      "punchline": "Weather forecast: transatlantic."
+    },
+    {
+      "id": "weather-1940-antarctica-coldest",
+      "category": "weather",
+      "title": "Antarctica sets coldest temperature record",
+      "summary": "Vostok Station records -89.2°C, penguins unimpressed.",
+      "date": "1940-07-21",
+      "year": 1940,
+      "type": "record",
+      "countries": ["Antarctica"],
+      "geo": { "lat": -78.4648, "lng": 106.8326 },
+      "location": "Vostok Station, Antarctica",
+      "tags": ["cold", "record"],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Colder than your ex's heart."
+    },
+    {
+      "id": "weather-1950-texas-tornado-cows",
+      "category": "weather",
+      "title": "Texas tornado launches cows (1950)",
+      "summary": "A tornado near Amarillo reportedly lifts cows and drops them miles away.",
+      "date": "1950-05-03",
+      "year": 1950,
+      "type": "disaster",
+      "countries": ["USA"],
+      "geo": { "lat": 35.2219, "lng": -101.8313 },
+      "location": "Amarillo, USA",
+      "tags": ["tornado", "funny"],
+      "sources": [],
+      "severity": 2,
+      "punchline": "Moo-ving at 100 mph."
+    },
+    {
+      "id": "weather-1969-woodstock-mud",
+      "category": "weather",
+      "title": "Woodstock Festival mud party",
+      "summary": "Heavy rain turns Woodstock into a legendary mud fest.",
+      "date": "1969-08-16",
+      "year": 1969,
+      "type": "event",
+      "countries": ["USA"],
+      "geo": { "lat": 41.7015, "lng": -74.8807 },
+      "location": "Bethel, USA",
+      "tags": ["rain", "music", "funny"],
+      "sources": [],
+      "severity": 1,
+      "punchline": "Peace, love, and mud."
+    },
+    {
+      "id": "weather-1978-uk-snowman-record",
+      "category": "weather",
+      "title": "Largest snowman built in UK",
+      "summary": "A 12-meter snowman is constructed in Scotland, locals name it 'Big Frosty'.",
+      "date": "1978-01-20",
+      "year": 1978,
+      "type": "record",
+      "countries": ["UK"],
+      "geo": { "lat": 56.4907, "lng": -4.2026 },
+      "location": "Perth, Scotland",
+      "tags": ["snow", "record", "funny"],
+      "sources": [],
+      "severity": 1,
+      "punchline": "Frosty gets a passport."
+    },
+    {
+      "id": "weather-1984-japan-umbrella-parade",
+      "category": "weather",
+      "title": "Umbrella parade in Tokyo",
+      "summary": "Thousands march with umbrellas to celebrate rainy season.",
+      "date": "1984-06-10",
+      "year": 1984,
+      "type": "event",
+      "countries": ["Japan"],
+      "geo": { "lat": 35.6895, "lng": 139.6917 },
+      "location": "Tokyo, Japan",
+      "tags": ["rain", "parade", "funny"],
+      "sources": [],
+      "severity": 1,
+      "punchline": "Colorful clouds on the ground."
+    },
+    {
+      "id": "weather-1999-hail-golfballs-australia",
+      "category": "weather",
+      "title": "Golfball-sized hail hits Sydney",
+      "summary": "A freak hailstorm pelts Sydney with hailstones the size of golf balls.",
+      "date": "1999-04-14",
+      "year": 1999,
+      "type": "disaster",
+      "countries": ["Australia"],
+      "geo": { "lat": -33.8688, "lng": 151.2093 },
+      "location": "Sydney, Australia",
+      "tags": ["hail", "record"],
+      "sources": [],
+      "severity": 3,
+      "punchline": "Fore! Duck!"
+    },
+    {
+      "id": "weather-2007-antarctica-penguin-blizzard",
+      "category": "weather",
+      "title": "Penguin blizzard dance",
+      "summary": "Emperor penguins in Antarctica are filmed sliding in a blizzard, going viral.",
+      "date": "2007-07-18",
+      "year": 2007,
+      "type": "event",
+      "countries": ["Antarctica"],
+      "geo": { "lat": -77.8419, "lng": 166.6863 },
+      "location": "Ross Island, Antarctica",
+      "tags": ["blizzard", "funny", "viral"],
+      "sources": [],
+      "severity": 1,
+      "punchline": "Penguins: nature's sleds."
+    },
+    {
+      "id": "weather-2011-usa-lightning-selfie",
+      "category": "weather",
+      "title": "First lightning selfie goes viral",
+      "summary": "A hiker in Colorado accidentally snaps a selfie as lightning strikes behind him.",
+      "date": "2011-08-03",
+      "year": 2011,
+      "type": "event",
+      "countries": ["USA"],
+      "geo": { "lat": 39.7392, "lng": -104.9903 },
+      "location": "Denver, USA",
+      "tags": ["lightning", "funny", "viral"],
+      "sources": [],
+      "severity": 1,
+      "punchline": "Thunderstruck, Instagrammed."
+    },
+    {
+      "id": "weather-2018-india-monsoon-meme",
+      "category": "weather",
+      "title": "Monsoon meme craze sweeps India",
+      "summary": "Social media explodes with memes about the relentless monsoon rains.",
+      "date": "2018-07-10",
+      "year": 2018,
+      "type": "event",
+      "countries": ["India"],
+      "geo": { "lat": 19.0760, "lng": 72.8777 },
+      "location": "Mumbai, India",
+      "tags": ["monsoon", "funny", "viral"],
+      "sources": [],
+      "severity": 1,
+      "punchline": "Rain: India's favorite punchline."
+    },
+    {
+      "id": "weather-2022-ukraine-snow-art",
+      "category": "weather",
+      "title": "Snow art in Kyiv goes global",
+      "summary": "Artists create massive snow murals in Kyiv, shared worldwide.",
+      "date": "2022-01-15",
+      "year": 2022,
+      "type": "event",
+      "countries": ["Ukraine"],
+      "geo": { "lat": 50.4501, "lng": 30.5234 },
+      "location": "Kyiv, Ukraine",
+      "tags": ["snow", "art", "viral"],
+      "sources": [],
+      "severity": 1,
+      "punchline": "Snow: the original canvas."
     }
   ]
 }

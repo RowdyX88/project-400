@@ -38,6 +38,7 @@
     },
     {
       "id": "life-1936-tv",
+      "category": "life",
       "title": "First public television service (BBC)",
       "summary": "Regular high-definition TV broadcasting begins.",
       "date": "1936-11-02",
@@ -46,6 +47,8 @@
       "countries": [
         "UK"
       ],
+      "geo": { "lat": 51.5074, "lng": -0.1278 },
+      "location": "London, UK",
       "tags": [
         "media"
       ],
@@ -55,6 +58,7 @@
     },
     {
       "id": "life-1947-transistor",
+      "category": "life",
       "title": "Transistor invented",
       "summary": "Opens the door to modern electronics.",
       "date": "1947-12-23",
@@ -63,23 +67,8 @@
       "countries": [
         "USA"
       ],
-      "tags": [
-        "electronics"
-      ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Tiny switch, huge consequences."
-    },
-    {
-      "id": "life-1953-dna",
-      "title": "DNA double helix described",
-      "summary": "Watson, Crick (with Franklin's data) model DNA structure.",
-      "date": "1953-04-25",
-      "year": 1953,
-      "type": "science",
-      "countries": [
-        "UK"
-      ],
+      "geo": { "lat": 40.7357, "lng": -74.1724 },
+      "location": "Bell Labs, New Jersey, USA",
       "tags": [
         "genetics"
       ],
@@ -89,6 +78,7 @@
     },
     {
       "id": "life-1957-sputnik",
+      "category": "life",
       "title": "Sputnik 1 launched",
       "summary": "First artificial satellite.",
       "date": "1957-10-04",
@@ -97,6 +87,8 @@
       "countries": [
         "USSR"
       ],
+      "geo": { "lat": 55.7558, "lng": 37.6173 },
+      "location": "Moscow, Russia",
       "tags": [
         "space-race"
       ],
@@ -106,6 +98,7 @@
     },
     {
       "id": "life-1961-gagarin",
+      "category": "life",
       "title": "Gagarin orbits Earth",
       "summary": "First human in space.",
       "date": "1961-04-12",
@@ -114,6 +107,8 @@
       "countries": [
         "USSR"
       ],
+      "geo": { "lat": 55.7558, "lng": 37.6173 },
+      "location": "Moscow, Russia",
       "tags": [
         "space"
       ],
@@ -123,6 +118,7 @@
     },
     {
       "id": "life-1969-moon",
+      "category": "life",
       "title": "Apollo 11 Moon landing",
       "summary": "First humans walk on the Moon.",
       "date": "1969-07-20",
@@ -131,6 +127,8 @@
       "countries": [
         "USA"
       ],
+      "geo": { "lat": 0.6741, "lng": 23.4729 },
+      "location": "Sea of Tranquility, Moon",
       "tags": [
         "moon"
       ],
@@ -140,6 +138,7 @@
     },
     {
       "id": "life-1969-arpanet",
+      "category": "life",
       "title": "ARPANET goes live",
       "summary": "Precursor to the modern internet.",
       "date": "1969-10-29",
@@ -148,6 +147,8 @@
       "countries": [
         "USA"
       ],
+      "geo": { "lat": 34.0522, "lng": -118.2437 },
+      "location": "Los Angeles, USA",
       "tags": [
         "internet"
       ],

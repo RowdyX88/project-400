@@ -62,6 +62,19 @@ export function renderTimeline(stripEl, sliderEl, readoutEl) {
                 chip.className = "event-chip";
                 chip.title = e.summary || e.title;
                 chip.textContent = `${e.year} — ${e.title}`;
+                chip.dataset.eventId = e.id;
+                chip.onmouseenter = () => {
+                    chip.classList.add("active");
+                    document.dispatchEvent(new CustomEvent("event:focus", { detail: { event: e } }));
+                };
+                chip.onmouseleave = () => {
+                    chip.classList.remove("active");
+                    document.dispatchEvent(new CustomEvent("event:blur", { detail: { event: e } }));
+                };
+                chip.onclick = () => {
+                    chip.classList.add("active");
+                    document.dispatchEvent(new CustomEvent("event:focus", { detail: { event: e, panTo: true } }));
+                };
                 stripEl.appendChild(chip);
             });
             readoutEl.textContent = String(state.currentYear);
