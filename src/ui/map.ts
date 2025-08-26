@@ -177,6 +177,35 @@ export async function renderMapPanel(mapEl: HTMLElement) {
     }
   });
 
+  // Dispatch map:changed event on pan/zoom
+  function emitMapChanged() {
+    const center = map.getCenter();
+    const zoom = map.getZoom();
+    const bounds = map.getBounds();
+    // Find visible events (markers within bounds)
+    let visibleEvents = [];
+    if (window.currentEvents && Array.isArray(window.currentEvents)) {
+      visibleEvents = window.currentEvents.filter(ev => {
+        if (ev.geo && typeof ev.geo.lat === "number" && typeof ev.geo.lng === "number") {
+          return bounds.contains([ev.geo.lat, ev.geo.lng]);
+        }
+        return false;
+      });
+    }
+    document.dispatchEvent(new CustomEvent("map:changed", {
+      detail: {
+        center,
+        zoom,
+        bounds,
+        visibleEvents
+      }
+    }));
+  }
+  map.on('moveend', emitMapChanged);
+  map.on('zoomend', emitMapChanged);
+  // Emit initial map state
+  setTimeout(emitMapChanged, 500);
+
   // Resize map when panel resizes
   const panel = mapEl.closest('.panel');
   if (panel) {

@@ -1,3 +1,64 @@
+/* Panel positions and sizes */
+#timeline-panel {
+  left: 24px;
+  top: 220px;
+  width: 1440px;
+  z-index: 20;
+}
+#map-panel {
+  left: 500px;
+  top: 24px;
+  width: 520px;
+  height: 380px;
+  z-index: 20;
+}
+#multi-agent-panel {
+  left: 940px;
+  top: 24px;
+  width: 420px;
+  z-index: 20;
+}
+/* Multi-agent panel styles */
+#multi-agent-panel {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1000;
+  background: rgba(24,32,48,0.92);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px #6366f188;
+  padding: 18px 24px 12px 24px;
+  min-width: 480px;
+  max-width: 700px;
+  color: #fff;
+}
+.agent-row {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+}
+.agent-block {
+  flex: 1;
+  background: rgba(44,54,74,0.85);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 0 4px;
+  min-width: 120px;
+}
+.agent-block h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.1em;
+  color: #f59e42;
+}
+#agent-wonderer h3 { color: #22d3ee; }
+#agent-detective h3 { color: #6366f1; }
+#agent-storyteller h3 { color: #f59e42; }
+.agent-comment {
+  font-size: 1em;
+  margin-top: 4px;
+  min-height: 32px;
+}
 
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; font-family: system-ui, sans-serif; }
