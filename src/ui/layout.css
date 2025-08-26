@@ -1,7 +1,5 @@
 /* Panel positions and sizes */
 #timeline-panel {
-  left: 24px;
-  top: 220px;
   width: 1440px;
   z-index: 20;
 }

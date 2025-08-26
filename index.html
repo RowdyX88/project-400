@@ -16,43 +16,41 @@
   </head>
   <body class="bg-blue-950 text-blue-100 min-h-screen">
     <div class="relative min-h-screen w-full">
-        <div style="display: flex; flex-direction: row; gap: 24px; align-items: flex-start; width: 100%;">
-          <!-- Floating draggable left panel -->
-          <div id="left-panel" class="draggable panel glassy left-panel" style="position:relative; min-width:240px; max-width:320px;">
-            <!-- Left panel will be rendered by JS -->
+      <!-- Floating draggable left panel -->
+      <div id="left-panel" class="draggable panel glassy left-panel" style="position:absolute; left:24px; top:24px; min-width:240px; max-width:320px;">
+        <!-- Left panel will be rendered by JS -->
+      </div>
+      <!-- Floating draggable map panel -->
+      <div id="map-panel" class="draggable panel glassy map-panel" style="position:absolute; left:370px; top:24px; min-width:520px; max-width:720px; min-height:380px; height:380px;">
+        <h2 class="text-amber-300 font-bold mb-2">Map</h2>
+        <div id="map-container"></div>
+      </div>
+      <!-- Multi-agent system: agent panels -->
+      <div id="multi-agent-panel" class="draggable panel glassy agent-panel" style="position:absolute; left:1120px; top:24px; min-width:320px; max-width:420px;">
+        <h2 class="text-emerald-300 font-bold mb-2">AI Agents</h2>
+        <div id="agent-debug" style="font-size:0.95em;color:#f59e42;margin-bottom:8px;"></div>
+        <div class="agent-row">
+          <div class="agent-block" id="agent-wonderer">
+            <h3>Wonderer</h3>
+            <div class="agent-comment" id="comment-wonderer"></div>
           </div>
-          <!-- Floating draggable map panel -->
-          <div id="map-panel" class="draggable panel glassy map-panel" style="position:relative; min-width:520px; max-width:720px; min-height:380px; height:380px;">
-            <h2 class="text-amber-300 font-bold mb-2">Map</h2>
-            <div id="map-container"></div>
+          <div class="agent-block" id="agent-detective">
+            <h3>Detective</h3>
+            <div class="agent-comment" id="comment-detective"></div>
           </div>
-          <!-- Multi-agent system: agent panels -->
-          <div id="multi-agent-panel" class="draggable panel glassy agent-panel" style="position:relative; min-width:320px; max-width:420px;">
-            <h2 class="text-emerald-300 font-bold mb-2">AI Agents</h2>
-            <div id="agent-debug" style="font-size:0.95em;color:#f59e42;margin-bottom:8px;"></div>
-            <div class="agent-row">
-              <div class="agent-block" id="agent-wonderer">
-                <h3>Wonderer</h3>
-                <div class="agent-comment" id="comment-wonderer"></div>
-              </div>
-              <div class="agent-block" id="agent-detective">
-                <h3>Detective</h3>
-                <div class="agent-comment" id="comment-detective"></div>
-              </div>
-              <div class="agent-block" id="agent-storyteller">
-                <h3>Storyteller</h3>
-                <div class="agent-comment" id="comment-storyteller"></div>
-              </div>
-            </div>
+          <div class="agent-block" id="agent-storyteller">
+            <h3>Storyteller</h3>
+            <div class="agent-comment" id="comment-storyteller"></div>
           </div>
-        </div>
-        <!-- Timeline panel below -->
-        <div id="timeline-panel" class="draggable panel glassy timeline-panel" style="position:relative; margin-top:32px; width:100%;">
-          <div class="filmstrip" id="timeline-strip"></div>
-          <input id="year-slider" type="range" min="1900" max="2025" value="1949" step="1" title="Select year" class="slider w-full mt-2" />
-          <div id="year-readout" class="year-readout mt-2">1949</div>
         </div>
       </div>
+      <!-- Timeline panel below -->
+      <div id="timeline-panel" class="draggable panel glassy timeline-panel" style="position:absolute; left:24px; top:440px; width:1516px;">
+        <div class="filmstrip" id="timeline-strip"></div>
+        <input id="year-slider" type="range" min="1900" max="2025" value="1949" step="1" title="Select year" class="slider w-full mt-2" />
+        <div id="year-readout" class="year-readout mt-2">1949</div>
+      </div>
+    </div>
     </div>
     <script type="module" src="/dist/main.js"></script>
     <script>
@@ -61,26 +59,29 @@
       // Remove transform from timeline panel for proper drag/resize
       const timelinePanel = document.getElementById('timeline-panel');
       if (timelinePanel) {
-        timelinePanel.style.transform = '';
-        timelinePanel.style.bottom = '';
+    timelinePanel.style.transform = '';
+    timelinePanel.style.bottom = '';
+    timelinePanel.style.zIndex = 100;
       }
       document.querySelectorAll('.draggable').forEach(panel => {
         let isDragging = false, startX = 0, startY = 0, origX = 0, origY = 0;
         panel.addEventListener('mousedown', e => {
-          if (e.button !== 0) return;
-          // Prevent drag if clicking inside map container
-          if (panel.id === 'map-panel' && e.target && (e.target.id === 'leaflet-map' || e.target.closest && e.target.closest('#leaflet-map'))) return;
-          // Only drag if not clicking on input, textarea, button, or resize handle
-          var tag = e.target && e.target.tagName ? e.target.tagName.toLowerCase() : "";
-          if (["input","textarea","button"].indexOf(tag) !== -1 || (e.target.classList && e.target.classList.contains('resize-handle'))) return;
-          isDragging = true;
-          startX = e.clientX;
-          startY = e.clientY;
-          origX = panel.offsetLeft;
-          origY = panel.offsetTop;
-          panel.style.zIndex = 100;
-          document.body.style.userSelect = 'none';
-          e.preventDefault();
+            if (e.button !== 0) return;
+            // Prevent drag if clicking inside map container
+            if (panel.id === 'map-panel' && e.target && (e.target.id === 'leaflet-map' || e.target.closest && e.target.closest('#leaflet-map'))) return;
+            // Only drag if not clicking on input, textarea, button, select, or resize handle
+            var tag = e.target && e.target.tagName ? e.target.tagName.toLowerCase() : "";
+            if (["input","textarea","button","select","option","label"].indexOf(tag) !== -1 || (e.target.classList && e.target.classList.contains('resize-handle'))) return;
+            // Only drag if not clicking inside a contenteditable element
+            if (e.target && (e.target.isContentEditable || (e.target.closest && e.target.closest('[contenteditable="true"]')))) return;
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            origX = panel.offsetLeft;
+            origY = panel.offsetTop;
+            panel.style.zIndex = 100;
+            document.body.style.userSelect = 'none';
+            e.preventDefault();
         });
         window.addEventListener('mousemove', e => {
           if (!isDragging) return;
