@@ -22,17 +22,17 @@
         <!-- Left panel will be rendered by JS -->
       </div>
       <!-- Floating draggable map panel -->
-      <div id="map-panel" class="draggable panel glassy map-panel" style="position:absolute; left:370px; top:24px; min-width:520px; max-width:720px; min-height:380px; height:380px;">
+  <div id="map-panel" class="draggable panel glassy map-panel" style="position:absolute; left:360px; top:24px; width:940px;">
         <h2 class="text-amber-300 font-bold mb-2">Map</h2>
         <div id="map-container"></div>
       </div>
       <!-- Insights panel (mirrors timeline, fetches web context) -->
-  <div id="insights-panel" class="draggable panel glassy" style="position:absolute; left:1120px; top:24px; min-width:320px;">
+  <div id="insights-panel" class="draggable panel glassy" style="position:absolute; left:1324px; top:24px; width:400px; min-width:320px;">
         <h2 class="text-cyan-300 font-bold mb-2">Insights</h2>
         <div id="insights-content" style="overflow:auto; padding-right:8px;"></div>
       </div>
       <!-- Timeline panel below -->
-  <div id="timeline-panel" class="draggable panel glassy timeline-panel" style="position:absolute; left:24px; top:440px; width:1516px;">
+  <div id="timeline-panel" class="draggable panel glassy timeline-panel" style="position:absolute; left:24px; top:568px; width:calc(100% - 48px);">
         <h2 class="text-amber-300 font-bold mb-2">Timeline</h2>
         <div class="filmstrip" id="timeline-strip"></div>
         <input id="year-slider" type="range" min="1900" max="2025" value="1949" step="1" title="Select year" class="slider w-full mt-2" />
@@ -250,6 +250,8 @@
     #map-panel {
       display: flex;
       flex-direction: column;
+  min-height: 420px;
+  height: 520px;
     }
     #map-container {
       flex: 1 1 auto;
