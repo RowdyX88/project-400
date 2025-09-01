@@ -99,11 +99,20 @@ export function renderMapPanel(mapEl) {
                     shadowSize: [41, 41],
                     className: 'marker-pulse'
                 }));
-                marker.openPopup();
-                marker.setZIndexOffset(1000);
-                activeMarker = marker;
-                if (panTo) {
-                    map.setView(marker.getLatLng(), 6, { animate: true });
+                const showMarker = () => {
+                    marker.openPopup();
+                    marker.setZIndexOffset(1000);
+                    activeMarker = marker;
+                };
+                if (panTo && window.L && markerGroup && typeof markerGroup.zoomToShowLayer === 'function') {
+                    // Ensure the marker is visible (decluster if needed), then center it
+                    markerGroup.zoomToShowLayer(marker, () => {
+                        map.panTo(marker.getLatLng(), { animate: true });
+                        showMarker();
+                    });
+                }
+                else {
+                    showMarker();
                 }
             }
             // Clear previous highlights
