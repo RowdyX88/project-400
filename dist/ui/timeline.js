@@ -117,7 +117,7 @@ export function renderTimeline(stripEl, sliderEl, readoutEl) {
             });
             readoutEl.textContent = String(state.currentYear);
             // Notify map panel of visible events
-            document.dispatchEvent(new CustomEvent("timeline:updated", { detail: { events: items } }));
+            document.dispatchEvent(new CustomEvent("timeline:updated", { detail: { events: items, accent } }));
         });
         yield paint();
         // slider interaction (debounced)

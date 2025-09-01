@@ -121,7 +121,7 @@ export async function renderTimeline(
     });
     readoutEl.textContent = String(state.currentYear);
     // Notify map panel of visible events
-    document.dispatchEvent(new CustomEvent("timeline:updated", { detail: { events: items } }));
+  document.dispatchEvent(new CustomEvent("timeline:updated", { detail: { events: items, accent } }));
   };
 
   await paint();
