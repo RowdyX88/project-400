@@ -26,6 +26,8 @@ export function renderMapPanel(mapEl) {
         let markerRefs = {};
         let activeMarker = null;
         let activePath = null;
+        let relatedHighlightLayer = null;
+        let accentColor = '#6366f1';
         function addMarkers(events) {
             markerRefs = {};
             if (markerGroup) {
@@ -104,17 +106,21 @@ export function renderMapPanel(mapEl) {
                     map.setView(marker.getLatLng(), 6, { animate: true });
                 }
             }
-            // Remove previous connection lines
+            // Clear previous highlights
             if (activePath) {
                 map.removeLayer(activePath);
                 activePath = null;
             }
-            // Draw path for multi-location events
+            if (relatedHighlightLayer) {
+                map.removeLayer(relatedHighlightLayer);
+                relatedHighlightLayer = null;
+            }
+            // Draw path for multi-location events (category accent)
             if (event.locations && Array.isArray(event.locations) && event.locations.length > 1) {
                 const latlngs = event.locations.map((loc) => [loc.lat, loc.lng]);
-                activePath = window.L.polyline(latlngs, { color: '#6366f1', weight: 4, opacity: 0.7, dashArray: '8 6' }).addTo(map);
+                activePath = window.L.polyline(latlngs, { color: accentColor, weight: 3, opacity: 0.8, dashArray: '8 6' }).addTo(map);
             }
-            // Draw connection lines to related events (same tag, country, or year)
+            // Subtle related highlights: halos (no connecting lines)
             if (window.currentEvents && Array.isArray(window.currentEvents)) {
                 const related = window.currentEvents.filter((ev) => {
                     if (ev.id === event.id)
@@ -125,23 +131,24 @@ export function renderMapPanel(mapEl) {
                     const yearMatch = event.year === ev.year;
                     return tagMatch || countryMatch || yearMatch;
                 });
-                related.forEach((ev) => {
-                    if (ev.geo && typeof ev.geo.lat === 'number' && typeof ev.geo.lng === 'number' && event.geo && typeof event.geo.lat === 'number' && typeof event.geo.lng === 'number') {
-                        const line = window.L.polyline([
-                            [event.geo.lat, event.geo.lng],
-                            [ev.geo.lat, ev.geo.lng]
-                        ], {
-                            color: '#f59e42',
-                            weight: 2,
-                            opacity: 0.5,
-                            dashArray: '4 6',
-                            className: 'event-connection-line'
-                        }).addTo(map);
-                        // Remove on blur
-                        if (!activePath)
-                            activePath = line;
-                    }
-                });
+                if (related.length) {
+                    relatedHighlightLayer = window.L.layerGroup();
+                    related.forEach((ev) => {
+                        if (ev.geo && typeof ev.geo.lat === 'number' && typeof ev.geo.lng === 'number') {
+                            const halo = window.L.circle([ev.geo.lat, ev.geo.lng], {
+                                radius: 40000,
+                                color: accentColor,
+                                weight: 2,
+                                opacity: 0.35,
+                                fillColor: accentColor,
+                                fillOpacity: 0.12,
+                                className: 'related-halo'
+                            });
+                            relatedHighlightLayer.addLayer(halo);
+                        }
+                    });
+                    relatedHighlightLayer.addTo(map);
+                }
             }
         }
         document.addEventListener("event:focus", (e) => {
@@ -167,12 +174,19 @@ export function renderMapPanel(mapEl) {
                 map.removeLayer(activePath);
                 activePath = null;
             }
+            if (relatedHighlightLayer) {
+                map.removeLayer(relatedHighlightLayer);
+                relatedHighlightLayer = null;
+            }
         });
         // Listen for timeline updates
         document.addEventListener("timeline:updated", (e) => {
             if (e.detail && Array.isArray(e.detail.events)) {
                 window.currentEvents = e.detail.events;
                 addMarkers(e.detail.events);
+            }
+            if (e.detail && typeof e.detail.accent === 'string') {
+                accentColor = e.detail.accent;
             }
         });
         // Dispatch map:changed event on pan/zoom
