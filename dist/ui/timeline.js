@@ -31,14 +31,14 @@ export function renderTimeline(stripEl, sliderEl, readoutEl) {
         sliderEl.value = String(state.currentYear);
         readoutEl.textContent = String(state.currentYear);
         // load correct events file for current category
-        const catRes = yield fetch("/src/data/categories.json");
+        const catRes = yield fetch("src/data/categories.json");
         const catData = yield catRes.json();
         let all = [];
         let accent = "#fbbf24"; // default accent
         function loadEvents() {
             return __awaiter(this, void 0, void 0, function* () {
                 let file = "nato.json";
-                const catRes = yield fetch("/src/data/categories.json");
+                const catRes = yield fetch("src/data/categories.json");
                 const catData = yield catRes.json();
                 if (catData && Array.isArray(catData.categories)) {
                     for (let i = 0; i < catData.categories.length; i++) {
@@ -51,7 +51,7 @@ export function renderTimeline(stripEl, sliderEl, readoutEl) {
                     }
                 }
                 try {
-                    const res = yield fetch(`/src/data/${file}`);
+                    const res = yield fetch(`src/data/${file}`);
                     const data = yield res.json();
                     if (data && Array.isArray(data.events)) {
                         all = data.events;

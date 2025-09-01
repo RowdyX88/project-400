@@ -38,14 +38,14 @@ export async function renderTimeline(
   readoutEl.textContent = String(state.currentYear);
 
   // load correct events file for current category
-  const catRes = await fetch("/src/data/categories.json");
+  const catRes = await fetch("src/data/categories.json");
   const catData = await catRes.json();
   let all: Event[] = [];
   let accent = "#fbbf24"; // default accent
 
   async function loadEvents() {
     let file = "nato.json";
-    const catRes = await fetch("/src/data/categories.json");
+  const catRes = await fetch("src/data/categories.json");
     const catData = await catRes.json();
     if (catData && Array.isArray(catData.categories)) {
       for (let i = 0; i < catData.categories.length; i++) {
@@ -57,7 +57,7 @@ export async function renderTimeline(
       }
     }
     try {
-      const res = await fetch(`/src/data/${file}`);
+  const res = await fetch(`src/data/${file}`);
       const data = await res.json();
       if (data && Array.isArray(data.events)) {
         all = data.events;
