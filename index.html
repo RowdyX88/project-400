@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <link rel="stylesheet" href="/src/ui/layout.css" />
   </head>
   <body class="bg-blue-950 text-blue-100 min-h-screen">
     <div class="relative min-h-screen w-full">
@@ -25,24 +26,10 @@
         <h2 class="text-amber-300 font-bold mb-2">Map</h2>
         <div id="map-container"></div>
       </div>
-      <!-- Multi-agent system: agent panels -->
-      <div id="multi-agent-panel" class="draggable panel glassy agent-panel" style="position:absolute; left:1120px; top:24px; min-width:320px; max-width:420px;">
-        <h2 class="text-emerald-300 font-bold mb-2">AI Agents</h2>
-        <div id="agent-debug" style="font-size:0.95em;color:#f59e42;margin-bottom:8px;"></div>
-        <div class="agent-row">
-          <div class="agent-block" id="agent-wonderer">
-            <h3>Wonderer</h3>
-            <div class="agent-comment" id="comment-wonderer"></div>
-          </div>
-          <div class="agent-block" id="agent-detective">
-            <h3>Detective</h3>
-            <div class="agent-comment" id="comment-detective"></div>
-          </div>
-          <div class="agent-block" id="agent-storyteller">
-            <h3>Storyteller</h3>
-            <div class="agent-comment" id="comment-storyteller"></div>
-          </div>
-        </div>
+      <!-- Insights panel (mirrors timeline, fetches web context) -->
+      <div id="insights-panel" class="draggable panel glassy" style="position:absolute; left:1120px; top:24px; min-width:320px; max-width:420px; min-height:180px;">
+        <h2 class="text-cyan-300 font-bold mb-2">Insights</h2>
+        <div id="insights-content" style="max-height:520px; overflow:auto; padding-right:8px;"></div>
       </div>
       <!-- Timeline panel below -->
       <div id="timeline-panel" class="draggable panel glassy timeline-panel" style="position:absolute; left:24px; top:440px; width:1516px;">
