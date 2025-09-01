@@ -7,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { state } from "../state.js";
 export function renderMapPanel(mapEl) {
     return __awaiter(this, void 0, void 0, function* () {
         // Ensure Leaflet is loaded
@@ -28,6 +29,15 @@ export function renderMapPanel(mapEl) {
         let activePath = null;
         let relatedHighlightLayer = null;
         let accentColor = '#6366f1';
+        // Build a stable, unique key for events to avoid ID collisions across categories/years/places
+        function eventKey(ev) {
+            const cat = (ev && (ev.category || state.currentCategory)) || 'unknown';
+            const id = (ev && ev.id) || 'noid';
+            const yr = (ev && typeof ev.year !== 'undefined') ? ev.year : 'na';
+            const lat = ev && ev.geo && typeof ev.geo.lat === 'number' ? ev.geo.lat.toFixed(5) : 'na';
+            const lng = ev && ev.geo && typeof ev.geo.lng === 'number' ? ev.geo.lng.toFixed(5) : 'na';
+            return `${cat}::${id}::${yr}::${lat},${lng}`;
+        }
         function addMarkers(events) {
             markerRefs = {};
             if (markerGroup) {
@@ -58,7 +68,7 @@ export function renderMapPanel(mapEl) {
                 const marker = window.L.marker([lat, lng], { riseOnHover: true })
                     .bindPopup(`${warning}<b>${ev.title}</b><br>${ev.year}<br>${ev.location ? ev.location : ''}<br>${ev.summary ? ev.summary : ''}`);
                 markerGroup.addLayer(marker);
-                markerRefs[ev.id] = marker;
+                markerRefs[eventKey(ev)] = marker;
                 marker.on('mouseover', () => {
                     marker.openPopup();
                     marker.setZIndexOffset(1000);
@@ -87,7 +97,7 @@ export function renderMapPanel(mapEl) {
                     className: ''
                 }));
             }
-            const marker = markerRefs[event.id];
+            const marker = markerRefs[eventKey(event)];
             if (marker) {
                 // Use a simple bounce/pulse animation
                 marker.setIcon(window.L.icon({

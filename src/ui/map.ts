@@ -30,6 +30,16 @@ export async function renderMapPanel(mapEl: HTMLElement) {
   let activePath: any = null;
   let relatedHighlightLayer: any = null;
   let accentColor: string = '#6366f1';
+
+  // Build a stable, unique key for events to avoid ID collisions across categories/years/places
+  function eventKey(ev: any): string {
+    const cat = (ev && (ev.category || (state as any).currentCategory)) || 'unknown';
+    const id = (ev && ev.id) || 'noid';
+    const yr = (ev && typeof ev.year !== 'undefined') ? ev.year : 'na';
+    const lat = ev && ev.geo && typeof ev.geo.lat === 'number' ? ev.geo.lat.toFixed(5) : 'na';
+    const lng = ev && ev.geo && typeof ev.geo.lng === 'number' ? ev.geo.lng.toFixed(5) : 'na';
+    return `${cat}::${id}::${yr}::${lat},${lng}`;
+  }
   function addMarkers(events: any[]) {
     markerRefs = {};
     if (markerGroup) {
@@ -44,7 +54,7 @@ export async function renderMapPanel(mapEl: HTMLElement) {
         animate: true
       }).addTo(map);
     }
-    events.forEach(ev => {
+  events.forEach(ev => {
       let lat, lng, warning = "";
       if (ev.geo && typeof ev.geo.lat === "number" && typeof ev.geo.lng === "number") {
         lat = ev.geo.lat;
@@ -59,8 +69,8 @@ export async function renderMapPanel(mapEl: HTMLElement) {
         .bindPopup(
           `${warning}<b>${ev.title}</b><br>${ev.year}<br>${ev.location ? ev.location : ''}<br>${ev.summary ? ev.summary : ''}`
         );
-      markerGroup.addLayer(marker);
-      markerRefs[ev.id] = marker;
+  markerGroup.addLayer(marker);
+  markerRefs[eventKey(ev)] = marker;
       marker.on('mouseover', () => {
         marker.openPopup();
         marker.setZIndexOffset(1000);
@@ -68,7 +78,7 @@ export async function renderMapPanel(mapEl: HTMLElement) {
       marker.on('mouseout', () => {
         marker.setZIndexOffset(0);
       });
-      marker.on('click', () => {
+  marker.on('click', () => {
         marker.openPopup();
         document.dispatchEvent(new CustomEvent("event:focus", { detail: { event: ev, panTo: true } }));
       });
@@ -88,7 +98,7 @@ export async function renderMapPanel(mapEl: HTMLElement) {
           className: ''
         }));
     }
-    const marker = markerRefs[event.id];
+  const marker = markerRefs[eventKey(event)];
     if (marker) {
       // Use a simple bounce/pulse animation
         marker.setIcon(window.L.icon({
