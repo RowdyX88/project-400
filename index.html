@@ -27,12 +27,12 @@
         <div id="map-container"></div>
       </div>
       <!-- Insights panel (mirrors timeline, fetches web context) -->
-      <div id="insights-panel" class="draggable panel glassy" style="position:absolute; left:1120px; top:24px; min-width:320px; max-width:420px; min-height:180px;">
+  <div id="insights-panel" class="draggable panel glassy" style="position:absolute; left:1120px; top:24px; min-width:320px;">
         <h2 class="text-cyan-300 font-bold mb-2">Insights</h2>
-        <div id="insights-content" style="max-height:520px; overflow:auto; padding-right:8px;"></div>
+        <div id="insights-content" style="overflow:auto; padding-right:8px;"></div>
       </div>
       <!-- Timeline panel below -->
-      <div id="timeline-panel" class="draggable panel glassy timeline-panel" style="position:absolute; left:24px; top:440px; width:1516px;">
+  <div id="timeline-panel" class="draggable panel glassy timeline-panel" style="position:absolute; left:24px; top:440px; width:1516px;">
         <h2 class="text-amber-300 font-bold mb-2">Timeline</h2>
         <div class="filmstrip" id="timeline-strip"></div>
         <input id="year-slider" type="range" min="1900" max="2025" value="1949" step="1" title="Select year" class="slider w-full mt-2" />
@@ -92,11 +92,13 @@
         resize.style.position = 'absolute';
         resize.style.right = '0';
         resize.style.bottom = '0';
-        resize.style.width = '18px';
-        resize.style.height = '18px';
+  resize.style.width = '20px';
+  resize.style.height = '20px';
         resize.style.background = 'linear-gradient(135deg, #FFC300 40%, #1e293b 60%)';
         resize.style.cursor = 'nwse-resize';
         resize.style.borderRadius = '0 0 12px 0';
+  resize.style.boxShadow = '0 0 0 1px rgba(255,255,255,0.25) inset, 0 2px 8px rgba(0,0,0,0.35)';
+  resize.style.zIndex = '9999';
         panel.appendChild(resize);
         let isResizing = false, startW = 0, startH = 0;
         resize.addEventListener('mousedown', e => {
@@ -114,8 +116,14 @@
           if (!isResizing) return;
           let dw = e.clientX - startX;
           let dh = e.clientY - startY;
-          panel.style.width = Math.max(180, startW + dw) + 'px';
-          panel.style.height = Math.max(80, startH + dh) + 'px';
+          // Apply width/height while honoring computed CSS min sizes
+          const cs = window.getComputedStyle(panel);
+          const minW = parseFloat(cs.minWidth) || 180;
+          const minH = parseFloat(cs.minHeight) || 120;
+          const newW = Math.max(minW, startW + dw);
+          const newH = Math.max(minH, startH + dh);
+          panel.style.width = newW + 'px';
+          panel.style.height = newH + 'px';
           // If resizing map panel, resize map container and Leaflet map
           if (panel.id === 'map-panel') {
             const mapContainer = panel.querySelector('#map-container');
@@ -156,7 +164,7 @@
       }
       .panel {
         padding: 24px 18px;
-        min-height: 120px;
+        min-height: 100px;
         transition: box-shadow 0.2s, transform 0.2s;
       }
       .draggable {
@@ -168,7 +176,6 @@
       }
       .timeline-panel {
         min-width: 400px;
-        max-width: 900px;
       }
       .filmstrip {
         display: flex;
@@ -252,6 +259,10 @@
       overflow: hidden;
       position: relative;
     }
+  /* Make insights panel flexible so its content grows/shrinks with resize */
+  #insights-panel { display: flex; flex-direction: column; height: 520px; }
+  #insights-content { flex: 1 1 auto; min-height: 0; }
+  #timeline-panel { height: 260px; }
     #leaflet-map {
       width: 100%;
       height: 100%;
@@ -260,6 +271,9 @@
       top: 0;
       left: 0;
     }
+  /* Make timeline panel content flex so height resize is meaningful */
+  #timeline-panel { display: flex; flex-direction: column; }
+  #timeline-panel .filmstrip { flex: 1 1 auto; min-height: 0; }
     </style>
   </body>
 </html>
