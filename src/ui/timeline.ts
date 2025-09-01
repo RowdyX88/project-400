@@ -18,6 +18,19 @@ export async function renderTimeline(
   sliderEl: HTMLInputElement,
   readoutEl: HTMLElement
 ): Promise<void> {
+  const truncate = (s: string, n = 110) => (s && s.length > n ? s.slice(0, n - 1) + "…" : s);
+  const hexToRgb = (hex: string) => {
+    if (!hex) return { r: 96, g: 165, b: 250 };
+    const h = hex.replace('#','');
+    const v = h.length === 3
+      ? h.split('').map(ch => ch + ch).join('')
+      : h;
+    const int = parseInt(v, 16);
+    const r = (int >> 16) & 255;
+    const g = (int >> 8) & 255;
+    const b = int & 255;
+    return { r, g, b };
+  };
   // initial slider bounds
   sliderEl.min = String(state.startYear);
   sliderEl.max = String(state.endYear);
@@ -28,6 +41,7 @@ export async function renderTimeline(
   const catRes = await fetch("/src/data/categories.json");
   const catData = await catRes.json();
   let all: Event[] = [];
+  let accent = "#fbbf24"; // default accent
 
   async function loadEvents() {
     let file = "nato.json";
@@ -37,6 +51,7 @@ export async function renderTimeline(
       for (let i = 0; i < catData.categories.length; i++) {
         if (catData.categories[i].id === state.currentCategory) {
           file = catData.categories[i].file;
+          if (catData.categories[i].color) accent = catData.categories[i].color;
           break;
         }
       }
@@ -67,8 +82,28 @@ export async function renderTimeline(
     items.forEach((e: Event) => {
       const chip = document.createElement("div");
       chip.className = "event-chip";
+      chip.style.setProperty('--chip-accent', accent);
+      // derive softer tints from accent for bg/border/title
+      try {
+        const { r, g, b } = hexToRgb(accent);
+        // Keep a light card bg for readability on dark panels
+        chip.style.setProperty('--chip-bg', 'rgba(255,255,255,0.98)');
+        chip.style.setProperty('--chip-border', `rgba(${r}, ${g}, ${b}, 0.35)`);
+        chip.style.setProperty('--chip-title', accent);
+      } catch {
+        chip.style.setProperty('--chip-bg', 'rgba(255,255,255,0.98)');
+      }
       chip.title = e.summary || e.title;
-      chip.textContent = `${e.year} — ${e.title}`;
+      const tagsHtml = (e as any).tags && Array.isArray((e as any).tags) && (e as any).tags.length
+        ? `<div class="chip-tags">${(e as any).tags.slice(0,2).map((t: string)=>`<span class="chip-tag">${t}</span>`).join('')}</div>`
+        : '';
+      const summaryHtml = e.summary ? `<div class="chip-summary">${truncate(e.summary)}</div>` : '';
+      chip.innerHTML = `
+        <div class="chip-top"><span class="chip-year">${e.year}</span></div>
+        <div class="chip-title">${e.title}</div>
+        ${summaryHtml}
+        ${tagsHtml}
+      `;
       chip.dataset.eventId = e.id;
       chip.onmouseenter = () => {
         chip.classList.add("active");
