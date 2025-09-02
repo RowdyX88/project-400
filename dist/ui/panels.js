@@ -46,5 +46,24 @@ export function renderLeftPanel(root) {
             };
             root.appendChild(div);
         });
+        // Also populate phone micro-dock if present
+        const dock = document.getElementById('cat-dock');
+        if (dock) {
+            dock.innerHTML = '';
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'cat-btn' + (state.currentCategory === cat.id ? ' active' : '');
+                // Option A: readable short labels (up to 8 chars)
+                btn.textContent = cat.label.length > 8 ? cat.label.slice(0, 8) : cat.label;
+                btn.title = cat.label;
+                btn.dataset.id = cat.id;
+                btn.onclick = () => {
+                    setCategory(cat.id);
+                    renderLeftPanel(root);
+                    document.dispatchEvent(new CustomEvent('category:changed'));
+                };
+                dock.appendChild(btn);
+            });
+        }
     });
 }

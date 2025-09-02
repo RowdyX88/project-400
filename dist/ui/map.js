@@ -18,6 +18,13 @@ export function renderMapPanel(mapEl) {
         // Create map container
         mapEl.innerHTML = `<div id=\"leaflet-map\" style=\"width:100%;height:100%;border-radius:12px;position:absolute;top:0;left:0;\"></div>`;
         const map = window.L.map("leaflet-map").setView([51.505, -0.09], 3);
+        // Expose map instance on DOM node for resize/invalidation from layout scripts
+        try {
+            const node = window.L.DomUtil.get('leaflet-map');
+            if (node)
+                node._leaflet_map = map;
+        }
+        catch (_a) { }
         window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors',
             lang: 'en' // Force English for attribution if supported
@@ -284,7 +291,7 @@ export function renderMapPanel(mapEl) {
         try {
             window.L.control.scale({ position: 'bottomleft', metric: true, imperial: false }).addTo(map);
         }
-        catch (_a) { }
+        catch (_b) { }
         // Add a simple Fit-to-Events control
         try {
             const FitControl = window.L.Control.extend({
@@ -311,7 +318,7 @@ export function renderMapPanel(mapEl) {
             });
             map.addControl(new FitControl());
         }
-        catch (_b) { }
+        catch (_c) { }
         // Resize map when panel resizes
         const panel = mapEl.closest('.panel');
         if (panel) {

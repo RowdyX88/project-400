@@ -18,6 +18,11 @@ export async function renderMapPanel(mapEl: HTMLElement) {
   // Create map container
     mapEl.innerHTML = `<div id=\"leaflet-map\" style=\"width:100%;height:100%;border-radius:12px;position:absolute;top:0;left:0;\"></div>`;
   const map = window.L.map("leaflet-map").setView([51.505, -0.09], 3);
+  // Expose map instance on DOM node for resize/invalidation from layout scripts
+  try {
+    const node = window.L.DomUtil.get('leaflet-map');
+    if (node) (node as any)._leaflet_map = map;
+  } catch {}
   window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors',
     lang: 'en' // Force English for attribution if supported
