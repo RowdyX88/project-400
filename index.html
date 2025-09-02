@@ -50,12 +50,33 @@
         <input id="year-slider" type="range" min="1900" max="2025" value="1949" step="1" title="Select year" class="slider w-full mt-2" />
         <div id="year-readout" class="year-readout mt-2">1949</div>
       </div>
-    </div>
-    </div>
+  </div>
   <script type="module" src="dist/main.js"></script>
     <script>
-    // Simple drag-and-drop for .draggable panels
+    // Simple drag-and-drop for .draggable panels (disabled on small screens)
     document.addEventListener('DOMContentLoaded', () => {
+      const mq = window.matchMedia('(max-width: 768px)');
+      const updateResponsiveMode = () => {
+        if (mq.matches) {
+          document.body.classList.add('mobile');
+        } else {
+          document.body.classList.remove('mobile');
+        }
+        // Invalidate Leaflet map size after layout changes
+        setTimeout(() => {
+          try {
+            if (window.L && window.L.DomUtil) {
+              const el = document.getElementById('leaflet-map');
+              const mapEl = el && window.L.DomUtil.get('leaflet-map');
+              if (mapEl && mapEl._leaflet_map) {
+                mapEl._leaflet_map.invalidateSize();
+              }
+            }
+          } catch {}
+        }, 150);
+      };
+      mq.addEventListener('change', updateResponsiveMode);
+      updateResponsiveMode();
       // Remove transform from timeline panel for proper drag/resize
       const timelinePanel = document.getElementById('timeline-panel');
       if (timelinePanel) {
@@ -63,7 +84,8 @@
     timelinePanel.style.bottom = '';
     timelinePanel.style.zIndex = 100;
       }
-      document.querySelectorAll('.draggable').forEach(panel => {
+  // Skip drag/resize on small screens for better UX
+  if (!mq.matches) document.querySelectorAll('.draggable').forEach(panel => {
         let isDragging = false, startX = 0, startY = 0, origX = 0, origY = 0;
         panel.addEventListener('mousedown', e => {
             if (e.button !== 0) return;
@@ -111,7 +133,7 @@
         resize.style.borderRadius = '0 0 12px 0';
   resize.style.boxShadow = '0 0 0 1px rgba(255,255,255,0.25) inset, 0 2px 8px rgba(0,0,0,0.35)';
   resize.style.zIndex = '9999';
-        panel.appendChild(resize);
+  panel.appendChild(resize);
         let isResizing = false, startW = 0, startH = 0;
         resize.addEventListener('mousedown', e => {
           e.stopPropagation();
@@ -159,7 +181,7 @@
             setTimeout(() => { document.body.style.userSelect = ''; }, 0);
           }
         });
-      });
+  });
     });
     </script>
     <style>
@@ -289,6 +311,27 @@
   /* Make timeline panel content flex so height resize is meaningful */
   #timeline-panel { display: flex; flex-direction: column; }
   #timeline-panel .filmstrip { flex: 1 1 auto; min-height: 0; }
+
+  /* Responsive: stack panels and simplify on small screens */
+  @media (max-width: 768px) {
+    .draggable { cursor: default; }
+    #left-panel, #map-panel, #insights-panel, #timeline-panel {
+      position: static !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: none !important;
+      left: auto !important;
+      right: auto !important;
+      top: auto !important;
+      margin: 12px 0;
+    }
+    #map-panel { height: auto; }
+    #map-container { height: 320px; }
+    #insights-panel { height: auto; }
+    #timeline-panel { height: auto; }
+    .resize-handle { display: none !important; }
+    .panel { padding: 16px 14px; }
+  }
     </style>
   </body>
 </html>
