@@ -36,6 +36,25 @@ export async function renderTimeline(
   sliderEl.max = String(state.endYear);
   sliderEl.value = String(state.currentYear);
   readoutEl.textContent = String(state.currentYear);
+  // update min/max label elements if present
+  const minLabel = document.getElementById('year-min');
+  const maxLabel = document.getElementById('year-max');
+  if (minLabel) minLabel.textContent = String(state.startYear);
+  if (maxLabel) maxLabel.textContent = String(state.endYear);
+  // position tooltip initially if present
+  const sliderWrap = document.getElementById('year-slider-wrap') as HTMLElement | null;
+  const tooltip = document.getElementById('year-tooltip') as HTMLElement | null;
+  const updateTooltip = () => {
+    if (!sliderWrap || !tooltip) return;
+    const min = Number(sliderEl.min), max = Number(sliderEl.max), val = Number(sliderEl.value);
+    const pct = (val - min) / (max - min);
+    const wrapRect = sliderWrap.getBoundingClientRect();
+    const x = pct * wrapRect.width;
+    tooltip.style.left = `${x}px`;
+    tooltip.style.transform = 'translateX(-50%)';
+    tooltip.textContent = String(val);
+  };
+  updateTooltip();
 
   // load correct events file for current category
   const catRes = await fetch("src/data/categories.json");
@@ -133,6 +152,8 @@ export async function renderTimeline(
       setYear(Number(sliderEl.value));
       paint();
     }, 32);
+    // live tooltip position while dragging
+    updateTooltip();
   };
 
   // react to category change
