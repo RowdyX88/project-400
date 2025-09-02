@@ -29,6 +29,10 @@ export function renderMapPanel(mapEl) {
         let activePath = null;
         let relatedHighlightLayer = null;
         let accentColor = '#6366f1';
+        // Active focus rings (we use pixel-based circleMarkers for consistent visibility)
+        let activeRings = [];
+        // Track whether we've auto-fitted the map to the initial set of markers
+        let didAutoFit = false;
         // Build a stable, unique key for events to avoid ID collisions across categories/years/places
         function eventKey(ev) {
             const cat = (ev && (ev.category || state.currentCategory)) || 'unknown';
@@ -49,6 +53,8 @@ export function renderMapPanel(mapEl) {
                     showCoverageOnHover: false,
                     maxClusterRadius: 40,
                     spiderfyOnMaxZoom: true,
+                    // Prevent spiderfy on click to avoid perceived jump
+                    spiderfyOnClick: false,
                     disableClusteringAtZoom: 8,
                     animate: true
                 }).addTo(map);
@@ -81,6 +87,17 @@ export function renderMapPanel(mapEl) {
                     document.dispatchEvent(new CustomEvent("event:focus", { detail: { event: ev, panTo: true } }));
                 });
             });
+            // On first load with markers, auto-fit to show all markers without over-zooming
+            try {
+                if (!didAutoFit && markerGroup && markerGroup.getLayers && markerGroup.getLayers().length > 0) {
+                    const b = markerGroup.getBounds();
+                    if (b && b.isValid && b.isValid()) {
+                        map.fitBounds(b, { padding: [40, 40], maxZoom: 5, animate: false });
+                        didAutoFit = true;
+                    }
+                }
+            }
+            catch (_a) { }
         }
         // Animate marker and pan/zoom on event focus
         function highlightMarker(event, panTo = false) {
@@ -113,6 +130,61 @@ export function renderMapPanel(mapEl) {
                     marker.openPopup();
                     marker.setZIndexOffset(1000);
                     activeMarker = marker;
+                    // Draw high-contrast selection rings that stay a constant size (pixel-based)
+                    try {
+                        const ll = marker.getLatLng();
+                        // Clear any existing rings first
+                        if (activeRings.length) {
+                            activeRings.forEach(r => { try {
+                                map.removeLayer(r);
+                            }
+                            catch (_a) { } });
+                            activeRings = [];
+                        }
+                        // Choose a very visible inner color (prefer accent, else cyan)
+                        const innerColor = (accentColor && typeof accentColor === 'string') ? accentColor : '#22d3ee';
+                        const radiusPx = 16; // slightly larger for visibility
+                        // Use overlayPane so rings never occlude the pin icon
+                        const outer = window.L.circleMarker(ll, {
+                            radius: radiusPx,
+                            color: '#ffffff',
+                            weight: 5,
+                            opacity: 0.95,
+                            fill: false,
+                            interactive: false,
+                            pane: 'overlayPane',
+                            className: 'active-ring-outer'
+                        });
+                        const inner = window.L.circleMarker(ll, {
+                            radius: radiusPx,
+                            color: innerColor,
+                            weight: 3,
+                            opacity: 1,
+                            dashArray: '6 4',
+                            fill: false,
+                            interactive: false,
+                            pane: 'overlayPane',
+                            className: 'active-ring-inner'
+                        });
+                        // Add a small center dot above the pin for clear focus
+                        const dot = window.L.circleMarker(ll, {
+                            radius: 4,
+                            color: '#0ea5e9',
+                            weight: 2,
+                            opacity: 1,
+                            fill: true,
+                            fillColor: '#ffffff',
+                            fillOpacity: 0.9,
+                            interactive: false,
+                            pane: 'markerPane',
+                            className: 'active-ring-dot'
+                        });
+                        outer.addTo(map);
+                        inner.addTo(map);
+                        dot.addTo(map);
+                        activeRings = [outer, inner, dot];
+                    }
+                    catch (_a) { }
                 };
                 if (panTo && window.L && markerGroup && typeof markerGroup.zoomToShowLayer === 'function') {
                     // Ensure the marker is visible (decluster if needed), then center it
@@ -133,41 +205,6 @@ export function renderMapPanel(mapEl) {
             if (relatedHighlightLayer) {
                 map.removeLayer(relatedHighlightLayer);
                 relatedHighlightLayer = null;
-            }
-            // Draw path for multi-location events (category accent)
-            if (event.locations && Array.isArray(event.locations) && event.locations.length > 1) {
-                const latlngs = event.locations.map((loc) => [loc.lat, loc.lng]);
-                activePath = window.L.polyline(latlngs, { color: accentColor, weight: 3, opacity: 0.8, dashArray: '8 6' }).addTo(map);
-            }
-            // Subtle related highlights: halos (no connecting lines)
-            if (window.currentEvents && Array.isArray(window.currentEvents)) {
-                const related = window.currentEvents.filter((ev) => {
-                    if (ev.id === event.id)
-                        return false;
-                    // Related by tag, country, or year
-                    const tagMatch = event.tags && ev.tags && event.tags.some((t) => ev.tags.includes(t));
-                    const countryMatch = event.countries && ev.countries && event.countries.some((c) => ev.countries.includes(c));
-                    const yearMatch = event.year === ev.year;
-                    return tagMatch || countryMatch || yearMatch;
-                });
-                if (related.length) {
-                    relatedHighlightLayer = window.L.layerGroup();
-                    related.forEach((ev) => {
-                        if (ev.geo && typeof ev.geo.lat === 'number' && typeof ev.geo.lng === 'number') {
-                            const halo = window.L.circle([ev.geo.lat, ev.geo.lng], {
-                                radius: 40000,
-                                color: accentColor,
-                                weight: 2,
-                                opacity: 0.35,
-                                fillColor: accentColor,
-                                fillOpacity: 0.12,
-                                className: 'related-halo'
-                            });
-                            relatedHighlightLayer.addLayer(halo);
-                        }
-                    });
-                    relatedHighlightLayer.addTo(map);
-                }
             }
         }
         document.addEventListener("event:focus", (e) => {
@@ -196,6 +233,13 @@ export function renderMapPanel(mapEl) {
             if (relatedHighlightLayer) {
                 map.removeLayer(relatedHighlightLayer);
                 relatedHighlightLayer = null;
+            }
+            if (activeRings && activeRings.length) {
+                activeRings.forEach(r => { try {
+                    map.removeLayer(r);
+                }
+                catch (_a) { } });
+                activeRings = [];
             }
         });
         // Listen for timeline updates
@@ -236,6 +280,38 @@ export function renderMapPanel(mapEl) {
         map.on('zoomend', emitMapChanged);
         // Emit initial map state
         setTimeout(emitMapChanged, 500);
+        // Add a scale control for context
+        try {
+            window.L.control.scale({ position: 'bottomleft', metric: true, imperial: false }).addTo(map);
+        }
+        catch (_a) { }
+        // Add a simple Fit-to-Events control
+        try {
+            const FitControl = window.L.Control.extend({
+                options: { position: 'topleft' },
+                onAdd: function () {
+                    const btn = window.L.DomUtil.create('button', 'fit-events-btn');
+                    btn.title = 'Fit map to visible events';
+                    btn.innerHTML = 'Fit';
+                    btn.style.cssText = 'background:#0ea5e9;color:#fff;border:none;border-radius:8px;padding:6px 10px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.25);font-weight:700;';
+                    window.L.DomEvent.disableClickPropagation(btn);
+                    window.L.DomEvent.on(btn, 'click', () => {
+                        try {
+                            if (markerGroup && markerGroup.getLayers && markerGroup.getLayers().length > 0) {
+                                const b = markerGroup.getBounds();
+                                if (b && b.isValid && b.isValid()) {
+                                    map.fitBounds(b, { padding: [40, 40], maxZoom: 6 });
+                                }
+                            }
+                        }
+                        catch (_a) { }
+                    });
+                    return btn;
+                }
+            });
+            map.addControl(new FitControl());
+        }
+        catch (_b) { }
         // Resize map when panel resizes
         const panel = mapEl.closest('.panel');
         if (panel) {
