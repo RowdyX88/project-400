@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="src/ui/layout.css" />
   </head>
   <body class="bg-blue-950 text-blue-100 min-h-screen" style="overflow-x:hidden;">
-  <div class="relative min-h-screen w-full" style="max-width:min(1400px, 100dvw); margin:0 auto; padding:0 16px;">
+  <div id="app" class="relative min-h-screen w-full" style="max-width:min(1400px, 100dvw); margin:0 auto; padding:0 16px;">
       <!-- Floating draggable left panel -->
       <div id="left-panel" class="draggable panel glassy left-panel" style="position:absolute; left:24px; top:24px; min-width:240px; max-width:320px;">
         <!-- Left panel will be rendered by JS -->
@@ -50,17 +50,43 @@
         <input id="year-slider" type="range" min="1900" max="2025" value="1949" step="1" title="Select year" class="slider w-full mt-2" />
         <div id="year-readout" class="year-readout mt-2">1949</div>
       </div>
+      <!-- Mobile dock: quick toggles for drawers (phones only) -->
+      <div id="mobile-dock" class="mobile-dock" aria-hidden="true">
+        <button id="btn-cats" class="dock-btn">Categories</button>
+        <button id="btn-insights" class="dock-btn">Insights</button>
+      </div>
   </div>
   <script type="module" src="dist/main.js"></script>
     <script>
     // Simple drag-and-drop for .draggable panels (disabled on small screens)
     document.addEventListener('DOMContentLoaded', () => {
-      const mq = window.matchMedia('(max-width: 768px)');
+  const mq = window.matchMedia('(max-width: 768px)');
+  const mqCompact = window.matchMedia('(max-width: 900px)');
+      const mqPhone = window.matchMedia('(max-width: 480px)');
+      const app = document.getElementById('app');
+      const left = document.getElementById('left-panel');
+      const insights = document.getElementById('insights-panel');
+      const dock = document.getElementById('mobile-dock');
+      const btnCats = document.getElementById('btn-cats');
+      const btnInsights = document.getElementById('btn-insights');
       const updateResponsiveMode = () => {
         if (mq.matches) {
           document.body.classList.add('mobile');
         } else {
           document.body.classList.remove('mobile');
+        }
+        // Toggle phone mode features
+        if (mqPhone.matches) {
+          app && app.classList.add('phone');
+          dock && (dock.style.display = 'flex');
+          left && left.classList.remove('show');
+          insights && insights.classList.remove('show');
+        } else {
+          app && app.classList.remove('phone');
+          dock && (dock.style.display = 'none');
+          // Ensure drawers not overlaying when leaving phone mode
+          left && left.classList.remove('show');
+          insights && insights.classList.remove('show');
         }
         // Invalidate Leaflet map size after layout changes
         setTimeout(() => {
@@ -75,8 +101,27 @@
           } catch {}
         }, 150);
       };
-      mq.addEventListener('change', updateResponsiveMode);
+  mq.addEventListener('change', updateResponsiveMode);
+  mqCompact.addEventListener('change', updateResponsiveMode);
+      mqPhone.addEventListener('change', updateResponsiveMode);
       updateResponsiveMode();
+
+      // Mobile dock interactions
+      if (btnCats) btnCats.addEventListener('click', () => {
+        if (!left) return;
+        const show = !left.classList.contains('show');
+        left.classList.toggle('show', show);
+        // hide the other
+        insights && insights.classList.remove('show');
+        updateResponsiveMode();
+      });
+      if (btnInsights) btnInsights.addEventListener('click', () => {
+        if (!insights) return;
+        const show = !insights.classList.contains('show');
+        insights.classList.toggle('show', show);
+        left && left.classList.remove('show');
+        updateResponsiveMode();
+      });
       // Remove transform from timeline panel for proper drag/resize
       const timelinePanel = document.getElementById('timeline-panel');
       if (timelinePanel) {
@@ -85,7 +130,7 @@
     timelinePanel.style.zIndex = 100;
       }
   // Skip drag/resize on small screens for better UX
-  if (!mq.matches) document.querySelectorAll('.draggable').forEach(panel => {
+  if (!(mq.matches || mqCompact.matches)) document.querySelectorAll('.draggable').forEach(panel => {
         let isDragging = false, startX = 0, startY = 0, origX = 0, origY = 0;
         panel.addEventListener('mousedown', e => {
             if (e.button !== 0) return;
@@ -311,6 +356,7 @@
   /* Make timeline panel content flex so height resize is meaningful */
   #timeline-panel { display: flex; flex-direction: column; }
   #timeline-panel .filmstrip { flex: 1 1 auto; min-height: 0; }
+  .mobile-dock { display: none; }
 
   /* Responsive: stack panels and simplify on small screens */
   @media (max-width: 768px) {
@@ -331,6 +377,61 @@
     #timeline-panel { height: auto; }
     .resize-handle { display: none !important; }
     .panel { padding: 16px 14px; }
+  }
+
+  /* Compact grid (phones in landscape / small tablets): keep all panels visible */
+  @media (min-width: 481px) and (max-width: 900px) {
+    #app {
+      display: grid;
+      grid-template-columns: 84px 1fr 280px;
+      grid-template-rows: auto 1fr 220px;
+      gap: 12px;
+      align-items: stretch;
+    }
+    #left-panel, #map-panel, #insights-panel, #timeline-panel {
+      position: static !important;
+      margin: 0 !important;
+      width: auto !important;
+    }
+    #left-panel { grid-column: 1; grid-row: 1 / 4; overflow: auto; }
+    #map-panel { grid-column: 2; grid-row: 1 / 3; height: auto; }
+    #insights-panel { grid-column: 3; grid-row: 1 / 3; height: auto; }
+    #timeline-panel { grid-column: 1 / 4; grid-row: 3; height: auto; }
+
+    /* Compact category list */
+    #left-panel .category { padding: 8px 10px; font-size: 13px; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    #left-panel .brand-header { display:none; }
+  }
+
+  /* Phone portrait: off-canvas drawers + dock */
+  @media (max-width: 480px) {
+    #app { padding-bottom: 56px !important; }
+    #left-panel, #insights-panel {
+      position: fixed !important;
+      top: 10px !important;
+      bottom: 70px !important;
+      width: 78% !important;
+      max-width: 420px !important;
+      transition: transform 0.2s ease;
+      z-index: 200;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.45);
+    }
+    #left-panel { left: 10px !important; transform: translateX(-110%); }
+    #insights-panel { right: 10px !important; transform: translateX(110%); }
+    #left-panel.show { transform: translateX(0); }
+    #insights-panel.show { transform: translateX(0); }
+
+    #map-panel { position: static !important; width: 100% !important; height: auto !important; margin-top: 8px; }
+    #map-container { height: 320px; }
+    #timeline-panel { position: static !important; margin-top: 12px; }
+
+    .mobile-dock {
+      position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
+      display: none; gap: 12px; z-index: 220;
+      background: rgba(15,23,42,0.85); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px; padding: 8px 12px; box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+    }
+    .dock-btn { color: #0f172a; font-weight: 700; background: #fbbf24; border: 1px solid #f59e0b; border-radius: 999px; padding: 8px 12px; font-size: 12px; }
   }
     </style>
   </body>
