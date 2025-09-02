@@ -36,7 +36,11 @@
       <!-- Floating draggable map panel -->
   <div id="map-panel" class="draggable panel glassy map-panel" style="position:absolute; left:calc(320px + 40px); top:24px; width:min(940px, calc(100% - 320px - 40px - 420px));">
         <h2 class="text-amber-300 font-bold mb-2">Map</h2>
-        <div id="map-container"></div>
+        <div id="map-container">
+          <!-- Phone-only overlays: category micro-dock and insights chip -->
+          <div id="cat-dock" class="cat-dock" aria-label="Categories dock"></div>
+          <button id="insights-chip" class="insights-chip" aria-expanded="false" aria-controls="insights-panel" title="Open insights">Insights</button>
+        </div>
       </div>
       <!-- Insights panel (mirrors timeline, fetches web context) -->
   <div id="insights-panel" class="draggable panel glassy" style="position:absolute; right:24px; top:24px; width:400px; min-width:320px;">
@@ -50,11 +54,8 @@
         <input id="year-slider" type="range" min="1900" max="2025" value="1949" step="1" title="Select year" class="slider w-full mt-2" />
         <div id="year-readout" class="year-readout mt-2">1949</div>
       </div>
-      <!-- Mobile dock: quick toggles for drawers (phones only) -->
-      <div id="mobile-dock" class="mobile-dock" aria-hidden="true">
-        <button id="btn-cats" class="dock-btn">Categories</button>
-        <button id="btn-insights" class="dock-btn">Insights</button>
-      </div>
+  <!-- (Deprecated) bottom mobile dock is kept for fallback but hidden by default -->
+  <div id="mobile-dock" class="mobile-dock" aria-hidden="true"></div>
   </div>
   <script type="module" src="dist/main.js"></script>
     <script>
@@ -66,9 +67,8 @@
       const app = document.getElementById('app');
       const left = document.getElementById('left-panel');
       const insights = document.getElementById('insights-panel');
-      const dock = document.getElementById('mobile-dock');
-      const btnCats = document.getElementById('btn-cats');
-      const btnInsights = document.getElementById('btn-insights');
+    const dock = document.getElementById('mobile-dock');
+    const insightsChip = document.getElementById('insights-chip');
       const updateResponsiveMode = () => {
         if (mq.matches) {
           document.body.classList.add('mobile');
@@ -78,12 +78,13 @@
         // Toggle phone mode features
         if (mqPhone.matches) {
           app && app.classList.add('phone');
-          dock && (dock.style.display = 'flex');
+      // We use top-right insights chip + left micro-dock; hide bottom dock
+      dock && (dock.style.display = 'none');
           left && left.classList.remove('show');
           insights && insights.classList.remove('show');
         } else {
           app && app.classList.remove('phone');
-          dock && (dock.style.display = 'none');
+      dock && (dock.style.display = 'none');
           // Ensure drawers not overlaying when leaving phone mode
           left && left.classList.remove('show');
           insights && insights.classList.remove('show');
@@ -106,19 +107,13 @@
       mqPhone.addEventListener('change', updateResponsiveMode);
       updateResponsiveMode();
 
-      // Mobile dock interactions
-      if (btnCats) btnCats.addEventListener('click', () => {
-        if (!left) return;
-        const show = !left.classList.contains('show');
-        left.classList.toggle('show', show);
-        // hide the other
-        insights && insights.classList.remove('show');
-        updateResponsiveMode();
-      });
-      if (btnInsights) btnInsights.addEventListener('click', () => {
+      // Insights chip interaction (phone)
+      if (insightsChip) insightsChip.addEventListener('click', () => {
         if (!insights) return;
         const show = !insights.classList.contains('show');
         insights.classList.toggle('show', show);
+        insightsChip.setAttribute('aria-expanded', show ? 'true' : 'false');
+        // hide the left drawer if it was open
         left && left.classList.remove('show');
         updateResponsiveMode();
       });
@@ -357,6 +352,8 @@
   #timeline-panel { display: flex; flex-direction: column; }
   #timeline-panel .filmstrip { flex: 1 1 auto; min-height: 0; }
   .mobile-dock { display: none; }
+  .cat-dock { display: none; }
+  .insights-chip { display: none; }
 
   /* Responsive: stack panels and simplify on small screens */
   @media (max-width: 768px) {
@@ -425,13 +422,25 @@
     #map-container { height: 320px; }
     #timeline-panel { position: static !important; margin-top: 12px; }
 
-    .mobile-dock {
-      position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
-      display: none; gap: 12px; z-index: 220;
-      background: rgba(15,23,42,0.85); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 999px; padding: 8px 12px; box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+    /* Replace bottom dock with category micro-dock + insights chip */
+    .mobile-dock { display: none !important; }
+  .cat-dock {
+      position: absolute; left: 8px; top: 56px; display: flex; flex-direction: column; gap: 6px;
+      z-index: 210;
     }
-    .dock-btn { color: #0f172a; font-weight: 700; background: #fbbf24; border: 1px solid #f59e0b; border-radius: 999px; padding: 8px 12px; font-size: 12px; }
+    .cat-btn { min-width: 54px; max-width: 78px; padding: 6px 8px; font-size: 12px; font-weight: 700;
+      color: #0b1220; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 999px; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+    .cat-btn.active { background: #fbbf24; border-color: #d97706; }
+  .insights-chip { position: absolute; right: 8px; top: 8px; padding: 8px 10px; font-size: 12px; font-weight: 800;
+      color: #0b1220; background: #a7f3d0; border: 1px solid #10b981; border-radius: 999px; z-index: 210; box-shadow: 0 2px 10px rgba(0,0,0,0.25); }
+  .cat-dock, .insights-chip { display: inline-flex; }
+
+    /* Tighter paddings for mobile */
+    .panel { padding: 12px 10px; }
+    .filmstrip { padding: 8px; gap: 8px; }
+    .event-chip { padding: 10px; min-width: 170px; }
+    .chip-title { font-size: 13px; }
+    .chip-summary { font-size: 11px; }
   }
     </style>
   </body>
