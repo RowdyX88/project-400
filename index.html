@@ -406,11 +406,11 @@
     html, body, #app { height: 100dvh !important; }
     body { overflow: hidden !important; }
     #app {
-      padding: 0 4px 4px !important;
+  padding: 2px 4px 4px !important;
       display: grid;
-      grid-template-columns: 72px 1fr 100px; /* left cats, center map, right insights */
-      grid-template-rows: 1fr 96px;          /* main row + compact timeline */
-      gap: 6px;
+  grid-template-columns: 80px 1fr 92px; /* left cats, center map, right insights */
+  grid-template-rows: 1fr 148px;        /* even taller timeline to show event heads */
+  gap: 4px;
       align-items: stretch;
     }
     /* Place panels into grid */
@@ -421,38 +421,58 @@
       max-width: none !important;
       top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
       box-shadow: none; /* flatter on phone */
-      padding: 10px 8px; /* tighter padding */
+      padding: 8px 6px; /* tighter padding */
     }
-    #left-panel { grid-column: 1; grid-row: 1; overflow: auto; }
-    #map-panel { grid-column: 2; grid-row: 1; height: auto !important; display: flex; flex-direction: column; }
-    #insights-panel { grid-column: 3; grid-row: 1; display:flex; flex-direction: column; overflow: hidden; }
-    #timeline-panel { grid-column: 1 / 4; grid-row: 2; display:flex; flex-direction: column; overflow: hidden; }
+    #left-panel { grid-column: 1; grid-row: 1; overflow: auto; min-height: 0; }
+    #map-panel { grid-column: 2; grid-row: 1; height: auto !important; display: flex; flex-direction: column; min-height: 0; padding-top: 6px; padding-bottom: 6px; }
+    #insights-panel { grid-column: 3; grid-row: 1; display:flex; flex-direction: column; overflow: hidden; min-height: 0; }
+  #timeline-panel { grid-column: 1 / 4; grid-row: 2; display:flex; flex-direction: column; overflow: hidden; min-height: 0; margin-top: -64px; z-index: 5; }
 
     /* Map should fill its cell */
     #map-container { height: 100% !important; min-height: 0; }
-    #leaflet-map { height: 100% !important; }
+  #leaflet-map { height: 100% !important; }
+  /* Make Leaflet controls smaller so they take less visual space */
+  .leaflet-control { margin: 6px; }
+  .leaflet-control-zoom { transform: scale(0.9); transform-origin: top left; }
 
     /* Insights content scrolls internally */
-    #insights-panel { height: auto !important; }
-    #insights-content { flex: 1 1 auto; min-height: 0; overflow: auto; }
+  #insights-panel { height: auto !important; }
+  #insights-content { flex: 1 1 auto; min-height: 0; overflow: auto; }
 
     /* Category list: full words, small, scrollable */
     #left-panel .brand-header { display: none; }
     #left-panel .category {
-      font-size: 11px; padding: 6px 6px; margin-bottom: 6px;
+      font-size: 10px; padding: 5px 6px; margin-bottom: 6px;
       white-space: normal; line-height: 1.15; word-break: break-word;
     }
 
-    /* Tiny headings */
-    #left-panel h2, #map-panel h2, #insights-panel h2, #timeline-panel h2 { font-size: 12px; margin-bottom: 4px; }
+  /* Tiny headings */
+  #left-panel h2, #map-panel h2, #insights-panel h2, #timeline-panel h2 { font-size: 10px; margin-bottom: 2px; }
 
     /* Filmstrip + slider compact */
-    .filmstrip { padding: 6px; gap: 6px; min-height: 56px; }
-    .event-chip { padding: 8px; min-width: 140px; }
-    .chip-title { font-size: 12px; }
-    .chip-summary { font-size: 10px; }
-    #year-slider { height: 18px; }
-    .year-readout { font-size: 14px; }
+  .filmstrip { padding: 4px; gap: 6px; min-height: 56px; }
+  .event-chip { padding: 5px; min-width: 100px; }
+  .chip-title { font-size: 9px; line-height: 1.2; }
+  .chip-summary, .chip-tags { display:none !important; }
+  #year-slider { height: 12px; margin-top: 4px; margin-bottom: 2px; }
+  .year-readout { font-size: 10.5px; }
+
+  /* Thin, compact range slider */
+  #year-slider { appearance: none; background: transparent; }
+  #year-slider::-webkit-slider-runnable-track { height: 2px; background: #475569; border-radius: 999px; }
+  #year-slider::-moz-range-track { height: 2px; background: #475569; border-radius: 999px; }
+  #year-slider::-ms-track { height: 2px; background: transparent; border-color: transparent; color: transparent; }
+  #year-slider::-ms-fill-lower, #year-slider::-ms-fill-upper { background: #475569; border-radius: 999px; }
+  #year-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; background: #fbbf24; border-radius: 50%; border: 2px solid #1e293b; margin-top: -6px; }
+  #year-slider::-moz-range-thumb { width: 14px; height: 14px; background: #fbbf24; border: 2px solid #1e293b; border-radius: 50%; }
+  #year-slider::-ms-thumb { width: 14px; height: 14px; background: #fbbf24; border: 2px solid #1e293b; border-radius: 50%; }
+
+  /* Insights text smaller (more dense) */
+  .ins-card { padding: 6px 6px; }
+  .ins-title { font-size: 9.5px; line-height: 1.2; }
+  .ins-summary, .ins-extra { font-size: 9px; line-height: 1.25; }
+  .ins-tagline { font-size: 9px; }
+  .ins-tab { font-size: 9.5px; padding: 2px 5px; }
 
     /* Hide micro-dock and chip in this mode */
     .mobile-dock, .cat-dock, .insights-chip { display: none !important; }
