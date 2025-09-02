@@ -113,6 +113,7 @@
         const show = !insights.classList.contains('show');
         insights.classList.toggle('show', show);
         insightsChip.setAttribute('aria-expanded', show ? 'true' : 'false');
+        insightsChip.textContent = show ? 'Close' : 'Insights';
         // hide the left drawer if it was open
         left && left.classList.remove('show');
         updateResponsiveMode();
@@ -426,9 +427,13 @@
     .mobile-dock { display: none !important; }
   .cat-dock {
       position: absolute; left: 8px; top: 56px; display: flex; flex-direction: column; gap: 6px;
+      max-height: calc(100% - 72px); overflow-y: auto; padding-right: 4px;
       z-index: 210;
     }
-    .cat-btn { min-width: 54px; max-width: 78px; padding: 6px 8px; font-size: 12px; font-weight: 700;
+    /* Optional thin scrollbar for supporting browsers */
+    .cat-dock::-webkit-scrollbar { width: 6px; }
+    .cat-dock::-webkit-scrollbar-thumb { background: rgba(148,163,184,0.5); border-radius: 999px; }
+    .cat-btn { min-width: 60px; max-width: 96px; padding: 6px 8px; font-size: 12px; font-weight: 700;
       color: #0b1220; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 999px; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
     .cat-btn.active { background: #fbbf24; border-color: #d97706; }
   .insights-chip { position: absolute; right: 8px; top: 8px; padding: 8px 10px; font-size: 12px; font-weight: 800;
