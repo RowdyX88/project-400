@@ -420,11 +420,11 @@
     html, body, #app { height: 100dvh !important; }
     body { overflow: hidden !important; }
     #app {
-  padding: 2px 4px 4px !important;
+  padding: 2px 2px 4px !important;
       display: grid;
-  grid-template-columns: 80px 1fr 92px; /* left cats, center map, right insights */
-  grid-template-rows: 1fr 172px;        /* taller timeline to show slider + titles */
-  gap: 4px;
+  grid-template-columns: 64px 1fr 72px; /* slimmer side rails to give map more width */
+  grid-template-rows: 1fr 158px;        /* keep timeline compact */
+  gap: 2px;
       align-items: stretch;
     }
     /* Place panels into grid */
@@ -435,15 +435,15 @@
       max-width: none !important;
       top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
       box-shadow: none; /* flatter on phone */
-      padding: 6px 6px; /* tighter padding */
+      padding: 4px 4px; /* even tighter padding */
     }
     #left-panel { grid-column: 1; grid-row: 1; overflow: auto; min-height: 0; }
-    #map-panel { grid-column: 2; grid-row: 1; height: auto !important; display: flex; flex-direction: column; min-height: 0; padding-top: 6px; padding-bottom: 6px; }
-    #insights-panel { grid-column: 3; grid-row: 1; display:flex; flex-direction: column; overflow: hidden; min-height: 0; }
-  #timeline-panel { grid-column: 1 / 4; grid-row: 2; display:flex; flex-direction: column; overflow: visible; min-height: 0; margin-top: -96px; z-index: 6; padding-bottom: max(4px, env(safe-area-inset-bottom, 0)); }
+    #map-panel { grid-column: 2; grid-row: 1; height: auto !important; display: flex; flex-direction: column; min-height: 240px; padding-top: 4px; padding-bottom: 4px; }
+    #insights-panel { grid-column: 3; grid-row: 1; display:flex; flex-direction: column; overflow: hidden; min-height: 200px; }
+  #timeline-panel { grid-column: 1 / 4; grid-row: 2; display:flex; flex-direction: column; overflow: visible; min-height: 0; margin-top: -56px; z-index: 6; padding-bottom: max(4px, env(safe-area-inset-bottom, 0)); }
 
     /* Map should fill its cell */
-    #map-container { height: 100% !important; min-height: 0; }
+  #map-container { height: 100% !important; min-height: 200px; }
   #leaflet-map { height: 100% !important; }
   /* Make Leaflet controls smaller so they take less visual space */
   .leaflet-control { margin: 6px; }
@@ -465,7 +465,7 @@
   #left-panel h2 { font-size: 10px; margin-bottom: 2px; }
 
     /* Filmstrip + slider compact */
-  .filmstrip { padding: 4px; gap: 6px; min-height: 56px; }
+  .filmstrip { padding: 2px; gap: 4px; min-height: 52px; }
   .event-chip { padding: 5px; min-width: 100px; }
   .chip-title { font-size: 9px; line-height: 1.2; }
   .chip-summary, .chip-tags { display:none !important; }
@@ -488,9 +488,12 @@
   #year-slider::-ms-thumb { width: 14px; height: 14px; background: #fbbf24; border: 2px solid #1e293b; border-radius: 50%; }
 
   /* Insights text smaller (more dense) */
-  .ins-card { padding: 6px 6px; }
-  .ins-title { font-size: 9.5px; line-height: 1.2; }
-  .ins-summary, .ins-extra { font-size: 9px; line-height: 1.25; }
+  .ins-card { padding: 4px 4px; }
+  .ins-title { font-size: 9px; line-height: 1.2; display:-webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow:hidden; }
+  .ins-summary, .ins-extra { font-size: 9px; line-height: 1.25; display:none !important; }
+  .ins-tagline, .ins-tab { font-size: 9px; }
+  /* Hide any large media inside insights on phones */
+  #insights-panel img, #insights-panel video, #insights-panel iframe { display:none !important; }
   .ins-tagline { font-size: 9px; }
   .ins-tab { font-size: 9.5px; padding: 2px 5px; }
 
