@@ -1,0 +1,6 @@
+# Allow all crawling
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://buildbyer.com/sitemap.xml

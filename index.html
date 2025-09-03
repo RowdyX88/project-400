@@ -7,7 +7,9 @@
   <title>BuildByer</title>
   <meta name="application-name" content="BuildByer" />
   <meta name="apple-mobile-web-app-title" content="BuildByer" />
-  <meta name="description" content="BuildByer — interactive map, timeline, and insights." />
+  <meta name="description" content="BuildByer — interactive map, timeline, and insights across NATO, politics, weather, life and global events." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://buildbyer.com/" />
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Leaflet.js for map panel -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -17,14 +19,46 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
   <!-- App icons / favicon -->
-  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
   <meta name="msapplication-config" content="assets/icons/browserconfig.xml" />
   <meta name="msapplication-TileColor" content="#0f172a" />
   <meta name="theme-color" content="#0f172a" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="BuildByer" />
+  <meta property="og:site_name" content="BuildByer" />
+  <meta property="og:description" content="Interactive map, timeline, and insights across NATO, politics, weather, life and global events." />
+  <meta property="og:url" content="https://buildbyer.com/" />
+  <meta property="og:image" content="https://buildbyer.com/assets/og/buildbyer-1200x630.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BuildByer" />
+  <meta name="twitter:description" content="Interactive map, timeline, and insights across NATO, politics, weather, life and global events." />
+  <meta name="twitter:image" content="https://buildbyer.com/assets/og/buildbyer-1200x630.png" />
+  <!-- JSON-LD: Organization + Website -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "BuildByer",
+    "url": "https://buildbyer.com/",
+    "logo": "https://buildbyer.com/assets/icons/apple-touch-icon.png"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "BuildByer",
+    "url": "https://buildbyer.com/"
+  }
+  </script>
   <link rel="stylesheet" href="src/ui/layout.css" />
   </head>
   <body class="bg-blue-950 text-blue-100 min-h-screen" style="overflow-x:hidden;">
@@ -40,6 +74,16 @@
           <!-- Phone-only overlays: category micro-dock and insights chip -->
           <div id="cat-dock" class="cat-dock" aria-label="Categories dock"></div>
           <button id="insights-chip" class="insights-chip" aria-expanded="false" aria-controls="insights-panel" title="Open insights">Insights</button>
+        </div>
+        <!-- Phone-only brand/contact row under the map -->
+        <div id="brand-row" class="brand-row" aria-label="BuildByer brand and contact">
+          <button id="contact-tab" class="contact-tab" aria-controls="contact-modal" aria-expanded="false" title="Open contact">
+            Contact
+          </button>
+          <button id="brand-badge" class="brand-badge" type="button" aria-controls="contact-modal" aria-expanded="false" title="Open contact">
+            <img src="assets/icons/apple-touch-icon.png" alt="" width="16" height="16" />
+            <span>BuildByer</span>
+          </button>
         </div>
       </div>
       <!-- Insights panel (mirrors timeline, fetches web context) -->
@@ -125,6 +169,33 @@
         left && left.classList.remove('show');
         updateResponsiveMode();
       });
+      // Contact modal wiring
+      const contactTab = document.getElementById('contact-tab');
+  const contactModal = document.getElementById('contact-modal');
+  const brandBadge = document.getElementById('brand-badge');
+      const closeBtn = contactModal ? contactModal.querySelector('.contact-close') : null;
+      function openContact() {
+        if (!contactModal) return;
+        contactModal.classList.add('show');
+        contactModal.setAttribute('aria-hidden', 'false');
+        if (contactTab) contactTab.setAttribute('aria-expanded', 'true');
+        if (brandBadge) brandBadge.setAttribute('aria-expanded', 'true');
+      }
+      function closeContact() {
+        if (!contactModal) return;
+        contactModal.classList.remove('show');
+        contactModal.setAttribute('aria-hidden', 'true');
+        if (contactTab) contactTab.setAttribute('aria-expanded', 'false');
+        if (brandBadge) brandBadge.setAttribute('aria-expanded', 'false');
+      }
+      if (contactTab) contactTab.addEventListener('click', openContact);
+      if (brandBadge) brandBadge.addEventListener('click', openContact);
+      if (closeBtn) closeBtn.addEventListener('click', closeContact);
+      if (contactModal) contactModal.addEventListener('click', (e) => {
+        var t = e.target;
+        if (t && t.classList && t.classList.contains('contact-backdrop')) closeContact();
+      });
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeContact(); });
       // Remove transform from timeline panel for proper drag/resize
       const timelinePanel = document.getElementById('timeline-panel');
       if (timelinePanel) {
@@ -232,7 +303,69 @@
   });
     });
     </script>
+    <!-- Contact modal -->
+    <div id="contact-modal" class="contact-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="contact-title">
+      <div class="contact-backdrop"></div>
+      <div class="contact-panel">
+        <button class="contact-close" aria-label="Close">×</button>
+        <h3 id="contact-title">Contact</h3>
+        <p class="contact-copy">
+          Hi! BuildByer is a tiny lab of world bits — some sharp, some shaky. Got fixes, leads,
+          or year-stamped nuggets? Ping <a href="mailto:therowdyson@gmail.com">therowdyson@gmail.com</a>.
+          Want to help build? I’ll share the repo and we’ll branch like it’s spring.
+        </p>
+      </div>
+    </div>
     <style>
+  /* Desktop contact overlay on brand logo */
+  .left-panel .brand-header .contact-overlay,
+  .brand-img-wrap .contact-overlay {
+    display: none !important; /* overlay removed in favor of inline button */
+  }
+  @media (max-width: 480px) {
+    .brand-img-wrap .contact-overlay { display: none !important; }
+  }
+  /* New inline contact button between logo and categories (desktop/tablet) */
+  .contact-inline { font-size: 11.5px; padding: 5px 10px; border-radius: 999px; background:#1d4ed8; color:#e5e7eb; border:1px solid #1e3a8a; box-shadow: 0 2px 8px rgba(0,0,0,0.24); }
+  .contact-inline:hover { filter: brightness(1.05); }
+  /* Brand row (hidden by default; shown on phone) */
+  .brand-row { display: none; align-items: center; justify-content: space-between; gap: 8px; margin: 4px 2px 0 2px; }
+  .brand-logo { font-weight: 800; font-size: 14px; color: #fbbf24; letter-spacing: 0.3px; }
+  .brand-badge { display:flex; align-items:center; gap:6px; padding: 2px 6px; border-radius: 10px; background: rgba(2,6,23,0.5); border:1px solid rgba(148,163,184,0.25); color:#fbbf24; font-weight:800; font-size: 12px; }
+  .brand-badge img { border-radius: 4px; display:block; }
+  .contact-tab { font-size: 10px; padding: 4px 8px; border-radius: 999px; background:#1d4ed8; color:#e5e7eb; border:1px solid #1e3a8a; box-shadow: 0 2px 8px rgba(0,0,0,0.24); white-space: nowrap; }
+  .contact-tab:hover { filter: brightness(1.05); }
+
+  /* Contact modal */
+  .contact-modal { position: fixed; inset: 0; display: none; z-index: 1000; }
+  .contact-modal.show { display: block; }
+  .contact-modal .contact-backdrop { position: absolute; inset: 0; background: rgba(2,6,23,0.6); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
+  .contact-modal .contact-panel { position: relative; margin: 10vh auto 0; width: min(520px, 92vw); background: linear-gradient(160deg, #0b1220 0%, #0f172a 60%, #111827 100%); color:#e5e7eb; border:1px solid #334155; border-radius: 14px; box-shadow: 0 16px 48px rgba(0,0,0,0.55); padding: 14px 16px 16px; }
+  .contact-modal .contact-close { position: absolute; top: 6px; right: 8px; background: transparent; color: #cbd5e1; font-size: 18px; line-height: 1; border: none; cursor: pointer; }
+  .contact-modal h3 { margin: 0 0 6px 0; font-size: 14px; font-weight: 800; color: #fbbf24; }
+  .contact-modal .contact-copy { font-size: 12px; line-height: 1.35; color:#cbd5e1; }
+  .contact-modal a { color: #93c5fd; text-decoration: underline; }
+  /* Compact Leaflet popup (global) */
+  .bb-popup .leaflet-popup-content-wrapper {
+    padding: 4px 6px; border-radius: 10px; max-width: 200px;
+    background: rgba(2,6,23,0.95); /* slate-950 w/ opacity */
+    color: #e5e7eb; /* slate-200 */
+    border: 1px solid #334155; /* slate-700 */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  }
+  .bb-popup .leaflet-popup-content { margin: 2px 0; font-size: 9.5px; line-height: 1.2; max-height: 120px; overflow: auto; word-wrap: break-word; overflow-wrap: anywhere; }
+  .bb-popup .leaflet-popup-content p, .bb-popup .leaflet-popup-content li { font-size: 9.5px; line-height: 1.2; margin: 2px 0; }
+  .bb-popup .leaflet-popup-content b { font-size: 10px; }
+  .bb-popup .leaflet-popup-tip { width: 7px; height: 7px; background: rgba(2,6,23,0.95); border: 1px solid #334155; }
+  .bb-popup .leaflet-popup-content a { color: #93c5fd; }
+  .leaflet-container a.leaflet-popup-close-button { color: #cbd5e1; text-shadow: none; }
+
+  /* Structured popup inner styles */
+  .bb-popup .bbp { font-size: 9.5px; line-height: 1.2; }
+  .bb-popup .bbp .bb-title { font-size: 10px; font-weight: 600; margin: 0 0 2px 0; color: #fef3c7; }
+  .bb-popup .bbp .bb-meta { font-size: 9px; color: #94a3b8; margin: 0 0 2px 0; }
+  .bb-popup .bbp .bb-summary { font-size: 9.5px; color: #e2e8f0; }
+  .bb-popup .bbp .bb-warn { font-size: 9px; color: #f59e0b; margin-top: 2px; }
   html, body { max-width: 100dvw; }
   body {
         background: linear-gradient(120deg, #0f172a 60%, #1e293b 100%);
@@ -295,7 +428,7 @@
       .event-chip:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,0.28); background: rgba(51,65,85,0.98); border-color: #475569; }
       .event-chip.active { background: #fbbf24; border-color: #fbbf24; color: #1e293b; box-shadow: 0 0 0 2px rgba(251,191,36,0.5); }
       /* Text inside chips matching category palette */
-      .chip-title { margin-top: 6px; font-size: 14px; font-weight: 800; color: #fbbf24; line-height: 1.3; }
+  .chip-title { margin-top: 6px; font-size: 13px; font-weight: 700; color: #fbbf24; line-height: 1.3; }
       .event-chip.active .chip-title { color: #1e293b; }
       .chip-summary { margin-top: 6px; font-size: 12px; color: #cbd5e1; line-height: 1.5; }
       .event-chip.active .chip-summary { color: #0b1220; }
@@ -305,10 +438,10 @@
       .chip-year { font-size: 11px; font-weight: 800; color: #e5e7eb; background:#1f2937; border:1px solid #475569; padding: 2px 6px; border-radius: 999px; }
       .event-chip.active .chip-year { color:#1e293b; background:#fff7d6; border-color:#f59e0b; }
       .category {
-        padding: 10px 14px;
+        padding: 8px 10px; /* tighter on desktop */
         border-radius: 10px;
         cursor: pointer;
-        margin-bottom: 8px;
+        margin-bottom: 6px; /* less vertical space */
         background: rgba(30,41,59,0.92);
         color: #fbbf24;
         font-size: 16px;
@@ -410,22 +543,22 @@
     #timeline-panel { grid-column: 1 / 4; grid-row: 3; height: auto; }
   .year-end { font-size: 11px; }
 
-    /* Compact category list */
-    #left-panel .category { padding: 8px 10px; font-size: 13px; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* Compact category list */
+  #left-panel .category { padding: 6px 8px; font-size: 12px; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     #left-panel .brand-header { display:none; }
   }
 
-  /* Phone portrait: fixed grid with all panels visible (no page scroll) */
+  /* Phone portrait: compact 2-col grid; categories move to a horizontal dock over the map */
   @media (max-width: 480px) {
     html, body, #app { height: 100dvh !important; }
     body { overflow: hidden !important; }
     #app {
   padding: 2px 2px 4px !important;
       display: grid;
-  grid-template-columns: 64px 1fr 72px; /* slimmer side rails to give map more width */
-  grid-template-rows: 1fr 158px;        /* keep timeline compact */
+  grid-template-columns: 1fr 140px;     /* map left, insights right (wider) */
+  grid-template-rows: auto 158px;       /* row 1 just as tall as content */
   gap: 2px;
-      align-items: stretch;
+      align-items: start; /* don’t stretch items; let panels be content-height */
     }
     /* Place panels into grid */
     #left-panel, #map-panel, #insights-panel, #timeline-panel {
@@ -437,27 +570,65 @@
       box-shadow: none; /* flatter on phone */
       padding: 4px 4px; /* even tighter padding */
     }
-    #left-panel { grid-column: 1; grid-row: 1; overflow: auto; min-height: 0; }
-    #map-panel { grid-column: 2; grid-row: 1; height: auto !important; display: flex; flex-direction: column; min-height: 240px; padding-top: 4px; padding-bottom: 4px; }
-    #insights-panel { grid-column: 3; grid-row: 1; display:flex; flex-direction: column; overflow: hidden; min-height: 200px; }
-  #timeline-panel { grid-column: 1 / 4; grid-row: 2; display:flex; flex-direction: column; overflow: visible; min-height: 0; margin-top: -56px; z-index: 6; padding-bottom: max(4px, env(safe-area-inset-bottom, 0)); }
+    #left-panel { display: none !important; }
+  #map-panel { grid-column: 1; grid-row: 1; height: auto !important; display: block; min-height: 0; padding: 2px 2px 0 2px; align-self: start; position: relative; }
+  /* Show brand/contact row only on phone, space it below the map */
+  .brand-row { display: flex; margin: 4px 0 2px 0; }
+  .brand-logo { font-size: 12px; }
+  .brand-badge { font-size: 11px; gap:5px; padding: 2px 6px; }
+  .brand-badge img { width:14px; height:14px; }
+  .contact-tab { font-size: 9.5px; padding: 3px 8px; }
+    #insights-panel { grid-column: 2; grid-row: 1; display:flex; flex-direction: column; overflow: hidden; min-height: 0; align-self: stretch; height: 100%; }
+  #timeline-panel { grid-column: 1 / 3; grid-row: 2; display:flex; flex-direction: column; overflow: visible; min-height: 0; margin-top: -72px; z-index: 6; padding-bottom: max(6px, env(safe-area-inset-bottom, 0)); }
 
     /* Map should fill its cell */
-  #map-container { height: 100% !important; min-height: 200px; }
-  #leaflet-map { height: 100% !important; }
+  #map-container { width: 100%; height: auto !important; display: flex; flex-direction: column; position: relative; }
+  #leaflet-map { position: relative !important; top: auto !important; left: auto !important; width: 100%; height: clamp(240px, 42vh, 420px) !important; }
   /* Make Leaflet controls smaller so they take less visual space */
-  .leaflet-control { margin: 6px; }
-  .leaflet-control-zoom { transform: scale(0.9); transform-origin: top left; }
+  .leaflet-control { margin: 4px; }
+  .leaflet-control-zoom { transform: scale(0.82); transform-origin: top left; }
+  .leaflet-control-attribution { font-size: 9px; }
+
+  /* Smaller Leaflet popup on phones (only bb-popup) */
+  .bb-popup .leaflet-popup-content-wrapper {
+    padding: 2px 4px; border-radius: 8px; max-width: 160px;
+    background: rgba(2,6,23,0.98);
+    color: #e5e7eb;
+    border: 1px solid #334155;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  }
+  .bb-popup .leaflet-popup-content { margin: 1px 0; font-size: 8.5px; line-height: 1.2; max-height: 88px; overflow: auto; word-wrap: break-word; overflow-wrap: anywhere; }
+  .bb-popup .leaflet-popup-content p, .bb-popup .leaflet-popup-content li { font-size: 8.5px; line-height: 1.2; }
+  .bb-popup .leaflet-popup-content h1, .bb-popup .leaflet-popup-content h2, .bb-popup .leaflet-popup-content h3 { font-size: 9.5px; margin: 1px 0; }
+  .bb-popup .leaflet-popup-tip { width: 6px; height: 6px; background: rgba(2,6,23,0.98); border: 1px solid #334155; }
+  .leaflet-container a.leaflet-popup-close-button { font-size: 12px; color: #cbd5e1; }
+  /* Phone overrides for structured inner content */
+  .bb-popup .bbp { font-size: 8.5px; }
+  .bb-popup .bbp .bb-title { font-size: 9.5px; }
+  .bb-popup .bbp .bb-meta { font-size: 8.5px; }
+  .bb-popup .bbp .bb-summary { font-size: 8.5px; }
+  .marker-cluster div { font-size: 10px; }
+
+  /* Any general button overlays inside map (e.g., Fit) */
+  #map-container button { font-size: 10px; padding: 3px 6px; border-radius: 10px; }
+  /* (global popup styles are defined outside this media query; keep phone overrides above) */
+
+  /* Horizontal category dock over the map */
+  .cat-dock { display:flex !important; position: static !important; margin: 1px 1px 3px 1px; gap:2px; padding: 0 2px; overflow-x: auto; }
+  .cat-dock::-webkit-scrollbar { height: 4px; }
+  .cat-dock::-webkit-scrollbar-thumb { background: rgba(148,163,184,0.55); border-radius: 999px; }
+  .cat-dock .cat-btn { flex: 0 0 auto; font-size: 8px; line-height: 1.1; padding: 2px 5px; border-radius: 999px; border:1px solid #475569; background: rgba(2,6,23,0.72); color: #e5e7eb; }
+  .cat-dock .cat-btn.active { background:#fbbf24; color:#0b1220; border-color:#f59e0b; }
 
     /* Insights content scrolls internally */
   #insights-panel { height: auto !important; }
   #insights-content { flex: 1 1 auto; min-height: 0; overflow: auto; }
 
     /* Category list: full words, small, scrollable */
-    #left-panel .brand-header { display: none; }
+  #left-panel .brand-header { display: none; }
     #left-panel .category {
-      font-size: 10px; padding: 5px 6px; margin-bottom: 6px;
-      white-space: normal; line-height: 1.15; word-break: break-word;
+      font-size: 8px; padding: 3px 4px; margin-bottom: 3px; /* denser when vertical on very small screens */
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.1;
     }
 
   /* Hide most headings on phone to reclaim height */
@@ -467,15 +638,16 @@
     /* Filmstrip + slider compact */
   .filmstrip { padding: 2px; gap: 4px; min-height: 52px; }
   .event-chip { padding: 5px; min-width: 100px; }
-  .chip-title { font-size: 9px; line-height: 1.2; }
+  /* Filmstrip titles: match insights title feel (less bold, a bit larger for clarity) */
+  .chip-title { font-size: 10px; line-height: 1.25; font-weight: 600; }
   .chip-summary, .chip-tags { display:none !important; }
   #year-slider { height: 12px; margin-top: 2px; margin-bottom: 2px; }
   .year-readout { font-size: 10.5px; }
 
   /* Place the year slider at the top of the timeline panel */
   #timeline-panel #year-row { order: -1; }
-  .year-end { font-size: 10px; min-width: 28px; }
-  .year-tooltip { top: -14px; font-size: 10px; }
+  .year-end { font-size: 9px; min-width: 26px; }
+  .year-tooltip { top: -14px; font-size: 9px; }
 
   /* Thin, compact range slider */
   #year-slider { appearance: none; background: transparent; }
@@ -489,16 +661,21 @@
 
   /* Insights text smaller (more dense) */
   .ins-card { padding: 4px 4px; }
-  .ins-title { font-size: 9px; line-height: 1.2; display:-webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow:hidden; }
-  .ins-summary, .ins-extra { font-size: 9px; line-height: 1.25; display:none !important; }
+  .ins-title { font-size: 10px; line-height: 1.25; display:-webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow:hidden; }
+  .ins-summary, .ins-extra { font-size: 9.5px; line-height: 1.25; display:block !important; color:#cbd5e1; }
+  .ins-summary { display:-webkit-box; -webkit-line-clamp: 5; line-clamp: 5; -webkit-box-orient: vertical; overflow:hidden; }
   .ins-tagline, .ins-tab { font-size: 9px; }
+  .ins-tabs { overflow-x: auto; white-space: nowrap; gap: 4px; padding-bottom: 2px; }
+  .ins-tab { padding: 2px 6px; border-radius: 999px; }
+  /* Filmstrip year pill a touch smaller on phone */
+  .chip-year { font-size: 9px; }
   /* Hide any large media inside insights on phones */
   #insights-panel img, #insights-panel video, #insights-panel iframe { display:none !important; }
   .ins-tagline { font-size: 9px; }
   .ins-tab { font-size: 9.5px; padding: 2px 5px; }
 
-    /* Hide micro-dock and chip in this mode */
-    .mobile-dock, .cat-dock, .insights-chip { display: none !important; }
+  /* Hide bottom micro-dock and insights chip in this mode */
+  .mobile-dock, .insights-chip { display: none !important; }
   }
     </style>
   </body>

@@ -15,9 +15,18 @@ export async function renderMapPanel(mapEl: HTMLElement) {
     mapEl.innerHTML = "<div class='text-red-400 p-4'>Map library not loaded.</div>";
     return;
   }
-  // Create map container
-    mapEl.innerHTML = `<div id=\"leaflet-map\" style=\"width:100%;height:100%;border-radius:12px;position:absolute;top:0;left:0;\"></div>`;
-  const map = window.L.map("leaflet-map").setView([51.505, -0.09], 3);
+  // Create or reuse a map node without removing other children (like the category dock)
+  let mapNode = mapEl.querySelector('#leaflet-map') as HTMLElement | null;
+  if (!mapNode) {
+    mapNode = document.createElement('div');
+    mapNode.id = 'leaflet-map';
+    // Minimal inline sizing; layout is driven by CSS
+    mapNode.style.width = '100%';
+    mapNode.style.height = '100%';
+    mapNode.style.borderRadius = '12px';
+    mapEl.appendChild(mapNode);
+  }
+  const map = window.L.map(mapNode).setView([51.505, -0.09], 3);
   // Expose map instance on DOM node for resize/invalidation from layout scripts
   try {
     const node = window.L.DomUtil.get('leaflet-map');
@@ -65,8 +74,10 @@ export async function renderMapPanel(mapEl: HTMLElement) {
         animate: true
       }).addTo(map);
     }
+  const truncateText = (s: string, n = 80) => (s && s.length > n ? s.slice(0, n - 1) + "…" : s);
     events.forEach(ev => {
       let lat, lng, warning = "";
+      let noGeo = false;
       if (ev.geo && typeof ev.geo.lat === "number" && typeof ev.geo.lng === "number") {
         lat = ev.geo.lat;
         lng = ev.geo.lng;
@@ -74,11 +85,29 @@ export async function renderMapPanel(mapEl: HTMLElement) {
         // Default to Brussels, Belgium for missing geo
         lat = 50.8503;
         lng = 4.3517;
-        warning = "<span style='color:orange'>No geo data for this event.</span><br>";
+        noGeo = true;
       }
+      const title = ev.title || "";
+      const meta = `${ev.year}${ev.location ? ' — ' + ev.location : ''}`;
+      const summary = ev.summary ? truncateText(ev.summary, 90) : "";
+      const html = `
+        <div class="bbp">
+          <div class="bb-title">${title}</div>
+          <div class="bb-meta">${meta}</div>
+          ${summary ? `<div class="bb-summary">${summary}</div>` : ''}
+          ${noGeo ? `<div class="bb-warn">No geo data</div>` : ''}
+        </div>
+      `;
       const marker = window.L.marker([lat, lng], { riseOnHover: true })
         .bindPopup(
-          `${warning}<b>${ev.title}</b><br>${ev.year}<br>${ev.location ? ev.location : ''}<br>${ev.summary ? ev.summary : ''}`
+          html,
+          {
+            className: 'bb-popup',
+            maxWidth: 160,
+            autoPan: true,
+            autoPanPaddingTopLeft: [10, 10],
+            autoPanPaddingBottomRight: [10, 10]
+          }
         );
       markerGroup.addLayer(marker);
       markerRefs[eventKey(ev)] = marker;

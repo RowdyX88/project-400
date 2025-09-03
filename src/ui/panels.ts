@@ -15,14 +15,27 @@ export async function renderLeftPanel(root: HTMLElement){
   brand.style.gap = "10px";
   brand.style.marginBottom = "12px";
   brand.innerHTML = `
-    <img src="assets/icons/apple-touch-icon.png?v=${Date.now()}" alt="BuildByer logo" width="88" height="88"
-         style="border-radius:14px; padding:2px; background:rgba(2,6,23,0.9); box-shadow: 0 4px 16px rgba(0,0,0,0.45); outline:1.5px solid rgba(255,255,255,0.18)" />
+    <div class="brand-img-wrap" style="position:relative; display:inline-block">
+      <img src="assets/icons/apple-touch-icon.png?v=${Date.now()}" alt="BuildByer logo" width="88" height="88"
+           style="border-radius:14px; padding:2px; background:rgba(2,6,23,0.9); box-shadow: 0 4px 16px rgba(0,0,0,0.45); outline:1.5px solid rgba(255,255,255,0.18); cursor:pointer" />
+    </div>
     <div style="display:flex; flex-direction:column">
-      <span style="font-weight:800; color:#fbbf24; letter-spacing:.2px">BuildByer</span>
+      <span class="brand-name" data-contact-trigger role="button" tabindex="0" style="font-weight:800; color:#fbbf24; letter-spacing:.2px; cursor:pointer" title="Open contact">BuildByer</span>
       <span style="font-size:11px; color:#94a3b8">Explore by category</span>
     </div>
   `;
   root.appendChild(brand);
+
+  // Desktop: inline contact button under the brand, above categories
+  const contactRow = document.createElement('div');
+  contactRow.style.display = 'block';
+  contactRow.style.margin = '4px 0 8px';
+  contactRow.innerHTML = `
+    <button class="contact-tab contact-inline" data-contact-trigger aria-controls="contact-modal" aria-expanded="false" title="Contact therowdyson@gmail.com">
+      Contact • therowdyson@gmail.com
+    </button>
+  `;
+  root.appendChild(contactRow);
 
   const divider = document.createElement("div");
   divider.style.height = "1px";
@@ -61,4 +74,33 @@ export async function renderLeftPanel(root: HTMLElement){
       dock.appendChild(btn);
     });
   }
+
+  // Wire desktop contact trigger (opens the shared contact modal)
+  try {
+  const triggers = root.querySelectorAll('[data-contact-trigger]') as NodeListOf<HTMLElement>;
+  const logoImg = brand.querySelector('img') as HTMLImageElement | null;
+    if (triggers && triggers.length) {
+      const open = () => {
+        const modal = document.getElementById('contact-modal');
+        if (modal) { modal.classList.add('show'); modal.setAttribute('aria-hidden', 'false'); }
+      };
+      triggers.forEach(el => {
+        el.addEventListener('click', open);
+        el.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+        });
+      });
+    }
+    if (logoImg) {
+      logoImg.style.cursor = 'pointer';
+      logoImg.title = 'Contact';
+      logoImg.addEventListener('click', () => {
+        const modal = document.getElementById('contact-modal');
+        if (modal) {
+          modal.classList.add('show');
+          modal.setAttribute('aria-hidden', 'false');
+        }
+      });
+    }
+  } catch {}
 }
