@@ -87,7 +87,14 @@ export async function renderMapPanel(mapEl: HTMLElement) {
       }
       const marker = window.L.marker([lat, lng], { riseOnHover: true })
         .bindPopup(
-          `${warning}<b>${ev.title}</b><br>${ev.year}<br>${ev.location ? ev.location : ''}<br>${ev.summary ? ev.summary : ''}`
+          `${warning}<b>${ev.title}</b><br>${ev.year}<br>${ev.location ? ev.location : ''}<br>${ev.summary ? ev.summary : ''}`,
+          {
+            className: 'bb-popup',
+            maxWidth: 220,
+            autoPan: true,
+            autoPanPaddingTopLeft: [10, 10],
+            autoPanPaddingBottomRight: [10, 10]
+          }
         );
       markerGroup.addLayer(marker);
       markerRefs[eventKey(ev)] = marker;
