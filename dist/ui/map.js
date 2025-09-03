@@ -15,9 +15,18 @@ export function renderMapPanel(mapEl) {
             mapEl.innerHTML = "<div class='text-red-400 p-4'>Map library not loaded.</div>";
             return;
         }
-        // Create map container
-        mapEl.innerHTML = `<div id=\"leaflet-map\" style=\"width:100%;height:100%;border-radius:12px;position:absolute;top:0;left:0;\"></div>`;
-        const map = window.L.map("leaflet-map").setView([51.505, -0.09], 3);
+        // Create or reuse a map node without removing other children (like the category dock)
+        let mapNode = mapEl.querySelector('#leaflet-map');
+        if (!mapNode) {
+            mapNode = document.createElement('div');
+            mapNode.id = 'leaflet-map';
+            // Minimal inline sizing; layout is driven by CSS
+            mapNode.style.width = '100%';
+            mapNode.style.height = '100%';
+            mapNode.style.borderRadius = '12px';
+            mapEl.appendChild(mapNode);
+        }
+        const map = window.L.map(mapNode).setView([51.505, -0.09], 3);
         // Expose map instance on DOM node for resize/invalidation from layout scripts
         try {
             const node = window.L.DomUtil.get('leaflet-map');

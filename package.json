@@ -4,7 +4,8 @@
   "description": "Panels & Timeline App",
   "scripts": {
     "build": "tsc",
-    "start": "npx serve ."
+  "start": "npx serve .",
+  "dev": "npx http-server -p 5511 -a 127.0.0.1 -c-1"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
