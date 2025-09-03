@@ -74,8 +74,10 @@ export async function renderMapPanel(mapEl: HTMLElement) {
         animate: true
       }).addTo(map);
     }
+  const truncateText = (s: string, n = 80) => (s && s.length > n ? s.slice(0, n - 1) + "…" : s);
     events.forEach(ev => {
       let lat, lng, warning = "";
+      let noGeo = false;
       if (ev.geo && typeof ev.geo.lat === "number" && typeof ev.geo.lng === "number") {
         lat = ev.geo.lat;
         lng = ev.geo.lng;
@@ -83,14 +85,25 @@ export async function renderMapPanel(mapEl: HTMLElement) {
         // Default to Brussels, Belgium for missing geo
         lat = 50.8503;
         lng = 4.3517;
-        warning = "<span style='color:orange'>No geo data for this event.</span><br>";
+        noGeo = true;
       }
+      const title = ev.title || "";
+      const meta = `${ev.year}${ev.location ? ' — ' + ev.location : ''}`;
+      const summary = ev.summary ? truncateText(ev.summary, 90) : "";
+      const html = `
+        <div class="bbp">
+          <div class="bb-title">${title}</div>
+          <div class="bb-meta">${meta}</div>
+          ${summary ? `<div class="bb-summary">${summary}</div>` : ''}
+          ${noGeo ? `<div class="bb-warn">No geo data</div>` : ''}
+        </div>
+      `;
       const marker = window.L.marker([lat, lng], { riseOnHover: true })
         .bindPopup(
-          `${warning}<b>${ev.title}</b><br>${ev.year}<br>${ev.location ? ev.location : ''}<br>${ev.summary ? ev.summary : ''}`,
+          html,
           {
             className: 'bb-popup',
-            maxWidth: 220,
+            maxWidth: 160,
             autoPan: true,
             autoPanPaddingTopLeft: [10, 10],
             autoPanPaddingBottomRight: [10, 10]

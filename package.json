@@ -5,7 +5,9 @@
   "scripts": {
     "build": "tsc",
   "start": "http-server -p 5511 -a 127.0.0.1 -c-1 .",
-  "dev": "http-server -p 5511 -a 127.0.0.1 -c-1 ."
+  "dev": "http-server -p 5511 -a 127.0.0.1 -c-1 .",
+  "dev:any": "http-server -p 5511 -a 0.0.0.0 -c-1 .",
+  "dev:alt": "http-server -p 5512 -a 127.0.0.1 -c-1 ."
   },
   "devDependencies": {
     "typescript": "^5.0.0",
