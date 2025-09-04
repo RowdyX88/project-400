@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* App base theme tokens (optional custom layer) */
+@layer base {
+  body { @apply bg-slate-950 text-slate-100; }
+}
