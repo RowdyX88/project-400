@@ -2,7 +2,9 @@
 node_modules/
 
 # Build output
-dist/
+# Keep dist committed so GitHub Pages can serve compiled JS
+# (use CI for builds later and revert this if desired)
+
 
 # Editor/OS
 .vscode/
