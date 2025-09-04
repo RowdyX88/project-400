@@ -20,16 +20,16 @@
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
   <!-- App icons / favicon -->
   <!-- Modern SVG favicon (preferred) -->
-  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/icons/favicon.svg?v=2025-09-04" type="image/svg+xml" />
   <!-- Safari pinned tab (monochrome SVG) -->
-  <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#fbbf24" />
-  <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
-  <link rel="shortcut icon" href="/assets/icons/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <meta name="msapplication-config" content="/assets/icons/browserconfig.xml" />
+  <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg?v=2025-09-04" color="#fbbf24" />
+  <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico?v=2025-09-04" />
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico?v=2025-09-04" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png?v=2025-09-04" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png?v=2025-09-04" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png?v=2025-09-04" />
+  <link rel="manifest" href="/site.webmanifest?v=2025-09-04" />
+  <meta name="msapplication-config" content="/assets/icons/browserconfig.xml?v=2025-09-04" />
   <meta name="msapplication-TileColor" content="#0f172a" />
   <meta name="theme-color" content="#0f172a" />
   <!-- Open Graph / Twitter -->
@@ -52,7 +52,7 @@
     "@type": "Organization",
     "name": "BuildByer",
     "url": "https://buildbyer.com/",
-    "logo": "https://buildbyer.com/assets/icons/apple-touch-icon.png"
+  "logo": "https://buildbyer.com/assets/icons/apple-touch-icon.png?v=2025-09-04"
   }
   </script>
   <script type="application/ld+json">
@@ -65,14 +65,14 @@
   </script>
   <link rel="stylesheet" href="src/ui/layout.css" />
   </head>
-  <body class="bg-blue-950 text-blue-100 min-h-screen" style="overflow-x:hidden;">
-  <div id="app" class="relative min-h-screen w-full" style="max-width:min(1400px, 100dvw); margin:0 auto; padding:0 16px;">
+  <body class="bg-blue-950 text-blue-100 min-h-screen">
+  <div id="app" class="relative min-h-screen w-full">
       <!-- Floating draggable left panel -->
-      <div id="left-panel" class="draggable panel glassy left-panel" style="position:absolute; left:24px; top:24px; min-width:240px; max-width:320px;">
+  <div id="left-panel" class="draggable panel glassy left-panel">
         <!-- Left panel will be rendered by JS -->
       </div>
       <!-- Floating draggable map panel -->
-  <div id="map-panel" class="draggable panel glassy map-panel" style="position:absolute; left:calc(320px + 40px); top:24px; width:min(940px, calc(100% - 320px - 40px - 420px));">
+  <div id="map-panel" class="draggable panel glassy map-panel">
         <h2 class="text-amber-300 font-bold mb-2">Map</h2>
         <div id="map-container">
           <!-- Phone-only overlays: category micro-dock and insights chip -->
@@ -91,12 +91,12 @@
         </div>
       </div>
       <!-- Insights panel (mirrors timeline, fetches web context) -->
-  <div id="insights-panel" class="draggable panel glassy" style="position:absolute; right:24px; top:24px; width:400px; min-width:320px;">
+  <div id="insights-panel" class="draggable panel glassy">
         <h2 class="text-cyan-300 font-bold mb-2">Insights</h2>
-        <div id="insights-content" style="overflow:auto; padding-right:8px;"></div>
+  <div id="insights-content"></div>
       </div>
       <!-- Timeline panel below -->
-  <div id="timeline-panel" class="draggable panel glassy timeline-panel" style="position:absolute; left:24px; top:568px; width:calc(100% - 48px);">
+  <div id="timeline-panel" class="draggable panel glassy timeline-panel">
         <h2 class="text-amber-300 font-bold mb-2">Timeline</h2>
         <div class="filmstrip" id="timeline-strip"></div>
         <div id="year-row" class="year-row mt-2">
