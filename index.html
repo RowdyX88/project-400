@@ -11,7 +11,7 @@
   <meta name="description" content="BuildByer — interactive map, timeline, and insights across NATO, politics, weather, life and global events." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://buildbyer.com/" />
-  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/styles.css?v=dev5513" />
   <!-- Leaflet.js for map panel -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -68,6 +68,24 @@
   </head>
   <body class="bg-blue-950 text-blue-100 min-h-screen">
   <div id="app" class="relative min-h-screen w-full">
+      <!-- Desktop top strip: shown on >= 481px; mirrors mobile actions -->
+      <div id="desktop-pre-strip" class="desktop-pre-strip" role="navigation" aria-label="Quick actions">
+        <a href="#" class="mps-title mps-title-link" role="link" title="Home">REALITY</a>
+        <div class="mps-actions">
+          <a class="mps-btn" href="#contact" aria-controls="contact-modal" aria-expanded="false" title="Open contact">Contact</a>
+          <a class="mps-btn" href="#fafo" title="Open FAFO Bill">FAFO BILL</a>
+          <a class="mps-btn" href="#buildbyer" title="Open BuildByer">BuildByer</a>
+        </div>
+      </div>
+      <!-- Phone-only top strip: left title + action pills -->
+      <div id="mobile-pre-strip" class="mobile-pre-strip" role="navigation" aria-label="Quick actions">
+        <a href="#" class="mps-title mps-title-link" role="link" title="Home">REALITY</a>
+        <div class="mps-actions">
+          <a id="contact-tab" class="mps-btn" href="#contact" aria-controls="contact-modal" aria-expanded="false" title="Open contact">Contact</a>
+          <a class="mps-btn" href="#fafo" title="Open FAFO Bill">FAFO BILL</a>
+          <a class="mps-btn" href="#buildbyer" title="Open BuildByer">BuildByer</a>
+        </div>
+      </div>
       <!-- Floating draggable left panel -->
   <div id="left-panel" class="draggable panel glassy left-panel">
         <!-- Left panel will be rendered by JS -->
@@ -80,11 +98,8 @@
           <div id="cat-dock" class="cat-dock" aria-label="Categories dock"></div>
           <button id="insights-chip" class="insights-chip" aria-expanded="false" aria-controls="insights-panel" title="Open insights">Insights</button>
         </div>
-        <!-- Phone-only brand/contact row under the map -->
+  <!-- Phone-only brand row under the map (contact moved to top strip) -->
         <div id="brand-row" class="brand-row" aria-label="BuildByer brand and contact">
-          <button id="contact-tab" class="contact-tab" aria-controls="contact-modal" aria-expanded="false" title="Open contact">
-            Contact
-          </button>
           <button id="brand-badge" class="brand-badge" type="button" aria-controls="contact-modal" aria-expanded="false" title="Open contact">
             <img src="assets/icons/apple-touch-icon.png" alt="" width="16" height="16" />
             <span>BuildByer</span>
@@ -112,8 +127,22 @@
       </div>
   <!-- (Deprecated) bottom mobile dock is kept for fallback but hidden by default -->
   <div id="mobile-dock" class="mobile-dock" aria-hidden="true"></div>
+  <!-- Phone page overlay for hash routes (#fafo, #buildbyer, #contact) -->
+  <div id="page-overlay" class="page-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="overlay-header" role="navigation" aria-label="Page header">
+      <a href="#" class="mps-title" aria-hidden="false">REALITY</a>
+      <div class="mps-actions">
+        <a class="mps-btn" href="#contact" aria-controls="contact-modal" aria-expanded="false" title="Open contact">Contact</a>
+        <a class="mps-btn" href="#fafo" title="Open FAFO Bill">FAFO BILL</a>
+        <a class="mps-btn" href="#buildbyer" title="Open BuildByer">BuildByer</a>
+      </div>
+    </div>
+    <div class="overlay-body">
+      <div id="overlay-canvas" class="overlay-card" role="region" aria-label="Page content"></div>
+    </div>
   </div>
-  <script type="module" src="dist/main.js"></script>
+  </div>
+  <script type="module" src="dist/main.js?v=dev5513"></script>
     <script>
     // Simple drag-and-drop for .draggable panels (disabled on small screens)
     document.addEventListener('DOMContentLoaded', () => {
@@ -205,7 +234,7 @@
   setTimeout(syncInsightsHeight, 160);
       });
       // Contact modal wiring
-      const contactTab = document.getElementById('contact-tab');
+  const contactTab = document.getElementById('contact-tab');
   const contactModal = document.getElementById('contact-modal');
   const brandBadge = document.getElementById('brand-badge');
       const closeBtn = contactModal ? contactModal.querySelector('.contact-close') : null;
@@ -223,14 +252,91 @@
         if (contactTab) contactTab.setAttribute('aria-expanded', 'false');
         if (brandBadge) brandBadge.setAttribute('aria-expanded', 'false');
       }
-      if (contactTab) contactTab.addEventListener('click', openContact);
-      if (brandBadge) brandBadge.addEventListener('click', openContact);
+  if (contactTab) contactTab.addEventListener('click', (e) => { e.preventDefault(); if (location.hash !== '#contact') location.hash = '#contact'; else route(); });
+      if (brandBadge) brandBadge.addEventListener('click', (e) => {
+        e.preventDefault();
+        // On all screens, navigate to #contact and let router open overlay
+        if (location.hash !== '#contact') location.hash = '#contact'; else route();
+      });
       if (closeBtn) closeBtn.addEventListener('click', closeContact);
       if (contactModal) contactModal.addEventListener('click', (e) => {
         var t = e.target;
         if (t && t.classList && t.classList.contains('contact-backdrop')) closeContact();
       });
+      // If landing with #contact, route will open overlay consistently
+      if (location.hash === '#contact') {
+        // no-op here; route() below handles it across viewports
+      }
       window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeContact(); });
+      // Simple hash router for phone overlay
+      const pageOverlay = document.getElementById('page-overlay');
+      const overlayCanvas = document.getElementById('overlay-canvas');
+      // Intercept clicks on both strips so routing happens without page jump
+      document.querySelectorAll('#desktop-pre-strip .mps-btn, #mobile-pre-strip .mps-btn, .page-overlay .mps-btn').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const href = a.getAttribute('href') || '';
+          if (href.startsWith('#')) {
+            e.preventDefault();
+            if (location.hash !== href) location.hash = href; else route();
+          }
+        });
+      });
+      // Make REALITY title act as Home (clears overlay)
+      document.querySelectorAll('.mps-title-link').forEach(a => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (location.hash) {
+            history.replaceState(null, '', location.pathname + location.search);
+          }
+          route();
+        });
+      });
+      function renderOverlay(route) {
+        if (!overlayCanvas) return;
+        // Clear per route to allow future content
+        overlayCanvas.innerHTML = '';
+        if (route === 'contact') {
+          overlayCanvas.innerHTML = `
+            <div class="overlay-content" style="padding:10px 12px;">
+              <h3 class="overlay-title" style="margin:0 0 6px 0; font-size:14px; font-weight:800; color:#fbbf24;">Contact</h3>
+              <p class="overlay-copy" style="font-size:12px; line-height:1.35; color:#cbd5e1;">
+                Hi! BuildByer is a tiny lab of world bits — some sharp, some shaky. Got fixes, leads,
+                or year-stamped nuggets? Ping <a class="overlay-link" href="mailto:therowdyson@gmail.com" style="color:#93c5fd; text-decoration:underline;">therowdyson@gmail.com</a>.
+                Want to help build? I’ll share the repo and we’ll branch like it’s spring.
+              </p>
+            </div>`;
+        }
+      }
+      function setActiveNav(h) {
+        const links = document.querySelectorAll('.mps-actions a');
+        links.forEach(a => {
+          const isActive = (a.getAttribute('href') || '') === h;
+          a.classList.toggle('active', !!isActive);
+          if (isActive) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+        });
+      }
+      function route() {
+        const h = location.hash;
+        setActiveNav(h || '');
+        if (h === '#contact') {
+          closeContact();
+          pageOverlay && pageOverlay.classList.add('show');
+          renderOverlay('contact');
+          return;
+        }
+        if (h === '#fafo' || h === '#buildbyer') {
+          closeContact();
+          pageOverlay && pageOverlay.classList.add('show');
+          renderOverlay(h.slice(1));
+          return;
+        }
+        // default/home
+        pageOverlay && pageOverlay.classList.remove('show');
+        closeContact();
+      }
+      window.addEventListener('hashchange', route);
+      // Run once on load
+      setTimeout(route, 0);
       // Remove transform from timeline panel for proper drag/resize
       const timelinePanel = document.getElementById('timeline-panel');
       if (timelinePanel) {
@@ -419,6 +525,8 @@
         min-height: 100px;
         transition: box-shadow 0.2s, transform 0.2s;
       }
+  /* Hide phone-only strip by default (non-phone) */
+  .mobile-pre-strip { display: none; }
       .draggable {
         cursor: move;
       }
@@ -538,6 +646,13 @@
   .mobile-dock { display: none; }
   .cat-dock { display: none; }
   .insights-chip { display: none; }
+  /* Desktop strip hidden by default in global, shown via media queries */
+  .desktop-pre-strip { display: none; }
+  /* Overlay hidden by default */
+  .page-overlay { display: none; position: fixed; inset: 0; z-index: 1200; }
+  .page-overlay.show { display: block; }
+  .page-overlay .overlay-header { display: none; }
+  .page-overlay .overlay-body { display: none; }
 
   /* Responsive: stack panels and simplify on small screens */
   @media (max-width: 768px) {
@@ -562,7 +677,16 @@
 
   /* Compact grid (phones in landscape / small tablets): keep all panels visible */
   @media (min-width: 481px) and (max-width: 900px) {
+  /* Show desktop strip in compact mode */
+  .desktop-pre-strip { display: flex !important; align-items: center; gap: 8px; padding: 6px 8px; margin: 6px 0 10px 0; border-radius: 12px; border:1px solid rgba(255,255,255,0.07); background: rgba(30,41,59,0.85); box-shadow: 0 4px 14px rgba(0,0,0,0.18); position: sticky; top: 6px; z-index: 1500; width: 100%; box-sizing: border-box; }
+  .desktop-pre-strip .mps-title { font-weight: 900; font-size: 12px; letter-spacing: .3px; color:#fbbf24; text-transform: uppercase; margin-right: 8px; }
+  .desktop-pre-strip .mps-title-link { display:inline-flex; align-items:center; gap:6px; padding: 4px 10px; border-radius: 999px; border: 2px solid #fbbf24; color:#fbbf24; text-decoration:none; }
+  .desktop-pre-strip .mps-actions { display:flex; align-items:center; gap: 6px; }
+  .desktop-pre-strip .mps-btn { font-size: 11px; padding: 4px 10px; border-radius: 999px; border:1px solid #475569; background: rgba(2,6,23,0.72); color:#e5e7eb; text-decoration: none; }
+  .desktop-pre-strip .mps-btn:hover { filter: brightness(1.06); }
     #app {
+  /* Make room for strip above grid */
+  margin-top: 0;
       display: grid;
       grid-template-columns: 84px 1fr 280px;
       grid-template-rows: auto 1fr 220px;
@@ -585,21 +709,128 @@
     #left-panel .brand-header { display:none; }
   }
 
+  /* Show overlay layout on desktop/tablet as well */
+  @media (min-width: 481px) {
+    .page-overlay.show {
+      display: block;
+      padding: 8px;
+      background: linear-gradient(120deg, rgba(15,23,42,0.98) 60%, rgba(30,41,59,0.98) 100%);
+    }
+    .page-overlay .overlay-header { display: none !important; }
+    .page-overlay .overlay-body { display: block; height: calc(100dvh - 16px); }
+    .overlay-card {
+      height: 100%;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,0.07);
+      background: rgba(30,41,59,0.85);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    }
+    /* Larger readable overlay text on desktop/tablet */
+    .overlay-content { padding: 14px 16px !important; }
+    .overlay-title { font-size: 16px !important; }
+    .overlay-copy { font-size: 14px !important; line-height: 1.5 !important; }
+    .overlay-link { font-size: 14px !important; }
+  }
+
+  /* Wide desktop: show the top strip and keep it sticky/visible */
+  @media (min-width: 901px) {
+    .desktop-pre-strip {
+      display: flex !important;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      margin: 8px 0 12px 0;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(30,41,59,0.85);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      position: sticky;
+      top: 6px;
+      z-index: 1500;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  .desktop-pre-strip .mps-title {
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: .3px;
+      color: #fbbf24;
+      text-transform: uppercase;
+      margin-right: 8px;
+    }
+  .desktop-pre-strip .mps-title-link { display:inline-flex; align-items:center; gap:6px; padding: 4px 10px; border-radius: 999px; border: 2px solid #fbbf24; color:#fbbf24; text-decoration:none; }
+    .desktop-pre-strip .mps-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .desktop-pre-strip .mps-btn {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #475569;
+      background: rgba(2,6,23,0.72);
+      color: #e5e7eb;
+      text-decoration: none;
+    }
+    .desktop-pre-strip .mps-btn:hover { filter: brightness(1.06); }
+    .desktop-pre-strip .mps-btn.active {
+      background: #fbbf24;
+      color: #0b1220;
+      border-color: #f59e0b;
+      box-shadow: 0 0 0 2px rgba(251,191,36,0.28) inset;
+    }
+  }
+
   /* Phone portrait: compact 2-col grid; categories move to a horizontal dock over the map */
   @media (max-width: 480px) {
+  /* Hide desktop strip on phones */
+  .desktop-pre-strip { display: none !important; }
     /* Allow natural page height and scrolling so the timeline isn't crammed at the bottom */
     html, body { height: auto !important; min-height: 100dvh; }
     #app { min-height: 100dvh; }
     body { overflow: auto !important; }
+  :root { --mstrip-h: 28px; }
     #app {
       padding: 2px 2px 8px !important;  /* a bit more bottom padding for breathing room */
       display: grid;
       grid-template-columns: 1fr 140px;     /* map left, insights right (wider) */
-      /* Second row modestly taller but not oversized */
-      grid-template-rows: auto clamp(160px, 26vh, 260px);
+      /* Rows: top placeholder strip, then main row, then timeline */
+      grid-template-rows: var(--mstrip-h) auto clamp(160px, 26vh, 260px);
       gap: 6px;
   align-items: stretch; /* stretch items to row height so Insights fills the first row */
     }
+  /* New phone-only top strip spanning both columns */
+    .mobile-pre-strip {
+      display: block !important;
+      grid-column: 1 / 3;
+      grid-row: 1;
+      height: var(--mstrip-h);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(30,41,59,0.85);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      display: flex !important;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 6px;
+      padding: 2px 6px;
+    }
+  .mps-title { font-weight: 900; font-size: 11px; letter-spacing: .3px; color:#fbbf24; text-transform: uppercase; margin-right: 4px; }
+  .mps-title-link { display:inline-flex; align-items:center; gap:6px; padding: 2px 8px; border-radius: 999px; border: 2px solid #fbbf24; color:#fbbf24; text-decoration:none; }
+    .mps-actions { display:flex; align-items:center; gap: 4px; overflow-x: auto; }
+    .mps-actions::-webkit-scrollbar { height: 4px; }
+    .mps-actions::-webkit-scrollbar-thumb { background: rgba(148,163,184,0.5); border-radius: 999px; }
+    .mps-btn { flex: 0 0 auto; font-size: 10px; line-height: 1.1; padding: 3px 8px; border-radius: 999px; border:1px solid #475569; background: rgba(2,6,23,0.72); color: #e5e7eb; text-decoration: none; }
+    .mps-btn:hover { filter: brightness(1.06); }
+    .mps-btn:active { transform: translateY(1px); }
+  .mps-btn.active { background:#fbbf24; color:#0b1220; border-color:#f59e0b; box-shadow: 0 0 0 2px rgba(251,191,36,0.28) inset; }
+  /* Phone overlay styles */
+  .page-overlay { display: none; position: fixed; inset: 0; z-index: 1200; }
+  .page-overlay.show { display: grid; grid-template-rows: var(--mstrip-h) 1fr; gap: 6px; padding: 2px; background: linear-gradient(120deg, rgba(15,23,42,0.98) 60%, rgba(30,41,59,0.98) 100%); }
+  .page-overlay .overlay-header { display: flex; align-items: center; justify-content: flex-start; gap: 6px; padding: 2px 6px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.07); background: rgba(30,41,59,0.92); }
+  .page-overlay .overlay-body { display: block; }
+  .overlay-card { height: 100%; border-radius: 12px; border:1px solid rgba(255,255,255,0.07); background: rgba(30,41,59,0.85); box-shadow: 0 4px 14px rgba(0,0,0,0.18); }
     /* Place panels into grid */
     #left-panel, #map-panel, #insights-panel, #timeline-panel {
       position: static !important;
@@ -611,7 +842,7 @@
       padding: 4px 4px; /* even tighter padding */
     }
     #left-panel { display: none !important; }
-  #map-panel { grid-column: 1; grid-row: 1; height: auto !important; display: block; min-height: 0; padding: 2px 2px 0 2px; align-self: start; position: relative; }
+  #map-panel { grid-column: 1; grid-row: 2; height: auto !important; display: block; min-height: 0; padding: 2px 2px 0 2px; align-self: start; position: relative; }
   /* Show brand/contact row only on phone, space it below the map */
   .brand-row { display: flex; margin: 4px 0 2px 0; }
   .brand-logo { font-size: 12px; }
@@ -619,9 +850,9 @@
   .brand-badge img { width:14px; height:14px; }
   .contact-tab { font-size: 9.5px; padding: 3px 8px; }
   /* Insights: stretch to map row height; slightly taller via JS with negative margin to avoid pushing row */
-  #insights-panel { grid-column: 2; grid-row: 1; display:flex; flex-direction: column; overflow: hidden; min-height: 0; align-self: stretch; height: auto; max-height: clamp(240px, 36vh, 360px); position: relative; z-index: 5; }
+  #insights-panel { grid-column: 2; grid-row: 2; display:flex; flex-direction: column; overflow: hidden; min-height: 0; align-self: stretch; height: auto; max-height: clamp(240px, 36vh, 360px); position: relative; z-index: 5; }
   /* Timeline: occupy the taller second row, remove negative offset, and give it its own height */
-  #timeline-panel { grid-column: 1 / 3; grid-row: 2; display:flex; flex-direction: column; overflow: hidden; height: 100%; min-height: clamp(140px, 24vh, 240px); margin-top: -6px; z-index: 6; padding-bottom: max(8px, env(safe-area-inset-bottom, 0)); }
+  #timeline-panel { grid-column: 1 / 3; grid-row: 3; display:flex; flex-direction: column; overflow: hidden; height: 100%; min-height: clamp(140px, 24vh, 240px); margin-top: -6px; z-index: 6; padding-bottom: max(8px, env(safe-area-inset-bottom, 0)); }
 
     /* Map should fill its cell */
   /* Map and container behave like a single unit sized by content */
@@ -639,6 +870,14 @@
     color: #e5e7eb;
     border: 1px solid #334155;
     box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  }
+  /* Desktop/tablet >= 901px */
+  @media (min-width: 901px) {
+  .desktop-pre-strip { display: flex !important; align-items: center; gap: 10px; padding: 8px 10px; margin: 10px 0 14px 0; border-radius: 14px; border:1px solid rgba(255,255,255,0.07); background: rgba(30,41,59,0.85); box-shadow: 0 6px 16px rgba(0,0,0,0.22); position: sticky; top: 8px; z-index: 1500; width: 100%; box-sizing: border-box; }
+    .desktop-pre-strip .mps-title { font-weight: 900; font-size: 13px; letter-spacing: .35px; color:#fbbf24; text-transform: uppercase; margin-right: 10px; }
+    .desktop-pre-strip .mps-actions { display:flex; align-items:center; gap: 8px; }
+    .desktop-pre-strip .mps-btn { font-size: 12px; padding: 6px 12px; border-radius: 999px; border:1px solid #475569; background: rgba(2,6,23,0.72); color:#e5e7eb; text-decoration: none; }
+    .desktop-pre-strip .mps-btn:hover { filter: brightness(1.06); }
   }
   .bb-popup .leaflet-popup-content { margin: 1px 0; font-size: 8.5px; line-height: 1.2; max-height: 88px; overflow: auto; word-wrap: break-word; overflow-wrap: anywhere; }
   .bb-popup .leaflet-popup-content p, .bb-popup .leaflet-popup-content li { font-size: 8.5px; line-height: 1.2; }
