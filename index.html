@@ -550,14 +550,17 @@
 
   /* Phone portrait: compact 2-col grid; categories move to a horizontal dock over the map */
   @media (max-width: 480px) {
-    html, body, #app { height: 100dvh !important; }
-    body { overflow: hidden !important; }
+    /* Allow natural page height and scrolling so the timeline isn't crammed at the bottom */
+    html, body { height: auto !important; min-height: 100dvh; }
+    #app { min-height: 100dvh; }
+    body { overflow: auto !important; }
     #app {
-  padding: 2px 2px 4px !important;
+      padding: 2px 2px 8px !important;  /* a bit more bottom padding for breathing room */
       display: grid;
-  grid-template-columns: 1fr 140px;     /* map left, insights right (wider) */
-  grid-template-rows: auto 158px;       /* row 1 just as tall as content */
-  gap: 2px;
+      grid-template-columns: 1fr 140px;     /* map left, insights right (wider) */
+      /* Taller second row so timeline feels part of the page and is easier to read */
+      grid-template-rows: auto clamp(240px, 38vh, 420px);
+      gap: 6px;
       align-items: start; /* don’t stretch items; let panels be content-height */
     }
     /* Place panels into grid */
@@ -578,10 +581,13 @@
   .brand-badge { font-size: 11px; gap:5px; padding: 2px 6px; }
   .brand-badge img { width:14px; height:14px; }
   .contact-tab { font-size: 9.5px; padding: 3px 8px; }
-    #insights-panel { grid-column: 2; grid-row: 1; display:flex; flex-direction: column; overflow: hidden; min-height: 0; align-self: stretch; height: 100%; }
-  #timeline-panel { grid-column: 1 / 3; grid-row: 2; display:flex; flex-direction: column; overflow: visible; min-height: 0; margin-top: -72px; z-index: 6; padding-bottom: max(6px, env(safe-area-inset-bottom, 0)); }
+  /* Insights: adaptive unit that fills its grid cell without forcing page overflow */
+  #insights-panel { grid-column: 2; grid-row: 1; display:flex; flex-direction: column; overflow: hidden; min-height: 0; align-self: stretch; height: 100%; }
+  /* Timeline: occupy the taller second row, remove negative offset, and give it its own height */
+  #timeline-panel { grid-column: 1 / 3; grid-row: 2; display:flex; flex-direction: column; overflow: hidden; height: 100%; min-height: clamp(220px, 34vh, 380px); margin-top: -24px; z-index: 6; padding-bottom: max(8px, env(safe-area-inset-bottom, 0)); }
 
     /* Map should fill its cell */
+  /* Map and container behave like a single unit sized by content */
   #map-container { width: 100%; height: auto !important; display: flex; flex-direction: column; position: relative; }
   #leaflet-map { position: relative !important; top: auto !important; left: auto !important; width: 100%; height: clamp(240px, 42vh, 420px) !important; }
   /* Make Leaflet controls smaller so they take less visual space */
@@ -635,8 +641,8 @@
   #map-panel h2, #insights-panel h2, #timeline-panel h2 { display:none; }
   #left-panel h2 { font-size: 10px; margin-bottom: 2px; }
 
-    /* Filmstrip + slider compact */
-  .filmstrip { padding: 2px; gap: 4px; min-height: 52px; }
+    /* Filmstrip + slider compact but taller for readability */
+  .filmstrip { padding: 4px; gap: 6px; min-height: 72px; }
   .event-chip { padding: 5px; min-width: 100px; }
   /* Filmstrip titles: match insights title feel (less bold, a bit larger for clarity) */
   .chip-title { font-size: 10px; line-height: 1.25; font-weight: 600; }
