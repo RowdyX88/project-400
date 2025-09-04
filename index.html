@@ -414,7 +414,8 @@
         border: 1.5px solid rgba(255,255,255,0.08);
       }
       .panel {
-        padding: 24px 18px;
+        /* Slightly tighter padding on desktop to reduce overall footprint */
+        padding: 20px 16px;
         min-height: 100px;
         transition: box-shadow 0.2s, transform 0.2s;
       }
@@ -501,21 +502,22 @@
     #map-panel {
       display: flex;
       flex-direction: column;
-  min-height: 420px;
-  height: 520px;
+      min-height: 400px;
+      height: 480px; /* down from 520 to fit typical laptop view */
     }
-  #map-container {
+      #map-container {
       flex: 1 1 auto;
       width: 100%;
       height: 100%;
       border-radius: 12px;
       overflow: hidden;
       position: relative;
+        padding-right: 2px; /* avoid kissing the insights scrollbar visually */
     }
   /* Make insights panel flexible so its content grows/shrinks with resize */
-  #insights-panel { display: flex; flex-direction: column; height: 520px; }
+  #insights-panel { display: flex; flex-direction: column; height: 480px; }
   #insights-content { flex: 1 1 auto; min-height: 0; }
-  #timeline-panel { height: 380px; }
+  #timeline-panel { height: 320px; }
     #leaflet-map {
       width: 100%;
       height: 100%;
