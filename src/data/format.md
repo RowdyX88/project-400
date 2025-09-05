@@ -1,6 +1,8 @@
+## Deprecated
 
-// This file is deprecated. Please use roadmap.md and schema.md for all future data format and onboarding reference.
-- This format ensures all panels and code can reliably find and use category/event data.
+This file has been consolidated into the new authoritative docs:
 
----
-**Always follow this format for every new category or event import.**
+- `src/data/schema.md` — data contract, ID rules, schemas, validator/normalizer
+- `src/data/roadmap.md` — conventions, examples, and future enhancements
+
+Please refer to those files for all data-related guidance.

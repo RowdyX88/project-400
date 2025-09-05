@@ -7,17 +7,17 @@
       "summary": "Alliance systems in Europe ignite global conflict.",
       "date": "1914-07-28",
       "year": 1914,
-      "type": "conflict",
       "countries": [
         "Global"
       ],
-      "geo": { "lat": 48.8566, "lng": 2.3522 },
+      "geo": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
       "tags": [
         "ww1",
         "alliances"
       ],
-      "sources": [],
-      "severity": 5,
       "punchline": "When everyone's cousin signs a mutual defense pact."
     },
     {
@@ -27,19 +27,19 @@
       "summary": "Post-WWI settlement reshapes European borders and security.",
       "date": "1919-06-28",
       "year": 1919,
-      "type": "treaty",
       "countries": [
         "France",
         "Germany",
         "Global"
       ],
-      "geo": { "lat": 48.8566, "lng": 2.3522 },
+      "geo": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
       "tags": [
         "postwar",
         "security"
       ],
-      "sources": [],
-      "severity": 3,
       "punchline": "Peace terms with a timer."
     },
     {
@@ -49,16 +49,16 @@
       "summary": "First intergovernmental organization for collective security.",
       "date": "1920-01-10",
       "year": 1920,
-      "type": "organization",
       "countries": [
         "Global"
       ],
-      "geo": { "lat": 46.2044, "lng": 6.1432 },
+      "geo": {
+        "lat": 46.2044,
+        "lng": 6.1432
+      },
       "tags": [
         "collective-security"
       ],
-      "sources": [],
-      "severity": 2,
       "punchline": "Version 0.9 of 'an attack on one...'"
     },
     {
@@ -68,18 +68,18 @@
       "summary": "Germany invades Poland; global war follows.",
       "date": "1939-09-01",
       "year": 1939,
-      "type": "conflict",
       "countries": [
         "Poland",
         "Germany",
         "Global"
       ],
-      "geo": { "lat": 52.2297, "lng": 21.0122 },
+      "geo": {
+        "lat": 52.2297,
+        "lng": 21.0122
+      },
       "tags": [
         "ww2"
       ],
-      "sources": [],
-      "severity": 5,
       "punchline": "Patch notes for human history get ugly."
     },
     {
@@ -89,39 +89,17 @@
       "summary": "International body created to maintain peace and security.",
       "date": "1945-10-24",
       "year": 1945,
-      "type": "organization",
       "countries": [
         "Global"
       ],
-      "geo": { "lat": 40.7128, "lng": -74.0060 },
+      "geo": {
+        "lat": 40.7128,
+        "lng": -74.006
+      },
       "tags": [
         "UN"
       ],
-      "sources": [],
-      "severity": 3,
       "punchline": "Peace, but with a Security Council speed limiter."
-    },
-    {
-      "id": "nato-1947-truman",
-      "category": "nato",
-      "title": "Truman Doctrine announced",
-      "summary": "U.S. commits to support nations resisting coercion.",
-      "date": "1947-03-12",
-      "year": 1947,
-      "type": "policy",
-      "countries": [
-        "United States",
-        "Greece",
-        "Türkiye"
-      ],
-      "geo": { "lat": 38.9072, "lng": -77.0369 },
-      "location": "Washington, D.C., USA",
-      "tags": [
-        "containment"
-      ],
-      "sources": [],
-      "severity": 3,
-      "punchline": "Foreign policy: 'no free lunches for bullies' edition."
     },
     {
       "id": "nato-1947-marshall",
@@ -130,19 +108,41 @@
       "summary": "U.S. economic aid to rebuild Western Europe.",
       "date": "1947-06-05",
       "year": 1947,
-      "type": "economy",
       "countries": [
         "United States",
         "Europe"
       ],
-      "geo": { "lat": 38.9072, "lng": -77.0369 },
+      "geo": {
+        "lat": 38.9072,
+        "lng": -77.0369
+      },
       "location": "Washington, D.C., USA",
       "tags": [
         "reconstruction"
       ],
-      "sources": [],
-      "severity": 3,
       "punchline": "Money printer goes brrr—for democracy."
+    },
+    {
+      "id": "nato-1947-truman",
+      "category": "nato",
+      "title": "Truman Doctrine announced",
+      "summary": "U.S. commits to support nations resisting coercion.",
+      "date": "1947-03-12",
+      "year": 1947,
+      "countries": [
+        "United States",
+        "Greece",
+        "Türkiye"
+      ],
+      "geo": {
+        "lat": 38.9072,
+        "lng": -77.0369
+      },
+      "location": "Washington, D.C., USA",
+      "tags": [
+        "containment"
+      ],
+      "punchline": "Foreign policy: 'no free lunches for bullies' edition."
     },
     {
       "id": "nato-1948-brussels",
@@ -151,7 +151,6 @@
       "summary": "Western European Union mutual defense pact among five states.",
       "date": "1948-03-17",
       "year": 1948,
-      "type": "treaty",
       "countries": [
         "Belgium",
         "France",
@@ -159,14 +158,15 @@
         "Netherlands",
         "United Kingdom"
       ],
-      "geo": { "lat": 50.8503, "lng": 4.3517 },
+      "geo": {
+        "lat": 50.8503,
+        "lng": 4.3517
+      },
       "location": "Brussels, Belgium",
       "tags": [
         "airlift",
         "berlin"
       ],
-      "sources": [],
-      "severity": 4,
       "punchline": "Logistics: 1. Block the roads. 2. Watch the skies."
     },
     {
@@ -176,18 +176,40 @@
       "summary": "Twelve nations create a collective defense alliance.",
       "date": "1949-04-04",
       "year": 1949,
-      "type": "treaty",
       "countries": [
         "Global"
       ],
-      "geo": { "lat": 38.9072, "lng": -77.0369 },
+      "geo": {
+        "lat": 38.9072,
+        "lng": -77.0369
+      },
       "location": "Washington, D.C., USA",
       "tags": [
         "founding"
       ],
-      "sources": [],
-      "severity": 5,
       "punchline": "Article 5 enters the chat."
+    },
+    {
+      "id": "nato-1950-korea",
+      "category": "nato",
+      "title": "Korean War begins",
+      "summary": "NATO coordinates strategic responses though not a NATO operation.",
+      "date": "1950-06-25",
+      "year": 1950,
+      "countries": [
+        "Korea",
+        "United States",
+        "UN"
+      ],
+      "geo": {
+        "lat": 37.5665,
+        "lng": 126.978
+      },
+      "location": "Seoul, South Korea",
+      "tags": [
+        "korean-war"
+      ],
+      "punchline": "UN op, NATO brains online."
     },
     {
       "id": "nato-1952-gre-tur",
@@ -196,39 +218,19 @@
       "summary": "Alliance enlarges to 14 members.",
       "date": "1952-02-18",
       "year": 1952,
-      "type": "accession",
       "countries": [
         "Greece",
         "Türkiye"
       ],
-      "geo": { "lat": 37.9838, "lng": 23.7275 },
+      "geo": {
+        "lat": 37.9838,
+        "lng": 23.7275
+      },
       "location": "Athens, Greece",
       "tags": [
         "enlargement"
       ],
-      "sources": [],
-      "severity": 3,
       "punchline": "Mediterranean DLC unlocked."
-    },
-    {
-      "id": "nato-1955-wg",
-      "category": "nato",
-      "title": "West Germany joins NATO",
-      "summary": "Integration of West Germany into Western defense.",
-      "date": "1955-05-09",
-      "year": 1955,
-      "type": "accession",
-      "countries": [
-        "Germany"
-      ],
-      "geo": { "lat": 52.5200, "lng": 13.4050 },
-      "location": "Berlin, Germany",
-      "tags": [
-        "enlargement"
-      ],
-      "sources": [],
-      "severity": 4,
-      "punchline": "From adversary to ally speedrun."
     },
     {
       "id": "nato-1955-warsaw",
@@ -237,19 +239,39 @@
       "summary": "Soviet-led counter-alliance to NATO.",
       "date": "1955-05-14",
       "year": 1955,
-      "type": "organization",
       "countries": [
         "USSR",
         "Eastern Europe"
       ],
-      "geo": { "lat": 52.2297, "lng": 21.0122 },
+      "geo": {
+        "lat": 52.2297,
+        "lng": 21.0122
+      },
       "location": "Warsaw, Poland",
       "tags": [
         "rival-bloc"
       ],
-      "sources": [],
-      "severity": 4,
       "punchline": "Mirror alliance equipped with 'copy strategy' perk."
+    },
+    {
+      "id": "nato-1955-wg",
+      "category": "nato",
+      "title": "West Germany joins NATO",
+      "summary": "Integration of West Germany into Western defense.",
+      "date": "1955-05-09",
+      "year": 1955,
+      "countries": [
+        "Germany"
+      ],
+      "geo": {
+        "lat": 52.52,
+        "lng": 13.405
+      },
+      "location": "Berlin, Germany",
+      "tags": [
+        "enlargement"
+      ],
+      "punchline": "From adversary to ally speedrun."
     },
     {
       "id": "nato-1966-france-withdraws",
@@ -258,17 +280,17 @@
       "summary": "National decision to leave integrated military structure.",
       "date": "1966-03-07",
       "year": 1966,
-      "type": "policy",
       "countries": [
         "France"
       ],
-      "geo": { "lat": 48.8566, "lng": 2.3522 },
+      "geo": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
       "location": "Paris, France",
       "tags": [
         "command"
       ],
-      "sources": [],
-      "severity": 2,
       "punchline": "BRB, strategic autonomy."
     },
     {
@@ -278,17 +300,17 @@
       "summary": "Dual-track approach: defense + détente.",
       "date": "1967-12-14",
       "year": 1967,
-      "type": "report",
       "countries": [
         "NATO"
       ],
-      "geo": { "lat": 50.8503, "lng": 4.3517 },
+      "geo": {
+        "lat": 50.8503,
+        "lng": 4.3517
+      },
       "location": "Brussels, Belgium",
       "tags": [
         "doctrine"
       ],
-      "sources": [],
-      "severity": 2,
       "punchline": "Peace through strength—plus coffee diplomacy."
     },
     {
@@ -298,17 +320,17 @@
       "summary": "Alliance headquarters relocates from Paris to Brussels.",
       "date": "1967-10-16",
       "year": 1967,
-      "type": "organization",
       "countries": [
         "Belgium"
       ],
-      "geo": { "lat": 50.8503, "lng": 4.3517 },
+      "geo": {
+        "lat": 50.8503,
+        "lng": 4.3517
+      },
       "location": "Brussels, Belgium",
       "tags": [
         "hq"
       ],
-      "sources": [],
-      "severity": 1,
       "punchline": "Central server migrated."
     },
     {
@@ -318,17 +340,17 @@
       "summary": "Membership expands on the Iberian Peninsula.",
       "date": "1982-05-30",
       "year": 1982,
-      "type": "accession",
       "countries": [
         "Spain"
       ],
-      "geo": { "lat": 40.4168, "lng": -3.7038 },
+      "geo": {
+        "lat": 40.4168,
+        "lng": -3.7038
+      },
       "location": "Madrid, Spain",
       "tags": [
         "enlargement"
       ],
-      "sources": [],
-      "severity": 3,
       "punchline": "Tapas added to the mess hall."
     },
     {
@@ -338,19 +360,19 @@
       "summary": "Conventional Armed Forces in Europe limitations agreed.",
       "date": "1990-11-19",
       "year": 1990,
-      "type": "treaty",
       "countries": [
         "Europe",
         "USSR",
         "NATO"
       ],
-      "geo": { "lat": 48.8566, "lng": 2.3522 },
+      "geo": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
       "location": "Paris, France",
       "tags": [
         "arms-control"
       ],
-      "sources": [],
-      "severity": 3,
       "punchline": "Cold War hardware gets a diet."
     },
     {
@@ -360,18 +382,18 @@
       "summary": "End of the Cold War reshapes European security.",
       "date": "1991-12-26",
       "year": 1991,
-      "type": "geopolitics",
       "countries": [
         "Russia",
         "Former USSR"
       ],
-      "geo": { "lat": 55.7558, "lng": 37.6173 },
+      "geo": {
+        "lat": 55.7558,
+        "lng": 37.6173
+      },
       "location": "Moscow, Russia",
       "tags": [
         "system-change"
       ],
-      "sources": [],
-      "severity": 5,
       "punchline": "Final boss defeated by internal bugs."
     },
     {
@@ -381,211 +403,19 @@
       "summary": "Cooperative program with non-member states.",
       "date": "1994-01-10",
       "year": 1994,
-      "type": "initiative",
       "countries": [
         "NATO",
         "Europe"
       ],
-      "geo": { "lat": 50.8503, "lng": 4.3517 },
+      "geo": {
+        "lat": 50.8503,
+        "lng": 4.3517
+      },
       "location": "Brussels, Belgium",
       "tags": [
         "cooperation"
       ],
-      "sources": [],
-      "severity": 2,
       "punchline": "Friends list opens."
-    },
-    {
-      "id": "nato-1999-poland-cze-hun",
-      "category": "nato",
-      "title": "Poland, Czechia, Hungary join",
-      "summary": "First post–Cold War enlargement.",
-      "date": "1999-03-12",
-      "year": 1999,
-      "type": "accession",
-      "countries": [
-        "Poland",
-        "Czechia",
-        "Hungary"
-      ],
-      "geo": { "lat": 52.2297, "lng": 21.0122 },
-      "location": "Warsaw, Poland",
-      "tags": [
-        "enlargement"
-      ],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Eastward expansion level 1."
-    },
-    {
-      "id": "nato-2001-art5",
-      "category": "nato",
-      "title": "Article 5 invoked (9/11)",
-      "summary": "Collective defense triggered for the first time.",
-      "date": "2001-09-12",
-      "year": 2001,
-      "type": "policy",
-      "countries": [
-        "United States",
-        "NATO"
-      ],
-      "geo": { "lat": 40.7128, "lng": -74.0060 },
-      "location": "New York, USA",
-      "tags": [
-        "article-5"
-      ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "The clause isn’t decorative."
-    },
-    {
-      "id": "nato-2004-big-bang",
-      "category": "nato",
-      "title": "Seven countries join",
-      "summary": "Bulgaria, Estonia, Latvia, Lithuania, Romania, Slovakia, Slovenia.",
-      "date": "2004-03-29",
-      "year": 2004,
-      "type": "accession",
-      "countries": [
-        "Bulgaria",
-        "Estonia",
-        "Latvia",
-        "Lithuania",
-        "Romania",
-        "Slovakia",
-        "Slovenia"
-      ],
-      "geo": { "lat": 50.8503, "lng": 4.3517 },
-      "location": "Brussels, Belgium",
-      "tags": [
-        "enlargement"
-      ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Enlargement speedrun PB."
-    },
-    {
-      "id": "nato-2009-alb-hrv",
-      "category": "nato",
-      "title": "Albania and Croatia join",
-      "summary": "Further Balkan integration.",
-      "date": "2009-04-01",
-      "year": 2009,
-      "type": "accession",
-      "countries": [
-        "Albania",
-        "Croatia"
-      ],
-      "geo": { "lat": 41.3275, "lng": 19.8187 },
-      "location": "Tirana, Albania",
-      "tags": [
-        "enlargement"
-      ],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Adriatic secure, barbershop approved."
-    },
-    {
-      "id": "nato-2017-mne",
-      "category": "nato",
-      "title": "Montenegro joins NATO",
-      "summary": "Alliance grows to 29.",
-      "date": "2017-06-05",
-      "year": 2017,
-      "type": "accession",
-      "countries": [
-        "Montenegro"
-      ],
-      "geo": { "lat": 42.4413, "lng": 19.2629 },
-      "location": "Podgorica, Montenegro",
-      "tags": [
-        "enlargement"
-      ],
-      "sources": [],
-      "severity": 3,
-      "punchline": "Small country, big veto power."
-    },
-    {
-      "id": "nato-2020-mkd",
-      "category": "nato",
-      "title": "North Macedonia joins NATO",
-      "summary": "Name dispute resolution enables accession.",
-      "date": "2020-03-27",
-      "year": 2020,
-      "type": "accession",
-      "countries": [
-        "North Macedonia"
-      ],
-      "geo": { "lat": 41.9981, "lng": 21.4254 },
-      "location": "Skopje, North Macedonia",
-      "tags": [
-        "enlargement"
-      ],
-      "sources": [],
-      "severity": 3,
-      "punchline": "One adjective later—door opens."
-    },
-    {
-      "id": "nato-2023-finland",
-      "category": "nato",
-      "title": "Finland joins NATO",
-      "summary": "Border with Russia that actually answers back.",
-      "date": "2023-04-04",
-      "year": 2023,
-      "type": "accession",
-      "countries": [
-        "Finland"
-      ],
-      "geo": { "lat": 60.1699, "lng": 24.9384 },
-      "location": "Helsinki, Finland",
-      "tags": [
-        "enlargement"
-      ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "2,600 km of 'try me'."
-    },
-    {
-      "id": "nato-2024-sweden",
-      "category": "nato",
-      "title": "Sweden joins NATO",
-      "summary": "Longstanding non-aligned state becomes member.",
-      "date": "2024-03-07",
-      "year": 2024,
-      "type": "accession",
-      "countries": [
-        "Sweden"
-      ],
-      "geo": { "lat": 59.3293, "lng": 18.0686 },
-      "location": "Stockholm, Sweden",
-      "tags": [
-        "enlargement"
-      ],
-      "sources": [],
-      "severity": 4,
-      "punchline": "From neutrality to 'nah'."
-    },
-    {
-      "id": "nato-1950-korea",
-      "category": "nato",
-      "title": "Korean War begins",
-      "summary": "NATO coordinates strategic responses though not a NATO operation.",
-      "date": "1950-06-25",
-      "year": 1950,
-      "type": "conflict",
-      "countries": [
-        "Korea",
-        "United States",
-        "UN"
-      ],
-      "geo": { "lat": 37.5665, "lng": 126.9780 },
-      "location": "Seoul, South Korea",
-      "tags": [
-        "korean-war"
-      ],
-      "sources": [],
-      "severity": 3,
-      "punchline": "UN op, NATO brains online."
     },
     {
       "id": "nato-1995-ifor",
@@ -594,18 +424,18 @@
       "summary": "NATO-led peace implementation force deployed.",
       "date": "1995-12-20",
       "year": 1995,
-      "type": "operation",
       "countries": [
         "Bosnia and Herzegovina",
         "NATO"
       ],
-      "geo": { "lat": 43.8563, "lng": 18.4131 },
+      "geo": {
+        "lat": 43.8563,
+        "lng": 18.4131
+      },
       "location": "Sarajevo, Bosnia and Herzegovina",
       "tags": [
         "balkans"
       ],
-      "sources": [],
-      "severity": 4,
       "punchline": "Peacekeeping with teeth."
     },
     {
@@ -615,20 +445,63 @@
       "summary": "NATO conducts Operation Allied Force.",
       "date": "1999-03-24",
       "year": 1999,
-      "type": "operation",
       "countries": [
         "Serbia",
         "Kosovo",
         "NATO"
       ],
-      "geo": { "lat": 42.6629, "lng": 21.1655 },
+      "geo": {
+        "lat": 42.6629,
+        "lng": 21.1655
+      },
       "location": "Pristina, Kosovo",
       "tags": [
         "balkans"
       ],
-      "sources": [],
-      "severity": 4,
       "punchline": "No-fly meets no-chill."
+    },
+    {
+      "id": "nato-1999-poland-cze-hun",
+      "category": "nato",
+      "title": "Poland, Czechia, Hungary join",
+      "summary": "First post–Cold War enlargement.",
+      "date": "1999-03-12",
+      "year": 1999,
+      "countries": [
+        "Poland",
+        "Czechia",
+        "Hungary"
+      ],
+      "geo": {
+        "lat": 52.2297,
+        "lng": 21.0122
+      },
+      "location": "Warsaw, Poland",
+      "tags": [
+        "enlargement"
+      ],
+      "punchline": "Eastward expansion level 1."
+    },
+    {
+      "id": "nato-2001-art5",
+      "category": "nato",
+      "title": "Article 5 invoked (9/11)",
+      "summary": "Collective defense triggered for the first time.",
+      "date": "2001-09-12",
+      "year": 2001,
+      "countries": [
+        "United States",
+        "NATO"
+      ],
+      "geo": {
+        "lat": 40.7128,
+        "lng": -74.006
+      },
+      "location": "New York, USA",
+      "tags": [
+        "article-5"
+      ],
+      "punchline": "The clause isn’t decorative."
     },
     {
       "id": "nato-2003-isaf",
@@ -637,19 +510,66 @@
       "summary": "Stabilization mission under UN mandate.",
       "date": "2003-08-11",
       "year": 2003,
-      "type": "operation",
       "countries": [
         "Afghanistan",
         "NATO"
       ],
-      "geo": { "lat": 34.5553, "lng": 69.2075 },
+      "geo": {
+        "lat": 34.5553,
+        "lng": 69.2075
+      },
       "location": "Kabul, Afghanistan",
       "tags": [
         "afghanistan"
       ],
-      "sources": [],
-      "severity": 4,
       "punchline": "Nation-building on hard mode."
+    },
+    {
+      "id": "nato-2004-big-bang",
+      "category": "nato",
+      "title": "Seven countries join",
+      "summary": "Bulgaria, Estonia, Latvia, Lithuania, Romania, Slovakia, Slovenia.",
+      "date": "2004-03-29",
+      "year": 2004,
+      "countries": [
+        "Bulgaria",
+        "Estonia",
+        "Latvia",
+        "Lithuania",
+        "Romania",
+        "Slovakia",
+        "Slovenia"
+      ],
+      "geo": {
+        "lat": 50.8503,
+        "lng": 4.3517
+      },
+      "location": "Brussels, Belgium",
+      "tags": [
+        "enlargement"
+      ],
+      "punchline": "Enlargement speedrun PB."
+    },
+    {
+      "id": "nato-2009-alb-hrv",
+      "category": "nato",
+      "title": "Albania and Croatia join",
+      "summary": "Further Balkan integration.",
+      "date": "2009-04-01",
+      "year": 2009,
+      "countries": [
+        "Albania",
+        "Croatia"
+      ],
+      "geo": {
+        "lat": 41.3275,
+        "lng": 19.8187
+      },
+      "location": "Tirana, Albania",
+      "tags": [
+        "enlargement"
+      ],
+      "punchline": "Adriatic secure, barbershop approved."
     },
     {
       "id": "nato-2011-libya",
@@ -658,20 +578,100 @@
       "summary": "NATO enforces UN-authorized no-fly zone.",
       "date": "2011-03-19",
       "year": 2011,
-      "type": "operation",
       "countries": [
         "Libya",
         "NATO"
       ],
-      "geo": { "lat": 32.8872, "lng": 13.1913 },
+      "geo": {
+        "lat": 32.8872,
+        "lng": 13.1913
+      },
       "location": "Tripoli, Libya",
       "tags": [
         "no-fly",
         "R2P"
       ],
-      "sources": [],
-      "severity": 3,
       "punchline": "When 'air superiority' is the whole story."
+    },
+    {
+      "id": "nato-2017-mne",
+      "category": "nato",
+      "title": "Montenegro joins NATO",
+      "summary": "Alliance grows to 29.",
+      "date": "2017-06-05",
+      "year": 2017,
+      "countries": [
+        "Montenegro"
+      ],
+      "geo": {
+        "lat": 42.4413,
+        "lng": 19.2629
+      },
+      "location": "Podgorica, Montenegro",
+      "tags": [
+        "enlargement"
+      ],
+      "punchline": "Small country, big veto power."
+    },
+    {
+      "id": "nato-2020-mkd",
+      "category": "nato",
+      "title": "North Macedonia joins NATO",
+      "summary": "Name dispute resolution enables accession.",
+      "date": "2020-03-27",
+      "year": 2020,
+      "countries": [
+        "North Macedonia"
+      ],
+      "geo": {
+        "lat": 41.9981,
+        "lng": 21.4254
+      },
+      "location": "Skopje, North Macedonia",
+      "tags": [
+        "enlargement"
+      ],
+      "punchline": "One adjective later—door opens."
+    },
+    {
+      "id": "nato-2023-finland",
+      "category": "nato",
+      "title": "Finland joins NATO",
+      "summary": "Border with Russia that actually answers back.",
+      "date": "2023-04-04",
+      "year": 2023,
+      "countries": [
+        "Finland"
+      ],
+      "geo": {
+        "lat": 60.1699,
+        "lng": 24.9384
+      },
+      "location": "Helsinki, Finland",
+      "tags": [
+        "enlargement"
+      ],
+      "punchline": "2,600 km of 'try me'."
+    },
+    {
+      "id": "nato-2024-sweden",
+      "category": "nato",
+      "title": "Sweden joins NATO",
+      "summary": "Longstanding non-aligned state becomes member.",
+      "date": "2024-03-07",
+      "year": 2024,
+      "countries": [
+        "Sweden"
+      ],
+      "geo": {
+        "lat": 59.3293,
+        "lng": 18.0686
+      },
+      "location": "Stockholm, Sweden",
+      "tags": [
+        "enlargement"
+      ],
+      "punchline": "From neutrality to 'nah'."
     }
   ]
 }

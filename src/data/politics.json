@@ -7,19 +7,63 @@
       "summary": "Treaty of Portsmouth shifts balance in East Asia.",
       "date": "1905-09-05",
       "year": 1905,
-      "type": "treaty",
       "countries": [
         "Japan",
         "Russia",
         "USA"
       ],
-      "geo": { "lat": 35.6895, "lng": 139.6917 },
+      "geo": {
+        "lat": 35.6895,
+        "lng": 139.6917
+      },
       "tags": [
         "east-asia"
       ],
-      "sources": [],
-      "severity": 3,
       "punchline": "When a rising power speed-checks an empire."
+    },
+    {
+      "id": "politics-1914-secret-balkan-alliances",
+      "category": "politics",
+      "title": "1914 Balkan alliances trigger WWI",
+      "summary": "European empires chain-react into war because nobody reads treaties.",
+      "date": "1914-06-28",
+      "year": 1914,
+      "countries": [
+        "Serbia",
+        "Austria",
+        "Germany",
+        "Russia"
+      ],
+      "geo": {
+        "lat": 44.7866,
+        "lng": 20.4489
+      },
+      "location": "Belgrade, Serbia",
+      "tags": [
+        "alliances"
+      ],
+      "punchline": "One shot → four empires down."
+    },
+    {
+      "id": "politics-1915-armenian-genocide",
+      "category": "politics",
+      "title": "1915 Armenian Genocide",
+      "summary": "Ottoman Empire orders mass deportation and extermination of Armenians.",
+      "date": "1915-04-24",
+      "year": 1915,
+      "countries": [
+        "Ottoman Empire",
+        "Armenia"
+      ],
+      "geo": {
+        "lat": 39.9199,
+        "lng": 32.8543
+      },
+      "location": "Ankara, Turkey",
+      "tags": [
+        "genocide"
+      ],
+      "punchline": "One and a half million erased from history."
     },
     {
       "id": "politics-1917-revolution",
@@ -28,16 +72,16 @@
       "summary": "Bolsheviks seize power; USSR emerges.",
       "date": "1917-11-07",
       "year": 1917,
-      "type": "revolution",
       "countries": [
         "Russia"
       ],
-      "geo": { "lat": 55.7558, "lng": 37.6173 },
+      "geo": {
+        "lat": 55.7558,
+        "lng": 37.6173
+      },
       "tags": [
         "revolution"
       ],
-      "sources": [],
-      "severity": 5,
       "punchline": "Ctrl+Alt+Reboot state."
     },
     {
@@ -46,18 +90,19 @@
       "summary": "Germany becomes a republic after WWI.",
       "date": "1919-08-11",
       "year": 1919,
-      "type": "constitution",
       "countries": [
         "Germany"
       ],
-    "geo": { "lat": 50.9795, "lng": 11.3235 },
-    "location": "Weimar, Germany",
+      "geo": {
+        "lat": 50.9795,
+        "lng": 11.3235
+      },
+      "location": "Weimar, Germany",
       "tags": [
         "interwar"
       ],
-      "sources": [],
-      "severity": 2,
-      "punchline": "Patch 1.0 shipped with instability bugs."
+      "punchline": "Patch 1.0 shipped with instability bugs.",
+      "category": "politics"
     },
     {
       "id": "politics-1920-league",
@@ -65,18 +110,39 @@
       "summary": "Attempt at collective security post-WWI.",
       "date": "1920-01-10",
       "year": 1920,
-      "type": "organization",
       "countries": [
         "Global"
       ],
-    "geo": { "lat": 46.2044, "lng": 6.1432 },
-    "location": "Geneva, Switzerland",
+      "geo": {
+        "lat": 46.2044,
+        "lng": 6.1432
+      },
+      "location": "Geneva, Switzerland",
       "tags": [
         "collective-security"
       ],
-      "sources": [],
-      "severity": 2,
-      "punchline": "UN alpha build."
+      "punchline": "UN alpha build.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-1928-gulag-system",
+      "category": "politics",
+      "title": "1928 Soviet Gulag system founded",
+      "summary": "Forced labor camps imprison millions for decades.",
+      "date": "1928-10-01",
+      "year": 1928,
+      "countries": [
+        "USSR"
+      ],
+      "geo": {
+        "lat": 58.015,
+        "lng": 56.2667
+      },
+      "location": "Perm-36, Russia",
+      "tags": [
+        "gulag"
+      ],
+      "punchline": "Labor equals survival."
     },
     {
       "id": "politics-1933-hitler",
@@ -84,18 +150,19 @@
       "summary": "Totalitarian regime consolidates power.",
       "date": "1933-01-30",
       "year": 1933,
-      "type": "political",
       "countries": [
         "Germany"
       ],
-    "geo": { "lat": 52.5200, "lng": 13.4050 },
-    "location": "Berlin, Germany",
+      "geo": {
+        "lat": 52.52,
+        "lng": 13.405
+      },
+      "location": "Berlin, Germany",
       "tags": [
         "nazism"
       ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Democracy speedran to dictatorship."
+      "punchline": "Democracy speedran to dictatorship.",
+      "category": "politics"
     },
     {
       "id": "politics-1936-spain",
@@ -103,18 +170,106 @@
       "summary": "Proxy battleground of ideologies.",
       "date": "1936-07-17",
       "year": 1936,
-      "type": "conflict",
       "countries": [
         "Spain"
       ],
-    "geo": { "lat": 40.4168, "lng": -3.7038 },
-    "location": "Madrid, Spain",
+      "geo": {
+        "lat": 40.4168,
+        "lng": -3.7038
+      },
+      "location": "Madrid, Spain",
       "tags": [
         "civil-war"
       ],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Beta test for WWII tactics."
+      "punchline": "Beta test for WWII tactics.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-1936-spanish-civil-war",
+      "category": "politics",
+      "title": "1936 Spanish Civil War becomes warm-up for WW2",
+      "summary": "Germany & USSR test weapons in Spain like demo day.",
+      "date": "1936-07-17",
+      "year": 1936,
+      "countries": [
+        "Spain",
+        "Germany",
+        "Soviet"
+      ],
+      "geo": {
+        "lat": 40.4168,
+        "lng": -3.7038
+      },
+      "location": "Madrid, Spain",
+      "tags": [
+        "fascism"
+      ],
+      "punchline": "Europe watches — keeps score."
+    },
+    {
+      "id": "politics-1937-nanking-massacre",
+      "category": "politics",
+      "title": "1937 Nanking Massacre",
+      "summary": "Japanese troops slaughter up to 300,000 Chinese civilians in six weeks.",
+      "date": "1937-12-13",
+      "year": 1937,
+      "countries": [
+        "Japan",
+        "China"
+      ],
+      "geo": {
+        "lat": 32.0603,
+        "lng": 118.7969
+      },
+      "location": "Nanjing, China",
+      "tags": [
+        "warcrime"
+      ],
+      "punchline": "City of life turned into open grave."
+    },
+    {
+      "id": "politics-1942-bataan-death-march",
+      "category": "politics",
+      "title": "1942 Bataan Death March",
+      "summary": "Japanese force 75,000 POWs on brutal 65-mile trek; thousands die.",
+      "date": "1942-04-09",
+      "year": 1942,
+      "countries": [
+        "Japan",
+        "Philippines",
+        "USA"
+      ],
+      "geo": {
+        "lat": 14.6857,
+        "lng": 120.425
+      },
+      "location": "Bataan, Philippines",
+      "tags": [
+        "pow"
+      ],
+      "punchline": "March or die."
+    },
+    {
+      "id": "politics-1945-dresden-bombing",
+      "category": "politics",
+      "title": "1945 Firebombing of Dresden",
+      "summary": "Allied bombers incinerate German city killing ~25,000 civilians.",
+      "date": "1945-02-13",
+      "year": 1945,
+      "countries": [
+        "UK",
+        "USA",
+        "Germany"
+      ],
+      "geo": {
+        "lat": 51.0504,
+        "lng": 13.7373
+      },
+      "location": "Dresden, Germany",
+      "tags": [
+        "airstrike"
+      ],
+      "punchline": "Liberation through firestorms."
     },
     {
       "id": "politics-1945-un",
@@ -122,18 +277,19 @@
       "summary": "Global forum for peace and security.",
       "date": "1945-10-24",
       "year": 1945,
-      "type": "organization",
       "countries": [
         "Global"
       ],
-    "geo": { "lat": 40.7128, "lng": -74.0060 },
-    "location": "New York, USA",
+      "geo": {
+        "lat": 40.7128,
+        "lng": -74.006
+      },
+      "location": "New York, USA",
       "tags": [
         "UN"
       ],
-      "sources": [],
-      "severity": 3,
-      "punchline": "Meeting room for planet Earth."
+      "punchline": "Meeting room for planet Earth.",
+      "category": "politics"
     },
     {
       "id": "politics-1947-india",
@@ -141,20 +297,21 @@
       "summary": "End of British rule; partition creates Pakistan.",
       "date": "1947-08-15",
       "year": 1947,
-      "type": "independence",
       "countries": [
         "India",
         "Pakistan",
         "UK"
       ],
-    "geo": { "lat": 28.6139, "lng": 77.2090 },
-    "location": "New Delhi, India",
+      "geo": {
+        "lat": 28.6139,
+        "lng": 77.209
+      },
+      "location": "New Delhi, India",
       "tags": [
         "decolonization"
       ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Empire: uninstalling..."
+      "punchline": "Empire: uninstalling...",
+      "category": "politics"
     },
     {
       "id": "politics-1948-israel",
@@ -162,18 +319,41 @@
       "summary": "War of 1948 follows declaration.",
       "date": "1948-05-14",
       "year": 1948,
-      "type": "independence",
       "countries": [
         "Israel"
       ],
-    "geo": { "lat": 31.7683, "lng": 35.2137 },
-    "location": "Jerusalem, Israel",
+      "geo": {
+        "lat": 31.7683,
+        "lng": 35.2137
+      },
+      "location": "Jerusalem, Israel",
       "tags": [
         "middle-east"
       ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Birth certificate with immediate neighbors' review."
+      "punchline": "Birth certificate with immediate neighbors' review.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-1950-korean-war",
+      "category": "politics",
+      "title": "1950 Korean War",
+      "summary": "North backed by USSR/China, South backed by USA/UN — draw with millions dead.",
+      "date": "1950-06-25",
+      "year": 1950,
+      "countries": [
+        "Korea",
+        "USA",
+        "China"
+      ],
+      "geo": {
+        "lat": 38.255,
+        "lng": 127.029
+      },
+      "location": "DMZ, Korea",
+      "tags": [
+        "coldwar"
+      ],
+      "punchline": "Ceasefire lasts longer than war."
     },
     {
       "id": "politics-1951-ecsc",
@@ -181,18 +361,42 @@
       "summary": "Coal & Steel community integrates European industries.",
       "date": "1951-04-18",
       "year": 1951,
-      "type": "organization",
       "countries": [
         "EU"
       ],
-    "geo": { "lat": 50.8503, "lng": 4.3517 },
-    "location": "Brussels, Belgium",
+      "geo": {
+        "lat": 50.8503,
+        "lng": 4.3517
+      },
+      "location": "Brussels, Belgium",
       "tags": [
         "integration"
       ],
-      "sources": [],
-      "severity": 2,
-      "punchline": "Friendship via steel and spreadsheets."
+      "punchline": "Friendship via steel and spreadsheets.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-1956-suez-crisis",
+      "category": "politics",
+      "title": "1956 Suez Crisis",
+      "summary": "Britain, France & Israel attack Egypt — USA shuts it down.",
+      "date": "1956-10-29",
+      "year": 1956,
+      "countries": [
+        "UK",
+        "France",
+        "Israel",
+        "Egypt"
+      ],
+      "geo": {
+        "lat": 30.0444,
+        "lng": 31.2357
+      },
+      "location": "Cairo, Egypt",
+      "tags": [
+        "empire"
+      ],
+      "punchline": "Britain learns it’s no longer the boss."
     },
     {
       "id": "politics-1957-rome",
@@ -200,18 +404,61 @@
       "summary": "Creates the EEC and Euratom.",
       "date": "1957-03-25",
       "year": 1957,
-      "type": "treaty",
       "countries": [
         "EU"
       ],
-    "geo": { "lat": 41.9028, "lng": 12.4964 },
-    "location": "Rome, Italy",
+      "geo": {
+        "lat": 41.9028,
+        "lng": 12.4964
+      },
+      "location": "Rome, Italy",
       "tags": [
         "integration"
       ],
-      "sources": [],
-      "severity": 3,
-      "punchline": "EU prequel DLC."
+      "punchline": "EU prequel DLC.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-1958-great-leap-famine",
+      "category": "politics",
+      "title": "1958–1962 Great Chinese Famine",
+      "summary": "Mao’s policies lead to starvation of 15–45 million.",
+      "date": "1958-05-01",
+      "year": 1958,
+      "countries": [
+        "China"
+      ],
+      "geo": {
+        "lat": 35.8617,
+        "lng": 104.1954
+      },
+      "location": "China (nationwide)",
+      "tags": [
+        "famine"
+      ],
+      "punchline": "Ideology over rice."
+    },
+    {
+      "id": "politics-1962-cuba-missile-crisis",
+      "category": "politics",
+      "title": "1962 Cuban Missile Crisis",
+      "summary": "USSR puts nukes in Cuba, US blockades island, world nearly ends over chess move.",
+      "date": "1962-10-16",
+      "year": 1962,
+      "countries": [
+        "USA",
+        "USSR",
+        "Cuba"
+      ],
+      "geo": {
+        "lat": 23.1136,
+        "lng": -82.3666
+      },
+      "location": "Havana, Cuba",
+      "tags": [
+        "nukes"
+      ],
+      "punchline": "13 days from barbecue Earth."
     },
     {
       "id": "politics-1962-cuban-missile",
@@ -219,20 +466,84 @@
       "summary": "U.S.-USSR standoff brings world near nuclear war.",
       "date": "1962-10-16",
       "year": 1962,
-      "type": "crisis",
       "countries": [
         "USA",
         "USSR",
         "Cuba"
       ],
-    "geo": { "lat": 23.1136, "lng": -82.3666 },
-    "location": "Havana, Cuba",
+      "geo": {
+        "lat": 23.1136,
+        "lng": -82.3666
+      },
+      "location": "Havana, Cuba",
       "tags": [
         "nuclear"
       ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Thirteen days of 'no sudden moves'."
+      "punchline": "Thirteen days of 'no sudden moves'.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-1965-dominican-intervention",
+      "category": "politics",
+      "title": "1965 US intervenes in Dominican Republic",
+      "summary": "Marines land to stop ‘communism’ — really to protect insurance companies.",
+      "date": "1965-04-28",
+      "year": 1965,
+      "countries": [
+        "USA",
+        "Dominican Republic"
+      ],
+      "geo": {
+        "lat": 18.4861,
+        "lng": -69.9312
+      },
+      "location": "Santo Domingo, D.R.",
+      "tags": [
+        "coldwar"
+      ],
+      "punchline": "Freedom brought by beachfront artillery."
+    },
+    {
+      "id": "politics-1968-biafra-war",
+      "category": "politics",
+      "title": "1968 Biafra secession war",
+      "summary": "Nigeria backed by UK crushes breakaway Biafra — 1M starve.",
+      "date": "1968-07-01",
+      "year": 1968,
+      "countries": [
+        "Nigeria",
+        "UK"
+      ],
+      "geo": {
+        "lat": 6.459965,
+        "lng": 7.548949
+      },
+      "location": "Biafra, Nigeria",
+      "tags": [
+        "civilwar"
+      ],
+      "punchline": "Oil > human life — standard policy."
+    },
+    {
+      "id": "politics-1968-my-lai-massacre",
+      "category": "politics",
+      "title": "1968 Mỹ Lai Massacre",
+      "summary": "US soldiers kill hundreds of Vietnamese civilians; cover-up follows.",
+      "date": "1968-03-16",
+      "year": 1968,
+      "countries": [
+        "USA",
+        "Vietnam"
+      ],
+      "geo": {
+        "lat": 15.1088,
+        "lng": 108.7964
+      },
+      "location": "Quảng Ngãi, Vietnam",
+      "tags": [
+        "atrocity"
+      ],
+      "punchline": "Vietnam war’s darkest stain."
     },
     {
       "id": "politics-1968-prague",
@@ -240,19 +551,62 @@
       "summary": "Warsaw Pact invades Czechoslovakia.",
       "date": "1968-08-20",
       "year": 1968,
-      "type": "conflict",
       "countries": [
         "Czechoslovakia",
         "USSR"
       ],
-    "geo": { "lat": 50.0755, "lng": 14.4378 },
-    "location": "Prague, Czech Republic",
+      "geo": {
+        "lat": 50.0755,
+        "lng": 14.4378
+      },
+      "location": "Prague, Czech Republic",
       "tags": [
         "suppression"
       ],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Freedom trial period canceled."
+      "punchline": "Freedom trial period canceled.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-1968-vietnam-tet-offensive",
+      "category": "politics",
+      "title": "1968 Vietnam Tet Offensive",
+      "summary": "Communist surprise attacks shock US public — war turns unpopular.",
+      "date": "1968-01-30",
+      "year": 1968,
+      "countries": [
+        "USA",
+        "Vietnam"
+      ],
+      "geo": {
+        "lat": 16.4637,
+        "lng": 107.5909
+      },
+      "location": "Huế, Vietnam",
+      "tags": [
+        "vietnam"
+      ],
+      "punchline": "Won battles — lost TV ratings."
+    },
+    {
+      "id": "politics-1971-bangladesh-genocide",
+      "category": "politics",
+      "title": "1971 Bangladesh Liberation War atrocities",
+      "summary": "Pakistani army kills up to 3 million civilians.",
+      "date": "1971-03-25",
+      "year": 1971,
+      "countries": [
+        "Pakistan",
+        "Bangladesh"
+      ],
+      "geo": {
+        "lat": 23.8103,
+        "lng": 90.4125
+      },
+      "location": "Dhaka, Bangladesh",
+      "tags": [
+        "genocide"
+      ],
+      "punchline": "Birth of nation bathed in blood."
     },
     {
       "id": "politics-1971-china-un",
@@ -260,19 +614,100 @@
       "summary": "People's Republic of China takes China seat at UN.",
       "date": "1971-10-25",
       "year": 1971,
-      "type": "diplomacy",
       "countries": [
         "China",
         "UN"
       ],
-    "geo": { "lat": 40.7128, "lng": -74.0060 },
-    "location": "New York, USA",
+      "geo": {
+        "lat": 40.7128,
+        "lng": -74.006
+      },
+      "location": "New York, USA",
       "tags": [
         "recognition"
       ],
-      "sources": [],
-      "severity": 3,
-      "punchline": "Seat swap complete."
+      "punchline": "Seat swap complete.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-1972-bloody-sunday",
+      "category": "politics",
+      "title": "1972 Bloody Sunday, Northern Ireland",
+      "summary": "British paratroopers shoot unarmed protestors in Derry.",
+      "date": "1972-01-30",
+      "year": 1972,
+      "countries": [
+        "UK"
+      ],
+      "geo": {
+        "lat": 54.997,
+        "lng": -7.309
+      },
+      "location": "Derry, Northern Ireland",
+      "tags": [
+        "protest"
+      ],
+      "punchline": "Peace march ends in gunfire."
+    },
+    {
+      "id": "politics-1974-portugal-carnation-revolution",
+      "category": "politics",
+      "title": "1974 Portugal Carnation Revolution",
+      "summary": "Dictatorship ends bloodlessly with flowers in gun barrels.",
+      "date": "1974-04-25",
+      "year": 1974,
+      "countries": [
+        "Portugal"
+      ],
+      "geo": {
+        "lat": 38.7223,
+        "lng": -9.1393
+      },
+      "location": "Lisbon, Portugal",
+      "tags": [
+        "revolution"
+      ],
+      "punchline": "Soft coup — beautiful optics."
+    },
+    {
+      "id": "politics-1975-khmer-rouge",
+      "category": "politics",
+      "title": "1975 Cambodian Killing Fields",
+      "summary": "Pol Pot’s regime murders ~2 million Cambodians under Year Zero.",
+      "date": "1975-04-17",
+      "year": 1975,
+      "countries": [
+        "Cambodia"
+      ],
+      "geo": {
+        "lat": 11.5564,
+        "lng": 104.9282
+      },
+      "location": "Phnom Penh, Cambodia",
+      "tags": [
+        "genocide"
+      ],
+      "punchline": "Society reset cost 20% of population."
+    },
+    {
+      "id": "politics-1976-soweto-uprising",
+      "category": "politics",
+      "title": "1976 Soweto Uprising",
+      "summary": "South African police kill protesting black students during apartheid.",
+      "date": "1976-06-16",
+      "year": 1976,
+      "countries": [
+        "South Africa"
+      ],
+      "geo": {
+        "lat": -26.2485,
+        "lng": 27.854
+      },
+      "location": "Soweto, South Africa",
+      "tags": [
+        "apartheid"
+      ],
+      "punchline": "Children versus rifles."
     },
     {
       "id": "politics-1979-iran-rev",
@@ -280,18 +715,102 @@
       "summary": "Monarchy falls; Islamic Republic established.",
       "date": "1979-02-11",
       "year": 1979,
-      "type": "revolution",
       "countries": [
         "Iran"
       ],
-    "geo": { "lat": 35.6892, "lng": 51.3890 },
-    "location": "Tehran, Iran",
+      "geo": {
+        "lat": 35.6892,
+        "lng": 51.389
+      },
+      "location": "Tehran, Iran",
       "tags": [
         "middle-east"
       ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Regime change with warranty void."
+      "punchline": "Regime change with warranty void.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-1979-nicaragua-sandinista-win",
+      "category": "politics",
+      "title": "1979 Sandinistas overthrow Somoza",
+      "summary": "Marxists take power → USA vows revenge through Contras.",
+      "date": "1979-07-17",
+      "year": 1979,
+      "countries": [
+        "Nicaragua",
+        "USA"
+      ],
+      "geo": {
+        "lat": 12.1364,
+        "lng": -86.2514
+      },
+      "location": "Managua, Nicaragua",
+      "tags": [
+        "revolution"
+      ],
+      "punchline": "Out with dictator, in with ‘freedom fighters’."
+    },
+    {
+      "id": "politics-1982-falklands-war",
+      "category": "politics",
+      "title": "1982 Falklands War",
+      "summary": "UK and Argentina fight over cold sheep islands.",
+      "date": "1982-04-02",
+      "year": 1982,
+      "countries": [
+        "UK",
+        "Argentina"
+      ],
+      "geo": {
+        "lat": -51.7963,
+        "lng": -59.5236
+      },
+      "location": "Falklands",
+      "tags": [
+        "islands"
+      ],
+      "punchline": "Tiny war, massive ego."
+    },
+    {
+      "id": "politics-1986-libya-us-retaliation",
+      "category": "politics",
+      "title": "1986 US bombs Libya (Operation El Dorado Canyon)",
+      "summary": "Reagan strikes Gaddafi after Berlin nightclub terror link.",
+      "date": "1986-04-15",
+      "year": 1986,
+      "countries": [
+        "USA",
+        "Libya"
+      ],
+      "geo": {
+        "lat": 32.8872,
+        "lng": 13.1913
+      },
+      "location": "Tripoli, Libya",
+      "tags": [
+        "airstrike"
+      ],
+      "punchline": "Message sent: don’t annoy the sheriff."
+    },
+    {
+      "id": "politics-1988-halabja-attack",
+      "category": "politics",
+      "title": "1988 Halabja chemical attack",
+      "summary": "Iraqi forces gas Kurdish civilians killing 5,000.",
+      "date": "1988-03-16",
+      "year": 1988,
+      "countries": [
+        "Iraq"
+      ],
+      "geo": {
+        "lat": 35.185,
+        "lng": 45.9884
+      },
+      "location": "Halabja, Iraq",
+      "tags": [
+        "chemical"
+      ],
+      "punchline": "Poisoned by their own government."
     },
     {
       "id": "politics-1989-berlin-wall",
@@ -299,18 +818,83 @@
       "summary": "Symbolic end of Cold War division.",
       "date": "1989-11-09",
       "year": 1989,
-      "type": "protest",
       "countries": [
         "Germany"
       ],
-    "geo": { "lat": 52.5200, "lng": 13.4050 },
-    "location": "Berlin, Germany",
+      "geo": {
+        "lat": 52.52,
+        "lng": 13.405
+      },
+      "location": "Berlin, Germany",
       "tags": [
         "reunification"
       ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Concrete meets souvenir chisels."
+      "punchline": "Concrete meets souvenir chisels.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-1989-fall-of-berlin-wall",
+      "category": "politics",
+      "title": "1989 Berlin Wall falls",
+      "summary": "Cold War ends — NATO celebrates, Russia drinks vodka in confusion.",
+      "date": "1989-11-09",
+      "year": 1989,
+      "countries": [
+        "Germany",
+        "USSR"
+      ],
+      "geo": {
+        "lat": 52.52,
+        "lng": 13.405
+      },
+      "location": "Berlin, Germany",
+      "tags": [
+        "coldwar"
+      ],
+      "punchline": "One wall down, many NATO bases up."
+    },
+    {
+      "id": "politics-1989-tiananmen-square",
+      "category": "politics",
+      "title": "1989 Tiananmen Square crackdown",
+      "summary": "Chinese tanks crush pro-democracy protests in Beijing.",
+      "date": "1989-06-04",
+      "year": 1989,
+      "countries": [
+        "China"
+      ],
+      "geo": {
+        "lat": 39.9042,
+        "lng": 116.4074
+      },
+      "location": "Beijing, China",
+      "tags": [
+        "repression"
+      ],
+      "punchline": "Images banned but never forgotten."
+    },
+    {
+      "id": "politics-1991-gulf-war-nato-backup",
+      "category": "politics",
+      "title": "1991 Gulf War led by USA",
+      "summary": "Iraq invades Kuwait; NATO-aligned coalition smashes Saddam in 100 hours.",
+      "date": "1991-01-17",
+      "year": 1991,
+      "countries": [
+        "USA",
+        "Iraq",
+        "UK",
+        "France"
+      ],
+      "geo": {
+        "lat": 29.3759,
+        "lng": 47.9774
+      },
+      "location": "Kuwait City",
+      "tags": [
+        "oilwars"
+      ],
+      "punchline": "Oil wells → freedom smells."
     },
     {
       "id": "politics-1991-ussr-collapse",
@@ -318,18 +902,40 @@
       "summary": "Fifteen independent states emerge.",
       "date": "1991-12-26",
       "year": 1991,
-      "type": "geopolitics",
       "countries": [
         "Former USSR"
       ],
-    "geo": { "lat": 55.7558, "lng": 37.6173 },
-    "location": "Moscow, Russia",
+      "geo": {
+        "lat": 55.7558,
+        "lng": 37.6173
+      },
+      "location": "Moscow, Russia",
       "tags": [
         "system-change"
       ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Map editors worked overtime."
+      "punchline": "Map editors worked overtime.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-1992-bosnia-siege",
+      "category": "politics",
+      "title": "1992–1995 Siege of Sarajevo",
+      "summary": "Bosnian Serb forces shell civilians for nearly four years.",
+      "date": "1992-04-05",
+      "year": 1992,
+      "countries": [
+        "Bosnia",
+        "Serbia"
+      ],
+      "geo": {
+        "lat": 43.8563,
+        "lng": 18.4131
+      },
+      "location": "Sarajevo, Bosnia",
+      "tags": [
+        "siege"
+      ],
+      "punchline": "Longest siege of modern Europe."
     },
     {
       "id": "politics-1992-maastricht",
@@ -337,18 +943,39 @@
       "summary": "EU foundation treaty signed.",
       "date": "1992-02-07",
       "year": 1992,
-      "type": "treaty",
       "countries": [
         "EU"
       ],
-    "geo": { "lat": 50.8514, "lng": 5.6900 },
-    "location": "Maastricht, Netherlands",
+      "geo": {
+        "lat": 50.8514,
+        "lng": 5.69
+      },
+      "location": "Maastricht, Netherlands",
       "tags": [
         "integration"
       ],
-      "sources": [],
-      "severity": 3,
-      "punchline": "EU mode: unlocked."
+      "punchline": "EU mode: unlocked.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-1994-chechnya-war-begins",
+      "category": "politics",
+      "title": "1994 First Chechen War",
+      "summary": "Russia bombs its own territory to keep it — NATO watches awkwardly.",
+      "date": "1994-12-11",
+      "year": 1994,
+      "countries": [
+        "Russia"
+      ],
+      "geo": {
+        "lat": 43.3188,
+        "lng": 45.6987
+      },
+      "location": "Grozny, Chechnya",
+      "tags": [
+        "russia"
+      ],
+      "punchline": "Independence dreams meet carpet bombing."
     },
     {
       "id": "politics-1994-rwanda",
@@ -356,18 +983,82 @@
       "summary": "Mass atrocities over ~100 days.",
       "date": "1994-04-07",
       "year": 1994,
-      "type": "atrocity",
       "countries": [
         "Rwanda"
       ],
-    "geo": { "lat": -1.9441, "lng": 30.0619 },
-    "location": "Kigali, Rwanda",
+      "geo": {
+        "lat": -1.9441,
+        "lng": 30.0619
+      },
+      "location": "Kigali, Rwanda",
       "tags": [
         "genocide"
       ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Humanity blue-screen."
+      "punchline": "Humanity blue-screen.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-1994-tutsi-genocide",
+      "category": "politics",
+      "title": "1994 Rwanda Genocide",
+      "summary": "Hutu militias slaughter Tutsis with machetes in 100 days.",
+      "date": "1994-04-07",
+      "year": 1994,
+      "countries": [
+        "Rwanda"
+      ],
+      "geo": {
+        "lat": 1.9706,
+        "lng": 30.1044
+      },
+      "location": "Kigali, Rwanda",
+      "tags": [
+        "genocide"
+      ],
+      "punchline": "UN watched it unfold, helpless."
+    },
+    {
+      "id": "politics-1995-srebrenica-warning",
+      "category": "politics",
+      "title": "1993–1995 Srebrenica massacres",
+      "summary": "UN safe zone in Bosnia fails; over 8,000 Muslim men killed.",
+      "date": "1995-07-11",
+      "year": 1995,
+      "countries": [
+        "Bosnia",
+        "Serbia"
+      ],
+      "geo": {
+        "lat": 44.1117,
+        "lng": 19.2964
+      },
+      "location": "Srebrenica, Bosnia",
+      "tags": [
+        "genocide"
+      ],
+      "punchline": "Blue helmets, red blood."
+    },
+    {
+      "id": "politics-1998-kosovo-prelude",
+      "category": "politics",
+      "title": "1998 Kosovo crackdown before NATO strike",
+      "summary": "Serb forces massacre villages — NATO prepares justice mission.",
+      "date": "1998-10-13",
+      "year": 1998,
+      "countries": [
+        "Serbia",
+        "Kosovo",
+        "NATO"
+      ],
+      "geo": {
+        "lat": 42.6629,
+        "lng": 21.1655
+      },
+      "location": "Kosovo",
+      "tags": [
+        "balkan"
+      ],
+      "punchline": "When diplomacy fails, jets follow."
     },
     {
       "id": "politics-2001-911",
@@ -375,28 +1066,8 @@
       "summary": "Coordinated terrorist attacks in the U.S.",
       "date": "2001-09-11",
       "year": 2001,
-      "type": "terrorism",
       "countries": [
-        {
-          "id": "politics-1919-weimar",
-          "category": "politics",
-          "title": "Weimar Constitution adopted",
-          "summary": "Germany becomes a republic after WWI.",
-          "date": "1919-08-11",
-          "year": 1919,
-          "type": "constitution",
-          "countries": [
-            "Germany"
-          ],
-          "geo": { "lat": 50.9795, "lng": 11.3235 },
-          "location": "Weimar, Germany",
-          "tags": [
-            "interwar"
-          ],
-          "sources": [],
-          "severity": 2,
-          "punchline": "Patch 1.0 shipped with instability bugs."
-        },
+        "[object Object]",
         "Iraq",
         "USA",
         "UK"
@@ -405,9 +1076,90 @@
         "war",
         "WMD"
       ],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Mission accomplished* (*terms apply)."
+      "punchline": "Mission accomplished* (*terms apply).",
+      "category": "politics"
+    },
+    {
+      "id": "politics-2001-macedonia-insurgency",
+      "category": "politics",
+      "title": "2001 Macedonia ethnic conflict",
+      "summary": "Ethnic tensions erupt; Macedonian forces clash with Albanian uprising over rights and autonomy.",
+      "date": "2001-03-02",
+      "year": 2001,
+      "countries": [
+        "North Macedonia",
+        "Albania"
+      ],
+      "geo": {
+        "lat": 41.9981,
+        "lng": 21.4254
+      },
+      "location": "Skopje, Macedonia",
+      "tags": [
+        "balkan"
+      ],
+      "punchline": "Yugoslavia breakup aftershocks continue."
+    },
+    {
+      "id": "politics-2002-gujarat-riots",
+      "category": "politics",
+      "title": "2002 Gujarat Riots",
+      "summary": "Hindu mobs kill over 1,000 Muslims while police accused of standing by.",
+      "date": "2002-02-27",
+      "year": 2002,
+      "countries": [
+        "India"
+      ],
+      "geo": {
+        "lat": 23.0225,
+        "lng": 72.5714
+      },
+      "location": "Ahmedabad, India",
+      "tags": [
+        "pogrom"
+      ],
+      "punchline": "Justice delayed, memory permanent."
+    },
+    {
+      "id": "politics-2003-iraq-shock-and-awe",
+      "category": "politics",
+      "title": "2003 Iraq Shock & Awe",
+      "summary": "US-led bombing campaign flattens Baghdad; invasion follows.",
+      "date": "2003-03-20",
+      "year": 2003,
+      "countries": [
+        "USA",
+        "Iraq"
+      ],
+      "geo": {
+        "lat": 33.3152,
+        "lng": 44.3661
+      },
+      "location": "Baghdad, Iraq",
+      "tags": [
+        "invasion"
+      ],
+      "punchline": "Regime removed — chaos installed."
+    },
+    {
+      "id": "politics-2004-beslan-school-siege",
+      "category": "politics",
+      "title": "2004 Beslan school massacre",
+      "summary": "Chechen militants take 1,100 hostages; Russian forces storm — 334 killed, mostly children.",
+      "date": "2004-09-01",
+      "year": 2004,
+      "countries": [
+        "Russia"
+      ],
+      "geo": {
+        "lat": 43.1931,
+        "lng": 44.5469
+      },
+      "location": "Beslan, Russia",
+      "tags": [
+        "terrorism"
+      ],
+      "punchline": "Classroom turned battlefield."
     },
     {
       "id": "politics-2004-eu-expansion",
@@ -415,16 +1167,201 @@
       "summary": "Largest single enlargement round.",
       "date": "2004-05-01",
       "year": 2004,
-      "type": "accession",
       "countries": [
         "EU"
       ],
       "tags": [
         "enlargement"
       ],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Spreadsheet increased to 25 columns."
+      "punchline": "Spreadsheet increased to 25 columns.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-2005-london-bombings",
+      "category": "politics",
+      "title": "2005 London 7/7 Bombings",
+      "summary": "Four suicide bombers attack transit system; 52 killed.",
+      "date": "2005-07-07",
+      "year": 2005,
+      "countries": [
+        "UK"
+      ],
+      "geo": {
+        "lat": 51.5074,
+        "lng": -0.1278
+      },
+      "location": "London, UK",
+      "tags": [
+        "terror"
+      ],
+      "punchline": "City of surveillance shocked anyway."
+    },
+    {
+      "id": "politics-2006-east-timor-crisis",
+      "category": "politics",
+      "title": "2006 East Timor unrest",
+      "summary": "Mutiny and factional violence lead to Australian-led military intervention.",
+      "date": "2006-05-25",
+      "year": 2006,
+      "countries": [
+        "Timor-Leste",
+        "Australia"
+      ],
+      "geo": {
+        "lat": -8.5667,
+        "lng": 125.5667
+      },
+      "location": "Dili, East Timor",
+      "tags": [
+        "intervention"
+      ],
+      "punchline": "Newest country almost implodes."
+    },
+    {
+      "id": "politics-2006-israel-lebanon-war",
+      "category": "politics",
+      "title": "2006 Israel–Hezbollah War",
+      "summary": "Proxy mess: Iran backs Hezbollah, NATO backs Israel quietly.",
+      "date": "2006-07-12",
+      "year": 2006,
+      "countries": [
+        "Israel",
+        "Lebanon"
+      ],
+      "geo": {
+        "lat": 33.8938,
+        "lng": 35.5018
+      },
+      "location": "Beirut, Lebanon",
+      "tags": [
+        "proxy"
+      ],
+      "punchline": "Militia vs Air Force — ends in stalemate."
+    },
+    {
+      "id": "politics-2007-kenya-election-violence",
+      "category": "politics",
+      "title": "2007 Kenya post-election violence",
+      "summary": "Tribal clashes after contested vote kill over 1,000.",
+      "date": "2007-12-27",
+      "year": 2007,
+      "countries": [
+        "Kenya"
+      ],
+      "geo": {
+        "lat": -1.2921,
+        "lng": 36.8219
+      },
+      "location": "Nairobi, Kenya",
+      "tags": [
+        "elections"
+      ],
+      "punchline": "Ballots turn to machetes."
+    },
+    {
+      "id": "politics-2008-afghan-drone-era",
+      "category": "politics",
+      "title": "2008 Drone warfare escalates",
+      "summary": "US starts killing militants remotely in Pakistan & Yemen.",
+      "date": "2008-01-28",
+      "year": 2008,
+      "countries": [
+        "USA",
+        "Pakistan",
+        "Yemen"
+      ],
+      "geo": {
+        "lat": 33.738,
+        "lng": 73.0845
+      },
+      "location": "Islamabad, Pakistan",
+      "tags": [
+        "drones"
+      ],
+      "punchline": "War by Playstation."
+    },
+    {
+      "id": "politics-2008-gaza-cast-lead",
+      "category": "politics",
+      "title": "2008 Gaza War (Operation Cast Lead)",
+      "summary": "Israel launches heavy bombing in Gaza killing 1,400 Palestinians.",
+      "date": "2008-12-27",
+      "year": 2008,
+      "countries": [
+        "Israel",
+        "Palestine"
+      ],
+      "geo": {
+        "lat": 31.5,
+        "lng": 34.4667
+      },
+      "location": "Gaza Strip",
+      "tags": [
+        "war"
+      ],
+      "punchline": "Walls in, bombs down."
+    },
+    {
+      "id": "politics-2008-georgia-war-5days",
+      "category": "politics",
+      "title": "2008 Russo–Georgian War",
+      "summary": "Five-day war over South Ossetia; Russia asserts dominance.",
+      "date": "2008-08-08",
+      "year": 2008,
+      "countries": [
+        "Georgia",
+        "Russia"
+      ],
+      "geo": {
+        "lat": 41.7151,
+        "lng": 44.8271
+      },
+      "location": "Tbilisi, Georgia",
+      "tags": [
+        "proxy"
+      ],
+      "punchline": "EU negotiates ceasefire; Kremlin keeps territory."
+    },
+    {
+      "id": "politics-2009-sri-lanka-final-assault",
+      "category": "politics",
+      "title": "2009 Sri Lanka final assault on LTTE",
+      "summary": "Government forces kill thousands of Tamil civilians in last offensive.",
+      "date": "2009-05-18",
+      "year": 2009,
+      "countries": [
+        "Sri Lanka"
+      ],
+      "geo": {
+        "lat": 7.8731,
+        "lng": 80.7718
+      },
+      "location": "Northern Province, Sri Lanka",
+      "tags": [
+        "civilwar"
+      ],
+      "punchline": "War ends, controversy begins."
+    },
+    {
+      "id": "politics-2010-french-chad-base",
+      "category": "politics",
+      "title": "2010 France expands Chad military base",
+      "summary": "Paris claims anti-terror mission; critics say uranium guarding mission.",
+      "date": "2010-06-09",
+      "year": 2010,
+      "countries": [
+        "Chad",
+        "France"
+      ],
+      "geo": {
+        "lat": 12.1348,
+        "lng": 15.0557
+      },
+      "location": "N'Djamena, Chad",
+      "tags": [
+        "resource"
+      ],
+      "punchline": "Humanitarian banner — uranium contract underneath."
     },
     {
       "id": "politics-2011-arab-spring",
@@ -432,16 +1369,94 @@
       "summary": "Waves of protests across the Arab world.",
       "date": "2011-01-01",
       "year": 2011,
-      "type": "protest",
       "countries": [
         "MENA"
       ],
       "tags": [
         "uprisings"
       ],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Region-wide CTRL+F for 'dignity'."
+      "punchline": "Region-wide CTRL+F for 'dignity'.",
+      "category": "politics"
+    },
+    {
+      "id": "politics-2011-syria-war",
+      "category": "politics",
+      "title": "2011 Syrian Civil War starts",
+      "summary": "Protests escalate into brutal, multi-sided war with chemical weapons and sieges.",
+      "date": "2011-03-15",
+      "year": 2011,
+      "countries": [
+        "Syria"
+      ],
+      "geo": {
+        "lat": 33.5138,
+        "lng": 36.2765
+      },
+      "location": "Damascus, Syria",
+      "tags": [
+        "civilwar"
+      ],
+      "punchline": "Arab Spring becomes living hell."
+    },
+    {
+      "id": "politics-2012-mali-coup-war",
+      "category": "politics",
+      "title": "2012 Mali coup and Tuareg rebellion",
+      "summary": "Soldiers overthrow president; north seized by rebels and Islamists.",
+      "date": "2012-03-22",
+      "year": 2012,
+      "countries": [
+        "Mali"
+      ],
+      "geo": {
+        "lat": 12.6392,
+        "lng": -8.0029
+      },
+      "location": "Bamako, Mali",
+      "tags": [
+        "coup"
+      ],
+      "punchline": "One coup triggers two wars."
+    },
+    {
+      "id": "politics-2013-egypt-rabaa-massacre",
+      "category": "politics",
+      "title": "2013 Rabaa Massacre in Egypt",
+      "summary": "Military kills ~1,000 pro-Morsi protestors in single day.",
+      "date": "2013-08-14",
+      "year": 2013,
+      "countries": [
+        "Egypt"
+      ],
+      "geo": {
+        "lat": 30.0444,
+        "lng": 31.2357
+      },
+      "location": "Cairo, Egypt",
+      "tags": [
+        "massacre"
+      ],
+      "punchline": "Crackdown broadcast live."
+    },
+    {
+      "id": "politics-2014-boko-haram-chibok",
+      "category": "politics",
+      "title": "2014 Boko Haram kidnaps Chibok girls",
+      "summary": "276 Nigerian schoolgirls abducted — sparking global outrage.",
+      "date": "2014-04-14",
+      "year": 2014,
+      "countries": [
+        "Nigeria"
+      ],
+      "geo": {
+        "lat": 10.8706,
+        "lng": 12.1963
+      },
+      "location": "Chibok, Nigeria",
+      "tags": [
+        "terror"
+      ],
+      "punchline": "#BringBackOurGirls goes viral — girls mostly never returned."
     },
     {
       "id": "politics-2014-crimea",
@@ -450,19 +1465,106 @@
       "summary": "Unrecognized annexation condemned internationally.",
       "date": "2014-03-18",
       "year": 2014,
-      "type": "territory",
       "countries": [
         "Ukraine",
         "Russia"
       ],
-      "geo": { "lat": 44.9521, "lng": 34.1024 },
+      "geo": {
+        "lat": 44.9521,
+        "lng": 34.1024
+      },
       "location": "Simferopol, Crimea",
       "tags": [
         "annexation"
       ],
-      "sources": [],
-      "severity": 5,
       "punchline": "Map edit without permission."
+    },
+    {
+      "id": "politics-2014-gaza-protective-edge",
+      "category": "politics",
+      "title": "2014 Gaza war — Operation Protective Edge",
+      "summary": "50-day conflict kills 2,200 Palestinians and 73 Israelis.",
+      "date": "2014-07-08",
+      "year": 2014,
+      "countries": [
+        "Israel",
+        "Palestine"
+      ],
+      "geo": {
+        "lat": 31.5017,
+        "lng": 34.4668
+      },
+      "location": "Gaza Strip",
+      "tags": [
+        "war"
+      ],
+      "punchline": "Cycle of rubble repeats."
+    },
+    {
+      "id": "politics-2014-yemen-war",
+      "category": "politics",
+      "title": "2014 Yemen civil war begins",
+      "summary": "Saudi-led coalition bombs Houthis with US/UK weapons.",
+      "date": "2014-09-21",
+      "year": 2014,
+      "countries": [
+        "Saudi Arabia",
+        "Yemen",
+        "USA",
+        "UK"
+      ],
+      "geo": {
+        "lat": 15.3694,
+        "lng": 44.191
+      },
+      "location": "Sanaa, Yemen",
+      "tags": [
+        "proxy"
+      ],
+      "punchline": "Worst humanitarian crisis, best arms sales."
+    },
+    {
+      "id": "politics-2015-syria-russia-enters",
+      "category": "politics",
+      "title": "2015 Russia enters Syria war",
+      "summary": "Putin bombs opposition; West backs rebels — peace becomes meme.",
+      "date": "2015-09-30",
+      "year": 2015,
+      "countries": [
+        "Russia",
+        "Syria",
+        "USA"
+      ],
+      "geo": {
+        "lat": 33.5138,
+        "lng": 36.2765
+      },
+      "location": "Damascus, Syria",
+      "tags": [
+        "syria"
+      ],
+      "punchline": "Assad stays — democracy not deployed."
+    },
+    {
+      "id": "politics-2015-yemen-airstrikes",
+      "category": "politics",
+      "title": "2015 Saudi-led air campaign in Yemen begins",
+      "summary": "Coalition bombs Houthis; hospitals, schools, and weddings hit.",
+      "date": "2015-03-26",
+      "year": 2015,
+      "countries": [
+        "Saudi Arabia",
+        "Yemen"
+      ],
+      "geo": {
+        "lat": 15.3694,
+        "lng": 44.191
+      },
+      "location": "Sanaa, Yemen",
+      "tags": [
+        "airwar"
+      ],
+      "punchline": "Famine becomes war tactic."
     },
     {
       "id": "politics-2016-brexit",
@@ -471,19 +1573,204 @@
       "summary": "UK votes to leave the European Union.",
       "date": "2016-06-23",
       "year": 2016,
-      "type": "referendum",
       "countries": [
         "UK",
         "EU"
       ],
-      "geo": { "lat": 51.5074, "lng": -0.1278 },
+      "geo": {
+        "lat": 51.5074,
+        "lng": -0.1278
+      },
       "location": "London, UK",
       "tags": [
         "eu-exit"
       ],
-      "sources": [],
-      "severity": 4,
       "punchline": "Taking your ball and going home."
+    },
+    {
+      "id": "politics-2016-orlando-club-shooting",
+      "category": "politics",
+      "title": "2016 Orlando nightclub shooting",
+      "summary": "Gunman kills 49 at LGBTQ nightclub in deadliest US terror attack since 9/11.",
+      "date": "2016-06-12",
+      "year": 2016,
+      "countries": [
+        "USA"
+      ],
+      "geo": {
+        "lat": 28.5383,
+        "lng": -81.3792
+      },
+      "location": "Orlando, USA",
+      "tags": [
+        "terror"
+      ],
+      "punchline": "Hate & bullets."
+    },
+    {
+      "id": "politics-2016-turkey-coup-fail",
+      "category": "politics",
+      "title": "2016 Failed coup in Turkey",
+      "summary": "Military tries removing Erdogan — NATO stays silent until winner is clear.",
+      "date": "2016-07-15",
+      "year": 2016,
+      "countries": [
+        "Turkey"
+      ],
+      "geo": {
+        "lat": 39.9334,
+        "lng": 32.8597
+      },
+      "location": "Ankara, Turkey",
+      "tags": [
+        "coup"
+      ],
+      "punchline": "Wait and see diplomacy."
+    },
+    {
+      "id": "politics-2017-marawi-siege",
+      "category": "politics",
+      "title": "2017 ISIS-linked Marawi siege",
+      "summary": "Islamist militants occupy Philippine city — 5-month urban battle.",
+      "date": "2017-05-23",
+      "year": 2017,
+      "countries": [
+        "Philippines"
+      ],
+      "geo": {
+        "lat": 8,
+        "lng": 124.3
+      },
+      "location": "Marawi, Philippines",
+      "tags": [
+        "terror"
+      ],
+      "punchline": "Mosul-style war hits Southeast Asia."
+    },
+    {
+      "id": "politics-2017-qatari-blockade",
+      "category": "politics",
+      "title": "2017 Qatar blockade",
+      "summary": "Saudi & UAE isolate Qatar — US sides with everyone depending on base.",
+      "date": "2017-06-05",
+      "year": 2017,
+      "countries": [
+        "Qatar",
+        "Saudi Arabia",
+        "USA"
+      ],
+      "geo": {
+        "lat": 25.3548,
+        "lng": 51.1839
+      },
+      "location": "Doha, Qatar",
+      "tags": [
+        "diplomatic"
+      ],
+      "punchline": "Allies fight — US sells all sides weapons."
+    },
+    {
+      "id": "politics-2017-rohingya-ethnic-cleansing",
+      "category": "politics",
+      "title": "2017 Rohingya ethnic cleansing",
+      "summary": "Myanmar military burns villages forcing 700k Rohingya into exile.",
+      "date": "2017-08-25",
+      "year": 2017,
+      "countries": [
+        "Myanmar"
+      ],
+      "geo": {
+        "lat": 20.5937,
+        "lng": 96.8992
+      },
+      "location": "Rakhine State, Myanmar",
+      "tags": [
+        "genocide"
+      ],
+      "punchline": "Drive them out — deny it later."
+    },
+    {
+      "id": "politics-2018-ukraine-azov",
+      "category": "politics",
+      "title": "2018 Azov Battalion controversy",
+      "summary": "NATO nations arm Ukraine while denying far-right units exist.",
+      "date": "2018-03-20",
+      "year": 2018,
+      "countries": [
+        "Ukraine",
+        "USA"
+      ],
+      "geo": {
+        "lat": 47.8388,
+        "lng": 35.1396
+      },
+      "location": "Zaporizhzhia, Ukraine",
+      "tags": [
+        "extremism"
+      ],
+      "punchline": "Nazis? Officially ‘volunteers’."
+    },
+    {
+      "id": "politics-2019-hong-kong-protests",
+      "category": "politics",
+      "title": "2019 Hong Kong protests",
+      "summary": "Millions demonstrate against extradition law; China imposes security act.",
+      "date": "2019-06-09",
+      "year": 2019,
+      "countries": [
+        "Hong Kong",
+        "China"
+      ],
+      "geo": {
+        "lat": 22.3193,
+        "lng": 114.1694
+      },
+      "location": "Hong Kong",
+      "tags": [
+        "protest"
+      ],
+      "punchline": "Umbrellas meet riot shields."
+    },
+    {
+      "id": "politics-2019-mali-failed-state",
+      "category": "politics",
+      "title": "2019 Mali spiral despite NATO training",
+      "summary": "Western-trained forces collapse — jihadists grow stronger.",
+      "date": "2019-07-20",
+      "year": 2019,
+      "countries": [
+        "Mali",
+        "France"
+      ],
+      "geo": {
+        "lat": 12.6392,
+        "lng": -8.0029
+      },
+      "location": "Bamako, Mali",
+      "tags": [
+        "counterterror"
+      ],
+      "punchline": "Training manuals, then funerals."
+    },
+    {
+      "id": "politics-2019-sudan-sit-in-massacre",
+      "category": "politics",
+      "title": "2019 Sudan Khartoum Massacre",
+      "summary": "Security forces kill over 100 pro-democracy protesters at sit-in.",
+      "date": "2019-06-03",
+      "year": 2019,
+      "countries": [
+        "Sudan"
+      ],
+      "geo": {
+        "lat": 15.5007,
+        "lng": 32.5599
+      },
+      "location": "Khartoum, Sudan",
+      "tags": [
+        "protest"
+      ],
+      "punchline": "Calls for freedom met with bullets."
     },
     {
       "id": "politics-2020-abraham",
@@ -492,7 +1779,6 @@
       "summary": "Normalization agreements between Israel and Arab states.",
       "date": "2020-09-15",
       "year": 2020,
-      "type": "treaty",
       "countries": [
         "Israel",
         "UAE",
@@ -500,14 +1786,218 @@
         "Morocco",
         "Sudan"
       ],
-      "geo": { "lat": 38.9072, "lng": -77.0369 },
+      "geo": {
+        "lat": 38.9072,
+        "lng": -77.0369
+      },
       "location": "Washington, D.C., USA",
       "tags": [
         "normalization"
       ],
-      "sources": [],
-      "severity": 3,
       "punchline": "Middle East patch notes: surprising stability buffs."
+    },
+    {
+      "id": "politics-2020-belarus-uprising",
+      "category": "politics",
+      "title": "2020 Belarus mass protests",
+      "summary": "Election fraud allegations spark uprising; regime responds with brutality.",
+      "date": "2020-08-09",
+      "year": 2020,
+      "countries": [
+        "Belarus"
+      ],
+      "geo": {
+        "lat": 53.9045,
+        "lng": 27.5615
+      },
+      "location": "Minsk, Belarus",
+      "tags": [
+        "fraud"
+      ],
+      "punchline": "Lukashenko refuses to fall."
+    },
+    {
+      "id": "politics-2020-ethiopia-tigray-war",
+      "category": "politics",
+      "title": "2020 Ethiopia–Tigray conflict",
+      "summary": "Ethiopian forces and Eritrean allies accused of massacres, rape, starvation tactics.",
+      "date": "2020-11-04",
+      "year": 2020,
+      "countries": [
+        "Ethiopia"
+      ],
+      "geo": {
+        "lat": 13.4967,
+        "lng": 39.4767
+      },
+      "location": "Tigray, Ethiopia",
+      "tags": [
+        "civilwar"
+      ],
+      "punchline": "Cutting communications before cutting throats."
+    },
+    {
+      "id": "politics-2020-karabakh-drone-war",
+      "category": "politics",
+      "title": "2020 Nagorno-Karabakh war",
+      "summary": "Azerbaijan uses Turkish drones, Armenia cries to Russia and France.",
+      "date": "2020-09-27",
+      "year": 2020,
+      "countries": [
+        "Azerbaijan",
+        "Armenia"
+      ],
+      "geo": {
+        "lat": 39.9444,
+        "lng": 46.6672
+      },
+      "location": "Nagorno-Karabakh",
+      "tags": [
+        "drones"
+      ],
+      "punchline": "Warfare goes YouTube montage."
+    },
+    {
+      "id": "politics-2020-nigeria-endsars-shooting",
+      "category": "politics",
+      "title": "2020 Lekki Toll Gate shooting (EndSARS protests)",
+      "summary": "Nigerian army accused of firing on peaceful anti-police brutality protesters.",
+      "date": "2020-10-20",
+      "year": 2020,
+      "countries": [
+        "Nigeria"
+      ],
+      "geo": {
+        "lat": 6.4654,
+        "lng": 3.4064
+      },
+      "location": "Lagos, Nigeria",
+      "tags": [
+        "protest"
+      ],
+      "punchline": "Live-streamed crackdown denied by officials."
+    },
+    {
+      "id": "politics-2021-burma-coup",
+      "category": "politics",
+      "title": "2021 Myanmar military coup",
+      "summary": "Army seizes power, shoots protesters, internet blackout.",
+      "date": "2021-02-01",
+      "year": 2021,
+      "countries": [
+        "Myanmar"
+      ],
+      "geo": {
+        "lat": 19.7633,
+        "lng": 96.0785
+      },
+      "location": "Naypyidaw, Myanmar",
+      "tags": [
+        "coup"
+      ],
+      "punchline": "Democracy turned off like Wi-Fi."
+    },
+    {
+      "id": "politics-2021-colombia-tax-revolt",
+      "category": "politics",
+      "title": "2021 Colombia tax reform protests",
+      "summary": "Police crackdown on protesters opposing unpopular austerity tax.",
+      "date": "2021-05-05",
+      "year": 2021,
+      "countries": [
+        "Colombia"
+      ],
+      "geo": {
+        "lat": 4.711,
+        "lng": -74.0721
+      },
+      "location": "Bogotá, Colombia",
+      "tags": [
+        "austerity"
+      ],
+      "punchline": "Street battles over budget math."
+    },
+    {
+      "id": "politics-2022-afghanistan-womens-rights",
+      "category": "politics",
+      "title": "2022 Taliban bans Afghan girls from education",
+      "summary": "New Taliban regime reverses women’s basic rights post-US withdrawal.",
+      "date": "2022-12-20",
+      "year": 2022,
+      "countries": [
+        "Afghanistan"
+      ],
+      "geo": {
+        "lat": 34.5553,
+        "lng": 69.2075
+      },
+      "location": "Kabul, Afghanistan",
+      "tags": [
+        "women"
+      ],
+      "punchline": "Classroom dreams locked by ideology."
+    },
+    {
+      "id": "politics-2022-china-solomon-islands-deal",
+      "category": "politics",
+      "title": "2022 China-Solomon Islands pact alarms NATO",
+      "summary": "Beijing signs Pacific security deal — West panics over new ‘Island power’.",
+      "date": "2022-04-19",
+      "year": 2022,
+      "countries": [
+        "China",
+        "Solomon Islands"
+      ],
+      "geo": {
+        "lat": -9.6457,
+        "lng": 160.1562
+      },
+      "location": "Honiara, Solomon Islands",
+      "tags": [
+        "geopolitics"
+      ],
+      "punchline": "Tiny islands cause NATO heartburn."
+    },
+    {
+      "id": "politics-2022-nato-cyber-warfare",
+      "category": "politics",
+      "title": "2022 NATO cyber command expanded",
+      "summary": "Alliance readies for digital war — still uses Windows XP in offices.",
+      "date": "2022-06-29",
+      "year": 2022,
+      "countries": [
+        "NATO"
+      ],
+      "geo": {
+        "lat": 50.8757,
+        "lng": 4.3125
+      },
+      "location": "Brussels, Belgium",
+      "tags": [
+        "cyber"
+      ],
+      "punchline": "Hackers fear PowerPoint strikes."
+    },
+    {
+      "id": "politics-2022-ukraine-full-invasion",
+      "category": "politics",
+      "title": "2022 Russia full-scale invasion of Ukraine",
+      "summary": "Tanks roll across border; cities bombed; NATO arms revenge.",
+      "date": "2022-02-24",
+      "year": 2022,
+      "countries": [
+        "Russia",
+        "Ukraine"
+      ],
+      "geo": {
+        "lat": 50.4501,
+        "lng": 30.5234
+      },
+      "location": "Kyiv, Ukraine",
+      "tags": [
+        "war"
+      ],
+      "punchline": "Cold War reborn in HD."
     },
     {
       "id": "politics-2022-ukraine-war",
@@ -516,1187 +2006,40 @@
       "summary": "Major European war returns; global alignment shifts.",
       "date": "2022-02-24",
       "year": 2022,
-      "type": "conflict",
       "countries": [
         "Ukraine",
         "Russia"
       ],
-      "geo": { "lat": 50.4501, "lng": 30.5234 },
+      "geo": {
+        "lat": 50.4501,
+        "lng": 30.5234
+      },
       "location": "Kyiv, Ukraine",
       "tags": [
         "war"
       ],
-      "sources": [],
-      "severity": 5,
       "punchline": "Cold War museum reopens—now interactive."
     },
     {
-      "id": "fafo-1962-cuba-missile-crisis",
-      "category": "politics",
-      "title": "1962 Cuban Missile Crisis",
-      "summary": "USSR puts nukes in Cuba, US blockades island, world nearly ends over chess move.",
-      "date": "1962-10-16",
-      "year": 1962,
-      "type": "proxywar",
-      "countries": ["USA","USSR","Cuba"],
-      "geo": { "lat": 23.1136, "lng": -82.3666 },
-      "location": "Havana, Cuba",
-      "tags": ["nukes"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "13 days from barbecue Earth."
-    },
-    {
-      "id": "fafo-1965-dominican-intervention",
-      "category": "politics",
-      "title": "1965 US intervenes in Dominican Republic",
-      "summary": "Marines land to stop ‘communism’ — really to protect insurance companies.",
-      "date": "1965-04-28",
-      "year": 1965,
-      "type": "proxywar",
-      "countries": ["USA","Dominican Republic"],
-      "geo": { "lat": 18.4861, "lng": -69.9312 },
-      "location": "Santo Domingo, D.R.",
-      "tags": ["coldwar"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Freedom brought by beachfront artillery."
-    },
-    {
-      "id": "fafo-1968-biafra-war",
-      "category": "politics",
-      "title": "1968 Biafra secession war",
-      "summary": "Nigeria backed by UK crushes breakaway Biafra — 1M starve.",
-      "date": "1968-07-01",
-      "year": 1968,
-      "type": "proxywar",
-      "countries": ["Nigeria","UK"],
-      "geo": { "lat": 6.459965, "lng": 7.548949 },
-      "location": "Biafra, Nigeria",
-      "tags": ["civilwar"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Oil > human life — standard policy."
-    },
-    {
-      "id": "fafo-1979-nicaragua-sandinista-win",
-      "category": "politics",
-      "title": "1979 Sandinistas overthrow Somoza",
-      "summary": "Marxists take power → USA vows revenge through Contras.",
-      "date": "1979-07-17",
-      "year": 1979,
-      "type": "proxywar",
-      "countries": ["Nicaragua","USA"],
-      "geo": { "lat": 12.1364, "lng": -86.2514 },
-      "location": "Managua, Nicaragua",
-      "tags": ["revolution"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Out with dictator, in with ‘freedom fighters’."
-    },
-    {
-      "id": "fafo-1986-libya-us-retaliation",
-      "category": "politics",
-      "title": "1986 US bombs Libya (Operation El Dorado Canyon)",
-      "summary": "Reagan strikes Gaddafi after Berlin nightclub terror link.",
-      "date": "1986-04-15",
-      "year": 1986,
-      "type": "proxywar",
-      "countries": ["USA","Libya"],
-      "geo": { "lat": 32.8872, "lng": 13.1913 },
-      "location": "Tripoli, Libya",
-      "tags": ["airstrike"],
-      "sources": [],
-      "severity": 3,
-      "punchline": "Message sent: don’t annoy the sheriff."
-    },
-    {
-      "id": "fafo-1989-fall-of-berlin-wall",
-      "category": "politics",
-      "title": "1989 Berlin Wall falls",
-      "summary": "Cold War ends — NATO celebrates, Russia drinks vodka in confusion.",
-      "date": "1989-11-09",
-      "year": 1989,
-      "type": "political",
-      "countries": ["Germany","USSR"],
-      "geo": { "lat": 52.5200, "lng": 13.4050 },
-      "location": "Berlin, Germany",
-      "tags": ["coldwar"],
-      "sources": [],
-      "severity": 3,
-      "punchline": "One wall down, many NATO bases up."
-    },
-    {
-      "id": "fafo-1991-gulf-war-nato-backup",
-      "category": "politics",
-      "title": "1991 Gulf War led by USA",
-      "summary": "Iraq invades Kuwait; NATO-aligned coalition smashes Saddam in 100 hours.",
-      "date": "1991-01-17",
-      "year": 1991,
-      "type": "proxywar",
-      "countries": ["USA","Iraq","UK","France"],
-      "geo": { "lat": 29.3759, "lng": 47.9774 },
-      "location": "Kuwait City",
-      "tags": ["oilwars"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Oil wells → freedom smells."
-    },
-    {
-      "id": "fafo-1998-kosovo-prelude",
-      "category": "politics",
-      "title": "1998 Kosovo crackdown before NATO strike",
-      "summary": "Serb forces massacre villages — NATO prepares justice mission.",
-      "date": "1998-10-13",
-      "year": 1998,
-      "type": "military",
-      "countries": ["Serbia","Kosovo","NATO"],
-      "geo": { "lat": 42.6629, "lng": 21.1655 },
-      "location": "Kosovo",
-      "tags": ["balkan"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "When diplomacy fails, jets follow."
-    },
-    {
-      "id": "fafo-2006-israel-lebanon-war",
-      "category": "politics",
-      "title": "2006 Israel–Hezbollah War",
-      "summary": "Proxy mess: Iran backs Hezbollah, NATO backs Israel quietly.",
-      "date": "2006-07-12",
-      "year": 2006,
-      "type": "proxywar",
-      "countries": ["Israel","Lebanon"],
-      "geo": { "lat": 33.8938, "lng": 35.5018 },
-      "location": "Beirut, Lebanon",
-      "tags": ["proxy"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Militia vs Air Force — ends in stalemate."
-    },
-    {
-      "id": "fafo-2010-french-chad-base",
-      "category": "politics",
-      "title": "2010 France expands Chad military base",
-      "summary": "Paris claims anti-terror mission; critics say uranium guarding mission.",
-      "date": "2010-06-09",
-      "year": 2010,
-      "type": "proxywar",
-      "countries": ["Chad","France"],
-      "geo": { "lat": 12.1348, "lng": 15.0557 },
-      "location": "N'Djamena, Chad",
-      "tags": ["resource"],
-      "sources": [],
-      "severity": 3,
-      "punchline": "Humanitarian banner — uranium contract underneath."
-    },
-    {
-      "id": "fafo-2014-yemen-war",
-      "category": "politics",
-      "title": "2014 Yemen civil war begins",
-      "summary": "Saudi-led coalition bombs Houthis with US/UK weapons.",
-      "date": "2014-09-21",
-      "year": 2014,
-      "type": "proxywar",
-      "countries": ["Saudi Arabia","Yemen","USA","UK"],
-      "geo": { "lat": 15.3694, "lng": 44.1910 },
-      "location": "Sanaa, Yemen",
-      "tags": ["proxy"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Worst humanitarian crisis, best arms sales."
-    },
-    {
-      "id": "fafo-2017-qatari-blockade",
-      "category": "politics",
-      "title": "2017 Qatar blockade",
-      "summary": "Saudi & UAE isolate Qatar — US sides with everyone depending on base.",
-      "date": "2017-06-05",
-      "year": 2017,
-      "type": "proxywar",
-      "countries": ["Qatar","Saudi Arabia","USA"],
-      "geo": { "lat": 25.3548, "lng": 51.1839 },
-      "location": "Doha, Qatar",
-      "tags": ["diplomatic"],
-      "sources": [],
-      "severity": 3,
-      "punchline": "Allies fight — US sells all sides weapons."
-    },
-    {
-      "id": "fafo-2019-mali-failed-state",
-      "category": "politics",
-      "title": "2019 Mali spiral despite NATO training",
-      "summary": "Western-trained forces collapse — jihadists grow stronger.",
-      "date": "2019-07-20",
-      "year": 2019,
-      "type": "proxywar",
-      "countries": ["Mali","France"],
-      "geo": { "lat": 12.6392, "lng": -8.0029 },
-      "location": "Bamako, Mali",
-      "tags": ["counterterror"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Training manuals, then funerals."
-    },
-    {
-      "id": "fafo-2022-nato-cyber-warfare",
-      "category": "politics",
-      "title": "2022 NATO cyber command expanded",
-      "summary": "Alliance readies for digital war — still uses Windows XP in offices.",
-      "date": "2022-06-29",
-      "year": 2022,
-      "type": "political",
-      "countries": ["NATO"],
-      "geo": { "lat": 50.8757, "lng": 4.3125 },
-      "location": "Brussels, Belgium",
-      "tags": ["cyber"],
-      "sources": [],
-      "severity": 2,
-      "punchline": "Hackers fear PowerPoint strikes."
-    },
-    {
-      "id": "fafo-1914-secret-balkan-alliances",
-      "category": "politics",
-      "title": "1914 Balkan alliances trigger WWI",
-      "summary": "European empires chain-react into war because nobody reads treaties.",
-      "date": "1914-06-28",
-      "year": 1914,
-      "type": "proxywar",
-      "countries": ["Serbia","Austria","Germany","Russia"],
-      "geo": { "lat": 44.7866, "lng": 20.4489 },
-      "location": "Belgrade, Serbia",
-      "tags": ["alliances"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "One shot → four empires down."
-    },
-    {
-      "id": "fafo-1936-spanish-civil-war",
-      "category": "politics",
-      "title": "1936 Spanish Civil War becomes warm-up for WW2",
-      "summary": "Germany & USSR test weapons in Spain like demo day.",
-      "date": "1936-07-17",
-      "year": 1936,
-      "type": "proxywar",
-      "countries": ["Spain","Germany","Soviet"],
-      "geo": { "lat": 40.4168, "lng": -3.7038 },
-      "location": "Madrid, Spain",
-      "tags": ["fascism"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Europe watches — keeps score."
-    },
-    {
-      "id": "fafo-1950-korean-war",
-      "category": "politics",
-      "title": "1950 Korean War",
-      "summary": "North backed by USSR/China, South backed by USA/UN — draw with millions dead.",
-      "date": "1950-06-25",
-      "year": 1950,
-      "type": "proxywar",
-      "countries": ["Korea","USA","China"],
-      "geo": { "lat": 38.2550, "lng": 127.0290 },
-      "location": "DMZ, Korea",
-      "tags": ["coldwar"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Ceasefire lasts longer than war."
-    },
-    {
-      "id": "fafo-1956-suez-crisis",
-      "category": "politics",
-      "title": "1956 Suez Crisis",
-      "summary": "Britain, France & Israel attack Egypt — USA shuts it down.",
-      "date": "1956-10-29",
-      "year": 1956,
-      "type": "proxywar",
-      "countries": ["UK","France","Israel","Egypt"],
-      "geo": { "lat": 30.0444, "lng": 31.2357 },
-      "location": "Cairo, Egypt",
-      "tags": ["empire"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Britain learns it’s no longer the boss."
-    },
-    {
-      "id": "fafo-1968-vietnam-tet-offensive",
-      "category": "politics",
-      "title": "1968 Vietnam Tet Offensive",
-      "summary": "Communist surprise attacks shock US public — war turns unpopular.",
-      "date": "1968-01-30",
-      "year": 1968,
-      "type": "proxywar",
-      "countries": ["USA","Vietnam"],
-      "geo": { "lat": 16.4637, "lng": 107.5909 },
-      "location": "Huế, Vietnam",
-      "tags": ["vietnam"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Won battles — lost TV ratings."
-    },
-    {
-      "id": "fafo-1974-portugal-carnation-revolution",
-      "category": "politics",
-      "title": "1974 Portugal Carnation Revolution",
-      "summary": "Dictatorship ends bloodlessly with flowers in gun barrels.",
-      "date": "1974-04-25",
-      "year": 1974,
-      "type": "political",
-      "countries": ["Portugal"],
-      "geo": { "lat": 38.7223, "lng": -9.1393 },
-      "location": "Lisbon, Portugal",
-      "tags": ["revolution"],
-      "sources": [],
-      "severity": 2,
-      "punchline": "Soft coup — beautiful optics."
-    },
-    {
-      "id": "fafo-1982-falklands-war",
-      "category": "politics",
-      "title": "1982 Falklands War",
-      "summary": "UK and Argentina fight over cold sheep islands.",
-      "date": "1982-04-02",
-      "year": 1982,
-      "type": "proxywar",
-      "countries": ["UK","Argentina"],
-      "geo": { "lat": -51.7963, "lng": -59.5236 },
-      "location": "Falklands",
-      "tags": ["islands"],
-      "sources": [],
-      "severity": 3,
-      "punchline": "Tiny war, massive ego."
-    },
-    {
-      "id": "fafo-1994-chechnya-war-begins",
-      "category": "politics",
-      "title": "1994 First Chechen War",
-      "summary": "Russia bombs its own territory to keep it — NATO watches awkwardly.",
-      "date": "1994-12-11",
-      "year": 1994,
-      "type": "proxywar",
-      "countries": ["Russia"],
-      "geo": { "lat": 43.3188, "lng": 45.6987 },
-      "location": "Grozny, Chechnya",
-      "tags": ["russia"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Independence dreams meet carpet bombing."
-    },
-    {
-      "id": "fafo-2008-afghan-drone-era",
-      "category": "politics",
-      "title": "2008 Drone warfare escalates",
-      "summary": "US starts killing militants remotely in Pakistan & Yemen.",
-      "date": "2008-01-28",
-      "year": 2008,
-      "type": "proxywar",
-      "countries": ["USA","Pakistan","Yemen"],
-      "geo": { "lat": 33.7380, "lng": 73.0845 },
-      "location": "Islamabad, Pakistan",
-      "tags": ["drones"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "War by Playstation."
-    },
-    {
-      "id": "fafo-2015-syria-russia-enters",
-      "category": "politics",
-      "title": "2015 Russia enters Syria war",
-      "summary": "Putin bombs opposition; West backs rebels — peace becomes meme.",
-      "date": "2015-09-30",
-      "year": 2015,
-      "type": "proxywar",
-      "countries": ["Russia","Syria","USA"],
-      "geo": { "lat": 33.5138, "lng": 36.2765 },
-      "location": "Damascus, Syria",
-      "tags": ["syria"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Assad stays — democracy not deployed."
-    },
-    {
-      "id": "fafo-2016-turkey-coup-fail",
-      "category": "politics",
-      "title": "2016 Failed coup in Turkey",
-      "summary": "Military tries removing Erdogan — NATO stays silent until winner is clear.",
-      "date": "2016-07-15",
-      "year": 2016,
-      "type": "political",
-      "countries": ["Turkey"],
-      "geo": { "lat": 39.9334, "lng": 32.8597 },
-      "location": "Ankara, Turkey",
-      "tags": ["coup"],
-      "sources": [],
-      "severity": 3,
-      "punchline": "Wait and see diplomacy."
-    },
-    {
-      "id": "fafo-2018-ukraine-azov",
-      "category": "politics",
-      "title": "2018 Azov Battalion controversy",
-      "summary": "NATO nations arm Ukraine while denying far-right units exist.",
-      "date": "2018-03-20",
-      "year": 2018,
-      "type": "proxywar",
-      "countries": ["Ukraine","USA"],
-      "geo": { "lat": 47.8388, "lng": 35.1396 },
-      "location": "Zaporizhzhia, Ukraine",
-      "tags": ["extremism"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Nazis? Officially ‘volunteers’."
-    },
-    {
-      "id": "fafo-2020-karabakh-drone-war",
-      "category": "politics",
-      "title": "2020 Nagorno-Karabakh war",
-      "summary": "Azerbaijan uses Turkish drones, Armenia cries to Russia and France.",
-      "date": "2020-09-27",
-      "year": 2020,
-      "type": "proxywar",
-      "countries": ["Azerbaijan","Armenia"],
-      "geo": { "lat": 39.9444, "lng": 46.6672 },
-      "location": "Nagorno-Karabakh",
-      "tags": ["drones"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Warfare goes YouTube montage."
-    },
-    {
-      "id": "fafo-2022-china-solomon-islands-deal",
-      "category": "politics",
-      "title": "2022 China-Solomon Islands pact alarms NATO",
-      "summary": "Beijing signs Pacific security deal — West panics over new ‘Island power’.",
-      "date": "2022-04-19",
-      "year": 2022,
-      "type": "political",
-      "countries": ["China","Solomon Islands"],
-      "geo": { "lat": -9.6457, "lng": 160.1562 },
-      "location": "Honiara, Solomon Islands",
-      "tags": ["geopolitics"],
-      "sources": [],
-      "severity": 3,
-      "punchline": "Tiny islands cause NATO heartburn."
-    },
-    {
-      "id": "fafo-1915-armenian-genocide",
-      "category": "politics",
-      "title": "1915 Armenian Genocide",
-      "summary": "Ottoman Empire orders mass deportation and extermination of Armenians.",
-      "date": "1915-04-24",
-      "year": 1915,
-      "type": "political",
-      "countries": ["Ottoman Empire","Armenia"],
-      "geo": { "lat": 39.9199, "lng": 32.8543 },
-      "location": "Ankara, Turkey",
-      "tags": ["genocide"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "One and a half million erased from history."
-    },
-    {
-      "id": "fafo-1937-nanking-massacre",
-      "category": "politics",
-      "title": "1937 Nanking Massacre",
-      "summary": "Japanese troops slaughter up to 300,000 Chinese civilians in six weeks.",
-      "date": "1937-12-13",
-      "year": 1937,
-      "type": "political",
-      "countries": ["Japan","China"],
-      "geo": { "lat": 32.0603, "lng": 118.7969 },
-      "location": "Nanjing, China",
-      "tags": ["warcrime"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "City of life turned into open grave."
-    },
-    {
-      "id": "fafo-1945-dresden-bombing",
-      "category": "politics",
-      "title": "1945 Firebombing of Dresden",
-      "summary": "Allied bombers incinerate German city killing ~25,000 civilians.",
-      "date": "1945-02-13",
-      "year": 1945,
-      "type": "proxywar",
-      "countries": ["UK","USA","Germany"],
-      "geo": { "lat": 51.0504, "lng": 13.7373 },
-      "location": "Dresden, Germany",
-      "tags": ["airstrike"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Liberation through firestorms."
-    },
-    {
-      "id": "fafo-1968-my-lai-massacre",
-      "category": "politics",
-      "title": "1968 Mỹ Lai Massacre",
-      "summary": "US soldiers kill hundreds of Vietnamese civilians; cover-up follows.",
-      "date": "1968-03-16",
-      "year": 1968,
-      "type": "proxywar",
-      "countries": ["USA","Vietnam"],
-      "geo": { "lat": 15.1088, "lng": 108.7964 },
-      "location": "Quảng Ngãi, Vietnam",
-      "tags": ["atrocity"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Vietnam war’s darkest stain."
-    },
-    {
-      "id": "fafo-1972-bloody-sunday",
-      "category": "politics",
-      "title": "1972 Bloody Sunday, Northern Ireland",
-      "summary": "British paratroopers shoot unarmed protestors in Derry.",
-      "date": "1972-01-30",
-      "year": 1972,
-      "type": "political",
-      "countries": ["UK"],
-      "geo": { "lat": 54.9970, "lng": -7.3090 },
-      "location": "Derry, Northern Ireland",
-      "tags": ["protest"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Peace march ends in gunfire."
-    },
-    {
-      "id": "fafo-1975-khmer-rouge",
-      "category": "politics",
-      "title": "1975 Cambodian Killing Fields",
-      "summary": "Pol Pot’s regime murders ~2 million Cambodians under Year Zero.",
-      "date": "1975-04-17",
-      "year": 1975,
-      "type": "political",
-      "countries": ["Cambodia"],
-      "geo": { "lat": 11.5564, "lng": 104.9282 },
-      "location": "Phnom Penh, Cambodia",
-      "tags": ["genocide"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Society reset cost 20% of population."
-    },
-    {
-      "id": "fafo-1992-bosnia-siege",
-      "category": "politics",
-      "title": "1992–1995 Siege of Sarajevo",
-      "summary": "Bosnian Serb forces shell civilians for nearly four years.",
-      "date": "1992-04-05",
-      "year": 1992,
-      "type": "political",
-      "countries": ["Bosnia","Serbia"],
-      "geo": { "lat": 43.8563, "lng": 18.4131 },
-      "location": "Sarajevo, Bosnia",
-      "tags": ["siege"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Longest siege of modern Europe."
-    },
-    {
-      "id": "fafo-1994-tutsi-genocide",
-      "category": "politics",
-      "title": "1994 Rwanda Genocide",
-      "summary": "Hutu militias slaughter Tutsis with machetes in 100 days.",
-      "date": "1994-04-07",
-      "year": 1994,
-      "type": "political",
-      "countries": ["Rwanda"],
-      "geo": { "lat": 1.9706, "lng": 30.1044 },
-      "location": "Kigali, Rwanda",
-      "tags": ["genocide"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "UN watched it unfold, helpless."
-    },
-    {
-      "id": "fafo-2003-iraq-shock-and-awe",
-      "category": "politics",
-      "title": "2003 Iraq Shock & Awe",
-      "summary": "US-led bombing campaign flattens Baghdad; invasion follows.",
-      "date": "2003-03-20",
-      "year": 2003,
-      "type": "proxywar",
-      "countries": ["USA","Iraq"],
-      "geo": { "lat": 33.3152, "lng": 44.3661 },
-      "location": "Baghdad, Iraq",
-      "tags": ["invasion"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Regime removed — chaos installed."
-    },
-    {
-      "id": "fafo-1928-gulag-system",
-      "category": "politics",
-      "title": "1928 Soviet Gulag system founded",
-      "summary": "Forced labor camps imprison millions for decades.",
-      "date": "1928-10-01",
-      "year": 1928,
-      "type": "political",
-      "countries": ["USSR"],
-      "geo": { "lat": 58.0150, "lng": 56.2667 },
-      "location": "Perm-36, Russia",
-      "tags": ["gulag"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Labor equals survival."
-    },
-    {
-      "id": "fafo-1942-bataan-death-march",
-      "category": "politics",
-      "title": "1942 Bataan Death March",
-      "summary": "Japanese force 75,000 POWs on brutal 65-mile trek; thousands die.",
-      "date": "1942-04-09",
-      "year": 1942,
-      "type": "political",
-      "countries": ["Japan","Philippines","USA"],
-      "geo": { "lat": 14.6857, "lng": 120.4250 },
-      "location": "Bataan, Philippines",
-      "tags": ["pow"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "March or die."
-    },
-    {
-      "id": "fafo-1952-great-leap-famine",
-      "category": "politics",
-      "title": "1958–1962 Great Chinese Famine",
-      "summary": "Mao’s policies lead to starvation of 15–45 million.",
-      "date": "1958-05-01",
-      "year": 1958,
-      "type": "political",
-      "countries": ["China"],
-      "geo": { "lat": 35.8617, "lng": 104.1954 },
-      "location": "China (nationwide)",
-      "tags": ["famine"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Ideology over rice."
-    },
-    {
-      "id": "fafo-1971-bangladesh-genocide",
-      "category": "politics",
-      "title": "1971 Bangladesh Liberation War atrocities",
-      "summary": "Pakistani army kills up to 3 million civilians.",
-      "date": "1971-03-25",
-      "year": 1971,
-      "type": "political",
-      "countries": ["Pakistan","Bangladesh"],
-      "geo": { "lat": 23.8103, "lng": 90.4125 },
-      "location": "Dhaka, Bangladesh",
-      "tags": ["genocide"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Birth of nation bathed in blood."
-    },
-    {
-      "id": "fafo-1976-soweto-uprising",
-      "category": "politics",
-      "title": "1976 Soweto Uprising",
-      "summary": "South African police kill protesting black students during apartheid.",
-      "date": "1976-06-16",
-      "year": 1976,
-      "type": "political",
-      "countries": ["South Africa"],
-      "geo": { "lat": -26.2485, "lng": 27.8540 },
-      "location": "Soweto, South Africa",
-      "tags": ["apartheid"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Children versus rifles."
-    },
-    {
-      "id": "fafo-1982-halabja-attack",
-      "category": "politics",
-      "title": "1988 Halabja chemical attack",
-      "summary": "Iraqi forces gas Kurdish civilians killing 5,000.",
-      "date": "1988-03-16",
-      "year": 1988,
-      "type": "political",
-      "countries": ["Iraq"],
-      "geo": { "lat": 35.1850, "lng": 45.9884 },
-      "location": "Halabja, Iraq",
-      "tags": ["chemical"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Poisoned by their own government."
-    },
-    {
-      "id": "fafo-1989-tiananmen-square",
-      "category": "politics",
-      "title": "1989 Tiananmen Square crackdown",
-      "summary": "Chinese tanks crush pro-democracy protests in Beijing.",
-      "date": "1989-06-04",
-      "year": 1989,
-      "type": "political",
-      "countries": ["China"],
-      "geo": { "lat": 39.9042, "lng": 116.4074 },
-      "location": "Beijing, China",
-      "tags": ["repression"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Images banned but never forgotten."
-    },
-    {
-      "id": "fafo-1993-srebrenica-warning",
-      "category": "politics",
-      "title": "1993–1995 Srebrenica massacres",
-      "summary": "UN safe zone in Bosnia fails; over 8,000 Muslim men killed.",
-      "date": "1995-07-11",
-      "year": 1995,
-      "type": "political",
-      "countries": ["Bosnia","Serbia"],
-      "geo": { "lat": 44.1117, "lng": 19.2964 },
-      "location": "Srebrenica, Bosnia",
-      "tags": ["genocide"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Blue helmets, red blood."
-    },
-    {
-      "id": "fafo-2008-gaza-cast-lead",
-      "category": "politics",
-      "title": "2008 Gaza War (Operation Cast Lead)",
-      "summary": "Israel launches heavy bombing in Gaza killing 1,400 Palestinians.",
-      "date": "2008-12-27",
-      "year": 2008,
-      "type": "political",
-      "countries": ["Israel","Palestine"],
-      "geo": { "lat": 31.5000, "lng": 34.4667 },
-      "location": "Gaza Strip",
-      "tags": ["war"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Walls in, bombs down."
-    },
-    {
-      "id": "fafo-2017-rohingya-ethnic-cleansing",
-      "category": "politics",
-      "title": "2017 Rohingya ethnic cleansing",
-      "summary": "Myanmar military burns villages forcing 700k Rohingya into exile.",
-      "date": "2017-08-25",
-      "year": 2017,
-      "type": "political",
-      "countries": ["Myanmar"],
-      "geo": { "lat": 20.5937, "lng": 96.8992 },
-      "location": "Rakhine State, Myanmar",
-      "tags": ["genocide"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Drive them out — deny it later."
-    },
-    {
-      "id": "fafo-2004-beslan-school-siege",
-      "category": "politics",
-      "title": "2004 Beslan school massacre",
-      "summary": "Chechen militants take 1,100 hostages; Russian forces storm — 334 killed, mostly children.",
-      "date": "2004-09-01",
-      "year": 2004,
-      "type": "political",
-      "countries": ["Russia"],
-      "geo": { "lat": 43.1931, "lng": 44.5469 },
-      "location": "Beslan, Russia",
-      "tags": ["terrorism"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Classroom turned battlefield."
-    },
-    {
-      "id": "fafo-2011-syria-war",
-      "category": "politics",
-      "title": "2011 Syrian Civil War starts",
-      "summary": "Protests escalate into brutal, multi-sided war with chemical weapons and sieges.",
-      "date": "2011-03-15",
-      "year": 2011,
-      "type": "political",
-      "countries": ["Syria"],
-      "geo": { "lat": 33.5138, "lng": 36.2765 },
-      "location": "Damascus, Syria",
-      "tags": ["civilwar"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Arab Spring becomes living hell."
-    },
-    {
-      "id": "fafo-2013-egypt-rabaa-massacre",
-      "category": "politics",
-      "title": "2013 Rabaa Massacre in Egypt",
-      "summary": "Military kills ~1,000 pro-Morsi protestors in single day.",
-      "date": "2013-08-14",
-      "year": 2013,
-      "type": "political",
-      "countries": ["Egypt"],
-      "geo": { "lat": 30.0444, "lng": 31.2357 },
-      "location": "Cairo, Egypt",
-      "tags": ["massacre"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Crackdown broadcast live."
-    },
-    {
-      "id": "fafo-2014-gaza-protective-edge",
-      "category": "politics",
-      "title": "2014 Gaza war — Operation Protective Edge",
-      "summary": "50-day conflict kills 2,200 Palestinians and 73 Israelis.",
-      "date": "2014-07-08",
-      "year": 2014,
-      "type": "political",
-      "countries": ["Israel","Palestine"],
-      "geo": { "lat": 31.5017, "lng": 34.4668 },
-      "location": "Gaza Strip",
-      "tags": ["war"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Cycle of rubble repeats."
-    },
-    {
-      "id": "fafo-2015-yemen-airstrikes",
-      "category": "politics",
-      "title": "2015 Saudi-led air campaign in Yemen begins",
-      "summary": "Coalition bombs Houthis; hospitals, schools, and weddings hit.",
-      "date": "2015-03-26",
-      "year": 2015,
-      "type": "political",
-      "countries": ["Saudi Arabia","Yemen"],
-      "geo": { "lat": 15.3694, "lng": 44.1910 },
-      "location": "Sanaa, Yemen",
-      "tags": ["airwar"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Famine becomes war tactic."
-    },
-    {
-      "id": "fafo-2017-marawi-siege",
-      "category": "politics",
-      "title": "2017 ISIS-linked Marawi siege",
-      "summary": "Islamist militants occupy Philippine city — 5-month urban battle.",
-      "date": "2017-05-23",
-      "year": 2017,
-      "type": "political",
-      "countries": ["Philippines"],
-      "geo": { "lat": 8.0000, "lng": 124.3000 },
-      "location": "Marawi, Philippines",
-      "tags": ["terror"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Mosul-style war hits Southeast Asia."
-    },
-    {
-      "id": "fafo-2020-ethiopia-tigray-war",
-      "category": "politics",
-      "title": "2020 Ethiopia–Tigray conflict",
-      "summary": "Ethiopian forces and Eritrean allies accused of massacres, rape, starvation tactics.",
-      "date": "2020-11-04",
-      "year": 2020,
-      "type": "political",
-      "countries": ["Ethiopia"],
-      "geo": { "lat": 13.4967, "lng": 39.4767 },
-      "location": "Tigray, Ethiopia",
-      "tags": ["civilwar"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Cutting communications before cutting throats."
-    },
-    {
-      "id": "fafo-2021-burma-coup",
-      "category": "politics",
-      "title": "2021 Myanmar military coup",
-      "summary": "Army seizes power, shoots protesters, internet blackout.",
-      "date": "2021-02-01",
-      "year": 2021,
-      "type": "political",
-      "countries": ["Myanmar"],
-      "geo": { "lat": 19.7633, "lng": 96.0785 },
-      "location": "Naypyidaw, Myanmar",
-      "tags": ["coup"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Democracy turned off like Wi-Fi."
-    },
-    {
-      "id": "fafo-2022-ukraine-full-invasion",
-      "category": "politics",
-      "title": "2022 Russia full-scale invasion of Ukraine",
-      "summary": "Tanks roll across border; cities bombed; NATO arms revenge.",
-      "date": "2022-02-24",
-      "year": 2022,
-      "type": "political",
-      "countries": ["Russia","Ukraine"],
-      "geo": { "lat": 50.4501, "lng": 30.5234 },
-      "location": "Kyiv, Ukraine",
-      "tags": ["war"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Cold War reborn in HD."
-    },
-    {
-      "id": "fafo-2023-gaza-2023",
+      "id": "politics-2023-2023-gaza-escalation",
       "category": "politics",
       "title": "2023 Gaza escalation",
       "summary": "Israel responds to Hamas attack with unprecedented bombing campaign.",
       "date": "2023-10-07",
       "year": 2023,
-      "type": "political",
-      "countries": ["Israel","Palestine"],
-      "geo": { "lat": 31.5017, "lng": 34.4668 },
+      "countries": [
+        "Israel",
+        "Palestine"
+      ],
+      "geo": {
+        "lat": 31.5017,
+        "lng": 34.4668
+      },
       "location": "Gaza Strip",
-      "tags": ["war"],
-      "sources": [],
-      "severity": 5,
+      "tags": [
+        "war"
+      ],
       "punchline": "Civilians buried under global arguments."
-    },
-    {
-      "id": "fafo-2002-gujarat-riots",
-      "category": "politics",
-      "title": "2002 Gujarat Riots",
-      "summary": "Hindu mobs kill over 1,000 Muslims while police accused of standing by.",
-      "date": "2002-02-27",
-      "year": 2002,
-      "type": "political",
-      "countries": ["India"],
-      "geo": { "lat": 23.0225, "lng": 72.5714 },
-      "location": "Ahmedabad, India",
-      "tags": ["pogrom"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Justice delayed, memory permanent."
-    },
-    {
-      "id": "fafo-2005-london-bombings",
-      "category": "politics",
-      "title": "2005 London 7/7 Bombings",
-      "summary": "Four suicide bombers attack transit system; 52 killed.",
-      "date": "2005-07-07",
-      "year": 2005,
-      "type": "political",
-      "countries": ["UK"],
-      "geo": { "lat": 51.5074, "lng": -0.1278 },
-      "location": "London, UK",
-      "tags": ["terror"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "City of surveillance shocked anyway."
-    },
-    {
-      "id": "fafo-2007-kenya-election-violence",
-      "category": "politics",
-      "title": "2007 Kenya post-election violence",
-      "summary": "Tribal clashes after contested vote kill over 1,000.",
-      "date": "2007-12-27",
-      "year": 2007,
-      "type": "political",
-      "countries": ["Kenya"],
-      "geo": { "lat": -1.2921, "lng": 36.8219 },
-      "location": "Nairobi, Kenya",
-      "tags": ["elections"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Ballots turn to machetes."
-    },
-    {
-      "id": "fafo-2009-sri-lanka-final-assault",
-      "category": "politics",
-      "title": "2009 Sri Lanka final assault on LTTE",
-      "summary": "Government forces kill thousands of Tamil civilians in last offensive.",
-      "date": "2009-05-18",
-      "year": 2009,
-      "type": "political",
-      "countries": ["Sri Lanka"],
-      "geo": { "lat": 7.8731, "lng": 80.7718 },
-      "location": "Northern Province, Sri Lanka",
-      "tags": ["civilwar"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "War ends, controversy begins."
-    },
-    {
-      "id": "fafo-2014-boko-haram-chibok",
-      "category": "politics",
-      "title": "2014 Boko Haram kidnaps Chibok girls",
-      "summary": "276 Nigerian schoolgirls abducted — sparking global outrage.",
-      "date": "2014-04-14",
-      "year": 2014,
-      "type": "political",
-      "countries": ["Nigeria"],
-      "geo": { "lat": 10.8706, "lng": 12.1963 },
-      "location": "Chibok, Nigeria",
-      "tags": ["terror"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "#BringBackOurGirls goes viral — girls mostly never returned."
-    },
-    {
-      "id": "fafo-2016-orlando-club-shooting",
-      "category": "politics",
-      "title": "2016 Orlando nightclub shooting",
-      "summary": "Gunman kills 49 at LGBTQ nightclub in deadliest US terror attack since 9/11.",
-      "date": "2016-06-12",
-      "year": 2016,
-      "type": "political",
-      "countries": ["USA"],
-      "geo": { "lat": 28.5383, "lng": -81.3792 },
-      "location": "Orlando, USA",
-      "tags": ["terror"],
-      "sources": [],
-      "severity": 5,
-      "punchline": "Hate & bullets."
-    },
-    {
-      "id": "fafo-2019-sudan-sit-in-massacre",
-      "category": "politics",
-      "title": "2019 Sudan Khartoum Massacre",
-      "summary": "Security forces kill over 100 pro-democracy protesters at sit-in.",
-      "date": "2019-06-03",
-      "year": 2019,
-      "type": "political",
-      "countries": ["Sudan"],
-      "geo": { "lat": 15.5007, "lng": 32.5599 },
-      "location": "Khartoum, Sudan",
-      "tags": ["protest"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Calls for freedom met with bullets."
-    },
-    {
-      "id": "fafo-2020-nigeria-endsars-shooting",
-      "category": "politics",
-      "title": "2020 Lekki Toll Gate shooting (EndSARS protests)",
-      "summary": "Nigerian army accused of firing on peaceful anti-police brutality protesters.",
-      "date": "2020-10-20",
-      "year": 2020,
-      "type": "political",
-      "countries": ["Nigeria"],
-      "geo": { "lat": 6.4654, "lng": 3.4064 },
-      "location": "Lagos, Nigeria",
-      "tags": ["protest"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Live-streamed crackdown denied by officials."
-    },
-    {
-      "id": "fafo-2022-afghanistan-womens-rights",
-      "category": "politics",
-      "title": "2022 Taliban bans Afghan girls from education",
-      "summary": "New Taliban regime reverses women’s basic rights post-US withdrawal.",
-      "date": "2022-12-20",
-      "year": 2022,
-      "type": "political",
-      "countries": ["Afghanistan"],
-      "geo": { "lat": 34.5553, "lng": 69.2075 },
-      "location": "Kabul, Afghanistan",
-      "tags": ["women"],
-      "sources": [],
-      "severity": 3,
-      "punchline": "Classroom dreams locked by ideology."
-    },
-    {
-      "id": "fafo-2001-macedonia-insurgency",
-      "category": "politics",
-      "title": "2001 Macedonia ethnic conflict",
-      "summary": "Ethnic tensions erupt; Macedonian forces clash with Albanian uprising over rights and autonomy.",
-      "date": "2001-03-02",
-      "year": 2001,
-      "type": "political",
-      "countries": ["North Macedonia","Albania"],
-      "geo": { "lat": 41.9981, "lng": 21.4254 },
-      "location": "Skopje, Macedonia",
-      "tags": ["balkan"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Yugoslavia breakup aftershocks continue."
-    },
-    {
-      "id": "fafo-2006-east-timor-crisis",
-      "category": "politics",
-      "title": "2006 East Timor unrest",
-      "summary": "Mutiny and factional violence lead to Australian-led military intervention.",
-      "date": "2006-05-25",
-      "year": 2006,
-      "type": "political",
-      "countries": ["Timor-Leste","Australia"],
-      "geo": { "lat": -8.5667, "lng": 125.5667 },
-      "location": "Dili, East Timor",
-      "tags": ["intervention"],
-      "sources": [],
-      "severity": 3,
-      "punchline": "Newest country almost implodes."
-    },
-    {
-      "id": "fafo-2008-georgia-war-5days",
-      "category": "politics",
-      "title": "2008 Russo–Georgian War",
-      "summary": "Five-day war over South Ossetia; Russia asserts dominance.",
-      "date": "2008-08-08",
-      "year": 2008,
-      "type": "political",
-      "countries": ["Georgia","Russia"],
-      "geo": { "lat": 41.7151, "lng": 44.8271 },
-      "location": "Tbilisi, Georgia",
-      "tags": ["proxy"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "EU negotiates ceasefire; Kremlin keeps territory."
-    },
-    {
-      "id": "fafo-2012-mali-coup-war",
-      "category": "politics",
-      "title": "2012 Mali coup and Tuareg rebellion",
-      "summary": "Soldiers overthrow president; north seized by rebels and Islamists.",
-      "date": "2012-03-22",
-      "year": 2012,
-      "type": "political",
-      "countries": ["Mali"],
-      "geo": { "lat": 12.6392, "lng": -8.0029 },
-      "location": "Bamako, Mali",
-      "tags": ["coup"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "One coup triggers two wars."
-    },
-    {
-      "id": "fafo-2019-hong-kong-protests",
-      "category": "politics",
-      "title": "2019 Hong Kong protests",
-      "summary": "Millions demonstrate against extradition law; China imposes security act.",
-      "date": "2019-06-09",
-      "year": 2019,
-      "type": "political",
-      "countries": ["Hong Kong","China"],
-      "geo": { "lat": 22.3193, "lng": 114.1694 },
-      "location": "Hong Kong",
-      "tags": ["protest"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Umbrellas meet riot shields."
-    },
-    {
-      "id": "fafo-2020-belarus-uprising",
-      "category": "politics",
-      "title": "2020 Belarus mass protests",
-      "summary": "Election fraud allegations spark uprising; regime responds with brutality.",
-      "date": "2020-08-09",
-      "year": 2020,
-      "type": "political",
-      "countries": ["Belarus"],
-      "geo": { "lat": 53.9045, "lng": 27.5615 },
-      "location": "Minsk, Belarus",
-      "tags": ["fraud"],
-      "sources": [],
-      "severity": 4,
-      "punchline": "Lukashenko refuses to fall."
-    },
-    {
-      "id": "fafo-2021-colombia-tax-revolt",
-      "category": "politics",
-      "title": "2021 Colombia tax reform protests",
-      "summary": "Police crackdown on protesters opposing unpopular austerity tax.",
-      "date": "2021-05-05",
-      "year": 2021,
-      "type": "political",
-      "countries": ["Colombia"],
-      "geo": { "lat": 4.7110, "lng": -74.0721 },
-      "location": "Bogotá, Colombia",
-      "tags": ["austerity"],
-      "sources": [],
-      "severity": 3,
-      "punchline": "Street battles over budget math."
     }
   ]
 }

@@ -7,8 +7,28 @@ on:
     branches: [ main ]
 
 jobs:
+  validate-data:
+    name: validate-data
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Validate data
+        run: npm run validate:data
+
   build:
     name: build
+    needs: validate-data
     runs-on: ubuntu-latest
     strategy:
       matrix:
