@@ -72,18 +72,20 @@
       <div id="desktop-pre-strip" class="desktop-pre-strip" role="navigation" aria-label="Quick actions">
         <a href="#" class="mps-title mps-title-link" role="link" title="Home">REALITY</a>
         <div class="mps-actions">
-          <a class="mps-btn" href="#contact" aria-controls="contact-modal" aria-expanded="false" title="Open contact">Contact</a>
-          <a class="mps-btn" href="#fafo" title="Open FAFO Bill">FAFO BILL</a>
+          <a class="mps-btn" href="#fa-goals" title="Open FA Goals">FA Goals</a>
+          <a class="mps-btn" href="#fo-bill" title="Open FO Bill">FO Bill</a>
           <a class="mps-btn" href="#buildbyer" title="Open BuildByer">BuildByer</a>
+          <a class="mps-btn" href="#contact" aria-controls="contact-modal" aria-expanded="false" title="Open contact">Contact</a>
         </div>
       </div>
       <!-- Phone-only top strip: left title + action pills -->
       <div id="mobile-pre-strip" class="mobile-pre-strip" role="navigation" aria-label="Quick actions">
         <a href="#" class="mps-title mps-title-link" role="link" title="Home">REALITY</a>
         <div class="mps-actions">
-          <a id="contact-tab" class="mps-btn" href="#contact" aria-controls="contact-modal" aria-expanded="false" title="Open contact">Contact</a>
-          <a class="mps-btn" href="#fafo" title="Open FAFO Bill">FAFO BILL</a>
+          <a class="mps-btn" href="#fa-goals" title="Open FA Goals">FA Goals</a>
+          <a class="mps-btn" href="#fo-bill" title="Open FO Bill">FO Bill</a>
           <a class="mps-btn" href="#buildbyer" title="Open BuildByer">BuildByer</a>
+          <a id="contact-tab" class="mps-btn" href="#contact" aria-controls="contact-modal" aria-expanded="false" title="Open contact">Contact</a>
         </div>
       </div>
       <!-- Floating draggable left panel -->
@@ -132,9 +134,10 @@
     <div class="overlay-header" role="navigation" aria-label="Page header">
       <a href="#" class="mps-title" aria-hidden="false">REALITY</a>
       <div class="mps-actions">
-        <a class="mps-btn" href="#contact" aria-controls="contact-modal" aria-expanded="false" title="Open contact">Contact</a>
-        <a class="mps-btn" href="#fafo" title="Open FAFO Bill">FAFO BILL</a>
-        <a class="mps-btn" href="#buildbyer" title="Open BuildByer">BuildByer</a>
+  <a class="mps-btn" href="#fa-goals" title="Open FA Goals">FA Goals</a>
+  <a class="mps-btn" href="#fo-bill" title="Open FO Bill">FO Bill</a>
+  <a class="mps-btn" href="#buildbyer" title="Open BuildByer">BuildByer</a>
+  <a class="mps-btn" href="#contact" aria-controls="contact-modal" aria-expanded="false" title="Open contact">Contact</a>
       </div>
     </div>
     <div class="overlay-body">
@@ -300,9 +303,17 @@
             <div class="overlay-content" style="padding:10px 12px;">
               <h3 class="overlay-title" style="margin:0 0 6px 0; font-size:14px; font-weight:800; color:#fbbf24;">Contact</h3>
               <p class="overlay-copy" style="font-size:12px; line-height:1.35; color:#cbd5e1;">
-                Hi! BuildByer is a tiny lab of world bits — some sharp, some shaky. Got fixes, leads,
-                or year-stamped nuggets? Ping <a class="overlay-link" href="mailto:therowdyson@gmail.com" style="color:#93c5fd; text-decoration:underline;">therowdyson@gmail.com</a>.
-                Want to help build? I’ll share the repo and we’ll branch like it’s spring.
+                Hey, welcome to the circus.<br><br>
+                BuildByer is where history, politics, and global WTF moments get butchered, roasted, and pinned to a timeline so savage your grandpa’s war medals will start sweating.<br><br>
+                Got a correction? A missing fact? Some spicy year-stamped chaos that deserves eternal mockery? Drop it like a bomb at <a class="overlay-link" href="mailto:therowdyson@gmail.com" style="color:#93c5fd; text-decoration:underline;">therowdyson@gmail.com</a> — your rumor, leak, or cursed headline might just become immortal here.<br><br>
+                And listen: this beast is open-source. That means you can fork it, clone it, tear it apart, or sprinkle your genius stupidity all over GitHub. Submit your pull requests, file savage issues, or straight up volunteer if you’re crazy enough to co-pilot this time-machine of doom. Repo’s open, code’s free, and your contribution will live forever (until the servers melt).<br><br>
+                <strong>In short:</strong><br><br>
+                Send facts or WTF events → email me.<br>
+                Suggest wild features → email or scream into the void.<br>
+                Want to build? → I’ll hand you the repo link, you fork, branch, push, pull, boom.<br>
+                Just wanna lurk? → Download it, run it, show your grandma.<br><br>
+                So yeah, hit me up: <a class="overlay-link" href="mailto:therowdyson@gmail.com" style="color:#93c5fd; text-decoration:underline;">therowdyson@gmail.com</a>.<br><br>
+                History’s a mess, let’s make it even messier — together.
               </p>
             </div>`;
         }
@@ -324,7 +335,7 @@
           renderOverlay('contact');
           return;
         }
-        if (h === '#fafo' || h === '#buildbyer') {
+        if (h === '#fa-goals' || h === '#fo-bill' || h === '#buildbyer') {
           closeContact();
           pageOverlay && pageOverlay.classList.add('show');
           renderOverlay(h.slice(1));
