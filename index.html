@@ -389,10 +389,12 @@
                       min-height: 60px !important;
                       flex: 0 1 120px !important;
                       overflow-y: auto !important;
+                      font-size: 10px !important;
                     }
                     #fa-panel.goals-panel {
                       padding: 10px !important;
                       border-radius: 8px !important;
+                      font-size: 10px !important;
                     }
                     #middle-panel.goals-panel {
                       padding: 10px !important;
@@ -401,9 +403,10 @@
                       min-height: 60px !important;
                       flex: 0 1 120px !important;
                       overflow-y: auto !important;
+                      font-size: 10px !important;
                     }
-                    .fafo-panel-title { font-size: 13px !important; font-weight: 700 !important; margin: 0 0 6px 0 !important; text-align: center !important; letter-spacing: 0.01em !important; }
-                    .fafo-panel-desc { font-size: 11px !important; color: #94a3b8 !important; margin-bottom: 2px !important; text-align: center !important; }
+                    .fafo-panel-title { font-size: 10px !important; font-weight: 700 !important; margin: 0 0 6px 0 !important; text-align: center !important; letter-spacing: 0.01em !important; }
+                    .fafo-panel-desc { font-size: 10px !important; color: #94a3b8 !important; margin-bottom: 2px !important; text-align: center !important; }
                   }
                 </style>
               </div>
@@ -464,7 +467,10 @@
           return;
         }
         fa.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:15px; font-weight:700; color:#fbbf24; text-align:center;">FA - '+ev.year+' ('+ev.continent+')</h4><p style="color:#e2e8f0; line-height:1.5; font-size:13px;">'+ev.fa+'</p>';
-        mid.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:15px; font-weight:700; color:#a78bfa; text-align:center;">Middle Man</h4>'+
+  mid.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:15px; font-weight:700; color:#a78bfa; text-align:center;">Middle Man</h4>'+
+    '<div style="text-align:center; margin-bottom:10px;">'+
+    '<p style="color:#e2e8f0; font-weight:600; margin:0; font-size:13px;">'+(ev.middle&&ev.middle.actor||'')+'</p></div>'+
+    '<blockquote style="color:#fde047; font-style:italic; text-align:center; line-height:1.4; margin:0; padding:0; font-size:13px;">'+(ev.middle&&ev.middle.quote||'')+'</blockquote>';
           '<div style="text-align:center; margin-bottom:10px;">'+
           '<img src="'+(ev.middle&&ev.middle.image||'')+'" alt="'+(ev.middle&&ev.middle.actor||'')+'" style="width:54px;height:54px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 8px;" />'+
           '<p style="color:#e2e8f0; font-weight:600; margin:0; font-size:13px;">'+(ev.middle&&ev.middle.actor||'')+'</p></div>'+
@@ -958,6 +964,36 @@
       border:1px solid rgba(255,255,255,0.07);
       background: rgba(30,41,59,0.85);
       box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    #fa-panel.goals-panel,
+    #middle-panel.goals-panel,
+    #fo-panel.goals-panel {
+      font-size: 12px !important;
+    }
+    }
+    .overlay-title {
+      font-size: 15px !important;
+      margin-bottom: 8px !important;
+    }
+    .year-slider-container {
+      gap: 6px !important;
+      font-size: 12px !important;
+    }
+    .year-slider-container + div {
+      margin-top: 2px !important;
+      font-size: 12px !important;
+    }
+    .continent-panel h4 {
+      font-size: 12px !important;
+      margin-bottom: 8px !important;
+      padding-bottom: 2px !important;
+    }
+    .continent-btns button {
+      font-size: 11px !important;
+      min-width: 80px !important;
+      padding: 4px 8px !important;
+    }
+    .overlay-content, .goals-panel, .fafo-panel-title, .fafo-panel-desc {
+      font-size: 12px !important;
     }
     /* Larger readable overlay text on desktop/tablet */
     .overlay-content { padding: 14px 16px !important; }
