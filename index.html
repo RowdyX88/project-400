@@ -72,8 +72,7 @@
       <div id="desktop-pre-strip" class="desktop-pre-strip" role="navigation" aria-label="Quick actions">
         <a href="#" class="mps-title mps-title-link" role="link" title="Home">REALITY</a>
         <div class="mps-actions">
-          <a class="mps-btn" href="#fa-goals" title="Open FA Goals">FA Goals</a>
-          <a class="mps-btn" href="#fo-bill" title="Open FO Bill">FO Bill</a>
+          <a class="mps-btn" href="#fa-goals" title="Open FA/FO Goals & Bills">FA/FO Goals & Bills</a>
           <a class="mps-btn" href="#buildbyer" title="Open BuildByer">BuildByer</a>
           <a class="mps-btn" href="#contact" aria-controls="contact-modal" aria-expanded="false" title="Open contact">Contact</a>
         </div>
@@ -82,8 +81,7 @@
       <div id="mobile-pre-strip" class="mobile-pre-strip" role="navigation" aria-label="Quick actions">
         <a href="#" class="mps-title mps-title-link" role="link" title="Home">REALITY</a>
         <div class="mps-actions">
-          <a class="mps-btn" href="#fa-goals" title="Open FA Goals">FA Goals</a>
-          <a class="mps-btn" href="#fo-bill" title="Open FO Bill">FO Bill</a>
+          <a class="mps-btn" href="#fa-goals" title="Open FA/FO Goals & Bills">FA/FO Goals & Bills</a>
           <a class="mps-btn" href="#buildbyer" title="Open BuildByer">BuildByer</a>
           <a id="contact-tab" class="mps-btn" href="#contact" aria-controls="contact-modal" aria-expanded="false" title="Open contact">Contact</a>
         </div>
@@ -134,8 +132,7 @@
     <div class="overlay-header" role="navigation" aria-label="Page header">
       <a href="#" class="mps-title" aria-hidden="false">REALITY</a>
       <div class="mps-actions">
-  <a class="mps-btn" href="#fa-goals" title="Open FA Goals">FA Goals</a>
-  <a class="mps-btn" href="#fo-bill" title="Open FO Bill">FO Bill</a>
+  <a class="mps-btn" href="#fa-goals" title="Open FA/FO Goals & Bills">FA/FO Goals & Bills</a>
   <a class="mps-btn" href="#buildbyer" title="Open BuildByer">BuildByer</a>
   <a class="mps-btn" href="#contact" aria-controls="contact-modal" aria-expanded="false" title="Open contact">Contact</a>
       </div>
@@ -271,11 +268,27 @@
         // no-op here; route() below handles it across viewports
       }
       window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeContact(); });
-      // Simple hash router for phone overlay
-      const pageOverlay = document.getElementById('page-overlay');
-      const overlayCanvas = document.getElementById('overlay-canvas');
-      // Intercept clicks on both strips so routing happens without page jump
-      document.querySelectorAll('#desktop-pre-strip .mps-btn, #mobile-pre-strip .mps-btn, .page-overlay .mps-btn').forEach(a => {
+      
+      // Initialize navigation immediately
+      (function initializeNavigation() {
+        console.log('Initializing navigation...');
+        
+        // Get elements
+        const pageOverlay = document.getElementById('page-overlay');
+        const overlayCanvas = document.getElementById('overlay-canvas');
+        
+        if (!pageOverlay || !overlayCanvas) {
+          console.error('Navigation elements not found!', { pageOverlay, overlayCanvas });
+          return;
+        }
+        
+        console.log('Navigation elements found, setting up event listeners...');
+        
+        // Intercept clicks on both strips so routing happens without page jump
+        const navButtons = document.querySelectorAll('#desktop-pre-strip .mps-btn, #mobile-pre-strip .mps-btn, .page-overlay .mps-btn');
+        console.log('Found navigation buttons:', navButtons.length);
+        
+        navButtons.forEach(a => {
         a.addEventListener('click', (e) => {
           const href = a.getAttribute('href') || '';
           if (href.startsWith('#')) {
@@ -295,7 +308,13 @@
         });
       });
       function renderOverlay(route) {
-        if (!overlayCanvas) return;
+        console.log('renderOverlay called with route:', route);
+        const overlayCanvas = document.getElementById('overlay-canvas');
+        if (!overlayCanvas) {
+          console.error('overlayCanvas not found!');
+          return;
+        }
+        console.log('overlayCanvas found, rendering content...');
         // Clear per route to allow future content
         overlayCanvas.innerHTML = '';
         if (route === 'contact') {
@@ -317,6 +336,150 @@
               </p>
             </div>`;
         }
+        if (route === 'fa-goals') {
+          overlayCanvas.innerHTML = `
+            <div class="overlay-content" style="padding:20px; height:100%; display:flex; flex-direction:column; gap:16px;">
+              <h3 class="overlay-title" style="margin:0; font-size:18px; font-weight:800; color:#fbbf24; text-align:center;">FA/FO Goals & Bills</h3>
+              
+              <!-- Top horizontal panel: Continents (editable) -->
+              <div class="continent-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.35); backdrop-filter:blur(8px); min-height:60px;">
+                <h4 style="margin:0 0 12px 0; font-size:14px; font-weight:700; color:#34d399; text-align:center; border-bottom:1px solid #34d399; padding-bottom:4px;">Continents</h4>
+                <div class="continent-input-container" style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; align-items:center;">
+                  <input type="text" placeholder="North America" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px;" />
+                  <input type="text" placeholder="South America" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px;" />
+                  <input type="text" placeholder="Europe" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px;" />
+                  <input type="text" placeholder="Asia" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px;" />
+                  <input type="text" placeholder="Africa" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px;" />
+                  <input type="text" placeholder="Australia" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px;" />
+                  <input type="text" placeholder="Antarctica" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px;" />
+                </div>
+              </div>
+
+              <!-- Main three panels (middle section) -->
+              <div class="goals-panels" style="display:flex; gap:20px; flex:1; justify-content:center; align-items:stretch; max-width:1200px; margin:0 auto; width:100%; min-height:300px;">
+                <div class="goals-panel" style="flex:1; background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:20px; box-shadow:0 8px 32px rgba(0,0,0,0.35); backdrop-filter:blur(8px); display:flex; flex-direction:column;">
+                  <h4 style="margin:0 0 16px 0; font-size:16px; font-weight:700; color:#fbbf24; text-align:center; border-bottom:2px solid #fbbf24; padding-bottom:8px;">FA Goals</h4>
+                  <div style="flex:1; color:#e2e8f0; font-size:14px; line-height:1.6;">
+                    <p>Financial Assistance Goals and objectives will be displayed here.</p>
+                    <p>This panel contains information about FA-related initiatives, targets, and progress tracking.</p>
+                    <ul style="margin:16px 0; padding-left:20px;">
+                      <li>Goal tracking and metrics</li>
+                      <li>Resource allocation</li>
+                      <li>Performance indicators</li>
+                      <li>Strategic objectives</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="goals-panel" style="flex:1; background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:20px; box-shadow:0 8px 32px rgba(0,0,0,0.35); backdrop-filter:blur(8px); display:flex; flex-direction:column;">
+                  <h4 style="margin:0 0 16px 0; font-size:16px; font-weight:700; color:#60a5fa; text-align:center; border-bottom:2px solid #60a5fa; padding-bottom:8px;">Middle One</h4>
+                  <div style="flex:1; color:#e2e8f0; font-size:14px; line-height:1.6;">
+                    <p>Central coordination and overview panel.</p>
+                    <p>This middle section provides integrated insights and connections between FA Goals and FO Bills.</p>
+                    <ul style="margin:16px 0; padding-left:20px;">
+                      <li>Cross-functional analysis</li>
+                      <li>Integration points</li>
+                      <li>Workflow coordination</li>
+                      <li>Status summaries</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="goals-panel" style="flex:1; background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:20px; box-shadow:0 8px 32px rgba(0,0,0,0.35); backdrop-filter:blur(8px); display:flex; flex-direction:column;">
+                  <h4 style="margin:0 0 16px 0; font-size:16px; font-weight:700; color:#f87171; text-align:center; border-bottom:2px solid #f87171; padding-bottom:8px;">FO Bills</h4>
+                  <div style="flex:1; color:#e2e8f0; font-size:14px; line-height:1.6;">
+                    <p>Financial Operations Bills and legislative tracking.</p>
+                    <p>This panel manages FO-related bills, legislation, and regulatory compliance.</p>
+                    <ul style="margin:16px 0; padding-left:20px;">
+                      <li>Bill tracking and status</li>
+                      <li>Legislative updates</li>
+                      <li>Compliance monitoring</li>
+                      <li>Regulatory changes</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom horizontal panel: Year Slider (1900-2025) -->
+              <div class="year-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.35); backdrop-filter:blur(8px); min-height:80px;">
+                <h4 style="margin:0 0 12px 0; font-size:14px; font-weight:700; color:#c084fc; text-align:center; border-bottom:1px solid #c084fc; padding-bottom:4px;">Year Range (1900 - 2025)</h4>
+                <div class="year-slider-container" style="display:flex; align-items:center; gap:12px; max-width:800px; margin:0 auto;">
+                  <span style="color:#cbd5e1; font-size:12px; font-weight:600; min-width:40px;">1900</span>
+                  <div style="flex:1; position:relative;">
+                    <input 
+                      type="range" 
+                      id="fa-year-slider" 
+                      min="1900" 
+                      max="2025" 
+                      value="1950" 
+                      step="1"
+                      style="width:100%; height:8px; background:linear-gradient(to right, #c084fc 0%, #c084fc 40%, #334155 40%, #334155 100%); border-radius:4px; appearance:none; cursor:pointer; outline:none;"
+                    />
+                    <div id="fa-year-tooltip" style="position:absolute; top:-32px; left:40%; transform:translateX(-50%); background:rgba(2,6,23,0.9); color:#c084fc; font-size:11px; font-weight:700; padding:4px 8px; border-radius:6px; border:1px solid #c084fc; white-space:nowrap; pointer-events:none;">1950</div>
+                  </div>
+                  <span style="color:#cbd5e1; font-size:12px; font-weight:600; min-width:40px;">2025</span>
+                </div>
+                <div style="text-align:center; margin-top:8px;">
+                  <span style="color:#c084fc; font-size:13px; font-weight:700;">Selected Year: </span>
+                  <span id="fa-selected-year" style="color:#e2e8f0; font-size:13px; font-weight:600;">1950</span>
+                </div>
+              </div>
+            </div>
+            <style>
+              /* Custom slider styling */
+              #fa-year-slider::-webkit-slider-thumb {
+                appearance: none;
+                width: 20px;
+                height: 20px;
+                background: #c084fc;
+                border: 2px solid #1e293b;
+                border-radius: 50%;
+                cursor: pointer;
+                box-shadow: 0 2px 8px rgba(192,132,252,0.4);
+              }
+              #fa-year-slider::-moz-range-thumb {
+                width: 20px;
+                height: 20px;
+                background: #c084fc;
+                border: 2px solid #1e293b;
+                border-radius: 50%;
+                cursor: pointer;
+                box-shadow: 0 2px 8px rgba(192,132,252,0.4);
+              }
+              @media (max-width: 768px) {
+                .goals-panels { flex-direction: column !important; }
+                .goals-panel { min-height: 200px !important; }
+                .continent-input-container { flex-direction: column !important; }
+                .continent-input-container input { min-width: 200px !important; }
+              }
+            </style>
+            <script>
+              // Year slider functionality
+              const slider = document.getElementById('fa-year-slider');
+              const tooltip = document.getElementById('fa-year-tooltip');
+              const selectedYear = document.getElementById('fa-selected-year');
+              
+              if (slider && tooltip && selectedYear) {
+                const updateSlider = () => {
+                  const value = slider.value;
+                  const percent = ((value - slider.min) / (slider.max - slider.min)) * 100;
+                  
+                  // Update tooltip position and text
+                  tooltip.style.left = percent + '%';
+                  tooltip.textContent = value;
+                  selectedYear.textContent = value;
+                  
+                  // Update slider background gradient
+                  slider.style.background = 
+                    'linear-gradient(to right, #c084fc 0%, #c084fc ' + percent + '%, #334155 ' + percent + '%, #334155 100%)';
+                };
+                
+                slider.addEventListener('input', updateSlider);
+                slider.addEventListener('mousemove', updateSlider);
+                
+                // Initialize
+                updateSlider();
+              }
+            </script>`;
+        }
       }
       function setActiveNav(h) {
         const links = document.querySelectorAll('.mps-actions a');
@@ -328,26 +491,67 @@
       }
       function route() {
         const h = location.hash;
+        console.log('Routing to:', h);
+        const pageOverlay = document.getElementById('page-overlay');
+        const overlayCanvas = document.getElementById('overlay-canvas');
+        
         setActiveNav(h || '');
         if (h === '#contact') {
+          console.log('Opening contact modal');
           closeContact();
           pageOverlay && pageOverlay.classList.add('show');
           renderOverlay('contact');
           return;
         }
-        if (h === '#fa-goals' || h === '#fo-bill' || h === '#buildbyer') {
+        if (h === '#fa-goals' || h === '#buildbyer') {
+          console.log('Opening overlay for:', h.slice(1));
           closeContact();
-          pageOverlay && pageOverlay.classList.add('show');
+          if (pageOverlay) {
+            pageOverlay.classList.add('show');
+            console.log('Added show class to overlay');
+          } else {
+            console.error('pageOverlay not found!');
+          }
           renderOverlay(h.slice(1));
           return;
         }
         // default/home
+        console.log('Going to home/default');
         pageOverlay && pageOverlay.classList.remove('show');
         closeContact();
       }
       window.addEventListener('hashchange', route);
       // Run once on load
       setTimeout(route, 0);
+      
+      // Force check current hash immediately
+      if (location.hash === '#fa-goals') {
+        console.log('FA Goals page detected, forcing overlay display');
+        const overlay = document.getElementById('page-overlay');
+        if (overlay) {
+          overlay.classList.add('show');
+          renderOverlay('fa-goals');
+        }
+      }
+      
+      // Add test button to manually trigger overlay
+      const testButton = document.createElement('button');
+      testButton.textContent = 'TEST OVERLAY';
+      testButton.style.cssText = 'position:fixed; top:10px; right:10px; z-index:9999; padding:8px; background:red; color:white; border:none; cursor:pointer;';
+      testButton.onclick = function() {
+        console.log('Test button clicked - forcing overlay');
+        const overlay = document.getElementById('page-overlay');
+        const canvas = document.getElementById('overlay-canvas');
+        if (overlay && canvas) {
+          overlay.classList.add('show');
+          canvas.innerHTML = '<div style="padding:20px; color:white;">TEST OVERLAY WORKING!</div>';
+        }
+      };
+      document.body.appendChild(testButton);
+      
+      console.log('Navigation initialization complete!');
+      })(); // End IIFE
+      
       // Remove transform from timeline panel for proper drag/resize
       const timelinePanel = document.getElementById('timeline-panel');
       if (timelinePanel) {
@@ -660,8 +864,8 @@
   /* Desktop strip hidden by default in global, shown via media queries */
   .desktop-pre-strip { display: none; }
   /* Overlay hidden by default */
-  .page-overlay { display: none; position: fixed; inset: 0; z-index: 1200; }
-  .page-overlay.show { display: block; }
+  .page-overlay { display: none !important; position: fixed; inset: 0; z-index: 1200; }
+  .page-overlay.show { display: block !important; }
   .page-overlay .overlay-header { display: none; }
   .page-overlay .overlay-body { display: none; }
 
@@ -723,14 +927,14 @@
   /* Show overlay layout on desktop/tablet as well */
   @media (min-width: 481px) {
     .page-overlay.show {
-      display: block;
+      display: block !important;
       padding: 8px;
       background: linear-gradient(120deg, rgba(15,23,42,0.98) 60%, rgba(30,41,59,0.98) 100%);
     }
     .page-overlay .overlay-header { display: none !important; }
-    .page-overlay .overlay-body { display: block; height: calc(100dvh - 16px); }
+    .page-overlay .overlay-body { display: block !important; height: calc(100dvh - 16px); }
     .overlay-card {
-      height: 100%;
+      height: 100% !important;
       border-radius: 12px;
       border:1px solid rgba(255,255,255,0.07);
       background: rgba(30,41,59,0.85);
@@ -971,5 +1175,275 @@
   .mobile-dock, .insights-chip { display: none !important; }
   }
     </style>
+    
+    <!-- Navigation Script - Execute after DOM is loaded -->
+    <script>
+    console.log('Navigation script loading...');
+    
+    // Simple hash router for overlays
+    function initNavigation() {
+      console.log('Initializing navigation system...');
+      
+      const pageOverlay = document.getElementById('page-overlay');
+      const overlayCanvas = document.getElementById('overlay-canvas');
+      
+      if (!pageOverlay || !overlayCanvas) {
+        console.error('Required elements not found:', { pageOverlay, overlayCanvas });
+        return;
+      }
+      
+      console.log('Elements found successfully');
+      
+      // Global state
+      let currentContinent = 'World';
+      let currentYear = 1973;
+      let fafoData = [];
+
+      // Load FAFO data
+      async function loadFAFOData() {
+        console.log('🔄 Starting to load FAFO data...');
+        try {
+          console.log('📡 Fetching from: /src/data/fafo_new.json');
+          const response = await fetch('/src/data/fafo_new.json');
+          console.log('📡 Response status:', response.status, response.statusText);
+          
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          
+          fafoData = await response.json();
+          console.log('✅ FAFO data loaded successfully!');
+          console.log('📊 Data contains', fafoData.length, 'events');
+          console.log('📋 First event:', fafoData[0]);
+          
+          // Trigger initial panel update
+          updatePanels();
+        } catch (error) {
+          console.error('❌ Error loading FAFO data:', error);
+          console.error('📍 Full error details:', error.message);
+          
+          // Show error in panels
+          updatePanelContent('fa-panel', `
+            <h4 style="color:#f87171; text-align:center;">Error Loading Data</h4>
+            <p style="color:#e2e8f0; text-align:center;">Failed to load FAFO data: ${error.message}</p>
+          `);
+        }
+      }
+
+      // Global function for continent selection
+      window.selectContinent = function(continent) {
+        console.log('Selected continent:', continent);
+        currentContinent = continent;
+        
+        // Add visual feedback
+        event.target.style.background = 'rgba(52,211,153,0.3)';
+        event.target.style.borderColor = '#34d399';
+        setTimeout(() => {
+          event.target.style.background = 'rgba(15,23,42,0.8)';
+          event.target.style.borderColor = '#475569';
+        }, 300);
+
+        // Update panels with filtered data
+        updatePanels();
+      };
+
+      // Update year from slider
+      window.updateYear = function(year) {
+        currentYear = parseInt(year);
+        console.log('Year changed to:', currentYear);
+        
+        // Update year display
+        const yearDisplay = document.getElementById('current-year');
+        if (yearDisplay) {
+          yearDisplay.textContent = currentYear;
+        }
+        
+        // Update panels with filtered data
+        updatePanels();
+      };
+
+      // Filter data based on current continent and year
+      function getFilteredData() {
+        let filtered = fafoData;
+
+        // Filter by continent (World shows all)
+        if (currentContinent !== 'World') {
+          filtered = filtered.filter(event => event.continent === currentContinent);
+        }
+
+        // Filter by year
+        filtered = filtered.filter(event => event.year === currentYear);
+
+        return filtered[0] || null; // Return first match or null
+      }
+
+      // Update all three panels with current data
+      function updatePanels() {
+        const data = getFilteredData();
+        
+        if (!data) {
+          // No data found - show placeholder
+          updatePanelContent('fa-panel', `<div class="p-6">
+            <h3 class="text-lg font-semibold text-white mb-4">No FA Event Found</h3>
+            <p class="text-gray-300">No events found for ${currentContinent} in ${currentYear}</p>
+          </div>`);
+          
+          updatePanelContent('middle-panel', `<div class="p-6">
+            <h3 class="text-lg font-semibold text-white mb-4">No Middle Man</h3>
+            <p class="text-gray-300">No quotes available</p>
+          </div>`);
+          
+          updatePanelContent('fo-panel', `<div class="p-6">
+            <h3 class="text-lg font-semibold text-white mb-4">No FO Fallout</h3>
+            <p class="text-gray-300">No fallout data available</p>
+          </div>`);
+          return;
+        }
+
+        // Update FA Panel
+        updatePanelContent('fa-panel', `
+          <h3 style="margin:0 0 16px 0; font-size:16px; font-weight:700; color:#fbbf24; text-align:center;">FA - ${data.year} (${data.continent})</h3>
+          <p style="color:#cbd5e1; line-height:1.6; margin:0;">${data.fa}</p>
+        `);
+
+        // Update Middle Panel  
+        updatePanelContent('middle-panel', `
+          <h3 style="margin:0 0 16px 0; font-size:16px; font-weight:700; color:#a78bfa; text-align:center;">Middle Man</h3>
+          <div style="text-align:center; margin-bottom:16px;">
+            <img src="${data.middle.image}" alt="${data.middle.actor}" style="width:60px; height:60px; border-radius:50%; margin:0 auto 12px auto; object-fit:cover; display:block;" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiByeD0iMzAiIGZpbGw9IiM0Yjc3YmUiLz4KPHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeD0iMTUiIHk9IjE1IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xNSAxNUM0LjkgMTUgMCAxNS4xIDAgOVMgNC45IDIgMTUgMlMgMzAgNC45IDMwIDlTMjUuMSAxNSAxNSAxNVoiLz4KPC9zdmc+Cjwvc3ZnPic=" />
+            <p style="color:#e2e8f0; font-weight:600; margin:0; font-size:14px;">${data.middle.actor}</p>
+          </div>
+          <blockquote style="color:#fde047; font-style:italic; text-align:center; line-height:1.5; margin:0; padding:0; font-size:14px;">
+            ${data.middle.quote}
+          </blockquote>
+        `);
+
+        // Update FO Panel
+        updatePanelContent('fo-panel', `
+          <h3 style="margin:0 0 16px 0; font-size:16px; font-weight:700; color:#f87171; text-align:center;">FO - The Fallout</h3>
+          <p style="color:#fca5a5; line-height:1.6; margin:0 0 16px 0; font-size:14px;">${data.fo}</p>
+          <div style="display:flex; flex-wrap:wrap; gap:6px; justify-content:center;">
+            ${data.tags.map(tag => `<span style="padding:4px 8px; background:rgba(185,28,28,0.3); color:#fca5a5; border-radius:12px; font-size:11px; font-weight:500;">${tag}</span>`).join('')}
+          </div>
+        `);
+      }
+
+      // Helper function to update panel content
+      function updatePanelContent(panelId, content) {
+        const panel = document.getElementById(panelId);
+        if (panel) {
+          panel.innerHTML = content;
+        }
+      }
+
+      // Render overlay content
+      function renderOverlay(route) {
+        console.log('Rendering overlay for route:', route);
+        if (route === 'fa-goals') {
+          overlayCanvas.innerHTML = `
+            <div class="overlay-content" style="padding:20px; height:100%; display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-size:18px; font-weight:800; color:#fbbf24; text-align:center;">FA/FO Goals & Bills</h3>
+              
+              <!-- Top horizontal panel: Continents -->
+              <div style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:16px;">
+                <h4 style="margin:0 0 12px 0; font-size:14px; font-weight:700; color:#34d399; text-align:center;">Continents</h4>
+                <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;">
+                  <button type="button" onclick="selectContinent('World')" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='rgba(30,41,59,0.9)'; this.style.borderColor='#64748b';" onmouseout="this.style.background='rgba(15,23,42,0.8)'; this.style.borderColor='#475569';">World</button>
+                  <button type="button" onclick="selectContinent('North America')" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='rgba(30,41,59,0.9)'; this.style.borderColor='#64748b';" onmouseout="this.style.background='rgba(15,23,42,0.8)'; this.style.borderColor='#475569';">North America</button>
+                  <button type="button" onclick="selectContinent('South America')" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='rgba(30,41,59,0.9)'; this.style.borderColor='#64748b';" onmouseout="this.style.background='rgba(15,23,42,0.8)'; this.style.borderColor='#475569';">South America</button>
+                  <button type="button" onclick="selectContinent('Europe')" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='rgba(30,41,59,0.9)'; this.style.borderColor='#64748b';" onmouseout="this.style.background='rgba(15,23,42,0.8)'; this.style.borderColor='#475569';">Europe</button>
+                  <button type="button" onclick="selectContinent('Asia')" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='rgba(30,41,59,0.9)'; this.style.borderColor='#64748b';" onmouseout="this.style.background='rgba(15,23,42,0.8)'; this.style.borderColor='#475569';">Asia</button>
+                  <button type="button" onclick="selectContinent('Africa')" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='rgba(30,41,59,0.9)'; this.style.borderColor='#64748b';" onmouseout="this.style.background='rgba(15,23,42,0.8)'; this.style.borderColor='#475569';">Africa</button>
+                  <button type="button" onclick="selectContinent('Australia')" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='rgba(30,41,59,0.9)'; this.style.borderColor='#64748b';" onmouseout="this.style.background='rgba(15,23,42,0.8)'; this.style.borderColor='#475569';">Australia</button>
+                  <button type="button" onclick="selectContinent('Antarctica')" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='rgba(30,41,59,0.9)'; this.style.borderColor='#64748b';" onmouseout="this.style.background='rgba(15,23,42,0.8)'; this.style.borderColor='#475569';">Antarctica</button>
+                  <button type="button" onclick="selectContinent('Middle East')" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:120px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='rgba(30,41,59,0.9)'; this.style.borderColor='#64748b';" onmouseout="this.style.background='rgba(15,23,42,0.8)'; this.style.borderColor='#475569';">Middle East</button>
+                </div>
+              </div>
+
+              <!-- Main three panels -->
+              <div style="display:flex; gap:20px; flex:1;">
+                <div id="fa-panel" style="flex:1; background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:20px;">
+                  <h4 style="color:#fbbf24; text-align:center;">FA Goals</h4>
+                  <p style="color:#e2e8f0;">Click a continent and adjust the year to see events...</p>
+                </div>
+                <div id="middle-panel" style="flex:1; background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:20px;">
+                  <h4 style="color:#a78bfa; text-align:center;">Middle Man</h4>
+                  <p style="color:#e2e8f0;">Quotes from historical figures...</p>
+                </div>
+                <div id="fo-panel" style="flex:1; background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:20px;">
+                  <h4 style="color:#f87171; text-align:center;">FO - Fallout</h4>
+                  <p style="color:#e2e8f0;">The savage aftermath...</p>
+                </div>
+              </div>
+
+              <!-- Bottom horizontal panel: Year Slider -->
+              <div style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:16px;">
+                <h4 style="margin:0 0 12px 0; font-size:14px; font-weight:700; color:#c084fc; text-align:center;">Year Range (1900 - 2025)</h4>
+                <p style="margin:0 0 8px 0; font-size:11px; color:#94a3b8; text-align:center;">📅 Data available for: 1910, 1947, 1953, 1973, 1994</p>
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <span style="color:#cbd5e1; font-size:12px;">1900</span>
+                  <input type="range" min="1900" max="2025" value="1973" id="year-slider" oninput="updateYear(this.value)" style="flex:1;" />
+                  <span style="color:#cbd5e1; font-size:12px;">2025</span>
+                  <span id="current-year" style="color:#22c55e; font-weight:bold; margin-left:8px;">1973</span>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          // Load FAFO data after DOM is ready
+          setTimeout(() => {
+            console.log('🚀 DOM ready, loading FAFO data...');
+            loadFAFOData();
+          }, 100);
+          
+        } else if (route === 'buildbyer') {
+          overlayCanvas.innerHTML = '<div style="padding: 20px; color: white;"><h3>BuildByer Info</h3><p>BuildByer information would go here.</p></div>';
+        }
+      }
+      
+      // Route function
+      function route() {
+        const hash = location.hash;
+        console.log('Routing to:', hash);
+        
+        if (hash === '#fa-goals') {
+          pageOverlay.classList.add('show');
+          renderOverlay('fa-goals');
+        } else if (hash === '#buildbyer') {
+          pageOverlay.classList.add('show');
+          renderOverlay('buildbyer');
+        } else {
+          pageOverlay.classList.remove('show');
+        }
+      }
+      
+      // Set up event listeners
+      document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#fa-goals' || href === '#buildbyer') {
+            e.preventDefault();
+            location.hash = href;
+            route();
+          }
+        });
+      });
+      
+      // Listen for hash changes
+      window.addEventListener('hashchange', route);
+      
+      // Initial route
+      route();
+      
+      console.log('Navigation initialization complete!');
+    }
+    
+    // Initialize when page loads
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initNavigation);
+    } else {
+      initNavigation();
+    }
+    </script>
   </body>
 </html>

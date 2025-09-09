@@ -1,0 +1,62 @@
+[
+  {
+    "year": 1910,
+    "continent": "Europe",
+    "fa": "Standard Oil and Royal Dutch Shell carved up Persia like a birthday cake, bribing the Shah for oil concessions.",
+    "middle": {
+      "actor": "British diplomat (anonymous but smug as hell)",
+      "quote": "'It's just sand and carpets out here. Let us handle the boring black goo.'",
+      "image": "https://upload.wikimedia.org/british_diplomat.jpg"
+    },
+    "fo": "Persia got pennies; the West got barrels. Result? A century of coups, wars, CIA meddling, sanctions, and an entire region on fire while ExxonMobil and BP still pop champagne on your fuel money.",
+    "tags": ["oil", "colonialism", "Persia", "corruption"]
+  },
+  {
+    "year": 1947,
+    "continent": "Asia",
+    "fa": "India gained independence from Britain, but London left behind a flaming mess called 'Partition' — Pakistan vs. India.",
+    "middle": {
+      "actor": "Lord Mountbatten",
+      "quote": "'We'll just draw a neat line on a map, problem solved.'",
+      "image": "https://upload.wikimedia.org/mountbatten.jpg"
+    },
+    "fo": "Result? Millions dead, trains full of corpses, decades of blood feuds, nukes aimed across borders, and the world's spiciest rivalry — all because the British couldn't manage a polite exit.",
+    "tags": ["partition", "India", "Pakistan", "Britain", "independence"]
+  },
+  {
+    "year": 1953,
+    "continent": "Middle East",
+    "fa": "Iran's Prime Minister Mossadegh dared to nationalize oil, kicking out BP. CIA + MI6 said 'hold my whiskey' and staged a coup.",
+    "middle": {
+      "actor": "CIA cables",
+      "quote": "'Operation Ajax: democracy is cute, but oil is cuter.'",
+      "image": "https://upload.wikimedia.org/cia_logo.jpg"
+    },
+    "fo": "Shah reinstalled like a corporate puppet, SAVAK police torturing dissenters, and the West got cheap oil — until 1979 when Iran went full ayatollah mode. Thanks, Langley.",
+    "tags": ["Iran", "CIA", "coup", "oil", "Mossadegh"]
+  },
+  {
+    "year": 1973,
+    "continent": "South America",
+    "fa": "Chile elects socialist Salvador Allende. CIA + Kissinger: 'Nah, we prefer fascist generals with sunglasses.' Coup incoming.",
+    "middle": {
+      "actor": "Henry Kissinger",
+      "quote": "'I don't see why we need to stand by and watch a country go communist due to the irresponsibility of its people.'",
+      "image": "https://upload.wikimedia.org/kissinger.jpg"
+    },
+    "fo": "Allende dead, Pinochet in power, thousands disappeared, and Chile's economy sold to Chicago Boys like a neoliberal yard sale. Kissinger still got a Nobel Prize — comedy gold.",
+    "tags": ["Chile", "CIA", "Pinochet", "Allende", "coup"]
+  },
+  {
+    "year": 1994,
+    "continent": "Africa",
+    "fa": "Rwanda genocide: UN wagged fingers, NATO shrugged, France played double agent. A million dead while the world argued about 'mandates.'",
+    "middle": {
+      "actor": "UN Secretary-General Boutros Boutros-Ghali",
+      "quote": "'We are monitoring the situation very closely.'",
+      "image": "https://upload.wikimedia.org/un_logo.jpg"
+    },
+    "fo": "Monitoring = watching machetes swing on CNN. Western powers intervened late, if at all, because Rwanda had no oil. But hey, lots of guilt-ridden memoirs got published after.",
+    "tags": ["Rwanda", "genocide", "UN", "NATO", "Africa"]
+  }
+]

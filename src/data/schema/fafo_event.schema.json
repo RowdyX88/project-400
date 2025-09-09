@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://buildbyer.com/schemas/fafo-event.json",
+  "title": "FAFO Event Schema",
+  "description": "Schema for FA/FO Goals & Bills historical events with savage commentary",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["year", "continent", "fa", "middle", "fo", "tags"],
+    "properties": {
+      "year": {
+        "type": "integer",
+        "minimum": 1900,
+        "maximum": 2025,
+        "description": "4-digit year when the event occurred"
+      },
+      "continent": {
+        "type": "string",
+        "enum": [
+          "World",
+          "Asia", 
+          "Africa",
+          "Europe",
+          "North America",
+          "South America", 
+          "Australia",
+          "Antarctica",
+          "Middle East"
+        ],
+        "description": "Geographic or political region for the event"
+      },
+      "fa": {
+        "type": "string",
+        "minLength": 50,
+        "maxLength": 500,
+        "description": "The setup/goal/promise - what was supposed to happen"
+      },
+      "middle": {
+        "type": "object",
+        "required": ["actor", "quote", "image"],
+        "properties": {
+          "actor": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 100,
+            "description": "Person or institution making the pitch"
+          },
+          "quote": {
+            "type": "string", 
+            "minLength": 10,
+            "maxLength": 300,
+            "description": "Actual quote or believable paraphrase"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to actor's photo or placeholder"
+          }
+        },
+        "additionalProperties": false
+      },
+      "fo": {
+        "type": "string",
+        "minLength": 100,
+        "maxLength": 800,
+        "description": "Savage fallout commentary - the brutal aftermath"
+      },
+      "tags": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 8,
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 20,
+          "pattern": "^[a-zA-Z0-9\\s-]+$"
+        },
+        "description": "Searchable keywords for filtering and categorization"
+      }
+    },
+    "additionalProperties": false
+  },
+  "minItems": 1,
+  "examples": [
+    {
+      "year": 1973,
+      "continent": "South America",
+      "fa": "Chile elects socialist Salvador Allende. CIA + Kissinger: 'Nah, we prefer fascist generals with sunglasses.' Coup incoming.",
+      "middle": {
+        "actor": "Henry Kissinger",
+        "quote": "'I don't see why we need to stand by and watch a country go communist due to the irresponsibility of its people.'",
+        "image": "https://upload.wikimedia.org/kissinger.jpg"
+      },
+      "fo": "Allende dead, Pinochet in power, thousands disappeared, and Chile's economy sold to Chicago Boys like a neoliberal yard sale. Kissinger still got a Nobel Prize — comedy gold.",
+      "tags": ["Chile", "CIA", "Pinochet", "Allende", "coup"]
+    }
+  ]
+}
