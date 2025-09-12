@@ -339,23 +339,24 @@
         if (route === 'fa-goals') {
           overlayCanvas.innerHTML = `
             <div class="overlay-content" style="padding:20px; height:100%; display:flex; flex-direction:column; gap:16px;">
-              <h3 class="overlay-title" style="margin:0; font-size:18px; font-weight:800; color:#fbbf24; text-align:center;">FA/FO Goals & Bills</h3>
-              <!-- Year Slider -->
-              <div class="year-slider-container" style="display:flex; align-items:center; gap:12px; max-width:800px; margin:0 auto;">
-                <span style="color:#cbd5e1; font-size:12px; font-weight:600; min-width:40px;">1900</span>
-                <div style="flex:1; position:relative;">
-                  <input type="range" id="fa-year-slider" min="1900" max="2025" value="1950" step="1" style="width:100%; height:8px; background:linear-gradient(to right, #c084fc 0%, #c084fc 40%, #334155 40%, #334155 100%); border-radius:4px; appearance:none; cursor:pointer; outline:none;" />
-                  <div id="fa-year-tooltip" style="position:absolute; top:-32px; left:40%; transform:translateX(-50%); background:rgba(2,6,23,0.9); color:#c084fc; font-size:11px; font-weight:700; padding:4px 8px; border-radius:6px; border:1px solid #c084fc; white-space:nowrap; pointer-events:none;">1950</div>
-                </div>
-                <span style="color:#cbd5e1; font-size:12px; font-weight:600; min-width:40px;">2025</span>
-              </div>
-              <div style="text-align:center; margin-top:8px;">
-                <span style="color:#c084fc; font-size:13px; font-weight:700;">Selected Year: </span>
-                <span id="fa-selected-year" style="color:#e2e8f0; font-size:13px; font-weight:600;">1950</span>
-              </div>
+              <style>
+                @media (min-width: 601px) {
+                  .continent-panel, .goals-panels {
+                    margin-top: 120px !important;
+                  }
+                }
+              </style>
+              <!-- Year Slider removed, now only inside continent panel -->
               <!-- Continents -->
               <div class="continent-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.35); backdrop-filter:blur(8px); min-height:60px;">
-                <h4 style="margin:0 0 12px 0; font-size:14px; font-weight:700; color:#34d399; text-align:center; border-bottom:1px solid #34d399; padding-bottom:4px;">Continents</h4>
+                <div class="year-slider-container" style="display:flex; align-items:center; gap:12px; max-width:800px; margin:0 auto 16px auto;">
+                  <span style="color:#cbd5e1; font-size:10px; font-weight:500; min-width:28px;">1900</span>
+                  <div style="flex:1; position:relative; max-width:550px; margin:0 auto;">
+                    <input type="range" id="fa-year-slider" min="1900" max="2025" value="1950" step="1" style="width:100%; min-width:200px; height:8px; background:linear-gradient(to right, #c084fc 0%, #c084fc 40%, #334155 40%, #334155 100%); border-radius:4px; appearance:none; cursor:pointer; outline:none;" />
+                    <div id="fa-year-tooltip" style="position:absolute; top:-32px; left:40%; transform:translateX(-50%); background:rgba(2,6,23,0.9); color:#c084fc; font-size:10px; font-weight:600; padding:3px 7px; border-radius:6px; border:1px solid #c084fc; white-space:nowrap; pointer-events:none;">1950</div>
+                  </div>
+                  <span style="color:#cbd5e1; font-size:10px; font-weight:500; min-width:28px;">2025</span>
+                </div>
                 <div class="continent-btns" style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; align-items:center;">
                   ${['World','North America','South America','Europe','Asia','Africa','Australia','Antarctica','Middle East'].map(c=>`<button type="button" data-continent="${c}" style="background:rgba(15,23,42,0.8); border:1px solid #475569; border-radius:6px; padding:6px 12px; color:#e2e8f0; font-size:12px; min-width:110px; cursor:pointer; transition:all 0.2s;">${c}</button>`).join('')}
                 </div>
@@ -365,71 +366,47 @@
                   }
                 </style>
               </div>
-              <!-- Panels Row -->
-              <div class="goals-panels" style="display:flex; gap:20px; flex:1; justify-content:center; align-items:stretch; max-width:1200px; margin:0 auto; width:100%; min-height:260px;">
-                <div id="fa-panel" class="goals-panel" style="flex:1; background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:20px; box-shadow:0 8px 32px rgba(0,0,0,0.35); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto;">
-                  <h4 class="fafo-panel-title">FA Goals</h4>
-                  <p class="fafo-panel-desc">Select a continent & year…</p>
+              <!-- Panels Row (FA / Middle / FO / Events) -->
+              <div class="goals-panels" style="display:flex; gap:16px; flex:1; justify-content:flex-end; align-items:flex-start; max-width:1200px; margin:0 auto; width:100%; min-height:220px;">
+                <!-- Right-aligned column for the three core panels -->
+                <div class="core-panels" style="display:flex; flex-direction:column; gap:12px; align-items:stretch; flex:0 1 360px;">
+                  <div id="fa-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:10px; box-shadow:0 4px 12px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:90px; max-height:140px; font-size:10px;">
+                    <h4 class="fafo-panel-title" style="margin-bottom:2px; font-size:10px;">FA Goals</h4>
+                  </div>
+                  <div id="middle-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:10px; box-shadow:0 4px 12px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:90px; max-height:140px; font-size:10px;">
+                    <h4 class="fafo-panel-title" style="color:#a78bfa; font-size:10px;">Middle Man</h4>
+                    <p class="fafo-panel-desc" style="font-size:10px;">Quotes will appear here…</p>
+                  </div>
+                  <div id="fo-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:10px; box-shadow:0 4px 12px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:90px; max-height:140px; font-size:10px;">
+                    <h4 class="fafo-panel-title" style="color:#f87171; font-size:10px;">FO Fallout</h4>
+                    <p class="fafo-panel-desc" style="font-size:10px;">Fallout details…</p>
+                  </div>
                 </div>
-                <div id="middle-panel" class="goals-panel" style="flex:1; background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:20px; box-shadow:0 8px 32px rgba(0,0,0,0.35); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto;">
-                  <h4 class="fafo-panel-title" style="color:#a78bfa;">Middle Man</h4>
-                  <p class="fafo-panel-desc">Quotes will appear here…</p>
-                </div>
-                <div id="fo-panel" class="goals-panel" style="flex:1; background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:20px; box-shadow:0 8px 32px rgba(0,0,0,0.35); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto;">
-                  <h4 class="fafo-panel-title" style="color:#f87171;">FO Fallout</h4>
-                  <p class="fafo-panel-desc">Fallout details…</p>
+                <!-- New Events panel (mobile-right) -->
+                <div id="events-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:12px; box-shadow:0 4px 16px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:220px; max-height:600px; font-size:12px; width:160px;">
+                  <h4 class="fafo-panel-title" style="color:#60a5fa; font-size:11px;">Events</h4>
+                  <p class="fafo-panel-desc" style="font-size:9px;">Events list…</p>
                 </div>
                 <style>
-                  @media (max-width: 600px) {
-                    #fa-panel.goals-panel,
-                    #fo-panel.goals-panel {
-                      padding: 10px !important;
-                      border-radius: 8px !important;
-                      max-height: 120px !important;
-                      min-height: 60px !important;
-                      flex: 0 1 120px !important;
-                      overflow-y: auto !important;
-                      font-size: 10px !important;
-                    }
-                    #fa-panel.goals-panel {
-                      padding: 10px !important;
-                      border-radius: 8px !important;
-                      font-size: 10px !important;
-                    }
-                    #middle-panel.goals-panel {
-                      padding: 10px !important;
-                      border-radius: 8px !important;
-                      max-height: 120px !important;
-                      min-height: 60px !important;
-                      flex: 0 1 120px !important;
-                      overflow-y: auto !important;
-                      font-size: 10px !important;
-                    }
-                    .fafo-panel-title { font-size: 10px !important; font-weight: 700 !important; margin: 0 0 6px 0 !important; text-align: center !important; letter-spacing: 0.01em !important; }
-                    .fafo-panel-desc { font-size: 10px !important; color: #94a3b8 !important; margin-bottom: 2px !important; text-align: center !important; }
+                  /* Right column core panels - stack vertically on phones, events is fixed to the right */
+                  .goals-panels { display:flex; gap:16px; align-items:flex-start; }
+                  .core-panels { display:flex; flex-direction:column; gap:12px; flex:0 1 420px; }
+                  .core-panels .goals-panel { width:100%; }
+                  #events-panel.goals-panel { width:160px; flex:0 0 160px; min-height:220px; max-height:600px; }
+                  @media (max-width:900px) {
+                    /* keep the overall container scrollable horizontally so events remains reachable */
+                    .goals-panels { overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:8px; }
+                    .goals-panels::-webkit-scrollbar{ height:8px }
+                    /* adjust events width on small screens */
+                    #events-panel.goals-panel { width:120px; flex:0 0 120px; min-height:220px; max-height:600px; }
                   }
                 </style>
               </div>
               <!-- Year Slider -->
-              <div class="year-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.35); backdrop-filter:blur(8px); min-height:80px;">
-                <h4 style="margin:0 0 10px 0; font-size:14px; font-weight:700; color:#c084fc; text-align:center; border-bottom:1px solid #c084fc; padding-bottom:4px;">Year Range (1900 - 2025)</h4>
-                <div class="year-slider-container" style="display:flex; align-items:center; gap:12px; max-width:800px; margin:0 auto;">
-                  <span style="color:#cbd5e1; font-size:12px; font-weight:600; min-width:40px;">1900</span>
-                  <div style="flex:1; position:relative;">
-                    <input type="range" id="fa-year-slider" min="1900" max="2025" value="1950" step="1" style="width:100%; height:8px; background:linear-gradient(to right, #c084fc 0%, #c084fc 40%, #334155 40%, #334155 100%); border-radius:4px; appearance:none; cursor:pointer; outline:none;" />
-                    <div id="fa-year-tooltip" style="position:absolute; top:-32px; left:40%; transform:translateX(-50%); background:rgba(2,6,23,0.9); color:#c084fc; font-size:11px; font-weight:700; padding:4px 8px; border-radius:6px; border:1px solid #c084fc; white-space:nowrap; pointer-events:none;">1950</div>
-                  </div>
-                  <span style="color:#cbd5e1; font-size:12px; font-weight:600; min-width:40px;">2025</span>
-                </div>
-                <div style="text-align:center; margin-top:8px;">
-                  <span style="color:#c084fc; font-size:13px; font-weight:700;">Selected Year: </span>
-                  <span id="fa-selected-year" style="color:#e2e8f0; font-size:13px; font-weight:600;">1950</span>
-                </div>
-              </div>
             </div>
             <style>
               #fa-year-slider::-webkit-slider-thumb, #fa-year-slider::-moz-range-thumb { width:20px; height:20px; background:#c084fc; border:2px solid #1e293b; border-radius:50%; cursor:pointer; box-shadow:0 2px 8px rgba(192,132,252,0.4); }
-              @media (max-width: 900px) { .goals-panels { flex-direction:column !important; } }
+              @media (max-width: 900px) { .goals-panels { flex-wrap: nowrap !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch; } }
             </style>`;
           initFafoOverlayBehavior();
         }
@@ -496,14 +473,13 @@
         // slider
         const slider = document.getElementById('fa-year-slider');
         const tooltip = document.getElementById('fa-year-tooltip');
-        const selectedYear = document.getElementById('fa-selected-year');
-        if (slider&&tooltip&&selectedYear){
-          function update(){
-            const value = slider.value; faCurrentYear = parseInt(value,10);
-            const min = parseInt(slider.min,10); const max = parseInt(slider.max,10);
-            const pct = ((faCurrentYear-min)/(max-min))*100;
-            tooltip.style.left = pct+'%'; tooltip.textContent=value; selectedYear.textContent=value;
-            slider.style.background='linear-gradient(to right,#c084fc 0%,#c084fc '+pct+'%, #334155 '+pct+'%, #334155 100%)';
+        if (slider && tooltip) {
+          function update() {
+            const value = slider.value; faCurrentYear = parseInt(value, 10);
+            const min = parseInt(slider.min, 10); const max = parseInt(slider.max, 10);
+            const pct = ((faCurrentYear - min) / (max - min)) * 100;
+            tooltip.style.left = pct + '%'; tooltip.textContent = value;
+            slider.style.background = 'linear-gradient(to right,#c084fc 0%,#c084fc ' + pct + '%, #334155 ' + pct + '%, #334155 100%)';
             updateFafoPanels();
           }
           slider.addEventListener('input', update);
