@@ -370,16 +370,16 @@
               <div class="goals-panels" style="display:flex; gap:16px; flex:1; justify-content:flex-end; align-items:flex-start; max-width:1200px; margin:0 auto; width:100%; min-height:220px;">
                 <!-- Right-aligned column for the three core panels -->
                 <div class="core-panels" style="display:flex; flex-direction:column; gap:12px; align-items:stretch; flex:0 1 360px;">
-                  <div id="fa-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:10px; box-shadow:0 4px 12px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:90px; max-height:140px; font-size:10px;">
-                    <h4 class="fafo-panel-title" style="margin-bottom:2px; font-size:10px;">FA Goals</h4>
+                  <div id="fa-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:10px; box-shadow:0 4px 12px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:90px; max-height:140px; font-size:9px;">
+                    <h4 class="fafo-panel-title" style="margin-bottom:2px; font-size:9px;">FA Goals</h4>
                   </div>
-                  <div id="middle-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:10px; box-shadow:0 4px 12px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:90px; max-height:140px; font-size:10px;">
-                    <h4 class="fafo-panel-title" style="color:#a78bfa; font-size:10px;">Middle Man</h4>
-                    <p class="fafo-panel-desc" style="font-size:10px;">Quotes will appear here…</p>
+                  <div id="middle-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:10px; box-shadow:0 4px 12px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:90px; max-height:140px; font-size:9px;">
+                    <h4 class="fafo-panel-title" style="color:#a78bfa; font-size:9px;">Middle Man</h4>
+                    <p class="fafo-panel-desc" style="font-size:9px;">Quotes will appear here…</p>
                   </div>
-                  <div id="fo-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:10px; box-shadow:0 4px 12px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:90px; max-height:140px; font-size:10px;">
-                    <h4 class="fafo-panel-title" style="color:#f87171; font-size:10px;">FO Fallout</h4>
-                    <p class="fafo-panel-desc" style="font-size:10px;">Fallout details…</p>
+                  <div id="fo-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:10px; box-shadow:0 4px 12px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:90px; max-height:140px; font-size:9px;">
+                    <h4 class="fafo-panel-title" style="color:#f87171; font-size:9px;">FO Fallout</h4>
+                    <p class="fafo-panel-desc" style="font-size:9px;">Fallout details…</p>
                   </div>
                 </div>
                 <!-- New Events panel (mobile-right) -->
@@ -425,36 +425,62 @@
           updateFafoPanels();
         } catch(e){ console.error('Failed loading FAFO data', e); }
       }
-      function getFafoEvent(){
-        let arr = fafoData;
-        if (faCurrentContinent !== 'World') arr = arr.filter(ev=>ev.continent===faCurrentContinent);
-        arr = arr.filter(ev=>ev.year===faCurrentYear);
-        return arr[0]||null;
+      // Return array of events matching current filters (continent/year).
+      function getFafoEvents(){
+        let arr = fafoData || [];
+        // If user selected a specific continent, filter to it; 'World' means keep all continents
+        if (faCurrentContinent && faCurrentContinent !== 'World') arr = arr.filter(ev => ev.continent === faCurrentContinent);
+        // Filter by year if set
+        if (typeof faCurrentYear === 'number') arr = arr.filter(ev => ev.year === faCurrentYear);
+        return arr || [];
+      }
+
+      // Selected index inside the events list (used when multiple events are shown)
+      let faSelectedEventIndex = 0;
+      function selectFafoEvent(idx){
+        faSelectedEventIndex = parseInt(idx,10) || 0;
+        updateFafoPanels();
       }
       function updateFafoPanels(){
-        const ev = getFafoEvent();
+        const events = getFafoEvents();
+        const ev = events[faSelectedEventIndex] || null;
         const fa = document.getElementById('fa-panel');
         const mid = document.getElementById('middle-panel');
         const fo = document.getElementById('fo-panel');
-        if(!fa||!mid||!fo) return;
+        const eventsPanel = document.getElementById('events-panel');
+        if(!fa||!mid||!fo||!eventsPanel) return;
+
+        // Render the events list on the right (shows all matching events). Selecting an item will update the main panels.
+        if (events.length === 0) {
+          eventsPanel.innerHTML = '<h4 class="fafo-panel-title" style="color:#60a5fa; font-size:11px; margin:0 0 8px 0;">Events</h4><p style="font-size:9px; color:#94a3b8;">No events for '+faCurrentContinent+' in '+faCurrentYear+'</p>';
+        } else {
+          // build compact list
+          const items = events.map((e,i)=>{
+            const active = (i===faSelectedEventIndex) ? 'border:1px solid #60a5fa; background:rgba(96,165,250,0.06);' : 'border:1px solid rgba(255,255,255,0.04);';
+            const title = (e.title || e.fa || 'Event') + ' — ' + (e.continent||'') + ' ' + (e.year||'');
+            return '<button type="button" data-idx="'+i+'" onclick="selectFafoEvent('+i+')" style="display:block; width:100%; text-align:left; margin-bottom:8px; padding:8px; border-radius:8px; font-size:9px; color:#e2e8f0; '+active+' background-clip:padding-box;">'+title+'</button>';
+          }).join('');
+          eventsPanel.innerHTML = '<h4 class="fafo-panel-title" style="color:#60a5fa; font-size:11px; margin:0 0 8px 0;">Events ('+events.length+')</h4><div style="overflow:auto; max-height:440px; padding-right:6px;">'+items+'</div>';
+        }
+
         if(!ev){
-          fa.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:15px; font-weight:700; color:#fbbf24; text-align:center;">FA Goals</h4><p style="color:#94a3b8; font-size:13px;">No data for '+faCurrentContinent+' in '+faCurrentYear+'</p>';
-          mid.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:15px; font-weight:700; color:#a78bfa; text-align:center;">Middle Man</h4><p style="color:#94a3b8; font-size:13px;">No quotes available</p>';
-          fo.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:15px; font-weight:700; color:#f87171; text-align:center;">FO Fallout</h4><p style="color:#fca5a5; font-size:13px;">No fallout data</p>';
+          fa.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:11px; font-weight:700; color:#fbbf24; text-align:center;">FA Goals</h4><p style="color:#94a3b8; font-size:9px;">No data for '+faCurrentContinent+' in '+faCurrentYear+'</p>';
+          mid.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:11px; font-weight:700; color:#a78bfa; text-align:center;">Middle Man</h4><p style="color:#94a3b8; font-size:9px;">No quotes available</p>';
+          fo.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:11px; font-weight:700; color:#f87171; text-align:center;">FO Fallout</h4><p style="color:#fca5a5; font-size:9px;">No fallout data</p>';
           return;
         }
-        fa.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:15px; font-weight:700; color:#fbbf24; text-align:center;">FA - '+ev.year+' ('+ev.continent+')</h4><p style="color:#e2e8f0; line-height:1.5; font-size:13px;">'+ev.fa+'</p>';
-  mid.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:15px; font-weight:700; color:#a78bfa; text-align:center;">Middle Man</h4>'+
+        fa.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:11px; font-weight:700; color:#fbbf24; text-align:center;">FA - '+ev.year+' ('+ev.continent+')</h4><p style="color:#e2e8f0; line-height:1.5; font-size:9px;">'+ev.fa+'</p>';
+  mid.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:11px; font-weight:700; color:#a78bfa; text-align:center;">Middle Man</h4>'+
     '<div style="text-align:center; margin-bottom:10px;">'+
-    '<p style="color:#e2e8f0; font-weight:600; margin:0; font-size:13px;">'+(ev.middle&&ev.middle.actor||'')+'</p></div>'+
-    '<blockquote style="color:#fde047; font-style:italic; text-align:center; line-height:1.4; margin:0; padding:0; font-size:13px;">'+(ev.middle&&ev.middle.quote||'')+'</blockquote>';
+    '<p style="color:#e2e8f0; font-weight:600; margin:0; font-size:9px;">'+(ev.middle&&ev.middle.actor||'')+'</p></div>'+
+    '<blockquote style="color:#fde047; font-style:italic; text-align:center; line-height:1.4; margin:0; padding:0; font-size:9px;">'+(ev.middle&&ev.middle.quote||'')+'</blockquote>';
           '<div style="text-align:center; margin-bottom:10px;">'+
           '<img src="'+(ev.middle&&ev.middle.image||'')+'" alt="'+(ev.middle&&ev.middle.actor||'')+'" style="width:54px;height:54px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 8px;" />'+
-          '<p style="color:#e2e8f0; font-weight:600; margin:0; font-size:13px;">'+(ev.middle&&ev.middle.actor||'')+'</p></div>'+
-          '<blockquote style="color:#fde047; font-style:italic; text-align:center; line-height:1.4; margin:0; padding:0; font-size:13px;">'+(ev.middle&&ev.middle.quote||'')+'</blockquote>';
-        fo.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:15px; font-weight:700; color:#f87171; text-align:center;">FO - Fallout</h4>'+
-          '<p style="color:#fca5a5; line-height:1.5; margin:0 0 12px 0; font-size:13px;">'+ev.fo+'</p>'+
-          '<div style="display:flex; flex-wrap:wrap; gap:6px; justify-content:center;">'+(ev.tags||[]).map(t=>'<span style="padding:4px 8px; background:rgba(185,28,28,0.3); color:#fca5a5; border-radius:12px; font-size:11px; font-weight:500;">'+t+'</span>').join('')+'</div>';
+          '<p style="color:#e2e8f0; font-weight:600; margin:0; font-size:9px;">'+(ev.middle&&ev.middle.actor||'')+'</p></div>'+
+          '<blockquote style="color:#fde047; font-style:italic; text-align:center; line-height:1.4; margin:0; padding:0; font-size:9px;">'+(ev.middle&&ev.middle.quote||'')+'</blockquote>';
+        fo.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:11px; font-weight:700; color:#f87171; text-align:center;">FO - Fallout</h4>'+
+          '<p style="color:#fca5a5; line-height:1.5; margin:0 0 12px 0; font-size:9px;">'+ev.fo+'</p>'+
+          '<div style="display:flex; flex-wrap:wrap; gap:6px; justify-content:center;">'+(ev.tags||[]).map(t=>'<span style="padding:4px 8px; background:rgba(185,28,28,0.3); color:#fca5a5; border-radius:12px; font-size:10px; font-weight:500;">'+t+'</span>').join('')+'</div>';
       }
       function initFafoOverlayBehavior(){
         loadFafoData();
@@ -464,6 +490,8 @@
           wrap.querySelectorAll('button[data-continent]').forEach(btn=>{
             btn.addEventListener('click', ()=>{
               faCurrentContinent = btn.getAttribute('data-continent');
+              // reset selection to first event in the new filter
+              faSelectedEventIndex = 0;
               wrap.querySelectorAll('button').forEach(b=>b.style.outline='none');
               btn.style.outline='2px solid #34d399';
               updateFafoPanels();
