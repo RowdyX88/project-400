@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BuildByer — About</title>
+  <title>BuildByer — REALITY</title>
   <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/styles.css" />
   <style>
-    body { background: linear-gradient(120deg,#0f172a 60%,#1e293b 100%); color:#e5e7eb; }
+    body { background: linear-gradient(120deg,#0f172a 60%,#1e293b 100%); color:#e5e7eb; min-height: 100vh; }
     .wrap { max-width: 960px; margin: 20px auto; padding: 12px; }
     .header { display:flex; align-items:center; justify-content: space-between; gap: 10px; }
     .brand { display:flex; align-items:center; gap: 8px; font-weight: 800; color:#fbbf24; }
@@ -16,17 +16,71 @@
     .title { color:#fbbf24; font-weight: 800; margin: 6px 0 10px; }
     a.btn { display:inline-block; padding:6px 10px; border-radius:10px; border:1px solid #475569; background: rgba(2,6,23,0.72); color:#e5e7eb; text-decoration:none; font-size:12px; }
     a.btn:hover { filter: brightness(1.06); }
-  .blank-card { min-height: 60vh; }
-  /* Mini header like site strip */
-  .mini-header { display:flex; align-items:center; gap:6px; padding:6px; border-radius:12px; border:1px solid rgba(255,255,255,0.07); background: rgba(30,41,59,0.85); box-shadow: 0 4px 14px rgba(0,0,0,0.18); }
-  .mh-title { font-weight:900; font-size:11px; letter-spacing:.3px; color:#fbbf24; text-transform:uppercase; }
-  .mh-actions { display:flex; align-items:center; gap:4px; margin-left:auto; }
-  .mh-btn { font-size:10px; line-height:1.1; padding:3px 8px; border-radius:999px; border:1px solid #475569; background: rgba(2,6,23,0.72); color:#e5e7eb; text-decoration:none; }
-  .mh-btn:hover { filter:brightness(1.06); }
+    .content-card { min-height: 60vh; }
+    
+    /* Mini header like site strip - exactly like fafo.html */
+    .mini-header { display:flex; align-items:center; gap:6px; padding:6px; border-radius:12px; border:1px solid rgba(255,255,255,0.07); background: rgba(30,41,59,0.85); box-shadow: 0 4px 14px rgba(0,0,0,0.18); }
+    .mh-title { font-weight:900; font-size:11px; letter-spacing:.3px; color:#fbbf24; text-transform:uppercase; }
+    .mh-actions { display:flex; align-items:center; gap:4px; margin-left:auto; }
+    .mh-btn { font-size:10px; line-height:1.1; padding:3px 8px; border-radius:999px; border:1px solid #475569; background: rgba(2,6,23,0.72); color:#e5e7eb; text-decoration:none; }
+    .mh-btn:hover { filter:brightness(1.06); }
+    
+    /* Content styling */
+    .features-section { margin-top: 16px; }
+    .features-title { color: #fbbf24; margin-bottom: 8px; font-size: 16px; font-weight: 600; }
+    .features-list { color: #cbd5e1; line-height: 1.4; list-style: none; padding: 0; font-size: 12px; }
+    .features-list li { margin-bottom: 4px; }
+    .actions-section { margin-top: 16px; }
+    .btn-secondary { margin-left: 8px; }
+    
+    /* Reality Frames Container - larger sizing */
+    #neon-frames-container { 
+      width: 100%; 
+      max-width: 700px; 
+      height: 700px; 
+      margin: 30px auto; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+    }
+    
+    /* Content card adjustments for compact layout */
+    .content-card { 
+      min-height: 200px; 
+      max-height: 350px; 
+      padding: 16px; 
+    }
+    .title { 
+      font-size: 18px; 
+      margin: 6px 0 8px; 
+    }
+    .content-card > p { 
+      font-size: 12px; 
+      line-height: 1.4; 
+      margin-bottom: 12px; 
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .wrap { margin: 12px auto; padding: 8px; }
+      .mini-header { padding: 4px; gap: 4px; }
+      .mh-actions { gap: 2px; }
+      .mh-btn { padding: 2px 6px; font-size: 9px; }
+      .content-card { min-height: 150px; max-height: 280px; }
+      .btn-secondary { margin-left: 0; margin-top: 8px; display: block; text-align: center; }
+      #neon-frames-container { 
+        max-width: 500px; 
+        height: 500px; 
+        margin: 20px auto; 
+      }
+      .features-title { font-size: 14px; }
+      .features-list { font-size: 11px; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
+    <!-- Header exactly like fafo.html -->
     <div class="mini-header">
       <span class="mh-title">REALITY</span>
       <div class="mh-actions">
@@ -35,7 +89,33 @@
         <a class="mh-btn" href="/buildbyer.html">BuildByer</a>
       </div>
     </div>
-  <div class="card blank-card"></div>
+    
+    <!-- Reality Frames Mount Point - keep exactly as they are -->
+    <div id="neon-frames-container"></div>
+    
+    <!-- Content layer below the squares -->
+    <div class="card content-card">
+      <div class="title">BuildByer</div>
+      <p>Interactive map, timeline, and insights across NATO, politics, weather, life and global events.</p>
+      
+      <div class="features-section">
+        <h3 class="features-title">Features</h3>
+        <ul class="features-list">
+          <li>• Real-time global event tracking</li>
+          <li>• Interactive timeline visualization</li>
+          <li>• NATO intelligence integration</li>
+          <li>• Weather pattern analysis</li>
+          <li>• Political event monitoring</li>
+          <li>• Life event documentation</li>
+        </ul>
+      </div>
+      
+      <div class="actions-section">
+        <a href="/index.html" class="btn">Open Full Application</a>
+        <a href="/fafo.html" class="btn btn-secondary">View FAFO Bills</a>
+      </div>
+    </div>
   </div>
+  <script src="/dist/main.js" type="module"></script>
 </body>
 </html>

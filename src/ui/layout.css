@@ -1,3 +1,24 @@
+/* Reality Frames Container - Responsive and sophisticated */
+#neon-frames-container {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 32px auto 24px auto;
+  padding: 0 16px;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  #neon-frames-container {
+    max-width: 300px;
+    margin: 24px auto 16px auto;
+    padding: 0 8px;
+  }
+}
 /* Global overflow rule moved from inline */
 body { overflow-x: hidden; }
 
@@ -127,6 +148,62 @@ html, body { height: 100%; margin: 0; font-family: system-ui, sans-serif; }
 .year-readout { font-weight: 600; text-align: right; }
 @media (max-width: 900px){
   .app { grid-template-columns: 220px 1fr; grid-template-rows: 1fr 170px; }
+}
+
+/* Desktop-only overrides: keep these active only on wider screens so phone layout is untouched */
+@media (min-width: 901px) {
+  /* Strong overrides to counter the injected inline/embedded styles in index.html overlay
+     Ensure panels sit directly under the continent/slider row and use larger text on desktop.
+     Use !important because overlay HTML injects inline styles and <style> blocks after the main CSS. */
+  .goals-panels { margin-top: 8px !important; transform: translateY(-48px) !important; }
+  /* Make core goal panels larger and ensure font sizes apply despite inline styles */
+  .core-panels .goals-panel { font-size: 16px !important; padding: 22px 26px !important; min-height: 180px !important; max-height: 760px !important; }
+  .core-panels .fafo-panel-title { font-size: 16px !important; }
+  .core-panels .fafo-panel-desc { font-size: 16px !important; }
+
+  /* Target the specific FA/MD/FO panel IDs created in the overlay so we enlarge and widen them */
+  #fa-panel, #middle-panel, #fo-panel { min-width: 480px !important; max-width: 640px !important; }
+  #fa-panel { padding: 20px !important; }
+  #middle-panel { padding: 20px !important; }
+  #fo-panel { padding: 20px !important; }
+
+  /* Ensure events panel is larger as well but stays to the right */
+  #events-panel.goals-panel { width: 420px !important; flex: 0 0 420px !important; min-height: 360px !important; }
+
+  /* If overlay styles attempt to set tiny font-sizes inline, force readable size for headings and paragraphs */
+  .core-panels .goals-panel h4, .core-panels .goals-panel p, #events-panel.goals-panel h4, #events-panel.goals-panel p {
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Make insights panel cards larger and more prominent on desktop */
+  #insights-panel { width: 460px; min-width: 420px; right: 24px; top: 76px; }
+  .ins-card { padding: 18px 20px; border-radius: 14px; font-size: 16px; }
+  .ins-title { font-size: 16px; font-weight: 700; }
+  .ins-summary, .ins-extra { font-size: 16px; line-height: 1.5; }
+
+  /* Move FA / Middle / FO composition panel upward closer under the continents control */
+  #map-panel { top: 76px; left: calc(280px + 36px); }
+
+  /* Enlarge the composition panels and increase text size on desktop */
+  .fafo-panel, .event-detail, .middle-man, .fo-panel {
+    transform: none !important;
+    margin-top: 4px !important;
+    min-width: 480px !important;
+    max-width: 620px !important;
+    padding: 18px !important;
+    border-radius: 14px !important;
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Ensure insights panel sits visually under the controls (contents panel) */
+  #insights-panel { right: 24px; top: 76px; }
+
+  /* Increase chip and timeline sizes so desktop cards are readable */
+  .event-chip { min-width: 300px; max-width: 360px; padding: 16px 18px 18px; }
+  .chip-title { font-size: 16px; }
+  .chip-summary { font-size: 15px; }
 }
 
 /* Safari and standard backdrop filter for glassy panels */

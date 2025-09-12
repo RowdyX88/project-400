@@ -393,6 +393,31 @@
                   .core-panels { display:flex; flex-direction:column; gap:12px; flex:0 1 420px; }
                   .core-panels .goals-panel { width:100%; }
                   #events-panel.goals-panel { width:160px; flex:0 0 160px; min-height:220px; max-height:600px; }
+
+                  /* Desktop-only adjustments: center the panels row and make core panels larger on desktop */
+                  @media (min-width: 901px) {
+                    /* center the panels row, pull it upward and give it a bit more room on wide screens */
+                    .goals-panels { justify-content:center; max-width:1400px; margin:0 auto 0; align-items:flex-start; gap:28px; position:relative; z-index:30; padding-top:0; }
+                    /* Make the core panels larger and more readable on desktop without affecting phone rules */
+                    .core-panels { flex:0 1 660px; max-width:660px; }
+                    .core-panels .goals-panel { min-height:260px; max-height:720px; font-size:16px; padding:22px 26px; border-radius:16px; }
+                    .core-panels .fafo-panel-title { font-size:15px !important; }
+                    .core-panels .fafo-panel-desc { font-size:14px !important; }
+                    /* Events column larger on desktop */
+                    #events-panel.goals-panel { width:360px; flex:0 0 360px; min-height:360px; }
+                    /* Pull the panels slightly upward but avoid overlap: small lift so panels sit under the continent/slider row */
+                    .goals-panels { transform: translateY(-28px); }
+
+                    /* Larger-screen boost: on very wide monitors make panels even larger and text much larger */
+                    @media (min-width: 1400px) {
+                      .core-panels { flex:0 1 980px; max-width:980px; }
+                      .core-panels .goals-panel { min-height:360px; max-height:920px; font-size:18px; padding:30px 34px; }
+                      .core-panels .fafo-panel-title { font-size:18px !important; }
+                      .core-panels .fafo-panel-desc { font-size:16px !important; }
+                      #events-panel.goals-panel { width:480px; flex:0 0 480px; min-height:420px; }
+                      .goals-panels { transform: translateY(-12px); }
+                    }
+                  }
                   @media (max-width:900px) {
                     /* keep the overall container scrollable horizontally so events remains reachable */
                     .goals-panels { overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:8px; }
@@ -409,6 +434,51 @@
               @media (max-width: 900px) { .goals-panels { flex-wrap: nowrap !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch; } }
             </style>`;
           initFafoOverlayBehavior();
+        }
+        if (route === 'buildbyer') {
+          overlayCanvas.innerHTML = `
+            <div class="overlay-content" style="padding:20px; height:100%; display:flex; flex-direction:column; gap:20px; padding-top:100px;">
+              <!-- Reality Frames Mount Point for overlay -->
+              <div id="overlay-frames-container" style="width:100%; max-width:700px; height:700px; display:flex; justify-content:center; align-items:center; margin:40px auto 20px auto;"></div>
+              
+              <!-- BuildByer Content -->
+              <div style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:14px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.35); backdrop-filter:blur(8px); flex:0 1 auto; max-height:280px;">
+                <h3 style="margin:0 0 12px 0; font-size:18px; font-weight:800; color:#fbbf24; text-align:center;">BuildByer</h3>
+                <p style="font-size:12px; line-height:1.4; color:#cbd5e1; text-align:center; margin-bottom:16px;">
+                  Interactive map, timeline, and insights across NATO, politics, weather, life and global events.
+                </p>
+                
+                <div style="margin-bottom:18px;">
+                  <h4 style="color:#fbbf24; margin-bottom:8px; font-size:14px; font-weight:600;">Features</h4>
+                  <ul style="color:#cbd5e1; line-height:1.4; list-style:none; padding:0; margin:0; font-size:11px;">
+                    <li style="margin-bottom:4px;">• Real-time global event tracking</li>
+                    <li style="margin-bottom:4px;">• Interactive timeline visualization</li>
+                    <li style="margin-bottom:4px;">• NATO intelligence integration</li>
+                    <li style="margin-bottom:4px;">• Weather pattern analysis</li>
+                    <li style="margin-bottom:4px;">• Political event monitoring</li>
+                    <li style="margin-bottom:4px;">• Life event documentation</li>
+                  </ul>
+                </div>
+                
+                <div style="text-align:center; gap:10px; display:flex; flex-wrap:wrap; justify-content:center;">
+                  <a href="/index.html" style="display:inline-block; padding:8px 14px; border-radius:8px; border:1px solid #475569; background:rgba(2,6,23,0.72); color:#e5e7eb; text-decoration:none; font-size:12px; font-weight:500;">Open Full Application</a>
+                  <a href="/fafo.html" style="display:inline-block; padding:8px 14px; border-radius:8px; border:1px solid #475569; background:rgba(2,6,23,0.72); color:#e5e7eb; text-decoration:none; font-size:12px; font-weight:500;">View FAFO Bills</a>
+                </div>
+              </div>
+            </div>`;
+          
+          // Initialize Reality Frames in the overlay
+          const initOverlayFrames = () => {
+            const overlayFramesContainer = document.getElementById('overlay-frames-container');
+            if (overlayFramesContainer && window.renderRealityFrames) {
+              console.log('Initializing Reality Frames in overlay...');
+              window.renderRealityFrames(overlayFramesContainer, 1949);
+            } else {
+              console.log('Waiting for renderRealityFrames to load...');
+              setTimeout(initOverlayFrames, 200);
+            }
+          };
+          initOverlayFrames();
         }
       }
       /* -------- FA/FO Dynamic Data Logic (merged) -------- */
@@ -452,7 +522,7 @@
 
         // Render the events list on the right (shows all matching events). Selecting an item will update the main panels.
         if (events.length === 0) {
-          eventsPanel.innerHTML = '<h4 class="fafo-panel-title" style="color:#60a5fa; font-size:11px; margin:0 0 8px 0;">Events</h4><p style="font-size:9px; color:#94a3b8;">No events for '+faCurrentContinent+' in '+faCurrentYear+'</p>';
+          eventsPanel.innerHTML = '<h4 class="fafo-panel-title" style="color:#60a5fa; font-size:11px; margin:0 0 8px 0;">Events <span id="events-year" style="font-size:10px;color:#94a3b8;margin-left:6px;">'+faCurrentYear+'</span></h4><p style="font-size:9px; color:#94a3b8;">No events for '+faCurrentContinent+' in '+faCurrentYear+'</p>';
         } else {
           // build compact list
           const items = events.map((e,i)=>{
@@ -460,7 +530,7 @@
             const title = (e.title || e.fa || 'Event') + ' — ' + (e.continent||'') + ' ' + (e.year||'');
             return '<button type="button" data-idx="'+i+'" onclick="selectFafoEvent('+i+')" style="display:block; width:100%; text-align:left; margin-bottom:8px; padding:8px; border-radius:8px; font-size:9px; color:#e2e8f0; '+active+' background-clip:padding-box;">'+title+'</button>';
           }).join('');
-          eventsPanel.innerHTML = '<h4 class="fafo-panel-title" style="color:#60a5fa; font-size:11px; margin:0 0 8px 0;">Events ('+events.length+')</h4><div style="overflow:auto; max-height:440px; padding-right:6px;">'+items+'</div>';
+          eventsPanel.innerHTML = '<h4 class="fafo-panel-title" style="color:#60a5fa; font-size:11px; margin:0 0 8px 0;">Events ('+events.length+') <span id="events-year" style="font-size:10px;color:#94a3b8;margin-left:6px;">'+faCurrentYear+'</span></h4><div style="overflow:auto; max-height:440px; padding-right:6px;">'+items+'</div>';
         }
 
         if(!ev){
@@ -502,17 +572,120 @@
         const slider = document.getElementById('fa-year-slider');
         const tooltip = document.getElementById('fa-year-tooltip');
         if (slider && tooltip) {
-          function update() {
-            const value = slider.value; faCurrentYear = parseInt(value, 10);
+          // Make tooltip and slider visuals update immediately but throttle heavy panel updates
+          function updateVisuals(value) {
+            const num = parseInt(value, 10);
             const min = parseInt(slider.min, 10); const max = parseInt(slider.max, 10);
-            const pct = ((faCurrentYear - min) / (max - min)) * 100;
+            const pct = ((num - min) / (max - min)) * 100;
             tooltip.style.left = pct + '%'; tooltip.textContent = value;
             slider.style.background = 'linear-gradient(to right,#c084fc 0%,#c084fc ' + pct + '%, #334155 ' + pct + '%, #334155 100%)';
-            updateFafoPanels();
+            // Also update live year display inside Events panel header if present
+            try { const ey = document.getElementById('events-year'); if (ey) ey.textContent = ''+num; } catch(e){}
           }
-          slider.addEventListener('input', update);
-          slider.addEventListener('mousemove', update);
-          update();
+
+          // Throttle updates to updateFafoPanels so dragging doesn't change the year too fast.
+          let _lastSlideTs = 0;
+          let _slideTimer = null;
+          const SLIDE_THROTTLE_MS = 180; // adjust to taste (higher -> slower updates while dragging)
+
+          function doThrottledUpdate(value, force) {
+            const now = Date.now();
+            const fn = () => {
+              faCurrentYear = parseInt(value, 10);
+              updateFafoPanels();
+            };
+            if (force) {
+              // immediate
+              clearTimeout(_slideTimer);
+              _lastSlideTs = Date.now();
+              fn();
+              return;
+            }
+            if (now - _lastSlideTs >= SLIDE_THROTTLE_MS) {
+              _lastSlideTs = now;
+              fn();
+            } else {
+              clearTimeout(_slideTimer);
+              _slideTimer = setTimeout(() => {
+                _lastSlideTs = Date.now();
+                fn();
+              }, SLIDE_THROTTLE_MS - (now - _lastSlideTs));
+            }
+          }
+
+          function onSlide(e) {
+            const value = slider.value;
+            updateVisuals(value);
+            // schedule throttled panel update (do not force)
+            doThrottledUpdate(value, false);
+          }
+
+          // While moving the mouse (desktop) keep visuals + throttle
+          slider.addEventListener('input', onSlide);
+          slider.addEventListener('mousemove', onSlide);
+
+          // Pointer-based slower-drag behavior (improves touch: small drag -> small year change)
+            (function attachPointerSlowDrag() {
+            const PIXELS_PER_YEAR = 2000; // much higher => extremely slow year change per pixel (was 480)
+            let pointerActive = false;
+            let pointerId = null;
+            let startX = 0;
+            let startYear = 0;
+
+            function clampYear(y) {
+              const min = parseInt(slider.min, 10); const max = parseInt(slider.max, 10);
+              return Math.max(min, Math.min(max, y));
+            }
+
+            slider.addEventListener('pointerdown', (e) => {
+              // Only intercept touch/pen on small screens to avoid breaking mouse behavior
+              try {
+                if (e.isPrimary === false) return;
+                // For touch/pen we take control; for mouse keep default
+                if (e.pointerType === 'touch' || e.pointerType === 'pen') {
+                  pointerActive = true; pointerId = e.pointerId; startX = e.clientX; startYear = parseInt(slider.value, 10);
+                  try { slider.setPointerCapture(pointerId); } catch (err){}
+                  e.preventDefault();
+                }
+              } catch (err) {}
+            });
+
+            slider.addEventListener('pointermove', (e) => {
+              if (!pointerActive || e.pointerId !== pointerId) return;
+              const dx = Math.round(e.clientX - startX);
+              const deltaYears = Math.round(dx / PIXELS_PER_YEAR);
+              const newYear = clampYear(startYear + deltaYears);
+              if (String(slider.value) !== String(newYear)) {
+                slider.value = newYear;
+                updateVisuals(newYear);
+                doThrottledUpdate(newYear, false);
+              }
+              e.preventDefault();
+            });
+
+            function finishPointer(e) {
+              if (!pointerActive || e.pointerId !== pointerId) return;
+              pointerActive = false;
+              try { slider.releasePointerCapture(pointerId); } catch (err){}
+              const finalYear = parseInt(slider.value, 10);
+              updateVisuals(finalYear);
+              doThrottledUpdate(finalYear, true);
+            }
+
+            slider.addEventListener('pointerup', finishPointer);
+            slider.addEventListener('pointercancel', finishPointer);
+          })();
+
+          // When user finishes (native change), apply the final value immediately
+          slider.addEventListener('change', () => {
+            const value = slider.value;
+            updateVisuals(value);
+            doThrottledUpdate(value, true);
+          });
+
+          // initialize visuals and panels to current value
+          updateVisuals(slider.value);
+          doThrottledUpdate(slider.value, true);
         }
       }
       // expose for potential inline handlers (legacy) – kept minimal
