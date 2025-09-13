@@ -6,22 +6,25 @@
     "build": "tsc && npm run build:css",
     "build:css": "tailwindcss -i src/styles/tailwind.css -o assets/styles.css -m",
     "start": "http-server -p 5511 -a 127.0.0.1 -c-1 .",
-  "dev": "http-server -a 127.0.0.1 -p 5511 -c-1 .",
-  "dev:any": "http-server -a 0.0.0.0 -p 5511 -c-1 .",
-  "dev:alt": "http-server -a 127.0.0.1 -p 5512 -c-1 .",
-  "validate:data": "node scripts/validate-data.js",
-  "normalize:data": "node scripts/normalize-data.js",
-  "normalize:data:write": "node scripts/normalize-data.js --write"
+    "dev": "http-server -a 127.0.0.1 -p 5511 -c-1 .",
+    "dev:any": "http-server -a 0.0.0.0 -p 5511 -c-1 .",
+    "dev:live": "concurrently \"npm run dev:any\" \"browser-sync start --proxy 'localhost:5511' --files 'assets/styles.css,dist/**/*.js,src/ui/layout.css,index.html' --no-open --port 5512 --reload-delay 300\"",
+    "dev:alt": "http-server -a 127.0.0.1 -p 5512 -c-1 .",
+    "validate:data": "node scripts/validate-data.js",
+    "normalize:data": "node scripts/normalize-data.js",
+    "normalize:data:write": "node scripts/normalize-data.js --write"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.21",
-    "http-server": "^14.1.1",
-    "postcss": "^8.5.6",
-  "tailwindcss": "^3.4.17",
-  "typescript": "^5.0.0",
-  "ajv": "^8.17.1",
+    "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
-    "husky": "^9.1.6"
+    "autoprefixer": "^10.4.21",
+    "browser-sync": "^3.0.4",
+    "concurrently": "^9.2.1",
+    "http-server": "^14.1.1",
+    "husky": "^9.1.6",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.0.0"
   },
   "husky": {
     "hooks": {
