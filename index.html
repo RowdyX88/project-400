@@ -338,17 +338,20 @@
         }
         if (route === 'fa-goals') {
           overlayCanvas.innerHTML = `
-            <div class="overlay-content" style="padding:20px; height:100%; display:flex; flex-direction:column; gap:16px;">
+            <div class="overlay-content" style="padding:0; height:auto; display:contents;">
               <style>
-                @media (min-width: 601px) {
-                  .continent-panel, .goals-panels {
-                    margin-top: 120px !important;
+                @media (min-width: 901px) {
+                  .continent-panel {
+                    margin-top: 32px !important;
+                  }
+                  .goals-panels {
+                    margin-top: 16px !important;
                   }
                 }
               </style>
               <!-- Year Slider removed, now only inside continent panel -->
               <!-- Continents -->
-              <div class="continent-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.35); backdrop-filter:blur(8px); min-height:60px;">
+              <div class="continent-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.35); backdrop-filter:blur(8px); min-height:60px; margin-top:68px !important;">
                 <div class="year-slider-container" style="display:flex; align-items:center; gap:12px; max-width:800px; margin:0 auto 16px auto;">
                   <span style="color:#cbd5e1; font-size:10px; font-weight:500; min-width:28px;">1900</span>
                   <div style="flex:1; position:relative; max-width:550px; margin:0 auto;">
@@ -366,64 +369,33 @@
                   }
                 </style>
               </div>
-              <!-- Panels Row (FA / Middle / FO / Events) -->
-              <div class="goals-panels" style="display:flex; gap:16px; flex:1; justify-content:flex-end; align-items:flex-start; max-width:1200px; margin:0 auto; width:100%; min-height:220px;">
-                <!-- Right-aligned column for the three core panels -->
-                <div class="core-panels" style="display:flex; flex-direction:column; gap:12px; align-items:stretch; flex:0 1 360px;">
-                  <div id="fa-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:10px; box-shadow:0 4px 12px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:90px; max-height:140px; font-size:9px;">
-                    <h4 class="fafo-panel-title" style="margin-bottom:2px; font-size:9px;">FA Goals</h4>
-                  </div>
-                  <div id="middle-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:10px; box-shadow:0 4px 12px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:90px; max-height:140px; font-size:9px;">
-                    <h4 class="fafo-panel-title" style="color:#a78bfa; font-size:9px;">Middle Man</h4>
-                    <p class="fafo-panel-desc" style="font-size:9px;">Quotes will appear here…</p>
-                  </div>
-                  <div id="fo-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:10px; box-shadow:0 4px 12px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:90px; max-height:140px; font-size:9px;">
-                    <h4 class="fafo-panel-title" style="color:#f87171; font-size:9px;">FO Fallout</h4>
-                    <p class="fafo-panel-desc" style="font-size:9px;">Fallout details…</p>
-                  </div>
+              <!-- Panels Row (FA / Middle / FO / Events side by side) -->
+              <div class="goals-panels" style="display:flex; flex-direction:row; gap:32px !important; justify-content:flex-end; align-items:flex-start; max-width:1400px; margin:0 auto; width:100%; min-height:220px; position:relative; top:48px !important; margin-left:-38px !important;">
+                
+                <div id="fa-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:2.5px solid #fbbf24 !important; border-radius:14px; padding:12px !important; box-shadow:0 4px 18px rgba(251,191,36,0.18); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; width:260px !important; min-width:260px !important; max-width:260px !important; min-height:340px !important; max-height:540px !important; font-size:19px !important; margin-left:0 !important;">
+                  <h4 class="fafo-panel-title" style="margin-bottom:8px; font-size:24px !important; color:#fbbf24 !important;">FA Goals</h4>
                 </div>
-                <!-- New Events panel (mobile-right) -->
-                <div id="events-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:12px; box-shadow:0 4px 16px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-height:220px; max-height:600px; font-size:12px; width:160px;">
-                  <h4 class="fafo-panel-title" style="color:#60a5fa; font-size:11px;">Events</h4>
-                  <p class="fafo-panel-desc" style="font-size:9px;">Events list…</p>
+                <div id="middle-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:2.5px solid #fbbf24 !important; border-radius:14px; padding:12px !important; box-shadow:0 4px 18px rgba(251,191,36,0.18); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; width:260px !important; min-width:260px !important; max-width:260px !important; min-height:340px !important; max-height:540px !important; font-size:19px !important; margin-left:0 !important;">
+                  <h4 class="fafo-panel-title" style="color:#a78bfa !important; font-size:24px !important; margin-bottom:8px;">Middle Man</h4>
+                  <p class="fafo-panel-desc" style="font-size:18px !important;">Quotes will appear here…</p>
+                </div>
+                <div id="fo-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:2.5px solid #fbbf24 !important; border-radius:14px; padding:12px !important; box-shadow:0 4px 18px rgba(251,191,36,0.18); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; width:260px !important; min-width:260px !important; max-width:260px !important; min-height:340px !important; max-height:540px !important; font-size:19px !important; margin-left:0 !important;">
+                  <h4 class="fafo-panel-title" style="color:#f87171 !important; font-size:24px !important; margin-bottom:8px;">FO Fallout</h4>
+                  <p class="fafo-panel-desc" style="font-size:18px !important;">Fallout details…</p>
+                </div>
+                <div id="events-panel" class="goals-panel" style="background:rgba(30,41,59,0.85); border:1px solid #334155; border-radius:12px; padding:12px; box-shadow:0 4px 16px rgba(0,0,0,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; overflow:auto; min-width:160px; max-width:220px; font-size:12px; margin-left:110px !important;">
+                  <h4 class="fafo-panel-title" style="color:#60a5fa; font-size:14px;">Events</h4>
+                  <p class="fafo-panel-desc" style="font-size:14px;">Events list…</p>
                 </div>
                 <style>
-                  /* Right column core panels - stack vertically on phones, events is fixed to the right */
-                  .goals-panels { display:flex; gap:16px; align-items:flex-start; }
-                  .core-panels { display:flex; flex-direction:column; gap:12px; flex:0 1 420px; }
-                  .core-panels .goals-panel { width:100%; }
-                  #events-panel.goals-panel { width:160px; flex:0 0 160px; min-height:220px; max-height:600px; }
-
-                  /* Desktop-only adjustments: center the panels row and make core panels larger on desktop */
-                  @media (min-width: 901px) {
-                    /* center the panels row, pull it upward and give it a bit more room on wide screens */
-                    .goals-panels { justify-content:center; max-width:1400px; margin:0 auto 0; align-items:flex-start; gap:28px; position:relative; z-index:30; padding-top:0; }
-                    /* Make the core panels larger and more readable on desktop without affecting phone rules */
-                    .core-panels { flex:0 1 660px; max-width:660px; }
-                    .core-panels .goals-panel { min-height:260px; max-height:720px; font-size:16px; padding:22px 26px; border-radius:16px; }
-                    .core-panels .fafo-panel-title { font-size:15px !important; }
-                    .core-panels .fafo-panel-desc { font-size:14px !important; }
-                    /* Events column larger on desktop */
-                    #events-panel.goals-panel { width:360px; flex:0 0 360px; min-height:360px; }
-                    /* Pull the panels slightly upward but avoid overlap: small lift so panels sit under the continent/slider row */
-                    .goals-panels { transform: translateY(-28px); }
-
-                    /* Larger-screen boost: on very wide monitors make panels even larger and text much larger */
-                    @media (min-width: 1400px) {
-                      .core-panels { flex:0 1 980px; max-width:980px; }
-                      .core-panels .goals-panel { min-height:360px; max-height:920px; font-size:18px; padding:30px 34px; }
-                      .core-panels .fafo-panel-title { font-size:18px !important; }
-                      .core-panels .fafo-panel-desc { font-size:16px !important; }
-                      #events-panel.goals-panel { width:480px; flex:0 0 480px; min-height:420px; }
-                      .goals-panels { transform: translateY(-12px); }
-                    }
-                  }
+                  .goals-panels { display:flex; flex-direction:row; gap:18px; justify-content:flex-end; align-items:flex-start; }
+                  .goals-panel { min-height:120px; max-height:320px; font-size:15px; padding:16px 18px; border-radius:16px; margin-bottom:0; overflow-y:auto; box-sizing:border-box; }
+                  .fafo-panel-title { font-size:15px !important; }
+                  .fafo-panel-desc { font-size:14px !important; }
                   @media (max-width:900px) {
-                    /* keep the overall container scrollable horizontally so events remains reachable */
                     .goals-panels { overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:8px; }
                     .goals-panels::-webkit-scrollbar{ height:8px }
-                    /* adjust events width on small screens */
-                    #events-panel.goals-panel { width:120px; flex:0 0 120px; min-height:220px; max-height:600px; }
+                    .goals-panel { min-width:140px; max-width:180px; font-size:12px; }
                   }
                 </style>
               </div>
@@ -511,6 +483,7 @@
         faSelectedEventIndex = parseInt(idx,10) || 0;
         updateFafoPanels();
       }
+      window.selectFafoEvent = selectFafoEvent;
       function updateFafoPanels(){
         const events = getFafoEvents();
         const ev = events[faSelectedEventIndex] || null;
@@ -534,23 +507,19 @@
         }
 
         if(!ev){
-          fa.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:11px; font-weight:700; color:#fbbf24; text-align:center;">FA Goals</h4><p style="color:#94a3b8; font-size:9px;">No data for '+faCurrentContinent+' in '+faCurrentYear+'</p>';
-          mid.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:11px; font-weight:700; color:#a78bfa; text-align:center;">Middle Man</h4><p style="color:#94a3b8; font-size:9px;">No quotes available</p>';
-          fo.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:11px; font-weight:700; color:#f87171; text-align:center;">FO Fallout</h4><p style="color:#fca5a5; font-size:9px;">No fallout data</p>';
+          fa.innerHTML = '<h4 style="margin:0 0 12px 0; font-size:28px; font-weight:800; color:#fbbf24; text-align:center;">FA Goals</h4><p style="color:#94a3b8; font-size:20px;">No data for '+faCurrentContinent+' in '+faCurrentYear+'</p>';
+          mid.innerHTML = '<h4 style="margin:0 0 12px 0; font-size:28px; font-weight:800; color:#a78bfa; text-align:center;">Middle Man</h4><p style="color:#94a3b8; font-size:20px;">No quotes available</p>';
+          fo.innerHTML = '<h4 style="margin:0 0 12px 0; font-size:28px; font-weight:800; color:#f87171; text-align:center;">FO Fallout</h4><p style="color:#fca5a5; font-size:20px;">No fallout data</p>';
           return;
         }
-        fa.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:11px; font-weight:700; color:#fbbf24; text-align:center;">FA - '+ev.year+' ('+ev.continent+')</h4><p style="color:#e2e8f0; line-height:1.5; font-size:9px;">'+ev.fa+'</p>';
-  mid.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:11px; font-weight:700; color:#a78bfa; text-align:center;">Middle Man</h4>'+
-    '<div style="text-align:center; margin-bottom:10px;">'+
-    '<p style="color:#e2e8f0; font-weight:600; margin:0; font-size:9px;">'+(ev.middle&&ev.middle.actor||'')+'</p></div>'+
-    '<blockquote style="color:#fde047; font-style:italic; text-align:center; line-height:1.4; margin:0; padding:0; font-size:9px;">'+(ev.middle&&ev.middle.quote||'')+'</blockquote>';
-          '<div style="text-align:center; margin-bottom:10px;">'+
-          '<img src="'+(ev.middle&&ev.middle.image||'')+'" alt="'+(ev.middle&&ev.middle.actor||'')+'" style="width:54px;height:54px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 8px;" />'+
-          '<p style="color:#e2e8f0; font-weight:600; margin:0; font-size:9px;">'+(ev.middle&&ev.middle.actor||'')+'</p></div>'+
-          '<blockquote style="color:#fde047; font-style:italic; text-align:center; line-height:1.4; margin:0; padding:0; font-size:9px;">'+(ev.middle&&ev.middle.quote||'')+'</blockquote>';
-        fo.innerHTML = '<h4 style="margin:0 0 8px 0; font-size:11px; font-weight:700; color:#f87171; text-align:center;">FO - Fallout</h4>'+
-          '<p style="color:#fca5a5; line-height:1.5; margin:0 0 12px 0; font-size:9px;">'+ev.fo+'</p>'+
-          '<div style="display:flex; flex-wrap:wrap; gap:6px; justify-content:center;">'+(ev.tags||[]).map(t=>'<span style="padding:4px 8px; background:rgba(185,28,28,0.3); color:#fca5a5; border-radius:12px; font-size:10px; font-weight:500;">'+t+'</span>').join('')+'</div>';
+        fa.innerHTML = '<h4 style="margin:0 0 12px 0; font-size:28px; font-weight:800; color:#fbbf24; text-align:center;">FA - '+ev.year+' ('+ev.continent+')</h4><p style="color:#e2e8f0; line-height:1.5; font-size:20px;">'+ev.fa+'</p>';
+        mid.innerHTML = '<h4 style="margin:0 0 12px 0; font-size:28px; font-weight:800; color:#a78bfa; text-align:center;">Middle Man</h4>'+
+          '<div style="text-align:center; margin-bottom:16px;">'+
+          '<p style="color:#e2e8f0; font-weight:600; margin:0; font-size:20px;">'+(ev.middle&&ev.middle.actor||'')+'</p></div>'+
+          '<blockquote style="color:#fde047; font-style:italic; text-align:center; line-height:1.4; margin:0; padding:0; font-size:20px;">'+(ev.middle&&ev.middle.quote||'')+'</blockquote>';
+        fo.innerHTML = '<h4 style="margin:0 0 12px 0; font-size:28px; font-weight:800; color:#f87171; text-align:center;">FO - Fallout</h4>'+
+          '<p style="color:#fca5a5; line-height:1.5; margin:0 0 16px 0; font-size:20px;">'+ev.fo+'</p>'+
+          '<div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;">'+(ev.tags||[]).map(t=>'<span style="padding:6px 12px; background:rgba(185,28,28,0.3); color:#fca5a5; border-radius:14px; font-size:16px; font-weight:600;">'+t+'</span>').join('')+'</div>';
       }
       function initFafoOverlayBehavior(){
         loadFafoData();
@@ -1132,6 +1101,19 @@
       display: block !important;
       padding: 8px;
       background: linear-gradient(120deg, rgba(15,23,42,0.98) 60%, rgba(30,41,59,0.98) 100%);
+      /* Enable vertical scrolling for FA/FO overlay and panels on desktop */
+      #page-overlay.show {
+        overflow-y: auto !important;
+        max-height: 100vh;
+        min-height: 100vh;
+        display: block !important;
+      }
+      .overlay-body {
+        overflow-y: auto !important;
+        max-height: 100vh;
+        min-height: 100vh;
+        display: block !important;
+      }
     }
     .page-overlay .overlay-header { display: none !important; }
     .page-overlay .overlay-body { display: block !important; height: calc(100dvh - 16px); }
