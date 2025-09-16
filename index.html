@@ -205,11 +205,12 @@
           // Measure the current first row height (map + contact row)
           const rowH = Math.round(mapPanel.getBoundingClientRect().height);
           if (rowH && rowH > 0) {
-    // Make Insights a bit taller than map without growing the row: add small delta and overlap with negative margin
+            // Make Insights a bit taller than map without growing the row: add small delta and overlap with less negative margin
             const delta = Math.max(42, Math.min(90, Math.round(rowH * 0.36))); // ~36% taller, capped 42–90px
-    insights.style.setProperty('height', (rowH + delta) + 'px', 'important');
-    insights.style.setProperty('max-height', (rowH + delta) + 'px', 'important');
-    insights.style.setProperty('margin-bottom', (-delta) + 'px', 'important');
+            insights.style.setProperty('height', (rowH + delta) + 'px', 'important');
+            insights.style.setProperty('max-height', (rowH + delta) + 'px', 'important');
+            // Reduce negative margin so timeline sits further down
+            insights.style.setProperty('margin-bottom', (-delta/6) + 'px', 'important');
           }
         } catch {}
       };
